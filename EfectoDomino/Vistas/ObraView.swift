@@ -26,7 +26,7 @@ struct ObraView: View {
                 #endif
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Mi obra")
+            .navigationTitle("Mi plan")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     ShareLink(
@@ -36,7 +36,7 @@ struct ObraView: View {
                             inicioObra: store.estado.inicioObra,
                             ahora: store.ahora
                         ),
-                        preview: SharePreview("Mi avance de obra", image: Image(systemName: "square.stack.3d.up.fill"))
+                        preview: SharePreview("Mi avance", image: Image(systemName: "square.stack.3d.up.fill"))
                     ) {
                         Label("Compartir avance", systemImage: "square.and.arrow.up")
                     }

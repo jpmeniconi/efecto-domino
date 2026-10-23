@@ -28,7 +28,7 @@ struct LecturaGenerada {
 enum LectorIA {
     static let instrucciones = """
     Eres el módulo de lectura de Efecto Dominó, una app que ayuda a Camila a volver a entrenar \
-    tratando su plan como una obra de construcción. Camila tiene 34 años y es jefa de proyectos en una constructora.
+    con un plan que se adapta a su semana. Camila tiene 34 años y es jefa de proyectos en una constructora.
 
     Lee lo que Camila escribe cuando un bloque de ejercicio no va a ocurrir como estaba planificado \
     y clasifica la barrera principal:
@@ -46,7 +46,7 @@ enum LectorIA {
     Ejemplos:
     «Se alargó la reunión y no alcanzo» → horario: "La reunión se comió el espacio que tenías para entrenar."
     «Estoy muerta, no me da el cuerpo» → energia: "Llegaste sin energía después de un día largo."
-    «Ya perdí la semana, mejor parto el lunes» → reinicio: "Sientes que la semana se perdió, pero lo que construiste sigue ahí."
+    «Ya perdí la semana, mejor parto el lunes» → reinicio: "Sientes que la semana se perdió, pero tu avance sigue ahí."
     «Me duele la espalda de estar sentada» → cuerpo: "La espalda te está pidiendo moverte con más calma."
     """
 
@@ -110,9 +110,9 @@ enum LectorLocal {
     }
 
     private static let resumenes: [TipoBarrera: String] = [
-        .horario: "La pega se alargó. Busquemos dónde cabe el bloque sin mover la obra.",
+        .horario: "La pega se alargó. Busquemos dónde cabe el bloque esta semana.",
         .energia: "Hoy queda poca energía. Un bloque más corto también suma.",
-        .reinicio: "Sientes que la semana se perdió, pero lo construido sigue en pie.",
+        .reinicio: "Sientes que la semana se perdió, pero tu avance sigue ahí.",
         .cuerpo: "Si el cuerpo pide calma, bajemos la intensidad.",
         .otra: "Algo cambió. Veamos opciones que no te obliguen a partir de cero.",
     ]

@@ -20,7 +20,7 @@ struct AvanceCard: View {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Lo construido")
+                        Text("Tu avance")
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.secondary)
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
@@ -35,7 +35,7 @@ struct AvanceCard: View {
                     }
                     Spacer(minLength: 8)
                     VStack(alignment: .trailing, spacing: 2) {
-                        Text("Recepción")
+                        Text("Meta estimada")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text(recepcion.map(Formato.fechaConDia) ?? "—")
@@ -50,14 +50,14 @@ struct AvanceCard: View {
                 .animation(.snappy, value: hechos)
                 .animation(.snappy, value: recepcion)
 
-                Text("Obra gruesa · semana \(semanaActual) de \(proyecto.semanas)")
+                Text("Semana \(semanaActual) de \(proyecto.semanas)")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
                 MuroSemanal(bloques: bloques, inicioObra: inicioObra, ahora: ahora, porSemana: proyecto.porSemana, semanasMinimas: proyecto.semanas)
                 Fundaciones(cantidad: proyecto.fundaciones)
 
                 HStack(spacing: 8) {
-                    Chip(texto: "\(hechos) de \(proyecto.meta) ladrillos", simbolo: "square.stack.3d.up.fill")
+                    Chip(texto: "\(hechos) de \(proyecto.meta) bloques", simbolo: "square.stack.3d.up.fill")
                     if regresos > 0 {
                         Chip(texto: regresos == 1 ? "1 regreso" : "\(regresos) regresos", simbolo: "arrow.uturn.backward")
                             .foregroundStyle(Color.accentColor)
@@ -161,7 +161,7 @@ struct Fundaciones: View {
                     RoundedRectangle(cornerRadius: 1.5).fill(Color.secondary.opacity(0.55)).frame(width: 9, height: 5)
                 }
             }
-            Text("Fundaciones: tus \(cantidad) visitas de enero. No partes de cero.")
+            Text("Tus \(cantidad) visitas de enero ya cuentan.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

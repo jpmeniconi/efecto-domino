@@ -48,7 +48,7 @@ struct RegistroSheet: View {
                 } header: {
                     Text("¿Qué te ayudó a ir?").textCase(nil)
                 } footer: {
-                    Text("Así la obra aprende qué te funciona.")
+                    Text("Así el plan aprende qué te funciona.")
                 }
                 if let siguiente = store.siguiente(despuesDe: bloque) {
                     Section {
@@ -94,7 +94,7 @@ struct RegistroSheet: View {
             Image(systemName: "square.stack.3d.up.fill")
                 .font(.system(size: 40))
                 .foregroundStyle(Color.accentColor)
-            Text("Ladrillo \(store.hechos + 1) de \(store.proyecto.meta)")
+            Text("Bloque \(store.hechos + 1) de \(store.proyecto.meta)")
                 .font(.title2.weight(.bold))
             Text("\(bloque.tipo.nombre) · \(bloque.minutos) min" + (bloque.esPuente ? " · bloque puente" : ""))
                 .foregroundStyle(.secondary)

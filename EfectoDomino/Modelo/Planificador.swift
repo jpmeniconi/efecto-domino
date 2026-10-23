@@ -154,7 +154,7 @@ enum Planificador {
                 detalle: "\(slot.tipo.nombre), \(slot.minutos) min. Cabe en esta misma semana.",
                 simbolo: "calendar.badge.plus",
                 accion: .reubicar(bloque: bloque.id, slot: slot, puente: false),
-                confirmacion: "Movido al \(Formato.dia(slot.fecha)). La obra sigue en pie."
+                confirmacion: "Movido al \(Formato.dia(slot.fecha)). Tu plan sigue en pie."
             )
         }
 
@@ -176,7 +176,7 @@ enum Planificador {
                 detalle: "Los bloques siguientes se corren un espacio, como fichas de dominó. No se suma ninguno extra.",
                 simbolo: "arrow.right.to.line",
                 accion: .empujar(bloque: bloque.id, fecha: slot.fecha),
-                confirmacion: "Partimos el lunes. Lo construido sigue contando."
+                confirmacion: "Partimos el lunes. Tu avance sigue contando."
             )
         }
 
@@ -198,12 +198,12 @@ enum Planificador {
         let enDosSemanas = e.ahora.lunes.mas(dias: 14)
         let opciones = [proximoLunes, enDosSemanas].map { hasta in
             Propuesta(
-                etiqueta: "Pausa de obra",
+                etiqueta: "Pausa",
                 titulo: "Hasta el \(Formato.dia(hasta)) \(hasta.diaDelMes)",
-                detalle: "Detienes la obra sin perder lo construido. Retomas con un bloque.",
+                detalle: "Pausas el plan sin perder tu avance. Retomas con un bloque.",
                 simbolo: "pause.circle",
                 accion: .pausar(hasta: hasta),
-                confirmacion: "Obra en pausa. Retomas el \(Formato.dia(hasta)) \(hasta.diaDelMes)."
+                confirmacion: "Plan en pausa. Retomas el \(Formato.dia(hasta)) \(hasta.diaDelMes)."
             )
         }
         return conImpacto(opciones, en: e)

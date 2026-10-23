@@ -165,7 +165,7 @@ struct AjustarSheet: View {
             }
             DisclosureGroup("Ninguna me sirve", isExpanded: $verPausas) {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Puedes pausar la obra sin perder lo construido.")
+                    Text("Puedes pausar el plan sin perder tu avance.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                     ForEach(pausas) { propuesta in

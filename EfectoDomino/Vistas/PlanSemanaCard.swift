@@ -45,8 +45,8 @@ struct PlanSemanaCard: View {
     private var resumen: String {
         let base = "En vez de «mañana parto»: \(bloques.count) bloques que caben en tu semana real, la \(numeroSemana) de \(semanas)."
         if hechos == 0 { return base + " Tus visitas de enero siguen ahí: no partes de cero." }
-        let ladrillos = hechos == 1 ? "1 ladrillo" : "\(hechos) ladrillos"
-        return base + " Llevas \(ladrillos) en la obra: sigues, no partes de cero."
+        let bloquesHechos = hechos == 1 ? "1 bloque hecho" : "\(hechos) bloques hechos"
+        return base + " Llevas \(bloquesHechos): sigues, no partes de cero."
     }
 
     private func fila(_ bloque: Bloque) -> some View {
@@ -100,7 +100,7 @@ struct AjusteCard: View {
                 Text("Tu bloque del \(dia) a las \(desde) se movió esta semana. ¿Dejamos \(Formato.cadaSemana(ajuste.desde.dia)) a las \(hacia) desde ahora?")
                     .font(.headline)
                     .fixedSize(horizontal: false, vertical: true)
-                Text("Cuando una partida no rinde, se revisa el supuesto, no a la persona.")
+                Text("Si un horario no te funciona, se cambia el horario, no tú.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                 HStack(spacing: 12) {

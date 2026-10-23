@@ -188,6 +188,6 @@ struct Propuesta: Identifiable, Equatable {
     var impactoDias = 0
 
     var impactoTexto: String {
-        impactoDias == 0 ? "La recepción no se mueve" : "La recepción se corre \(Formato.dias(impactoDias))"
+        impactoDias == 0 ? "Tu meta no se mueve" : "Tu meta se corre \(Formato.dias(impactoDias))"
     }
 }

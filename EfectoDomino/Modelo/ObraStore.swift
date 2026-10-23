@@ -153,8 +153,8 @@ final class ObraStore {
 
         aviso = Aviso(
             texto: veniaDeUnAtraso
-                ? "Volviste después de un atraso: ladrillo de regreso."
-                : "Ladrillo \(hechos) de \(proyecto.meta). Esto no se demuele.",
+                ? "Volviste después de un atraso. Eso es lo que más cuenta."
+                : "Bloque \(hechos) de \(proyecto.meta). Tu avance no se borra.",
             deshacer: true
         )
         guardar()
@@ -179,7 +179,7 @@ final class ObraStore {
     func confirmarSemana(_ lunes: Date) {
         anterior = estado
         estado.semanasConfirmadas.append(lunes)
-        aviso = Aviso(texto: "Semana confirmada. El lunes no partes de cero: sigues la obra.", deshacer: true)
+        aviso = Aviso(texto: "Semana confirmada. El lunes no partes de cero: sigues tu plan.", deshacer: true)
         guardar()
     }
 

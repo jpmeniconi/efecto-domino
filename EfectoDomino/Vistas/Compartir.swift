@@ -33,7 +33,7 @@ struct ReporteView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
-            Text("Mi obra · semana \(semanaActual) de \(reporte.proyecto.semanas)")
+            Text("Mi plan · semana \(semanaActual) de \(reporte.proyecto.semanas)")
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundStyle(.white.opacity(0.85))
             HStack(alignment: .firstTextBaseline, spacing: 8) {
@@ -44,7 +44,7 @@ struct ReporteView: View {
             }
             .foregroundStyle(.white)
             muro
-            Text(regresos == 0 ? "Lo construido no se demuele." : "Volví después de un atraso \(regresos == 1 ? "1 vez" : "\(regresos) veces"). Lo construido no se demuele.")
+            Text(regresos == 0 ? "Sin partir de cero." : "Volví después de un atraso \(regresos == 1 ? "1 vez" : "\(regresos) veces"). Sin partir de cero.")
                 .font(.system(size: 15, weight: .medium))
                 .foregroundStyle(.white.opacity(0.9))
             Spacer(minLength: 0)
