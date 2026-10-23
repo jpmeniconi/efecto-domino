@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GanttCard: View {
     let bloques: [Bloque]
-    let pega: [EventoPega]
+    let trabajo: [EventoTrabajo]
     let inicio: Date
     let ahora: Date
     let diasHolgura: [Date]
@@ -18,7 +18,7 @@ struct GanttCard: View {
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
-                GanttView(bloques: bloques, pega: pega, inicio: inicio, ahora: ahora, diasHolgura: diasHolgura)
+                GanttView(bloques: bloques, trabajo: trabajo, inicio: inicio, ahora: ahora, diasHolgura: diasHolgura)
                 Leyenda()
                 if let alVerCompleto {
                     Button(action: alVerCompleto) {
@@ -36,7 +36,7 @@ struct GanttCard: View {
 /// Carta Gantt en escalera: cada bloque depende del anterior, como fichas de dominó.
 struct GanttView: View {
     let bloques: [Bloque]
-    let pega: [EventoPega]
+    let trabajo: [EventoTrabajo]
     let inicio: Date
     let ahora: Date
     let diasHolgura: [Date]
@@ -55,7 +55,7 @@ struct GanttView: View {
             ZStack(alignment: .topLeading) {
                 columnas(ancho: ancho)
                 encabezado(ancho: ancho)
-                filaPega(ancho: ancho)
+                filaTrabajo(ancho: ancho)
                 ForEach(Array(bloques.enumerated()), id: \.element.id) { item in
                     filaBloque(item.element, fila: item.offset, ancho: ancho)
                 }
@@ -144,8 +144,8 @@ struct GanttView: View {
         }
     }
 
-    private func filaPega(ancho: CGFloat) -> some View {
-        let visibles = pega.filter { dentro($0.inicio) }
+    private func filaTrabajo(ancho: CGFloat) -> some View {
+        let visibles = trabajo.filter { dentro($0.inicio) }
         return ZStack(alignment: .topLeading) {
             ForEach(visibles) { evento in
                 Capsule()

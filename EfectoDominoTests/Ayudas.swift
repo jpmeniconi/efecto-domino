@@ -74,7 +74,7 @@ func verificarReglas(_ e: EstadoObra, _ contexto: @autoclosure () -> String = ""
     for bloque in e.bloques where bloque.estado == .planificado {
         XCTAssertFalse(
             Planificador.choca(e, inicio: bloque.inicio, minutos: bloque.minutos),
-            "El bloque del \(Formato.fechaConDia(bloque.inicio)) \(Formato.hora(bloque.inicio)) choca con la pega\(donde)",
+            "El bloque del \(Formato.fechaConDia(bloque.inicio)) \(Formato.hora(bloque.inicio)) choca con el trabajo\(donde)",
             file: file, line: line
         )
     }

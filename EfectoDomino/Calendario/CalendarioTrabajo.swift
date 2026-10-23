@@ -1,12 +1,12 @@
 import EventKit
 import Foundation
 
-/// Lee la semana de pega de Camila desde el calendario «Camila · Dominó» del iPhone: un calendario
+/// Lee la semana de trabajo de Camila desde el calendario «Camila · Dominó» del iPhone: un calendario
 /// de Google que llega por la cuenta configurada en Ajustes, sin iniciar sesión en la app.
 /// Solo se lee ese calendario. Los demás no se muestran ni se guardan: el concurso prohíbe
 /// usar datos personales reales.
 @MainActor
-enum CalendarioPega {
+enum CalendarioTrabajo {
     static let nombre = "Camila · Dominó"
     /// Título normalizado que se busca entre los calendarios del iPhone.
     static let clave = "camiladomino"
@@ -19,7 +19,7 @@ enum CalendarioPega {
             switch self {
             case .sinPermiso: "Sin acceso a los calendarios. Puedes darlo en Ajustes."
             case .sinCalendario: "No hay un calendario «Camila · Dominó» en este iPhone."
-            case .sinEventos: "«Camila · Dominó» no tiene eventos en estas \(Escenario.semanasDePega) semanas."
+            case .sinEventos: "«Camila · Dominó» no tiene eventos en estas \(Escenario.semanasDeTrabajo) semanas."
             }
         }
     }
@@ -27,7 +27,7 @@ enum CalendarioPega {
     struct Lectura {
         /// Título tal como aparece en el iPhone.
         let calendario: String
-        let eventos: [EventoPega]
+        let eventos: [EventoTrabajo]
     }
 
     private static var almacen = EKEventStore()
@@ -57,16 +57,16 @@ enum CalendarioPega {
         let calendarios = almacen.calendars(for: .event).filter { normalizar($0.title) == clave }
         guard let calendario = calendarios.first else { return .failure(.sinCalendario) }
 
-        let fin = lunes.mas(dias: 7 * Escenario.semanasDePega)
+        let fin = lunes.mas(dias: 7 * Escenario.semanasDeTrabajo)
         let predicado = almacen.predicateForEvents(withStart: lunes, end: fin, calendars: calendarios)
-        var eventos: [EventoPega] = []
+        var eventos: [EventoTrabajo] = []
         for evento in almacen.events(matching: predicado)
         where !evento.isAllDay && evento.status != .canceled && evento.endDate > evento.startDate {
             let titulo = evento.title ?? ""
-            let pega = EventoPega(titulo: titulo.isEmpty ? "Trabajo" : titulo, inicio: evento.startDate, fin: evento.endDate)
+            let trabajo = EventoTrabajo(titulo: titulo.isEmpty ? "Trabajo" : titulo, inicio: evento.startDate, fin: evento.endDate)
             // Si hay dos calendarios con el mismo nombre, un evento repetido cuenta una vez.
-            if !eventos.contains(where: { $0.titulo == pega.titulo && $0.inicio == pega.inicio && $0.fin == pega.fin }) {
-                eventos.append(pega)
+            if !eventos.contains(where: { $0.titulo == trabajo.titulo && $0.inicio == trabajo.inicio && $0.fin == trabajo.fin }) {
+                eventos.append(trabajo)
             }
         }
         guard !eventos.isEmpty else { return .failure(.sinEventos) }
@@ -83,9 +83,9 @@ enum CalendarioPega {
 }
 
 #if DEBUG
-extension CalendarioPega {
+extension CalendarioTrabajo {
     /// Solo en el simulador, que no tiene Google: crea un calendario local «Camila · Dominó» con una
-    /// pega distinta a la de ejemplo, y otro calendario que la app debe ignorar.
+    /// semana de trabajo distinta a la de ejemplo, y otro calendario que la app debe ignorar.
     static func crearCalendarioDePrueba(desde lunes: Date) async {
         #if targetEnvironment(simulator)
         await pedirAcceso()
@@ -142,7 +142,7 @@ extension CalendarioPega {
         evento.endDate = fin
         evento.isAllDay = todoElDia
         if semanal {
-            evento.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, end: EKRecurrenceEnd(occurrenceCount: Escenario.semanasDePega)))
+            evento.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, end: EKRecurrenceEnd(occurrenceCount: Escenario.semanasDeTrabajo)))
         }
         try almacen.save(evento, span: .futureEvents, commit: false)
     }

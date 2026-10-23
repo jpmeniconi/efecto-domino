@@ -70,7 +70,7 @@ struct Bloque: Identifiable, Codable, Hashable {
 
 // MARK: - Contexto ficticio de Camila
 
-struct EventoPega: Identifiable, Codable, Hashable {
+struct EventoTrabajo: Identifiable, Codable, Hashable {
     var id = UUID()
     var titulo: String
     var inicio: Date
@@ -119,7 +119,7 @@ struct EstadoObra: Codable {
     var patron: [Ventana]
     var alternativas: [Ventana]
     var bloques: [Bloque]
-    var pega: [EventoPega]
+    var trabajo: [EventoTrabajo]
     /// Reloj del escenario: toda la app usa esta hora.
     var ahora: Date
     var inicioObra: Date
@@ -132,6 +132,14 @@ struct EstadoObra: Codable {
     var movidasPorVentana: [String: Int] = [:]
     /// Ajustes al plan que ya se resolvieron (aceptados o descartados).
     var ajustesResueltos: [String] = []
+
+    /// `trabajo` se guarda con la clave «pega» de la primera versión: así el plan que ya está
+    /// guardado en el iPhone se sigue leyendo.
+    private enum CodingKeys: String, CodingKey {
+        case proyecto, patron, alternativas, bloques, ahora, inicioObra, recepcionBase, ajustes, pausaHasta
+        case semanasConfirmadas, movidasPorVentana, ajustesResueltos
+        case trabajo = "pega"
+    }
 }
 
 // MARK: - Lectura y propuestas

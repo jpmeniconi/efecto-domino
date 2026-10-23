@@ -126,7 +126,7 @@ struct ObraView: View {
             }
             GanttCard(
                 bloques: store.bloquesEnPrograma(),
-                pega: store.estado.pega,
+                trabajo: store.estado.trabajo,
                 inicio: store.inicioPrograma,
                 ahora: store.ahora,
                 diasHolgura: store.diasDeHolgura,

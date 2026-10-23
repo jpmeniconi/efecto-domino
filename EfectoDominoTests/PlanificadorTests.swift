@@ -19,9 +19,9 @@ final class PlanificadorTests: XCTestCase {
         verificarReglas(e)
     }
 
-    func testElPatronSaltaLoQueChocaConLaPegaSinRecuperarloDespues() {
+    func testElPatronSaltaLoQueChocaConElTrabajoSinRecuperarloDespues() {
         var e = Prueba.semilla()
-        e.pega.append(EventoPega(titulo: "Visita temprana", inicio: Prueba.fecha(dia: 3, 6, 0), fin: Prueba.fecha(dia: 3, 8, 0)))
+        e.trabajo.append(EventoTrabajo(titulo: "Visita temprana", inicio: Prueba.fecha(dia: 3, 6, 0), fin: Prueba.fecha(dia: 3, 8, 0)))
 
         let slots = Planificador.slotsDelPatron(e, desde: Prueba.lunes, cantidad: 8)
 
@@ -394,7 +394,7 @@ private func verificarPropuestas(_ propuestas: [Propuesta], de bloque: Bloque, e
 
         switch propuesta.accion {
         case let .reubicar(_, slot, puente):
-            XCTAssertFalse(Planificador.choca(e, inicio: slot.fecha, minutos: slot.minutos), "Choca con la pega (\(donde))", file: file, line: line)
+            XCTAssertFalse(Planificador.choca(e, inicio: slot.fecha, minutos: slot.minutos), "Choca con el trabajo (\(donde))", file: file, line: line)
             XCTAssertGreaterThan(slot.fecha, e.ahora, "Propone una hora que ya pasó (\(donde))", file: file, line: line)
             XCTAssertFalse(
                 e.bloques.contains { $0.id != bloque.id && $0.inicio.mismoDia(que: slot.fecha) },

@@ -30,27 +30,27 @@ enum Escenario {
         Ventana(dia: 7, hora: 11, minuto: 0, tipo: .caminata, minutos: 40),
     ]
 
-    /// Semanas de pega que se arman o se leen del calendario: alcanzan para todo el plan.
-    static let semanasDePega = 10
+    /// Semanas de trabajo que se arman o se leen del calendario: alcanzan para todo el plan.
+    static let semanasDeTrabajo = 10
 
-    /// Su semana de pega de ejemplo: martes y jueves llega tarde.
-    static func pegaDeEjemplo(desde lunes: Date) -> [EventoPega] {
-        var pega: [EventoPega] = []
-        for semana in 0..<semanasDePega {
+    /// Su semana de trabajo de ejemplo: martes y jueves llega tarde.
+    static func trabajoDeEjemplo(desde lunes: Date) -> [EventoTrabajo] {
+        var trabajo: [EventoTrabajo] = []
+        for semana in 0..<semanasDeTrabajo {
             let l = lunes.mas(dias: 7 * semana)
-            pega.append(EventoPega(titulo: "Coordinación de obra", inicio: l.a(17, 0), fin: l.a(18, 45)))
-            pega.append(EventoPega(titulo: "Comité con subcontratos", inicio: l.mas(dias: 1).a(17, 30), fin: l.mas(dias: 1).a(20, 45)))
-            pega.append(EventoPega(titulo: "Visita a obra con mandante", inicio: l.mas(dias: 3).a(16, 0), fin: l.mas(dias: 3).a(20, 30)))
+            trabajo.append(EventoTrabajo(titulo: "Coordinación de obra", inicio: l.a(17, 0), fin: l.a(18, 45)))
+            trabajo.append(EventoTrabajo(titulo: "Comité con subcontratos", inicio: l.mas(dias: 1).a(17, 30), fin: l.mas(dias: 1).a(20, 45)))
+            trabajo.append(EventoTrabajo(titulo: "Visita a obra con mandante", inicio: l.mas(dias: 3).a(16, 0), fin: l.mas(dias: 3).a(20, 30)))
         }
-        return pega
+        return trabajo
     }
 
     static let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, visitasPrevias: 6, porSemana: 4, semanas: 6)
 
-    /// Arma el plan desde el lunes. Sin `pega` usa la semana de ejemplo; con la del calendario,
+    /// Arma el plan desde el lunes. Sin `trabajo` usa la semana de ejemplo; con la del calendario,
     /// los bloques quedan solo donde no chocan con ningún evento y cada semana mantiene los suyos.
-    static func semilla(lunes: Date = Date().lunes, pega: [EventoPega]? = nil) -> EstadoObra {
-        var estado = base(lunes: lunes, pega: pega ?? pegaDeEjemplo(desde: lunes))
+    static func semilla(lunes: Date = Date().lunes, trabajo: [EventoTrabajo]? = nil) -> EstadoObra {
+        var estado = base(lunes: lunes, trabajo: trabajo ?? trabajoDeEjemplo(desde: lunes))
         adaptarPatron(&estado, desde: lunes)
         let slots = slotsDelPlan(estado, desde: lunes, cantidad: proyecto.meta)
         estado.bloques = slots.map { Bloque(tipo: $0.tipo, inicio: $0.fecha, minutos: $0.minutos) }
@@ -58,25 +58,25 @@ enum Escenario {
         return estado
     }
 
-    /// Qué horarios del patrón cambia la pega, para contarlo en el escenario de demo.
-    static func cambiosDePatron(por pega: [EventoPega], desde lunes: Date) -> [(desde: Ventana, hacia: Ventana)] {
-        var estado = base(lunes: lunes, pega: pega)
+    /// Qué horarios del patrón cambia el trabajo, para contarlo en el escenario de demo.
+    static func cambiosDePatron(por trabajo: [EventoTrabajo], desde lunes: Date) -> [(desde: Ventana, hacia: Ventana)] {
+        var estado = base(lunes: lunes, trabajo: trabajo)
         return adaptarPatron(&estado, desde: lunes)
     }
 
-    private static func base(lunes: Date, pega: [EventoPega]) -> EstadoObra {
+    private static func base(lunes: Date, trabajo: [EventoTrabajo]) -> EstadoObra {
         EstadoObra(
             proyecto: proyecto,
             patron: patron,
             alternativas: alternativas,
             bloques: [],
-            pega: pega,
+            trabajo: trabajo,
             ahora: lunes.a(19, 5),
             inicioObra: lunes
         )
     }
 
-    /// Un horario del patrón que choca con la pega la mitad de las semanas o más pasa a un espacio
+    /// Un horario del patrón que choca con el trabajo la mitad de las semanas o más pasa a un espacio
     /// libre, en un día sin otro bloque y del mismo tipo si se puede: se cambia el horario, no la meta.
     /// Así también el efecto dominó y las pausas, que usan el patrón, mantienen cuatro bloques por semana.
     @discardableResult
@@ -104,7 +104,7 @@ enum Escenario {
         return cambios
     }
 
-    /// En cuántas semanas del plan choca ese horario con la pega.
+    /// En cuántas semanas del plan choca ese horario con el trabajo.
     private static func semanasConChoque(_ e: EstadoObra, _ ventana: Ventana, desde lunes: Date) -> Int {
         (0..<e.proyecto.semanas).filter { semana in
             let slot = ventana.slot(enSemanaDe: lunes.mas(dias: 7 * semana))

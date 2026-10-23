@@ -39,7 +39,7 @@ struct DetalleBloqueSheet: View {
             lista(bloque)
                 #if DEBUG
                 .task {
-                    // -seccion origen|registro|pega lleva el detalle a esa sección.
+                    // -seccion origen|registro|trabajo lleva el detalle a esa sección.
                     guard let seccion = UserDefaults.standard.string(forKey: "seccion") else { return }
                     try? await Task.sleep(for: .seconds(1))
                     desplazamiento.scrollTo(seccion, anchor: .top)
@@ -82,8 +82,8 @@ struct DetalleBloqueSheet: View {
                 seccionRegistro(bloque)
                     .id("registro")
             }
-            seccionPega(bloque)
-                .id("pega")
+            seccionTrabajo(bloque)
+                .id("trabajo")
         }
     }
 
@@ -224,8 +224,8 @@ struct DetalleBloqueSheet: View {
     }
 
     @ViewBuilder
-    private func seccionPega(_ bloque: Bloque) -> some View {
-        let eventos = store.estado.pega
+    private func seccionTrabajo(_ bloque: Bloque) -> some View {
+        let eventos = store.estado.trabajo
             .filter { $0.inicio.mismoDia(que: bloque.inicio) }
             .sorted { $0.inicio < $1.inicio }
         if !eventos.isEmpty {

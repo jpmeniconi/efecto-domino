@@ -17,10 +17,10 @@ enum Planificador {
 
     static func choca(_ e: EstadoObra, inicio: Date, minutos: Int) -> Bool {
         let fin = inicio.mas(minutos: minutos)
-        return e.pega.contains { $0.inicio < fin && inicio < $0.fin }
+        return e.trabajo.contains { $0.inicio < fin && inicio < $0.fin }
     }
 
-    /// Fechas del patrón semanal desde `desde`, sin choques con la pega ni días ya ocupados.
+    /// Fechas del patrón semanal desde `desde`, sin choques con el trabajo ni días ya ocupados.
     static func slotsDelPatron(_ e: EstadoObra, desde: Date, cantidad: Int, diasOcupados: Set<Date> = []) -> [Slot] {
         guard cantidad > 0 else { return [] }
         let orden = e.patron.sorted { ($0.dia, $0.hora, $0.minuto) < ($1.dia, $1.hora, $1.minuto) }

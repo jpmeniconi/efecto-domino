@@ -14,17 +14,17 @@ final class ObraStore {
     private(set) var anterior: EstadoObra?
     var aviso: Aviso?
     var forzarLecturaLocal = false
-    /// Calendario del que viene la pega. Sin valor, se usa la semana de ejemplo.
-    private(set) var calendarioPega: String?
+    /// Calendario del que viene su semana de trabajo. Sin valor, se usa la semana de ejemplo.
+    private(set) var calendarioTrabajo: String?
     /// Por qué no se pudo leer el calendario la última vez. Solo dura esta sesión.
-    private(set) var problemaCalendario: CalendarioPega.Problema?
+    private(set) var problemaCalendario: CalendarioTrabajo.Problema?
     private(set) var conectandoCalendario = false
 
     init() {
         let guardado = ObraStore.cargar()
         estado = guardado ?? Escenario.semilla()
-        // La pega guardada y su calendario van juntos: sin plan guardado, vuelve la semana de ejemplo.
-        fijarCalendarioPega(guardado == nil ? nil : UserDefaults.standard.string(forKey: Self.claveCalendario))
+        // El trabajo guardado y su calendario van juntos: sin plan guardado, vuelve la semana de ejemplo.
+        fijarCalendarioTrabajo(guardado == nil ? nil : UserDefaults.standard.string(forKey: Self.claveCalendario))
         #if DEBUG
         if Depuracion.reiniciar { reiniciar() }
         aplicarMomentoDeDepuracion()
@@ -230,20 +230,20 @@ final class ObraStore {
         guardar()
     }
 
-    /// Parte de nuevo desde el lunes con la misma pega: si hay calendario conectado, se vuelve a leer.
+    /// Parte de nuevo desde el lunes con la misma semana de trabajo: si hay calendario conectado, se vuelve a leer.
     func reiniciar() {
         let lunes = Date().lunes
-        empezarDeNuevo(lunes: lunes, pega: pegaDelCalendario(desde: lunes))
+        empezarDeNuevo(lunes: lunes, trabajo: trabajoDelCalendario(desde: lunes))
     }
 
-    private func empezarDeNuevo(lunes: Date, pega: [EventoPega]?) {
-        estado = Escenario.semilla(lunes: lunes, pega: pega)
+    private func empezarDeNuevo(lunes: Date, trabajo: [EventoTrabajo]?) {
+        estado = Escenario.semilla(lunes: lunes, trabajo: trabajo)
         anterior = nil
         aviso = nil
         guardar()
     }
 
-    // MARK: - Calendario de la pega
+    // MARK: - Calendario del trabajo
 
     /// Lee «Camila · Dominó» y rearma el plan para que ningún bloque choque con esos eventos.
     /// Sin permiso, sin calendario o sin eventos, sigue la semana de ejemplo.
@@ -252,43 +252,44 @@ final class ObraStore {
         conectandoCalendario = true
         defer { conectandoCalendario = false }
         let lunes = Date().lunes
-        switch await CalendarioPega.conectar(desde: lunes) {
+        switch await CalendarioTrabajo.conectar(desde: lunes) {
         case let .success(lectura):
             problemaCalendario = nil
-            fijarCalendarioPega(lectura.calendario)
-            empezarDeNuevo(lunes: lunes, pega: lectura.eventos)
+            fijarCalendarioTrabajo(lectura.calendario)
+            empezarDeNuevo(lunes: lunes, trabajo: lectura.eventos)
         case let .failure(problema):
             problemaCalendario = problema
-            guard calendarioPega != nil else { return }
-            fijarCalendarioPega(nil)
-            empezarDeNuevo(lunes: lunes, pega: nil)
+            guard calendarioTrabajo != nil else { return }
+            fijarCalendarioTrabajo(nil)
+            empezarDeNuevo(lunes: lunes, trabajo: nil)
         }
     }
 
     func usarSemanaDeEjemplo() {
         problemaCalendario = nil
-        fijarCalendarioPega(nil)
-        empezarDeNuevo(lunes: Date().lunes, pega: nil)
+        fijarCalendarioTrabajo(nil)
+        empezarDeNuevo(lunes: Date().lunes, trabajo: nil)
     }
 
-    /// Pega del calendario conectado. Si ya no se puede leer, vuelve la semana de ejemplo.
-    private func pegaDelCalendario(desde lunes: Date) -> [EventoPega]? {
-        guard calendarioPega != nil else { return nil }
-        switch CalendarioPega.leer(desde: lunes) {
+    /// Eventos de trabajo del calendario conectado. Si ya no se puede leer, vuelve la semana de ejemplo.
+    private func trabajoDelCalendario(desde lunes: Date) -> [EventoTrabajo]? {
+        guard calendarioTrabajo != nil else { return nil }
+        switch CalendarioTrabajo.leer(desde: lunes) {
         case let .success(lectura):
-            fijarCalendarioPega(lectura.calendario)
+            fijarCalendarioTrabajo(lectura.calendario)
             return lectura.eventos
         case let .failure(problema):
             problemaCalendario = problema
-            fijarCalendarioPega(nil)
+            fijarCalendarioTrabajo(nil)
             return nil
         }
     }
 
+    /// Clave guardada desde la primera versión: cambiarla desconectaría el calendario en el iPhone.
     private static let claveCalendario = "calendarioPega"
 
-    private func fijarCalendarioPega(_ nombre: String?) {
-        calendarioPega = nombre
+    private func fijarCalendarioTrabajo(_ nombre: String?) {
+        calendarioTrabajo = nombre
         UserDefaults.standard.set(nombre, forKey: Self.claveCalendario)
     }
 
@@ -301,7 +302,7 @@ final class ObraStore {
 
     /// Conectar o volver a la semana de ejemplo deja el reloj en el lunes: después se repite el momento.
     private func prepararCalendarioDeDepuracion() async {
-        if Depuracion.crearCalendarioDePrueba { await CalendarioPega.crearCalendarioDePrueba(desde: Date().lunes) }
+        if Depuracion.crearCalendarioDePrueba { await CalendarioTrabajo.crearCalendarioDePrueba(desde: Date().lunes) }
         switch Depuracion.conectarCalendario {
         case true?: await conectarCalendario()
         case false?: usarSemanaDeEjemplo()

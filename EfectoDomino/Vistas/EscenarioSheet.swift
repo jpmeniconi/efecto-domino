@@ -38,7 +38,7 @@ struct EscenarioSheet: View {
                     Text("Momentos de la ficha").textCase(nil)
                 }
 
-                calendarioDeLaPega
+                calendarioDelTrabajo
 
                 Section {
                     Toggle("Usar solo lectura local", isOn: $store.forzarLecturaLocal)
@@ -66,9 +66,9 @@ struct EscenarioSheet: View {
         }
     }
 
-    // MARK: - Calendario de la pega
+    // MARK: - Calendario del trabajo
 
-    private var calendarioDeLaPega: some View {
+    private var calendarioDelTrabajo: some View {
         Section {
             Label {
                 VStack(alignment: .leading, spacing: 2) {
@@ -78,14 +78,14 @@ struct EscenarioSheet: View {
                         .foregroundStyle(.secondary)
                 }
             } icon: {
-                Image(systemName: store.calendarioPega == nil ? "calendar" : "calendar.badge.checkmark")
+                Image(systemName: store.calendarioTrabajo == nil ? "calendar" : "calendar.badge.checkmark")
             }
 
             Button {
                 Task { await store.conectarCalendario() }
             } label: {
                 HStack {
-                    Text(store.calendarioPega == nil ? "Conectar calendario" : "Volver a leer el calendario")
+                    Text(store.calendarioTrabajo == nil ? "Conectar calendario" : "Volver a leer el calendario")
                     Spacer()
                     if store.conectandoCalendario { ProgressView() }
                 }
@@ -98,7 +98,7 @@ struct EscenarioSheet: View {
                 }
             }
 
-            if store.calendarioPega != nil {
+            if store.calendarioTrabajo != nil {
                 Button("Volver a la semana de ejemplo") { store.usarSemanaDeEjemplo() }
             }
         } header: {
@@ -109,14 +109,14 @@ struct EscenarioSheet: View {
     }
 
     private var estadoCalendario: String {
-        guard store.calendarioPega != nil else { return "Usando la semana de ejemplo" }
-        let eventos = store.estado.pega.count
+        guard store.calendarioTrabajo != nil else { return "Usando la semana de ejemplo" }
+        let eventos = store.estado.trabajo.count
         return "Conectado · \(eventos == 1 ? "1 evento" : "\(eventos) eventos")"
     }
 
     private var detalleCalendario: String {
-        if let calendario = store.calendarioPega {
-            let cambios = Escenario.cambiosDePatron(por: store.estado.pega, desde: store.estado.inicioObra)
+        if let calendario = store.calendarioTrabajo {
+            let cambios = Escenario.cambiosDePatron(por: store.estado.trabajo, desde: store.estado.inicioObra)
             guard !cambios.isEmpty else { return "De «\(calendario)». El plan los esquiva." }
             let texto = cambios.map(describir).formatted(.list(type: .and).locale(Formato.locale))
             return "De «\(calendario)». El plan los esquiva: \(texto)."

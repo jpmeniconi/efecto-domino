@@ -209,7 +209,7 @@ struct CartaPrograma: View {
     @ScaledMetric(relativeTo: .caption) private var altoFila: CGFloat = 32
     @ScaledMetric(relativeTo: .caption2) private var altoSemanas: CGFloat = 26
     @ScaledMetric(relativeTo: .caption2) private var altoDias: CGFloat = 40
-    @ScaledMetric(relativeTo: .caption2) private var altoPega: CGFloat = 26
+    @ScaledMetric(relativeTo: .caption2) private var altoTrabajo: CGFloat = 26
     @ScaledMetric(relativeTo: .caption2) private var circuloHoy: CGFloat = 24
     @ScaledMetric(relativeTo: .caption2) private var umbralIconos: CGFloat = 15
     @ScaledMetric(relativeTo: .caption2) private var umbralHoras: CGFloat = 44
@@ -238,7 +238,7 @@ struct CartaPrograma: View {
         let yFilaAncla: CGFloat
     }
 
-    private var altoEncabezado: CGFloat { altoSemanas + altoDias + altoPega }
+    private var altoEncabezado: CGFloat { altoSemanas + altoDias + altoTrabajo }
 
     var body: some View {
         let plan = PlanPrograma(store.estado)
@@ -382,7 +382,7 @@ struct CartaPrograma: View {
             etiquetasDeSemana(plan, m)
             etiquetasDeDia(plan, m)
                 .offset(y: altoSemanas)
-            filaPega(plan, m)
+            filaTrabajo(plan, m)
                 .offset(y: altoSemanas + altoDias)
         }
         .frame(width: m.anchoContenido, height: altoEncabezado, alignment: .topLeading)
@@ -467,14 +467,14 @@ struct CartaPrograma: View {
         }
     }
 
-    private func filaPega(_ plan: PlanPrograma, _ m: MedidasPrograma) -> some View {
-        let alto: CGFloat = m.nivel == .pastillas ? 6 : altoPega - 8
+    private func filaTrabajo(_ plan: PlanPrograma, _ m: MedidasPrograma) -> some View {
+        let alto: CGFloat = m.nivel == .pastillas ? 6 : altoTrabajo - 8
         let ancho = max(m.anchoDia - min(6, m.anchoDia * 0.25), 3)
         return ZStack(alignment: .topLeading) {
-            ForEach(plan.pega) { item in
-                CapsulaPega(evento: item.evento, nivel: m.nivel)
+            ForEach(plan.trabajo) { item in
+                CapsulaTrabajo(evento: item.evento, nivel: m.nivel)
                     .frame(width: ancho, height: alto)
-                    .offset(x: m.x(dia: item.dia) + (m.anchoDia - ancho) / 2, y: (altoPega - alto) / 2)
+                    .offset(x: m.x(dia: item.dia) + (m.anchoDia - ancho) / 2, y: (altoTrabajo - alto) / 2)
             }
         }
     }
@@ -806,7 +806,7 @@ struct PlanPrograma {
     let inicio: Date
     let dias: Int
     let filas: [FilaPrograma]
-    let pega: [PegaEnDia]
+    let trabajo: [TrabajoEnDia]
     let holguras: [HolguraEnDia]
     let numeros: [Int]
     /// La meta estimada (último bloque por hacer) y dónde estaba al partir, si se corrió.
@@ -853,9 +853,9 @@ struct PlanPrograma {
         filaDeHoy = filas.first { $0.bloque.inicio >= e.ahora.inicioDelDia }?.indice ?? max(0, filas.count - 1)
 
         let dias = self.dias
-        pega = e.pega.compactMap { evento in
+        trabajo = e.trabajo.compactMap { evento in
             let dia = e.inicioObra.dias(hasta: evento.inicio)
-            return (0..<dias).contains(dia) ? PegaEnDia(evento: evento, dia: dia) : nil
+            return (0..<dias).contains(dia) ? TrabajoEnDia(evento: evento, dia: dia) : nil
         }
 
         var holguras: [HolguraEnDia] = []
@@ -902,8 +902,8 @@ struct FilaPrograma: Identifiable {
     var id: UUID { bloque.id }
 }
 
-struct PegaEnDia: Identifiable {
-    let evento: EventoPega
+struct TrabajoEnDia: Identifiable {
+    let evento: EventoTrabajo
     let dia: Int
 
     var id: UUID { evento.id }
@@ -1067,9 +1067,9 @@ struct PastillaPrograma: View {
     }
 }
 
-/// Un evento de la pega, con su título cuando hay espacio.
-struct CapsulaPega: View {
-    let evento: EventoPega
+/// Un evento del trabajo, con su título cuando hay espacio.
+struct CapsulaTrabajo: View {
+    let evento: EventoTrabajo
     let nivel: NivelDeDetalle
 
     var body: some View {
