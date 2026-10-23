@@ -6,6 +6,7 @@ struct GanttCard: View {
     let inicio: Date
     let ahora: Date
     let diasHolgura: [Date]
+    var alVerCompleto: (() -> Void)?
 
     var body: some View {
         Tarjeta {
@@ -19,6 +20,14 @@ struct GanttCard: View {
                 }
                 GanttView(bloques: bloques, pega: pega, inicio: inicio, ahora: ahora, diasHolgura: diasHolgura)
                 Leyenda()
+                if let alVerCompleto {
+                    Button(action: alVerCompleto) {
+                        Label("Ver programa completo", systemImage: "arrow.up.left.and.arrow.down.right")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.glass)
+                    .controlSize(.large)
+                }
             }
         }
     }
