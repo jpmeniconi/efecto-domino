@@ -51,6 +51,7 @@ enum Escenario {
     /// los bloques quedan solo donde no chocan con ningún evento y cada semana mantiene los suyos.
     static func semilla(lunes: Date = Date().lunes, pega: [EventoPega]? = nil) -> EstadoObra {
         var estado = base(lunes: lunes, pega: pega ?? pegaDeEjemplo(desde: lunes))
+        adaptarPatron(&estado, desde: lunes)
         let slots = slotsDelPlan(estado, desde: lunes, cantidad: proyecto.meta)
         estado.bloques = slots.map { Bloque(tipo: $0.tipo, inicio: $0.fecha, minutos: $0.minutos) }
         estado.recepcionBase = Planificador.recepcion(estado)
@@ -67,6 +68,47 @@ enum Escenario {
             ahora: lunes.a(19, 5),
             inicioObra: lunes
         )
+    }
+
+    /// Un horario del patrón que choca con la pega la mitad de las semanas o más pasa a un espacio
+    /// libre, en un día sin otro bloque y del mismo tipo si se puede: se cambia el horario, no la meta.
+    /// Así también el efecto dominó y las pausas, que usan el patrón, mantienen cuatro bloques por semana.
+    @discardableResult
+    private static func adaptarPatron(_ e: inout EstadoObra, desde lunes: Date) -> [(desde: Ventana, hacia: Ventana)] {
+        let umbral = (e.proyecto.semanas + 1) / 2
+        var cambios: [(desde: Ventana, hacia: Ventana)] = []
+        for i in e.patron.indices {
+            let ventana = e.patron[i]
+            guard semanasConChoque(e, ventana, desde: lunes) >= umbral else { continue }
+            let diasOcupados = Set(e.patron.indices.filter { $0 != i }.map { e.patron[$0].dia })
+            let reemplazo = e.alternativas
+                .filter { !diasOcupados.contains($0.dia) }
+                .map { (ventana: $0, choques: semanasConChoque(e, $0, desde: lunes)) }
+                .filter { $0.choques < umbral }
+                .min { a, b in
+                    (a.ventana.tipo == ventana.tipo ? 0 : 1, a.choques, distancia(a.ventana, ventana))
+                        < (b.ventana.tipo == ventana.tipo ? 0 : 1, b.choques, distancia(b.ventana, ventana))
+                }?
+                .ventana
+            guard let reemplazo else { continue }
+            e.patron[i] = reemplazo
+            e.alternativas.removeAll { $0 == reemplazo }
+            cambios.append((ventana, reemplazo))
+        }
+        return cambios
+    }
+
+    /// En cuántas semanas del plan choca ese horario con la pega.
+    private static func semanasConChoque(_ e: EstadoObra, _ ventana: Ventana, desde lunes: Date) -> Int {
+        (0..<e.proyecto.semanas).filter { semana in
+            let slot = ventana.slot(enSemanaDe: lunes.mas(dias: 7 * semana))
+            return Planificador.choca(e, inicio: slot.fecha, minutos: slot.minutos)
+        }.count
+    }
+
+    /// Minutos entre dos horarios de la semana.
+    private static func distancia(_ a: Ventana, _ b: Ventana) -> Int {
+        abs(((a.dia - b.dia) * 24 + a.hora - b.hora) * 60 + a.minuto - b.minuto)
     }
 
     /// El patrón semana a semana. Si un evento choca con un horario solo esa semana, el bloque va a
