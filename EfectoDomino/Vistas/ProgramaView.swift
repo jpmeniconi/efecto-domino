@@ -1171,6 +1171,12 @@ struct LeyendaPrograma: View {
             fila("Hoy") {
                 Rectangle().fill(Color.accentColor).frame(width: 1.5)
             }
+            fila("Meta estimada") {
+                RoundedRectangle(cornerRadius: 2, style: .continuous)
+                    .rotation(.degrees(45))
+                    .fill(Color.accentColor)
+                    .frame(width: 10, height: 10)
+            }
             Text("Pellizca para acercar o alejar.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
