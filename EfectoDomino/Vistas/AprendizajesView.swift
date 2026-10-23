@@ -6,18 +6,49 @@ import SwiftUI
 struct AprendizajesView: View {
     @Environment(ObraStore.self) private var store
     @Environment(\.dismiss) private var dismiss
+    @State private var viendoEjemplo = false
 
     var body: some View {
+        let datos = Aprendizajes(store.estado)
         NavigationStack {
-            ListaDeAprendizajes(datos: Aprendizajes(store.estado))
-                .navigationTitle("Lo que te funciona")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cerrar", systemImage: "xmark") { dismiss() }
+            Group {
+                if viendoEjemplo {
+                    ListaDeAprendizajes(datos: .ejemplo, esEjemplo: true) {
+                        withAnimation { viendoEjemplo = false }
                     }
+                } else if datos.registros < Aprendizajes.minimo {
+                    estadoVacio(registros: datos.registros)
+                } else {
+                    ListaDeAprendizajes(datos: datos)
                 }
+            }
+            .navigationTitle("Lo que te funciona")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cerrar", systemImage: "xmark") { dismiss() }
+                }
+            }
         }
+        #if DEBUG
+        .onAppear { if Depuracion.ejemplo { viendoEjemplo = true } }
+        #endif
+    }
+
+    /// Con pocos registros no se inventan patrones: se dice cuántos faltan y se ofrece un ejemplo.
+    private func estadoVacio(registros: Int) -> some View {
+        ContentUnavailableView {
+            Label("Registra \(Aprendizajes.minimo) bloques para ver tus patrones", systemImage: "rectangle.split.1x2")
+        } description: {
+            Text("Llevas \(registros) de \(Aprendizajes.minimo). Con menos, cualquier patrón sería casualidad.")
+        } actions: {
+            Button("Ver un ejemplo de la semana 6") {
+                withAnimation { viendoEjemplo = true }
+            }
+            .buttonStyle(.glass)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemGroupedBackground))
     }
 }
 
@@ -59,10 +90,12 @@ struct BotonAprendizajes: View {
 private struct ListaDeAprendizajes: View {
     let datos: Aprendizajes
     var esEjemplo = false
+    var alSalirDelEjemplo: () -> Void = {}
 
     var body: some View {
         ScrollViewReader { desplazamiento in
             List {
+                if esEjemplo { avisoDeEjemplo }
                 horarios
                 movidos
                 gustos
@@ -73,7 +106,7 @@ private struct ListaDeAprendizajes: View {
                 reglas
                 compartir
             }
-            .navigationSubtitle(datos.registros == 1 ? "Con tu primer bloque registrado" : "Con tus \(datos.registros) bloques registrados")
+            .navigationSubtitle(subtitulo)
             #if DEBUG
             .task {
                 guard let foco = Depuracion.foco else { return }
@@ -81,6 +114,27 @@ private struct ListaDeAprendizajes: View {
                 desplazamiento.scrollTo(foco, anchor: .top)
             }
             #endif
+        }
+    }
+
+    private var subtitulo: String {
+        if esEjemplo { return "Ejemplo con datos ficticios" }
+        return datos.registros == 1 ? "Con tu primer bloque registrado" : "Con tus \(datos.registros) bloques registrados"
+    }
+
+    /// El ejemplo nunca se confunde con sus datos: lo dice arriba, en el subtítulo y en el texto que se comparte.
+    private var avisoDeEjemplo: some View {
+        Section {
+            VStack(alignment: .leading, spacing: 4) {
+                Label("Ejemplo con datos ficticios", systemImage: "eye")
+                    .font(.headline)
+                    .foregroundStyle(Color.accentColor)
+                Text("Así se ve esta hoja en la semana 6, con \(datos.registros) bloques registrados. No son tus datos.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.vertical, 2)
+            Button("Volver a mis datos", action: alSalirDelEjemplo)
         }
     }
 
@@ -497,6 +551,9 @@ private extension TipoBloque {
 
 /// Patrones de la semana real de Camila. No se guarda nada: se calcula de nuevo con cada registro.
 struct Aprendizajes {
+    /// Con menos registros, cualquier patrón sería casualidad.
+    static let minimo = 3
+
     /// Día y hora de la semana, como los horarios del plan: «miércoles 06:30».
     struct Horario: Hashable, Comparable {
         let dia: Int // 1 = lunes … 7 = domingo
@@ -886,3 +943,99 @@ extension Aprendizajes {
         Escenario.ayudas.firstIndex(of: ayuda) ?? Escenario.ayudas.count
     }
 }
+
+// MARK: - Ejemplo
+
+extension Aprendizajes {
+    /// Semana 6 ficticia, para ver la hoja antes de tener datos propios. Siempre se muestra marcada como ejemplo.
+    /// La historia: el miércoles 06:30 no resultó y pasó a la tarde; cuando algo se cayó, volvió con holgura
+    /// o con un bloque puente. Pasa por el mismo cálculo que los datos reales.
+    static let ejemplo: Aprendizajes = {
+        let inicio = Date().lunes.mas(dias: -35)
+        let ahora = inicio.mas(dias: 36).a(22, 0) // martes de la semana 6, después de su bloque
+        let miercolesTarde = Ventana(dia: 3, hora: 19, minuto: 30, tipo: .gimnasio, minutos: 45)
+
+        // Cómo lo pasó y cómo quedó la espalda, bloque a bloque, por tipo.
+        let disfrute: [TipoBloque: [Disfrute]] = [
+            .gimnasio: [.normal, .normal, .bien, .normal, .bien, .mal, .bien, .bien, .normal, .bien, .bien],
+            .casa: [.normal, .bien, .bien, .normal, .bien, .bien],
+            .caminata: [.bien, .bien, .normal, .bien, .bien],
+        ]
+        let espalda: [TipoBloque: [Sensacion]] = [
+            .gimnasio: [.peor, .igual, .igual, .mejor, .igual, .mejor, .igual, .mejor, .igual, .mejor, .igual],
+            .casa: [.igual, .mejor, .mejor, .mejor, .mejor, .mejor],
+            .caminata: [.mejor, .igual, .mejor, .igual, .mejor],
+        ]
+
+        var cuenta: [TipoBloque: Int] = [:]
+        var bloques: [Bloque] = []
+        for semana in 1...6 {
+            let lunes = inicio.mas(dias: 7 * (semana - 1))
+            for ventana in Escenario.patron {
+                // Desde la semana 3, el miércoles es en la tarde: aceptó el ajuste al plan.
+                let horario = ventana.dia == 3 && semana >= 3 ? miercolesTarde : ventana
+                var bloque = Bloque(tipo: horario.tipo, inicio: horario.slot(enSemanaDe: lunes).fecha, minutos: horario.minutos)
+                switch (semana, ventana.dia) {
+                case (1, 3): // Apagó la alarma: bloque puente en la tarde.
+                    bloque.inicio = lunes.mas(dias: 2).a(19, 30)
+                    bloque.minutos = 20
+                    bloque.esPuente = true
+                case (2, 3): // Otra vez la alarma: holgura el mismo día.
+                    bloque.inicio = lunes.mas(dias: 2).a(19, 30)
+                case (4, 1): // Se alargó la reunión: holgura el viernes.
+                    bloque.origen = bloque.inicio
+                    bloque.inicio = lunes.mas(dias: 4).a(19, 30)
+                case (4, 6): // Llegó sin energía: bloque puente caminando.
+                    bloque.inicio = lunes.mas(dias: 5).a(20, 0)
+                    bloque.minutos = 20
+                    bloque.esPuente = true
+                case (5, 2): // Comité largo: holgura el jueves.
+                    bloque.origen = bloque.inicio
+                    bloque.inicio = lunes.mas(dias: 3).a(21, 15)
+                default:
+                    break
+                }
+                if bloque.inicio < ahora {
+                    let n = cuenta[bloque.tipo, default: 0]
+                    cuenta[bloque.tipo] = n + 1
+                    bloque.estado = .hecho
+                    bloque.esRegreso = bloque.origen != nil || bloque.esPuente
+                    bloque.registro = Registro(
+                        fecha: bloque.fin,
+                        disfrute: disfrute[bloque.tipo].map { $0[n % $0.count] },
+                        espalda: espalda[bloque.tipo].map { $0[n % $0.count] },
+                        ayudo: ayudasDeEjemplo(bloque, semana: semana)
+                    )
+                }
+                bloques.append(bloque)
+            }
+        }
+
+        return Aprendizajes(
+            bloques: bloques,
+            patron: Escenario.patron.map { $0.dia == 3 ? miercolesTarde : $0 },
+            alternativas: Escenario.alternativas.filter { $0 != miercolesTarde },
+            movidas: ["3-06:30": 2, "1-19:30": 1, "2-21:15": 1, "6-10:30": 1],
+            ajustesResueltos: ["3-06:30"],
+            porSemana: 4,
+            semanas: 6
+        )
+    }()
+
+    private static func ayudasDeEjemplo(_ bloque: Bloque, semana: Int) -> [String] {
+        if bloque.esPuente || bloque.tipo == .casa { return ["Era corto"] }
+        switch bloque.tipo {
+        case .gimnasio where bloque.origen != nil: return ["Salí a la hora", "Tenía el bolso listo"]
+        case .gimnasio where bloque.inicio.diaSemana == 1: return ["Bloqueé la agenda", "Tenía el bolso listo"]
+        case .caminata: return semana.isMultiple(of: 2) ? [] : ["Fui con alguien"]
+        default: return ["Tenía el bolso listo"]
+        }
+    }
+}
+
+#if DEBUG
+extension Depuracion {
+    /// -abrir aprendizajes -ejemplo YES: abre la hoja directo en el ejemplo de la semana 6.
+    static var ejemplo: Bool { UserDefaults.standard.bool(forKey: "ejemplo") }
+}
+#endif
