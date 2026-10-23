@@ -30,24 +30,32 @@ enum Escenario {
         Ventana(dia: 7, hora: 11, minuto: 0, tipo: .caminata, minutos: 40),
     ]
 
-    static func semilla(lunes: Date = Date().lunes) -> EstadoObra {
-        let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, visitasPrevias: 6, porSemana: 4, semanas: 6)
+    /// Semanas de pega que se arman o se leen del calendario: alcanzan para todo el plan.
+    static let semanasDePega = 10
 
-        // Su semana de pega: martes y jueves llega tarde.
+    /// Su semana de pega de ejemplo: martes y jueves llega tarde.
+    static func pegaDeEjemplo(desde lunes: Date) -> [EventoPega] {
         var pega: [EventoPega] = []
-        for semana in 0..<10 {
+        for semana in 0..<semanasDePega {
             let l = lunes.mas(dias: 7 * semana)
             pega.append(EventoPega(titulo: "Coordinación de obra", inicio: l.a(17, 0), fin: l.a(18, 45)))
             pega.append(EventoPega(titulo: "Comité con subcontratos", inicio: l.mas(dias: 1).a(17, 30), fin: l.mas(dias: 1).a(20, 45)))
             pega.append(EventoPega(titulo: "Visita a obra con mandante", inicio: l.mas(dias: 3).a(16, 0), fin: l.mas(dias: 3).a(20, 30)))
         }
+        return pega
+    }
+
+    /// Arma el plan desde el lunes. Sin `pega` usa la semana de ejemplo; con la del calendario,
+    /// los bloques quedan solo donde no chocan con ningún evento.
+    static func semilla(lunes: Date = Date().lunes, pega: [EventoPega]? = nil) -> EstadoObra {
+        let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, visitasPrevias: 6, porSemana: 4, semanas: 6)
 
         var estado = EstadoObra(
             proyecto: proyecto,
             patron: patron,
             alternativas: alternativas,
             bloques: [],
-            pega: pega,
+            pega: pega ?? pegaDeEjemplo(desde: lunes),
             ahora: lunes.a(19, 5),
             inicioObra: lunes
         )
