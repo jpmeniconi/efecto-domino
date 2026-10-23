@@ -36,6 +36,7 @@ App nativa para iPhone (SwiftUI, iOS 26+) que trata el regreso de Camila al ejer
 - `scripts/sim.sh` compila, instala y abre la app en el simulador (iPhone 18 Pro, iOS 27). En Xcode 27 el simulador vive en DeviceHub.
 - Atajos de depuración (solo Debug, ver `App/Depuracion.swift`):
   `xcrun simctl launch <sim> cl.jpmeniconi.efectodomino -reiniciar YES -momento 1 -abrir ajustar -texto "..." -aplicar 0 -foco gantt`
+  - `-abrir aprendizajes -ejemplo YES` abre «Lo que te funciona» con el ejemplo de la semana 6 y `-foco alterminar` baja al manual (`-ejemplo` vive en `Vistas/AprendizajesView.swift`).
 - `Modelo/`: datos, escenario ficticio y `Planificador` (determinístico).
 - `IA/Lector.swift`: Foundation Models en el dispositivo clasifica la barrera. `LectorLocal` es el respaldo.
 - Codex trabaja en paralelo en contenido (`content-drafts/`, ignorado por git). No tocar sus archivos.

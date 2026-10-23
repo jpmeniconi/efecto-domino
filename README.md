@@ -13,7 +13,7 @@ Como jefa de proyectos, en sus obras nunca demuele lo construido porque una part
 
 ## Por qué ese y no otro
 
-- En el megaestudio de Milkman et al. (2021, 61.293 socios), la intervención más efectiva premiaba **volver después de faltar**.
+- En el megaestudio de Milkman et al. (2021, 61.293 socios), la intervención más efectiva premiaba **volver después de faltar**. Y recordatorios y premios funcionan solo mientras duran: el diseño también tiene que definir **qué pasa cuando el programa termina**.
 - El hábito se forma con la **frecuencia de las primeras semanas**, no con la intensidad (Kaushal y Rhodes, 2015), y el abandono se juega en las primeras 12 (Sperandei et al., 2016).
 - La mensualidad no motiva por sí sola (DellaVigna y Malmendier, 2006): no nos apoyamos en la culpa por el pago.
 - Rutinas, recordatorios, rachas y frases motivacionales ya los probó o la ficha los descarta.
@@ -31,6 +31,8 @@ Como jefa de proyectos, en sus obras nunca demuele lo construido porque una part
 - **Ajuste al plan.** Si el miércoles 06:30 no le funciona, la app propone pasarlo a la tarde: se cambia el horario, no a ella.
 - **Domingo en la noche.** En vez de «mañana parto», su semana concreta para confirmar en un toque.
 - **Checklists** antes de salir (bolso, agenda bloqueada) y después (qué ayudó, dejar listo el próximo).
+- **Lo que te funciona.** Con lo que registra, la app le muestra qué horarios se cumplen y cuáles se movieron, qué bloques disfruta, qué le ayudó a ir, cómo vuelve (fichas de regreso y bloques puente) y cómo va su espalda. Con menos de tres registros no inventa patrones: lo dice y ofrece un ejemplo ficticio de la semana 6.
+- **Al terminar las 6 semanas, el plan pasa a sus manos:** un manual para seguir sin la app, con sus horarios, los bloques que disfruta y tres reglas: si un bloque se cae, primero la holgura; si cuesta volver, un bloque puente; nunca recuperar con más bloques. Lo puede guardar o mandar como texto, sin sus faltas.
 
 ## Qué dejamos fuera y por qué
 
@@ -53,7 +55,7 @@ scripts/sim.sh      # compila y abre en el simulador
 scripts/iphone.sh   # instala en un iPhone conectado por cable
 ```
 
-Toca el reloj de arriba para saltar a los momentos de la ficha: lunes 19:05, miércoles 06:45, miércoles 20:15 y domingo 23:55.
+Toca el reloj de arriba para saltar a los momentos de la ficha: lunes 19:05, miércoles 06:45, miércoles 20:15 y domingo 23:55. En «Tu avance», toca «Lo que te funciona»: sin registros todavía, puedes ver el ejemplo de la semana 6.
 
 ---
 
