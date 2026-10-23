@@ -97,11 +97,11 @@ enum LectorLocal {
         let barrera: TipoBarrera
         if tiene(["perdi", "lunes", "de cero", "empezar", "parto", "partir", "ya fue", "no tiene sentido", "culpa", "falle", "otra vez"]) {
             barrera = .reinicio
-        } else if tiene(["duele", "dolor", "espalda", "lesion", "molest", "enferm", "resfri"]) {
+        } else if tiene(["duele", "dolor", "espalda", "lesion", "molest", "enferm", "resfri", "tobillo", "rodilla"]) {
             barrera = .cuerpo
-        } else if tiene(["cansad", "agotad", "sueno", "dormi", "reventad", "muert", "sin energia", "sin ganas", "flojera"]) {
+        } else if tiene(["cansa", "agotad", "sueno", "dormi", "reventad", "muert", "sin energia", "sin ganas", "no tengo ganas", "no me da el cuerpo", "flojera"]) {
             barrera = .energia
-        } else if tiene(["reunion", "pega", "trabajo", "tarde", "alargo", "alcanzo", "llego", "taco", "atras", "obra", "mandante", "comite"]) {
+        } else if tiene(["reunion", "pega", "trabajo", "tarde", "tiempo", "alargo", "alcan", "lleg", "taco", "atras", "obra", "mandante", "comite"]) {
             barrera = .horario
         } else {
             barrera = .otra
