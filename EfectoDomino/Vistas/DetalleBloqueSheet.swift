@@ -33,6 +33,20 @@ struct DetalleBloqueSheet: View {
     }
 
     private func contenido(_ bloque: Bloque) -> some View {
+        ScrollViewReader { desplazamiento in
+            lista(bloque)
+                #if DEBUG
+                .task {
+                    // -seccion origen|registro|pega lleva el detalle a esa sección.
+                    guard let seccion = UserDefaults.standard.string(forKey: "seccion") else { return }
+                    try? await Task.sleep(for: .seconds(1))
+                    desplazamiento.scrollTo(seccion, anchor: .top)
+                }
+                #endif
+        }
+    }
+
+    private func lista(_ bloque: Bloque) -> some View {
         List {
             Section {
                 encabezado(bloque)
@@ -44,7 +58,7 @@ struct DetalleBloqueSheet: View {
                 LabeledContent("Fecha", value: Formato.fechaLarga(bloque.inicio))
                 LabeledContent("Horario", value: "\(Formato.hora(bloque.inicio)) a \(Formato.hora(bloque.fin))")
                 LabeledContent("Tipo") {
-                    Label(bloque.tipo.nombre, systemImage: bloque.tipo.simbolo)
+                    Text("\(Image(systemName: bloque.tipo.simbolo)) \(bloque.tipo.nombre)")
                         .foregroundStyle(bloque.tipo.color)
                 }
                 LabeledContent("Duración", value: "\(bloque.minutos) min")
@@ -60,11 +74,14 @@ struct DetalleBloqueSheet: View {
 
             if let origen = bloque.origen {
                 seccionOrigen(bloque, origen: origen)
+                    .id("origen")
             }
             if bloque.estado == .hecho {
                 seccionRegistro(bloque)
+                    .id("registro")
             }
             seccionPega(bloque)
+                .id("pega")
         }
     }
 
@@ -97,7 +114,7 @@ struct DetalleBloqueSheet: View {
 
     private func etiquetas(_ bloque: Bloque) -> some View {
         let estado = Chip(texto: Self.estado(bloque, ahora: store.ahora), simbolo: Self.simboloEstado(bloque, ahora: store.ahora))
-        return ViewThatFits {
+        return ViewThatFits(in: .horizontal) {
             HStack(spacing: 8) {
                 estado
                 otrasEtiquetas(bloque)

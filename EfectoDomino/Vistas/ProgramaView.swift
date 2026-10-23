@@ -16,6 +16,7 @@ struct ProgramaView: View {
     @State private var registroPendiente: RegistroPendiente?
     @State private var foco: FocoPrograma?
     @State private var viendoLeyenda = false
+    @State private var detente: PresentationDetent = .medium
 
     private struct BloqueElegido: Identifiable {
         let id: UUID
@@ -59,7 +60,7 @@ struct ProgramaView: View {
                         alRegistrar: { despuesDelDetalle = .registrar($0) },
                         alAjustar: { despuesDelDetalle = .ajustar($0) }
                     )
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.medium, .large], selection: $detente)
                 }
                 .sheet(item: $ajustando, onDismiss: aplicarPropuesta) { bloque in
                     AjustarSheet(bloque: bloque) { propuestaPendiente = $0 }
@@ -85,6 +86,7 @@ struct ProgramaView: View {
 
     /// Fui y Ajustar se abren al cerrar el detalle, para no apilar hojas.
     private func seguirDespuesDelDetalle() {
+        detente = .medium
         guard let accion = despuesDelDetalle else { return }
         despuesDelDetalle = nil
         switch accion {
@@ -119,6 +121,7 @@ struct ProgramaView: View {
         let ordenados = store.estado.bloques.sorted { $0.inicio < $1.inicio }
         guard ordenados.indices.contains(fila) else { return }
         try? await Task.sleep(for: .seconds(1))
+        if DepuracionPrograma.detenteGrande { detente = .large }
         elegido = BloqueElegido(id: ordenados[fila].id)
         guard let accion = DepuracionPrograma.accion else { return }
         try? await Task.sleep(for: .seconds(1.5))
@@ -1109,6 +1112,8 @@ enum DepuracionPrograma {
     static var detalle: Int? { ajustes.object(forKey: "detalle") == nil ? nil : ajustes.integer(forKey: "detalle") }
     /// fui o ajustar, desde el detalle.
     static var accion: String? { ajustes.string(forKey: "accion") }
+    /// -detente grande abre el detalle expandido.
+    static var detenteGrande: Bool { ajustes.string(forKey: "detente") == "grande" }
 }
 
 extension ZoomPrograma {
