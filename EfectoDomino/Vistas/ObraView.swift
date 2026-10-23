@@ -29,6 +29,19 @@ struct ObraView: View {
             .navigationTitle("Mi obra")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
+                    ShareLink(
+                        item: ReporteDeAvance(
+                            bloques: store.estado.bloques,
+                            proyecto: store.proyecto,
+                            inicioObra: store.estado.inicioObra,
+                            ahora: store.ahora
+                        ),
+                        preview: SharePreview("Mi avance de obra", image: Image(systemName: "square.stack.3d.up.fill"))
+                    ) {
+                        Label("Compartir avance", systemImage: "square.and.arrow.up")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Button("Escenario de demo", systemImage: "slider.horizontal.3") { mostrandoEscenario = true }
                         Button("Reiniciar escenario", systemImage: "arrow.counterclockwise", role: .destructive) {

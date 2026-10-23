@@ -57,6 +57,14 @@ struct ProximoBloqueCard: View {
                     .buttonStyle(.glass)
                 }
                 .controlSize(.large)
+
+                if let invitacion = bloque.invitacion(ahora: ahora) {
+                    ShareLink(item: invitacion) {
+                        Label("Invitar a alguien", systemImage: "person.2")
+                            .font(.subheadline.weight(.medium))
+                            .frame(maxWidth: .infinity)
+                    }
+                }
             }
         }
     }
