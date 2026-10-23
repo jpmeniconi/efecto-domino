@@ -65,6 +65,9 @@ struct AvanceCard: View {
                     }
                 }
                 .animation(.spring(duration: 0.5, bounce: 0.4), value: regresos)
+
+                Divider()
+                BotonAprendizajes()
             }
         }
     }
