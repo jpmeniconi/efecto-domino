@@ -66,8 +66,25 @@ enum LectorIA {
         }
     }
 
-    static func leer(texto: String, bloque: Bloque, ahora: Date) async throws -> Lectura {
+    /// Sesión con el modelo ya cargado. En frío, la primera lectura tarda varios segundos;
+    /// se usa una sola vez y las siguientes parten con una sesión nueva.
+    @MainActor private static var reserva: LanguageModelSession?
+
+    /// Carga el modelo antes de que Camila escriba, para que la lectura no la haga esperar.
+    @MainActor static func precalentar() {
+        guard reserva == nil, disponibilidad == .lista else { return }
         let sesion = LanguageModelSession(instructions: instrucciones)
+        sesion.prewarm()
+        reserva = sesion
+    }
+
+    @MainActor private static func tomarSesion() -> LanguageModelSession {
+        defer { reserva = nil }
+        return reserva ?? LanguageModelSession(instructions: instrucciones)
+    }
+
+    static func leer(texto: String, bloque: Bloque, ahora: Date) async throws -> Lectura {
+        let sesion = await tomarSesion()
         let prompt = """
         Bloque planificado: \(bloque.tipo.nombre), \(Formato.dia(bloque.inicio)) \(Formato.hora(bloque.inicio)), \(bloque.minutos) minutos.
         Momento actual: \(Formato.dia(ahora)) \(Formato.hora(ahora)).
@@ -97,11 +114,11 @@ enum LectorLocal {
         let barrera: TipoBarrera
         if tiene(["perdi", "lunes", "de cero", "empezar", "parto", "partir", "ya fue", "no tiene sentido", "culpa", "falle", "otra vez"]) {
             barrera = .reinicio
-        } else if tiene(["duele", "dolor", "espalda", "lesion", "molest", "enferm", "resfri"]) {
+        } else if tiene(["duele", "dolor", "espalda", "lesion", "molest", "enferm", "resfri", "tobillo", "rodilla"]) {
             barrera = .cuerpo
-        } else if tiene(["cansad", "agotad", "sueno", "dormi", "reventad", "muert", "sin energia", "sin ganas", "flojera"]) {
+        } else if tiene(["cansa", "agotad", "sueno", "dormi", "reventad", "muert", "sin energia", "sin ganas", "no tengo ganas", "no me da el cuerpo", "flojera"]) {
             barrera = .energia
-        } else if tiene(["reunion", "pega", "trabajo", "tarde", "alargo", "alcanzo", "llego", "taco", "atras", "obra", "mandante", "comite"]) {
+        } else if tiene(["reunion", "pega", "trabajo", "tarde", "tiempo", "alargo", "alcan", "lleg", "taco", "atras", "obra", "mandante", "comite"]) {
             barrera = .horario
         } else {
             barrera = .otra

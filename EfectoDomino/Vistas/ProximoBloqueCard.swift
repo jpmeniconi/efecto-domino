@@ -14,26 +14,18 @@ struct ProximoBloqueCard: View {
     var body: some View {
         Tarjeta {
             VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Label(empezo ? "Bloque de hoy" : "Próximo bloque", systemImage: "calendar.badge.clock")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    if bloque.esPuente {
-                        Chip(texto: "Bloque puente", simbolo: "arrow.uturn.backward")
-                            .foregroundStyle(Color.accentColor)
-                    }
+                ViewThatFits(in: .horizontal) {
+                    HStack { titulo; Spacer(); chipPuente }
+                    VStack(alignment: .leading, spacing: 8) { titulo; chipPuente }
                 }
 
                 VStack(alignment: .leading, spacing: 6) {
-                    HStack(alignment: .firstTextBaseline, spacing: 10) {
-                        Text(Formato.diaRelativo(bloque.inicio, ahora: ahora))
-                            .font(.title2.weight(.semibold))
-                        Text(Formato.hora(bloque.inicio))
-                            .font(.system(size: 46, weight: .bold, design: .rounded))
-                            .monospacedDigit()
-                            .contentTransition(.numericText())
+                    // Con letra grande, «Miércoles 28» y la hora no caben en una línea del iPhone chico.
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .firstTextBaseline, spacing: 10) { dia; hora }
+                        VStack(alignment: .leading, spacing: 0) { dia; hora }
                     }
+                    .accessibilityElement(children: .combine)
                     Label("\(bloque.tipo.nombre) · \(bloque.minutos) min", systemImage: bloque.tipo.simbolo)
                         .font(.headline)
                         .foregroundStyle(bloque.tipo.color)
@@ -42,19 +34,21 @@ struct ProximoBloqueCard: View {
 
                 preparacion
 
-                HStack(spacing: 12) {
+                ParDeBotones {
                     Button(action: alRegistrar) {
                         Label("Fui", systemImage: "checkmark")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.glassProminent)
                     .disabled(!puedeRegistrar)
+                    .accessibilityHint(puedeRegistrar ? "Deja una ficha en pie" : "Se activa media hora antes del bloque")
 
                     Button(action: alAjustar) {
                         Label("Ajustar", systemImage: "arrow.triangle.branch")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.glass)
+                    .accessibilityHint("Cuenta qué pasó y elige otra opción")
                 }
                 .controlSize(.large)
 
@@ -64,9 +58,38 @@ struct ProximoBloqueCard: View {
                             .font(.subheadline.weight(.medium))
                             .frame(maxWidth: .infinity)
                     }
+                    .accessibilityHint("Comparte una invitación a este bloque")
                 }
             }
         }
+        // El modelo tarda en cargar la primera vez: se prepara mientras Camila mira su plan.
+        .task { LectorIA.precalentar() }
+    }
+
+    private var titulo: some View {
+        Label(empezo ? "Bloque de hoy" : "Próximo bloque", systemImage: "calendar.badge.clock")
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(.secondary)
+    }
+
+    @ViewBuilder
+    private var chipPuente: some View {
+        if bloque.esPuente {
+            Chip(texto: "Bloque puente", simbolo: "arrow.uturn.backward")
+                .foregroundStyle(Color.accentColor)
+        }
+    }
+
+    private var dia: some View {
+        Text(Formato.diaRelativo(bloque.inicio, ahora: ahora))
+            .font(.title2.weight(.semibold))
+    }
+
+    private var hora: some View {
+        Text(Formato.hora(bloque.inicio))
+            .font(.system(size: 46, weight: .bold, design: .rounded))
+            .monospacedDigit()
+            .contentTransition(.numericText())
     }
 
     private var preparacion: some View {
@@ -80,7 +103,7 @@ struct ProximoBloqueCard: View {
                     Button {
                         alPreparar(item)
                     } label: {
-                        HStack(spacing: 6) {
+                        HStack(alignment: .firstTextBaseline, spacing: 6) {
                             Image(systemName: listo ? "checkmark.circle.fill" : "circle")
                                 .foregroundStyle(listo ? Color.accentColor : Color.secondary)
                                 .contentTransition(.symbolEffect(.replace))
@@ -90,6 +113,8 @@ struct ProximoBloqueCard: View {
                         .font(.subheadline)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(item)
+                    .accessibilityAddTraits(listo ? .isSelected : [])
                     .sensoryFeedback(.selection, trigger: listo)
                 }
             }
@@ -111,7 +136,7 @@ struct PendienteCard: View {
                     .foregroundStyle(.secondary)
                 Text("\(Formato.diaConNumero(bloque.inicio)) · \(Formato.hora(bloque.inicio)) · \(bloque.tipo.nombre)")
                     .font(.headline)
-                HStack(spacing: 12) {
+                ParDeBotones {
                     Button(action: alRegistrar) {
                         Label("Sí, fui", systemImage: "checkmark").frame(maxWidth: .infinity)
                     }

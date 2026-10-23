@@ -31,6 +31,12 @@ struct ReporteView: View {
     private var regresos: Int { reporte.bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
     private var semanaActual: Int { max(0, reporte.inicioObra.dias(hasta: reporte.ahora) / 7) + 1 }
 
+    /// Igual que el muro de la app: si el efecto dominó llevó bloques a la semana 7, también se ven.
+    private var semanas: Int {
+        let ultima = reporte.bloques.map { reporte.inicioObra.dias(hasta: $0.inicio) / 7 }.max() ?? 0
+        return max(reporte.proyecto.semanas, ultima + 1)
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
             Text("Mi plan · semana \(semanaActual) de \(reporte.proyecto.semanas)")
@@ -65,7 +71,7 @@ struct ReporteView: View {
 
     private var muro: some View {
         HStack(alignment: .bottom, spacing: 6) {
-            ForEach(0..<reporte.proyecto.semanas, id: \.self) { semana in
+            ForEach(0..<semanas, id: \.self) { semana in
                 let lunes = reporte.inicioObra.mas(dias: semana * 7)
                 let hechosSemana = reporte.bloques.filter { $0.estado == .hecho && $0.inicio.lunes == lunes }
                 VStack(spacing: 3) {

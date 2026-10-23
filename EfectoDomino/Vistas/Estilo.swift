@@ -34,6 +34,49 @@ struct Tarjeta<Contenido: View>: View {
     }
 }
 
+/// Botones del mismo ancho lado a lado. Si alguno no cabe en su parte (letra grande, pantalla chica),
+/// van uno sobre otro en vez de partir el texto.
+struct ParDeBotones: Layout {
+    var espacio: CGFloat = 12
+
+    private func enFila(_ subviews: Subviews, ancho: CGFloat) -> Bool {
+        let parte = (ancho - espacio * CGFloat(subviews.count - 1)) / CGFloat(subviews.count)
+        return subviews.allSatisfy { $0.sizeThatFits(.unspecified).width <= parte }
+    }
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        guard !subviews.isEmpty else { return .zero }
+        let ideales = subviews.map { $0.sizeThatFits(.unspecified) }
+        let separacion = espacio * CGFloat(subviews.count - 1)
+        let ancho = proposal.width ?? (ideales.map(\.width).max() ?? 0) * CGFloat(subviews.count) + separacion
+        if enFila(subviews, ancho: ancho) {
+            let parte = (ancho - separacion) / CGFloat(subviews.count)
+            let alto = subviews.map { $0.sizeThatFits(ProposedViewSize(width: parte, height: nil)).height }.max() ?? 0
+            return CGSize(width: ancho, height: alto)
+        }
+        let alto = subviews.map { $0.sizeThatFits(ProposedViewSize(width: ancho, height: nil)).height }.reduce(0, +)
+        return CGSize(width: ancho, height: alto + separacion)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        guard !subviews.isEmpty else { return }
+        if enFila(subviews, ancho: bounds.width) {
+            let parte = (bounds.width - espacio * CGFloat(subviews.count - 1)) / CGFloat(subviews.count)
+            for (i, subview) in subviews.enumerated() {
+                let x = bounds.minX + CGFloat(i) * (parte + espacio)
+                subview.place(at: CGPoint(x: x, y: bounds.minY), proposal: ProposedViewSize(width: parte, height: bounds.height))
+            }
+        } else {
+            var y = bounds.minY
+            for subview in subviews {
+                let alto = subview.sizeThatFits(ProposedViewSize(width: bounds.width, height: nil)).height
+                subview.place(at: CGPoint(x: bounds.minX, y: y), proposal: ProposedViewSize(width: bounds.width, height: alto))
+                y += alto + espacio
+            }
+        }
+    }
+}
+
 struct Chip: View {
     let texto: String
     let simbolo: String

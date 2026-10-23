@@ -35,3 +35,18 @@ targets:
         ENABLE_PREVIEWS: YES
     scheme:
       gatherCoverageData: false
+      testTargets:
+        - EfectoDominoTests
+  EfectoDominoTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: EfectoDominoTests
+    dependencies:
+      - target: EfectoDomino
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cl.jpmeniconi.efectodomino.tests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic

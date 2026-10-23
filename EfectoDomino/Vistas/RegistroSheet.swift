@@ -94,6 +94,7 @@ struct RegistroSheet: View {
             Image(systemName: "rectangle.split.1x2.fill")
                 .font(.system(size: 40))
                 .foregroundStyle(Color.accentColor)
+                .accessibilityHidden(true)
             Text("Ficha \(store.hechos + 1) de \(store.proyecto.meta)")
                 .font(.title2.weight(.bold))
             Text("\(bloque.tipo.nombre) · \(bloque.minutos) min" + (bloque.esPuente ? " · bloque puente" : ""))
@@ -101,6 +102,7 @@ struct RegistroSheet: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 8)
+        .accessibilityElement(children: .combine)
     }
 
     private func filaMarcable(_ texto: String, marcada: Bool, accion: @escaping () -> Void) -> some View {
@@ -113,10 +115,12 @@ struct RegistroSheet: View {
                     Image(systemName: "checkmark")
                         .fontWeight(.semibold)
                         .foregroundStyle(Color.accentColor)
+                        .accessibilityHidden(true)
                 }
             }
             .contentShape(.rect)
         }
         .buttonStyle(.plain)
+        .accessibilityAddTraits(marcada ? .isSelected : [])
     }
 }
