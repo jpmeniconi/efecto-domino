@@ -1373,8 +1373,11 @@ button {
     transition: none;
   }
 
+  .modo-deck .diapositiva:last-child { break-after: auto; }
+
   .js .entra { opacity: 1 !important; transform: none !important; }
-  .respaldo, .capa { display: none !important; }
+  .respaldo, .capa, .anuncio { display: none !important; }
+  *, *::before, *::after { transition: none !important; }
 }
 
 /* En el celular, el respaldo abierto no deja desplazar la página de atrás. */

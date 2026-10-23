@@ -17,6 +17,7 @@
     var raiz = document.documentElement;
     var vertical = window.matchMedia('(orientation: portrait)');
     function ajustar() {
+      if (raiz.classList.contains('imprimiendo')) return;
       raiz.classList.toggle('modo-pagina', vertical.matches);
       raiz.classList.toggle('modo-deck', !vertical.matches);
       raiz.style.setProperty('--escala', Math.min(window.innerWidth / 1920, window.innerHeight / 1080));

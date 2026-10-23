@@ -14,6 +14,7 @@
   var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)');
   var actual = -1;
   var salidas = [];
+  var imprimiendo = false;
 
   function enDeck() { return raiz.classList.contains('modo-deck'); }
   function limitar(n) { return Math.min(Math.max(n, 0), total - 1); }
@@ -96,6 +97,7 @@
   }
 
   function aplicarModo() {
+    if (imprimiendo) return;
     raiz.classList.toggle('modo-pagina', vertical.matches);
     raiz.classList.toggle('modo-deck', !vertical.matches);
     raiz.style.setProperty('--escala', Math.min(window.innerWidth / 1920, window.innerHeight / 1080));
@@ -430,6 +432,24 @@
         img.src = 'medios/' + archivo;
       });
     });
+  });
+
+  // ------------------------------------------------------------------ Imprimir
+
+  // El PDF siempre sale en 16:9, una diapositiva por página y con cada diagrama terminado.
+  // Al imprimir, el navegador mide la orientación del papel: mientras dure, no se cambia de modo.
+  window.addEventListener('beforeprint', function () {
+    imprimiendo = true;
+    cerrarRespaldo();
+    raiz.classList.add('imprimiendo', 'modo-deck');
+    raiz.classList.remove('modo-pagina');
+    diapositivas.forEach(function (d) { d.classList.add('activa'); });
+  });
+  window.addEventListener('afterprint', function () {
+    imprimiendo = false;
+    raiz.classList.remove('imprimiendo');
+    actual = desdeHash();
+    aplicarModo();
   });
 
   // ------------------------------------------------------------------ Partida
