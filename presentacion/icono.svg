@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Dominó">
+<defs><linearGradient id="naranja" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f78c3d"/><stop offset="1" stop-color="#e04d1a"/></linearGradient></defs>
+<path d="M289.6 0L734.4 0C817.8 0 859.5 0 904.4 14.2C953.4 32 992 70.6 1009.8 119.6C1024 164.5 1024 206.2 1024 289.6L1024 734.4C1024 817.8 1024 859.5 1009.8 904.4C992 953.4 953.4 992 904.4 1009.8C859.5 1024 817.8 1024 734.4 1024L289.6 1024C206.2 1024 164.5 1024 119.6 1009.8C70.6 992 32 953.4 14.2 904.4C0 859.5 0 817.8 0 734.4L0 289.6C0 206.2 0 164.5 14.2 119.6C32 70.6 70.6 32 119.6 14.2C164.5 0 206.2 0 289.6 0Z" fill="url(#naranja)"/>
+<rect x="168" y="220" width="340" height="104" rx="52" fill="#fff"/>
+<rect x="312" y="376" width="300" height="104" rx="52" fill="#fff" fill-opacity=".92"/>
+<rect x="456" y="532" width="330" height="104" rx="52" fill="#fff" fill-opacity=".84"/>
+<rect x="607" y="695" width="242" height="90" rx="45" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="14"/>
+</svg>
