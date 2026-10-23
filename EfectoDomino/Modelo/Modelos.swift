@@ -1,0 +1,173 @@
+import Foundation
+
+// MARK: - Bloques de la obra
+
+enum TipoBloque: String, Codable, CaseIterable, Identifiable {
+    case gimnasio, caminata, casa
+
+    var id: String { rawValue }
+
+    var nombre: String {
+        switch self {
+        case .gimnasio: "Gimnasio"
+        case .caminata: "Caminata"
+        case .casa: "En casa"
+        }
+    }
+
+    var simbolo: String {
+        switch self {
+        case .gimnasio: "dumbbell.fill"
+        case .caminata: "figure.walk"
+        case .casa: "figure.flexibility"
+        }
+    }
+}
+
+enum EstadoBloque: String, Codable {
+    case planificado, hecho
+}
+
+enum Sensacion: String, Codable, CaseIterable, Identifiable {
+    case mejor, igual, peor
+
+    var id: String { rawValue }
+    var nombre: String { rawValue.conMayuscula }
+}
+
+/// La experiencia agradable predice el hábito (Kaushal y Rhodes, 2015).
+enum Disfrute: String, Codable, CaseIterable, Identifiable {
+    case bien, normal, mal
+
+    var id: String { rawValue }
+    var nombre: String { rawValue.conMayuscula }
+}
+
+struct Registro: Codable, Hashable {
+    var fecha: Date
+    var disfrute: Disfrute?
+    var espalda: Sensacion?
+    var ayudo: [String]
+}
+
+struct Bloque: Identifiable, Codable, Hashable {
+    var id = UUID()
+    var tipo: TipoBloque
+    var inicio: Date
+    var minutos: Int
+    var estado: EstadoBloque = .planificado
+    /// Fecha original si Camila lo movió: se dibuja como fantasma en la carta Gantt.
+    var origen: Date?
+    /// Bloque corto para retomar. Cuenta completo.
+    var esPuente = false
+    /// Hecho después de un atraso: la micro-recompensa por volver (Milkman et al., 2021).
+    var esRegreso = false
+    var preparacion: [String] = []
+    var registro: Registro?
+
+    var fin: Date { inicio.mas(minutos: minutos) }
+}
+
+// MARK: - Contexto ficticio de Camila
+
+struct EventoPega: Identifiable, Codable, Hashable {
+    var id = UUID()
+    var titulo: String
+    var inicio: Date
+    var fin: Date
+}
+
+/// Espacio semanal recurrente, por ejemplo: lunes 19:30, gimnasio, 45 min.
+struct Ventana: Codable, Hashable {
+    var dia: Int // 1 = lunes … 7 = domingo
+    var hora: Int
+    var minuto: Int
+    var tipo: TipoBloque
+    var minutos: Int
+
+    func slot(enSemanaDe lunes: Date) -> Slot {
+        Slot(fecha: lunes.mas(dias: dia - 1).a(hora, minuto), tipo: tipo, minutos: minutos)
+    }
+}
+
+struct Slot: Hashable {
+    let fecha: Date
+    let tipo: TipoBloque
+    let minutos: Int
+}
+
+struct Proyecto: Codable, Hashable {
+    var nombre: String
+    /// Ladrillos de la obra gruesa: frecuencia de las primeras seis semanas.
+    var meta: Int
+    /// Fundaciones: las seis visitas de enero. No se cuentan de nuevo, pero no se parte de cero.
+    var fundaciones: Int
+    /// Bloques comprometidos por semana. Nunca se exige más para "recuperar".
+    var porSemana: Int
+    var semanas: Int
+}
+
+struct EstadoObra: Codable {
+    var proyecto: Proyecto
+    var patron: [Ventana]
+    var alternativas: [Ventana]
+    var bloques: [Bloque]
+    var pega: [EventoPega]
+    /// Reloj del escenario: toda la app usa esta hora.
+    var ahora: Date
+    var inicioObra: Date
+    var recepcionBase: Date?
+    var ajustes = 0
+    var pausaHasta: Date?
+}
+
+// MARK: - Lectura y propuestas
+
+enum TipoBarrera: String, Codable, CaseIterable {
+    case horario, energia, reinicio, cuerpo, otra
+
+    var nombre: String {
+        switch self {
+        case .horario: "Choque de horario"
+        case .energia: "Poca energía"
+        case .reinicio: "Ganas de partir de cero"
+        case .cuerpo: "Molestia física"
+        case .otra: "Algo cambió"
+        }
+    }
+}
+
+/// Quién hizo la lectura: el modelo en el dispositivo o el respaldo por palabras clave.
+enum FuenteLectura: String, Codable {
+    case dispositivo, local
+}
+
+struct Lectura: Equatable {
+    var barrera: TipoBarrera
+    var resumen: String
+    var fuente: FuenteLectura
+}
+
+struct Propuesta: Identifiable, Equatable {
+    enum Accion: Equatable {
+        /// Mueve solo este bloque (holgura o bloque puente). No afecta al resto.
+        case reubicar(bloque: UUID, slot: Slot, puente: Bool)
+        /// Lleva el bloque a una fecha del patrón y corre los siguientes un espacio: efecto dominó.
+        case empujar(bloque: UUID, fecha: Date)
+        /// Detiene la obra hasta una fecha sin perder lo construido.
+        case pausar(hasta: Date)
+    }
+
+    let id = UUID()
+    var etiqueta: String
+    var titulo: String
+    var detalle: String
+    var simbolo: String
+    var accion: Accion
+    var confirmacion: String
+    var impactoDias = 0
+
+    var impactoTexto: String {
+        impactoDias == 0 ? "La recepción no se mueve" : "La recepción se corre \(Formato.dias(impactoDias))"
+    }
+}

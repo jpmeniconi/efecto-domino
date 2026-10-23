@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */; };
+		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
+		22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F6347063B65A725861290 /* AvanceCard.swift */; };
+		3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */; };
+		489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED919F131C888330C1F42D /* Planificador.swift */; };
+		4C44FCABA27FB4609C2F9712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4BC19A09AE8506509AEE4A /* Assets.xcassets */; };
+		5BB9363822F34D0D9442AD71 /* Fechas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADEA3276D221129D155C8BB /* Fechas.swift */; };
+		736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */; };
+		775199A0A1DD9909841471D9 /* EscenarioSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */; };
+		7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */; };
+		95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA964F16ED4D1B4D2F72BF /* Lector.swift */; };
+		B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE76A61151C40456DBB2C4 /* ObraView.swift */; };
+		D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */; };
+		D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586195A179880D548353BFF /* RegistroSheet.swift */; };
+		E9A55BE40AD18A4B0DC9AF29 /* Escenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22C5E55360B9D6F78247CF3 /* Escenario.swift */; };
+		F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4A6EF18AE910E38AAF1 /* Modelos.swift */; };
+		FE022396FC593A30367997A5 /* Estilo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44825984E2BCC6257A718C /* Estilo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		146AD4A6EF18AE910E38AAF1 /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
+		1878B681D1454824F438D06A /* GanttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttView.swift; sourceTree = "<group>"; };
+		20AA964F16ED4D1B4D2F72BF /* Lector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lector.swift; sourceTree = "<group>"; };
+		2B4BC19A09AE8506509AEE4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Depuracion.swift; sourceTree = "<group>"; };
+		3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObraStore.swift; sourceTree = "<group>"; };
+		4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenarioSheet.swift; sourceTree = "<group>"; };
+		71AE76A61151C40456DBB2C4 /* ObraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObraView.swift; sourceTree = "<group>"; };
+		757F6347063B65A725861290 /* AvanceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvanceCard.swift; sourceTree = "<group>"; };
+		75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfectoDominoApp.swift; sourceTree = "<group>"; };
+		83ED919F131C888330C1F42D /* Planificador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planificador.swift; sourceTree = "<group>"; };
+		867069D08B37A8354D4E3F16 /* EfectoDomino.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = EfectoDomino.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustarSheet.swift; sourceTree = "<group>"; };
+		A22C5E55360B9D6F78247CF3 /* Escenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Escenario.swift; sourceTree = "<group>"; };
+		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
+		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
+		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
+		EE44825984E2BCC6257A718C /* Estilo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilo.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		026281624C277B35D918D7D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				867069D08B37A8354D4E3F16 /* EfectoDomino.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02A58BB615791B1C52F6C75B = {
+			isa = PBXGroup;
+			children = (
+				57A927D198CD100EEE2FE2AF /* EfectoDomino */,
+				026281624C277B35D918D7D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4FCCA71AAC550848F2131AE3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */,
+				75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		57A927D198CD100EEE2FE2AF /* EfectoDomino */ = {
+			isa = PBXGroup;
+			children = (
+				2B4BC19A09AE8506509AEE4A /* Assets.xcassets */,
+				4FCCA71AAC550848F2131AE3 /* App */,
+				F023FF3C2B1D60C23D840DB3 /* IA */,
+				E423B864E078593293983EB3 /* Modelo */,
+				DC3FC47609E19E11088B8AD6 /* Vistas */,
+			);
+			path = EfectoDomino;
+			sourceTree = "<group>";
+		};
+		DC3FC47609E19E11088B8AD6 /* Vistas */ = {
+			isa = PBXGroup;
+			children = (
+				894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */,
+				757F6347063B65A725861290 /* AvanceCard.swift */,
+				4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */,
+				EE44825984E2BCC6257A718C /* Estilo.swift */,
+				1878B681D1454824F438D06A /* GanttView.swift */,
+				71AE76A61151C40456DBB2C4 /* ObraView.swift */,
+				D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */,
+				A586195A179880D548353BFF /* RegistroSheet.swift */,
+			);
+			path = Vistas;
+			sourceTree = "<group>";
+		};
+		E423B864E078593293983EB3 /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				A22C5E55360B9D6F78247CF3 /* Escenario.swift */,
+				DADEA3276D221129D155C8BB /* Fechas.swift */,
+				146AD4A6EF18AE910E38AAF1 /* Modelos.swift */,
+				3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */,
+				83ED919F131C888330C1F42D /* Planificador.swift */,
+			);
+			path = Modelo;
+			sourceTree = "<group>";
+		};
+		F023FF3C2B1D60C23D840DB3 /* IA */ = {
+			isa = PBXGroup;
+			children = (
+				20AA964F16ED4D1B4D2F72BF /* Lector.swift */,
+			);
+			path = IA;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9AED78DCA6EA95C1AF157C7C /* EfectoDomino */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 480B1035F9474A120E368FBE /* Build configuration list for PBXNativeTarget "EfectoDomino" */;
+			buildPhases = (
+				2E04FB188FA9A8994062FE30 /* Sources */,
+				BEF25B337B1D005B8862A3C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EfectoDomino;
+			packageProductDependencies = (
+			);
+			productName = EfectoDomino;
+			productReference = 867069D08B37A8354D4E3F16 /* EfectoDomino.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DB1D049BFDF2A04F572B541 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					9AED78DCA6EA95C1AF157C7C = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E3C932EC1EC8E224C28AC986 /* Build configuration list for PBXProject "EfectoDomino" */;
+			developmentRegion = es;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				es,
+			);
+			mainGroup = 02A58BB615791B1C52F6C75B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 026281624C277B35D918D7D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9AED78DCA6EA95C1AF157C7C /* EfectoDomino */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEF25B337B1D005B8862A3C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C44FCABA27FB4609C2F9712 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E04FB188FA9A8994062FE30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */,
+				22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */,
+				3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */,
+				D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */,
+				E9A55BE40AD18A4B0DC9AF29 /* Escenario.swift in Sources */,
+				775199A0A1DD9909841471D9 /* EscenarioSheet.swift in Sources */,
+				FE022396FC593A30367997A5 /* Estilo.swift in Sources */,
+				5BB9363822F34D0D9442AD71 /* Fechas.swift in Sources */,
+				10159B89A051A89B809C2F2D /* GanttView.swift in Sources */,
+				95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */,
+				F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */,
+				736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */,
+				B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */,
+				489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */,
+				08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */,
+				D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		14CF55B8F225D553A5B27F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Efecto Dominó";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cl.jpmeniconi.efectodomino;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C6D2C9D5FE03895CF94CB00D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4EA204C4CB9A1C8AEEC6AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EBD804AFC932C39BB515BF7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Efecto Dominó";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cl.jpmeniconi.efectodomino;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		480B1035F9474A120E368FBE /* Build configuration list for PBXNativeTarget "EfectoDomino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBD804AFC932C39BB515BF7D /* Debug */,
+				14CF55B8F225D553A5B27F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E3C932EC1EC8E224C28AC986 /* Build configuration list for PBXProject "EfectoDomino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6D2C9D5FE03895CF94CB00D /* Debug */,
+				D4EA204C4CB9A1C8AEEC6AE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DB1D049BFDF2A04F572B541 /* Project object */;
+}
