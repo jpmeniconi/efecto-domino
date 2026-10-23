@@ -265,7 +265,7 @@ struct CartaPrograma: View {
         let factor = min(max(pow(Double(anchoDia / anchoReferencia), 0.5), 0.72), 1.7)
         return MedidasPrograma(
             dias: plan.dias,
-            filas: plan.filas.count,
+            filas: plan.filas.count + (plan.diaMeta == nil ? 0 : 1),
             anchoVisible: tamano.width,
             altoVisible: max(0, tamano.height - altoEncabezado),
             anchoDia: anchoDia,
@@ -388,6 +388,7 @@ struct CartaPrograma: View {
         ZStack(alignment: .topLeading) {
             ForEach(0..<m.semanas, id: \.self) { semana in
                 let actual = semana == plan.semanaHoy
+                let anchoSemana = m.anchoDia * 7
                 ViewThatFits(in: .horizontal) {
                     Text("Semana \(semana + 1) · \(plan.rango(semana: semana))")
                     Text("Semana \(semana + 1)")
@@ -396,8 +397,13 @@ struct CartaPrograma: View {
                 .font(.caption.weight(actual ? .bold : .semibold))
                 .foregroundStyle(actual ? Color.accentColor : Color.secondary)
                 .lineLimit(1)
+                // Mientras se ve algo de la semana, su nombre queda pegado al borde izquierdo.
+                .visualEffect { contenido, geometria in
+                    let marco = geometria.frame(in: .scrollView(axis: .horizontal))
+                    return contenido.offset(x: min(max(0, 6 - marco.minX), max(0, anchoSemana - marco.width - 12)))
+                }
                 .padding(.horizontal, 6)
-                .frame(width: m.anchoDia * 7, height: altoSemanas, alignment: .leading)
+                .frame(width: anchoSemana, height: altoSemanas, alignment: .leading)
                 .offset(x: m.x(dia: semana * 7))
                 .accessibilityAddTraits(.isHeader)
             }
@@ -474,8 +480,56 @@ struct CartaPrograma: View {
             ForEach(plan.filas) { fila in
                 filaBloque(fila, anterior: fila.indice > 0 ? plan.filas[fila.indice - 1] : nil, plan, m)
             }
+            if let diaMeta = plan.diaMeta, let meta = plan.meta {
+                hito(plan, dia: diaMeta, meta: meta, m)
+            }
         }
         .frame(width: m.anchoContenido, height: m.altoContenido, alignment: .topLeading)
+    }
+
+    /// La meta estimada cierra la escalera como un hito. Si el plan se corrió, su fantasma queda donde estaba.
+    private func hito(_ plan: PlanPrograma, dia: Int, meta: Date, _ m: MedidasPrograma) -> some View {
+        let lado = min(m.altoPastilla * 0.55, 13)
+        let centro = CGPoint(x: m.x(dia: dia + 1), y: m.y(fila: plan.filas.count) + m.altoFila / 2)
+        let xOriginal = plan.diaMetaOriginal.map { m.x(dia: $0 + 1) }
+        let xEtiqueta = min(centro.x, xOriginal ?? centro.x) - lado - 4
+        let corrida = plan.corrimiento > 0 ? " · se corrió \(Formato.dias(plan.corrimiento))" : ""
+        let rombo = RoundedRectangle(cornerRadius: 2, style: .continuous).rotation(.degrees(45))
+
+        return ZStack(alignment: .topLeading) {
+            if let ultima = plan.filas.last {
+                let xFin = m.x(dia: ultima.dia) + (m.anchoDia + m.anchoPastilla(ultima.bloque)) / 2
+                Conector(x0: xFin, x1: centro.x - lado / 2, alto: m.altoFila)
+                    .stroke(Color.secondary.opacity(0.35), style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                    .frame(height: m.altoFila)
+                    .offset(y: centro.y - m.altoFila)
+            }
+            if let xOriginal {
+                rombo
+                    .stroke(Color.secondary.opacity(0.7), style: StrokeStyle(lineWidth: 1, dash: [2, 2]))
+                    .frame(width: lado, height: lado)
+                    .offset(x: xOriginal - lado / 2, y: centro.y - lado / 2)
+                Arco(desde: xOriginal, hasta: centro.x - lado / 2)
+                    .stroke(Color.secondary.opacity(0.7), style: StrokeStyle(lineWidth: 1, lineCap: .round, dash: [2, 2]))
+                    .frame(height: lado)
+                    .offset(y: centro.y - lado)
+            }
+            rombo
+                .fill(Color.accentColor)
+                .frame(width: lado, height: lado)
+                .offset(x: centro.x - lado / 2, y: centro.y - lado / 2)
+            Text("Meta estimada · \(Formato.fechaConDia(meta))\(corrida)")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(Color.accentColor)
+                .lineLimit(1)
+                .fixedSize()
+                .frame(width: 320, height: m.altoFila, alignment: .trailing)
+                .offset(x: xEtiqueta - 320, y: centro.y - m.altoFila / 2)
+        }
+        .allowsHitTesting(false)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Meta estimada: \(Formato.fechaLarga(meta))\(corrida)")
+        .animation(.spring(duration: 0.6, bounce: 0.25).delay(Double(max(0, plan.filas.count - plan.filaDeHoy)) * 0.04), value: dia)
     }
 
     /// La holgura se raya en los días libres de cada semana, a la altura de sus bloques.
@@ -714,6 +768,11 @@ struct PlanPrograma {
     let pega: [PegaEnDia]
     let holguras: [HolguraEnDia]
     let numeros: [Int]
+    /// La meta estimada (último bloque por hacer) y dónde estaba al partir, si se corrió.
+    let meta: Date?
+    let diaMeta: Int?
+    let diaMetaOriginal: Int?
+    let corrimiento: Int
     /// Días desde el inicio hasta ahora, con la fracción del día.
     let diaHoy: Double
     let semanaHoy: Int
@@ -732,7 +791,17 @@ struct PlanPrograma {
             )
         }
         self.filas = filas
-        let ultimo = filas.map { max($0.dia, $0.diaOrigen ?? 0) }.max() ?? 0
+        let meta = Planificador.recepcion(e)
+        self.meta = meta
+        diaMeta = meta.map { e.inicioObra.dias(hasta: $0) }
+        if let meta, let base = e.recepcionBase, !base.mismoDia(que: meta) {
+            diaMetaOriginal = e.inicioObra.dias(hasta: base)
+            corrimiento = base.dias(hasta: meta)
+        } else {
+            diaMetaOriginal = nil
+            corrimiento = 0
+        }
+        let ultimo = (filas.map { max($0.dia, $0.diaOrigen ?? 0) } + [diaMetaOriginal ?? 0]).max() ?? 0
         let semanas = max(e.proyecto.semanas, ultimo / 7 + 1)
         dias = semanas * 7
         numeros = (0..<dias).map { e.inicioObra.mas(dias: $0).diaDelMes }
