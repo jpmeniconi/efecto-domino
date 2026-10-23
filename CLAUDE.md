@@ -41,6 +41,7 @@ App nativa para iPhone (SwiftUI, iOS 26+) que trata el regreso de Camila al ejer
 - `Modelo/`: datos, escenario ficticio y `Planificador` (determinístico).
 - `IA/Lector.swift`: Foundation Models en el dispositivo clasifica la barrera. `LectorLocal` es el respaldo.
 - Codex trabaja en paralelo en contenido (`content-drafts/`, ignorado por git). No tocar sus archivos.
+- Varias sesiones de Claude Code trabajan en paralelo, cada una en su worktree. Antes de integrar, probar o cambiar el trabajo de otra, buscar en claude-mem qué hizo y qué pidió JP (skill `mem-search`: `search`, luego `timeline` y `get_observations`). Lo que no aparezca ahí se pregunta antes de suponerlo.
 - Commits pequeños y verificados, con push frecuente: el panel del evento cuenta los pushes.
 
 ## Estilo de interfaz
