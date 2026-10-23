@@ -27,9 +27,9 @@ final class ObraStore {
         if guardado != nil { calendarioPega = UserDefaults.standard.string(forKey: Self.claveCalendario) }
         #if DEBUG
         if Depuracion.reiniciar { reiniciar() }
-        if let indice = Depuracion.momento {
-            let momentos = Escenario.momentos(desde: estado.inicioObra)
-            if momentos.indices.contains(indice) { estado.ahora = momentos[indice].fecha }
+        aplicarMomentoDeDepuracion()
+        if Depuracion.crearCalendarioDePrueba || Depuracion.conectarCalendario != nil {
+            Task { await prepararCalendarioDeDepuracion() }
         }
         #endif
     }
@@ -291,6 +291,25 @@ final class ObraStore {
         calendarioPega = nombre
         UserDefaults.standard.set(nombre, forKey: Self.claveCalendario)
     }
+
+    #if DEBUG
+    private func aplicarMomentoDeDepuracion() {
+        guard let indice = Depuracion.momento else { return }
+        let momentos = Escenario.momentos(desde: estado.inicioObra)
+        if momentos.indices.contains(indice) { estado.ahora = momentos[indice].fecha }
+    }
+
+    /// Conectar o volver a la semana de ejemplo deja el reloj en el lunes: después se repite el momento.
+    private func prepararCalendarioDeDepuracion() async {
+        if Depuracion.crearCalendarioDePrueba { await CalendarioPega.crearCalendarioDePrueba(desde: Date().lunes) }
+        switch Depuracion.conectarCalendario {
+        case true?: await conectarCalendario()
+        case false?: usarSemanaDeEjemplo()
+        case nil: return
+        }
+        aplicarMomentoDeDepuracion()
+    }
+    #endif
 
     // MARK: - Persistencia local
 

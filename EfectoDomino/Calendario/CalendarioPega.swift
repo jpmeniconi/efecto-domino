@@ -75,3 +75,71 @@ enum CalendarioPega {
             .filter { $0.isLetter || $0.isNumber }
     }
 }
+
+#if DEBUG
+extension CalendarioPega {
+    /// Solo en el simulador, que no tiene Google: crea un calendario local «Camila · Dominó» con una
+    /// pega distinta a la de ejemplo, y otro calendario que la app debe ignorar.
+    static func crearCalendarioDePrueba(desde lunes: Date) async {
+        #if targetEnvironment(simulator)
+        if EKEventStore.authorizationStatus(for: .event) == .notDetermined {
+            _ = try? await almacen.requestFullAccessToEvents()
+        }
+        guard EKEventStore.authorizationStatus(for: .event) == .fullAccess,
+              let fuente = almacen.sources.first(where: { $0.sourceType == .local }) ?? almacen.defaultCalendarForNewEvents?.source
+        else {
+            print("[Efecto Dominó] Sin acceso para crear el calendario de prueba.")
+            return
+        }
+        do {
+            let camila = try calendarioDePrueba(nombre, en: fuente)
+            // Cada semana: lunes temprano, martes y viernes en la tarde, jueves en terreno.
+            try eventoDePrueba("Reunión de coordinación", en: camila, inicio: lunes.a(8, 30), fin: lunes.a(10, 0), semanal: true)
+            try eventoDePrueba("Comité de obra", en: camila, inicio: lunes.mas(dias: 1).a(17, 0), fin: lunes.mas(dias: 1).a(19, 30), semanal: true)
+            try eventoDePrueba("Visita a terreno", en: camila, inicio: lunes.mas(dias: 3).a(7, 30), fin: lunes.mas(dias: 3).a(9, 0), semanal: true)
+            try eventoDePrueba("Revisión de presupuesto", en: camila, inicio: lunes.mas(dias: 4).a(16, 0), fin: lunes.mas(dias: 4).a(19, 0), semanal: true)
+            // Choca con el gimnasio del primer lunes a las 19:30: ese bloque tiene que esquivarla.
+            try eventoDePrueba("Reunión con mandante que se alarga", en: camila, inicio: lunes.a(18, 30), fin: lunes.a(20, 30))
+            // De todo el día: se ignora, así que la caminata de ese sábado se queda.
+            try eventoDePrueba("Feriado de prueba", en: camila, inicio: lunes.mas(dias: 5), fin: lunes.mas(dias: 5).a(23, 59), todoElDia: true)
+            // En otro calendario: la app no lo lee, así que la caminata del sábado siguiente también se queda.
+            let otro = try calendarioDePrueba("Otro calendario de prueba", en: fuente)
+            try eventoDePrueba("Evento de otro calendario", en: otro, inicio: lunes.mas(dias: 12).a(10, 0), fin: lunes.mas(dias: 12).a(11, 30))
+            try almacen.commit()
+        } catch {
+            print("[Efecto Dominó] No se pudo crear el calendario de prueba: \(error)")
+        }
+        #else
+        print("[Efecto Dominó] El calendario de prueba se crea solo en el simulador.")
+        #endif
+    }
+
+    #if targetEnvironment(simulator)
+    /// Reemplaza el calendario de prueba si ya existía: correr el atajo dos veces no duplica nada.
+    private static func calendarioDePrueba(_ titulo: String, en fuente: EKSource) throws -> EKCalendar {
+        for viejo in almacen.calendars(for: .event)
+        where viejo.source.sourceIdentifier == fuente.sourceIdentifier && normalizar(viejo.title) == normalizar(titulo) {
+            try almacen.removeCalendar(viejo, commit: true)
+        }
+        let calendario = EKCalendar(for: .event, eventStore: almacen)
+        calendario.title = titulo
+        calendario.source = fuente
+        try almacen.saveCalendar(calendario, commit: true)
+        return calendario
+    }
+
+    private static func eventoDePrueba(_ titulo: String, en calendario: EKCalendar, inicio: Date, fin: Date, semanal: Bool = false, todoElDia: Bool = false) throws {
+        let evento = EKEvent(eventStore: almacen)
+        evento.calendar = calendario
+        evento.title = titulo
+        evento.startDate = inicio
+        evento.endDate = fin
+        evento.isAllDay = todoElDia
+        if semanal {
+            evento.addRecurrenceRule(EKRecurrenceRule(recurrenceWith: .weekly, interval: 1, end: EKRecurrenceEnd(occurrenceCount: Escenario.semanasDePega)))
+        }
+        try almacen.save(evento, span: .futureEvents, commit: false)
+    }
+    #endif
+}
+#endif
