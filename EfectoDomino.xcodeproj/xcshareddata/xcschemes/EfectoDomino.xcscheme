@@ -39,6 +39,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D8703F7E57C152EDFC0F81C"
+               BuildableName = "EfectoDominoTests.xctest"
+               BlueprintName = "EfectoDominoTests"
+               ReferencedContainer = "container:EfectoDomino.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

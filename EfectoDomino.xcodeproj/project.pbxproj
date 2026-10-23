@@ -21,20 +21,36 @@
 		95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA964F16ED4D1B4D2F72BF /* Lector.swift */; };
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
 		B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE76A61151C40456DBB2C4 /* ObraView.swift */; };
+		BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48335995A8A75ADF0302F04A /* Ayudas.swift */; };
+		C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */; };
 		D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */; };
 		D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586195A179880D548353BFF /* RegistroSheet.swift */; };
 		E9A55BE40AD18A4B0DC9AF29 /* Escenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22C5E55360B9D6F78247CF3 /* Escenario.swift */; };
 		F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4A6EF18AE910E38AAF1 /* Modelos.swift */; };
+		F87338C86149EC6794E572E2 /* LectorLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */; };
 		FE022396FC593A30367997A5 /* Estilo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44825984E2BCC6257A718C /* Estilo.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7F76D1D21D1B70EF373C80F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DB1D049BFDF2A04F572B541 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AED78DCA6EA95C1AF157C7C;
+			remoteInfo = EfectoDomino;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		146AD4A6EF18AE910E38AAF1 /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
 		1878B681D1454824F438D06A /* GanttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttView.swift; sourceTree = "<group>"; };
+		2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanificadorTests.swift; sourceTree = "<group>"; };
 		20AA964F16ED4D1B4D2F72BF /* Lector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lector.swift; sourceTree = "<group>"; };
 		2B4BC19A09AE8506509AEE4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Depuracion.swift; sourceTree = "<group>"; };
 		3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObraStore.swift; sourceTree = "<group>"; };
+		48335995A8A75ADF0302F04A /* Ayudas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ayudas.swift; sourceTree = "<group>"; };
+		4BD43FCF6057CA18613A82A8 /* EfectoDominoTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = EfectoDominoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenarioSheet.swift; sourceTree = "<group>"; };
 		5CA6D2BE9399345B79399A20 /* Compartir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compartir.swift; sourceTree = "<group>"; };
 		71AE76A61151C40456DBB2C4 /* ObraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObraView.swift; sourceTree = "<group>"; };
@@ -45,6 +61,7 @@
 		894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustarSheet.swift; sourceTree = "<group>"; };
 		A22C5E55360B9D6F78247CF3 /* Escenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Escenario.swift; sourceTree = "<group>"; };
 		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
+		A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectorLocalTests.swift; sourceTree = "<group>"; };
 		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
@@ -56,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				867069D08B37A8354D4E3F16 /* EfectoDomino.app */,
+				4BD43FCF6057CA18613A82A8 /* EfectoDominoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				57A927D198CD100EEE2FE2AF /* EfectoDomino */,
+				FDD849C57D45CC7D24EDA07C /* EfectoDominoTests */,
 				026281624C277B35D918D7D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,9 +145,37 @@
 			path = IA;
 			sourceTree = "<group>";
 		};
+		FDD849C57D45CC7D24EDA07C /* EfectoDominoTests */ = {
+			isa = PBXGroup;
+			children = (
+				48335995A8A75ADF0302F04A /* Ayudas.swift */,
+				A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */,
+				2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */,
+			);
+			path = EfectoDominoTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4D8703F7E57C152EDFC0F81C /* EfectoDominoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FB336D3FEC752893CBD53CC /* Build configuration list for PBXNativeTarget "EfectoDominoTests" */;
+			buildPhases = (
+				DFA18FC9766A32AAC5F435EE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EB9D3BCF381EF567E5F2873 /* PBXTargetDependency */,
+			);
+			name = EfectoDominoTests;
+			packageProductDependencies = (
+			);
+			productName = EfectoDominoTests;
+			productReference = 4BD43FCF6057CA18613A82A8 /* EfectoDominoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9AED78DCA6EA95C1AF157C7C /* EfectoDomino */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 480B1035F9474A120E368FBE /* Build configuration list for PBXNativeTarget "EfectoDomino" */;
@@ -156,6 +203,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					4D8703F7E57C152EDFC0F81C = {
+						ProvisioningStyle = Automatic;
+					};
 					9AED78DCA6EA95C1AF157C7C = {
 						ProvisioningStyle = Automatic;
 					};
@@ -176,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				9AED78DCA6EA95C1AF157C7C /* EfectoDomino */,
+				4D8703F7E57C152EDFC0F81C /* EfectoDominoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -217,7 +268,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DFA18FC9766A32AAC5F435EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */,
+				F87338C86149EC6794E572E2 /* LectorLocalTests.swift in Sources */,
+				C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9EB9D3BCF381EF567E5F2873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AED78DCA6EA95C1AF157C7C /* EfectoDomino */;
+			targetProxy = F7F76D1D21D1B70EF373C80F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		14CF55B8F225D553A5B27F59 /* Release */ = {
@@ -243,6 +312,25 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cl.jpmeniconi.efectodomino;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5EABA708258EBCFC84BB1711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cl.jpmeniconi.efectodomino.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EfectoDomino.app/EfectoDomino";
 			};
 			name = Release;
 		};
@@ -369,6 +457,25 @@
 			};
 			name = Release;
 		};
+		DC11937CB444B8092BF0CDC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cl.jpmeniconi.efectodomino.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EfectoDomino.app/EfectoDomino";
+			};
+			name = Debug;
+		};
 		EBD804AFC932C39BB515BF7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -403,6 +510,15 @@
 			buildConfigurations = (
 				EBD804AFC932C39BB515BF7D /* Debug */,
 				14CF55B8F225D553A5B27F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6FB336D3FEC752893CBD53CC /* Build configuration list for PBXNativeTarget "EfectoDominoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC11937CB444B8092BF0CDC6 /* Debug */,
+				5EABA708258EBCFC84BB1711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
