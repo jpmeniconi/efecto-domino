@@ -24,7 +24,7 @@ final class ObraStore {
         let guardado = ObraStore.cargar()
         estado = guardado ?? Escenario.semilla()
         // La pega guardada y su calendario van juntos: sin plan guardado, vuelve la semana de ejemplo.
-        if guardado != nil { calendarioPega = UserDefaults.standard.string(forKey: Self.claveCalendario) }
+        fijarCalendarioPega(guardado == nil ? nil : UserDefaults.standard.string(forKey: Self.claveCalendario))
         #if DEBUG
         if Depuracion.reiniciar { reiniciar() }
         aplicarMomentoDeDepuracion()
