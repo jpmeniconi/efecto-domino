@@ -55,8 +55,10 @@ struct BotonAprendizajes: View {
 // MARK: - Lista
 
 /// La hoja como lista nativa, en el orden en que se lee una semana: cuándo, qué, cómo vuelve y cómo queda.
+/// Al final, el manual para seguir cuando termine el programa.
 private struct ListaDeAprendizajes: View {
     let datos: Aprendizajes
+    var esEjemplo = false
 
     var body: some View {
         ScrollViewReader { desplazamiento in
@@ -67,6 +69,9 @@ private struct ListaDeAprendizajes: View {
                 ayudas
                 regreso
                 espalda
+                alTerminar
+                reglas
+                compartir
             }
             .navigationSubtitle(datos.registros == 1 ? "Con tu primer bloque registrado" : "Con tus \(datos.registros) bloques registrados")
             #if DEBUG
@@ -220,6 +225,73 @@ private struct ListaDeAprendizajes: View {
         .id("espalda")
     }
 
+    /// Recordatorios y premios funcionan solo mientras duran (Milkman et al., 2021):
+    /// lo que se lleva es lo que aprendió de su propia semana.
+    private var alTerminar: some View {
+        Section {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("El plan pasa a tus manos")
+                    .font(.headline)
+                Text(datos.manual.introduccion)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.vertical, 2)
+            ForEach(datos.manual.horarios) { cumplido in
+                FilaConIcono(
+                    simbolo: cumplido.tipo.simbolo,
+                    color: cumplido.tipo.color,
+                    titulo: cumplido.horario.nombre,
+                    detalle: "\(cumplido.tipo.nombre), \(cumplido.minutos) min"
+                )
+            }
+            if !datos.manual.gustos.isEmpty {
+                FilaConEtiqueta(simbolo: "face.smiling", etiqueta: "Lo que disfrutas", valor: datos.manual.textoGustos)
+            }
+            if !datos.manual.ayudas.isEmpty {
+                FilaConEtiqueta(simbolo: "checklist", etiqueta: "Lo que te ayuda a ir", valor: datos.manual.textoAyudas)
+            }
+        } header: {
+            Text("Al terminar las \(datos.manual.semanas) semanas").textCase(nil)
+        } footer: {
+            if datos.manual.horarios.count < datos.manual.porSemana {
+                Text("Se completa a medida que registras bloques.")
+            }
+        }
+        .headerProminence(.increased)
+        .id("alterminar")
+    }
+
+    private var reglas: some View {
+        Section {
+            ForEach(datos.manual.reglas) { regla in
+                FilaConIcono(
+                    simbolo: "\(regla.numero).circle.fill",
+                    color: .accentColor,
+                    titulo: regla.titulo,
+                    detalle: regla.detalle
+                )
+            }
+        } header: {
+            Text("Tus tres reglas").textCase(nil)
+        }
+        .id("reglas")
+    }
+
+    /// Compartir es decisión de Camila: el texto lleva solo lo que le funciona, nunca sus faltas.
+    private var compartir: some View {
+        Section {
+            ShareLink(item: datos.manual.texto(esEjemplo: esEjemplo), subject: Text("Mi manual para seguir")) {
+                Label("Guardar o compartir mi manual", systemImage: "square.and.arrow.up")
+            }
+        } footer: {
+            Text(esEjemplo
+                ? "El texto del ejemplo avisa que los datos son ficticios."
+                : "Texto simple con lo que te funciona, sin faltas. Tú decides si lo guardas o a quién se lo mandas.")
+        }
+        .id("compartir")
+    }
+
     private static func sinDatos(_ pregunta: String) -> String {
         "Márcalo en «\(pregunta)» al registrar un bloque."
     }
@@ -306,6 +378,28 @@ private struct FilaConIcono: View {
     }
 }
 
+/// Etiqueta chica arriba y el valor abajo, como en Contactos.
+private struct FilaConEtiqueta: View {
+    let simbolo: String
+    let etiqueta: String
+    let valor: String
+
+    var body: some View {
+        Label {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(etiqueta)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Text(valor)
+            }
+        } icon: {
+            Image(systemName: simbolo)
+                .foregroundStyle(Color.accentColor)
+        }
+        .accessibilityElement(children: .combine)
+    }
+}
+
 /// Título y valor en una línea; con texto muy grande, el valor pasa abajo.
 private struct TituloYValor: View {
     let titulo: String
@@ -386,6 +480,15 @@ private extension TipoBloque {
         case .gimnasio: "Después del gimnasio"
         case .caminata: "Después de caminar"
         case .casa: "Después de los bloques en casa"
+        }
+    }
+
+    /// "caminata y bloques en casa", para nombrarlos dentro de una lista.
+    var enLista: String {
+        switch self {
+        case .gimnasio: "gimnasio"
+        case .caminata: "caminata"
+        case .casa: "bloques en casa"
         }
     }
 }
@@ -494,6 +597,75 @@ struct Aprendizajes {
         var total: Int { mejor + igual + peor }
     }
 
+    /// Lo que se lleva al terminar el programa: sus horarios, lo que disfruta y tres reglas, sin la app.
+    struct Manual {
+        struct Regla: Identifiable {
+            let numero: Int
+            let titulo: String
+            let detalle: String
+            var id: Int { numero }
+        }
+
+        let semanas: Int
+        let porSemana: Int
+        /// La meta estimada: el último bloque del plan. Si no quedan, ya terminó.
+        let meta: Date?
+        let horarios: [Cumplido]
+        let gustos: [TipoBloque]
+        let ayudas: [String]
+        let holgura: [Horario]
+
+        var introduccion: String {
+            let cierre = "sigues sin la app, con lo que ya sabes que te funciona."
+            guard let meta else { return "Completaste el programa: \(cierre)" }
+            return "Tu meta estimada es el \(Formato.fechaConDia(meta)). Desde ahí \(cierre)"
+        }
+
+        var textoGustos: String { Aprendizajes.enLista(gustos.map(\.enLista)).conMayuscula }
+
+        var textoAyudas: String {
+            Aprendizajes.enLista(ayudas.map { $0.prefix(1).lowercased() + $0.dropFirst() }).conMayuscula
+        }
+
+        var reglas: [Regla] {
+            let espacios = Aprendizajes.enLista(holgura.map { "\($0.nombreDelDia) \($0.reloj)" })
+            return [
+                Regla(
+                    numero: 1,
+                    titulo: "Si un bloque se cae, primero la holgura de la semana.",
+                    detalle: holgura.isEmpty ? "Muévelo a otro espacio libre de la misma semana." : "Espacios libres: \(espacios)."
+                ),
+                Regla(
+                    numero: 2,
+                    titulo: "Si cuesta volver, un bloque puente.",
+                    detalle: "15 o 20 minutos el mismo día. Corto, pero cuenta completo."
+                ),
+                Regla(
+                    numero: 3,
+                    titulo: "Nunca recuperar con más bloques.",
+                    detalle: "Máximo \(porSemana) por semana. Lo que no cabe se corre, no se acumula."
+                ),
+            ]
+        }
+
+        /// Texto simple para guardarlo o mandarlo. En primera persona: es su manual.
+        func texto(esEjemplo: Bool) -> String {
+            var lineas = esEjemplo ? ["Ejemplo con datos ficticios.", ""] : []
+            lineas.append("Mi manual para seguir")
+            if !horarios.isEmpty {
+                lineas += ["", "Mis horarios"] + horarios.map { "• \($0.horario.nombre) · \($0.tipo.nombre), \($0.minutos) min" }
+            }
+            if !gustos.isEmpty {
+                lineas += ["", "Lo que disfruto"] + gustos.map { "• \($0.nombre)" }
+            }
+            if !ayudas.isEmpty {
+                lineas += ["", "Lo que me ayuda a ir"] + ayudas.map { "• \($0)" }
+            }
+            lineas += ["", "Mis tres reglas"] + reglas.map { "\($0.numero). \($0.titulo) \($0.detalle)" }
+            return lineas.joined(separator: "\n")
+        }
+    }
+
     let registros: Int
     /// Bloques hechos por día de la semana (0 = lunes), del más antiguo al más reciente.
     let porDia: [[Bloque]]
@@ -504,6 +676,7 @@ struct Aprendizajes {
     let regresos: Int
     let puentes: Int
     let espalda: Espalda
+    let manual: Manual
 
     /// Cuántos regresos fueron con un bloque puente (todo bloque puente hecho es un regreso).
     var resumenDeRegreso: String? {
@@ -517,14 +690,28 @@ struct Aprendizajes {
     static func contar(_ cantidad: Int, _ singular: String, _ plural: String) -> String {
         cantidad == 1 ? "1 \(singular)" : "\(cantidad) \(plural)"
     }
+
+    /// "a, b y c"
+    static func enLista(_ elementos: [String]) -> String {
+        guard let ultimo = elementos.last, elementos.count > 1 else { return elementos.first ?? "" }
+        return elementos.dropLast().joined(separator: ", ") + " y " + ultimo
+    }
 }
 
 extension Aprendizajes {
     init(_ e: EstadoObra) {
-        self.init(bloques: e.bloques, patron: e.patron, movidas: e.movidasPorVentana, ajustesResueltos: e.ajustesResueltos)
+        self.init(
+            bloques: e.bloques,
+            patron: e.patron,
+            alternativas: e.alternativas,
+            movidas: e.movidasPorVentana,
+            ajustesResueltos: e.ajustesResueltos,
+            porSemana: e.proyecto.porSemana,
+            semanas: e.proyecto.semanas
+        )
     }
 
-    init(bloques: [Bloque], patron: [Ventana], movidas: [String: Int], ajustesResueltos: [String]) {
+    init(bloques: [Bloque], patron: [Ventana], alternativas: [Ventana], movidas: [String: Int], ajustesResueltos: [String], porSemana: Int, semanas: Int) {
         let hechos = bloques.filter { $0.estado == .hecho }.sorted { $0.inicio < $1.inicio }
         let registrados = hechos.filter { $0.registro != nil }
 
@@ -537,6 +724,56 @@ extension Aprendizajes {
         regresos = hechos.filter(\.esRegreso).count
         puentes = hechos.filter(\.esPuente).count
         espalda = Self.espalda(registrados)
+        manual = Self.manual(
+            cumplidos: cumplidos,
+            gustos: gustos,
+            ayudas: ayudas,
+            patron: patron,
+            alternativas: alternativas,
+            meta: bloques.filter { $0.estado == .planificado }.map(\.inicio).max(),
+            porSemana: porSemana,
+            semanas: semanas
+        )
+    }
+
+    /// Un horario por día, el que más se cumplió (los que fueron solo bloque puente no cuentan),
+    /// hasta completar una semana del plan.
+    private static func manual(cumplidos: [Cumplido], gustos: [Gusto], ayudas: [Ayuda], patron: [Ventana], alternativas: [Ventana], meta: Date?, porSemana: Int, semanas: Int) -> Manual {
+        let delPatron = Set(patron.map { Horario($0) })
+        let mejoresPorDia = Dictionary(grouping: cumplidos.filter { $0.hechos > $0.puentes }) { $0.horario.dia }
+            .values
+            .compactMap { grupo in
+                grupo.max { a, b in
+                    a.hechos != b.hechos ? a.hechos < b.hechos : !delPatron.contains(a.horario) && delPatron.contains(b.horario)
+                }
+            }
+        let horarios = mejoresPorDia
+            .sorted { $0.hechos != $1.hechos ? $0.hechos > $1.hechos : $0.horario < $1.horario }
+            .prefix(porSemana)
+            .sorted { $0.horario < $1.horario }
+        var disfruta = gustos.filter { $0.proporcion >= 0.5 }.prefix(2).map(\.tipo)
+        if disfruta.isEmpty, let favorito = gustos.first, favorito.bien > 0 { disfruta = [favorito.tipo] }
+        return Manual(
+            semanas: semanas,
+            porSemana: porSemana,
+            meta: meta,
+            horarios: horarios,
+            gustos: disfruta,
+            ayudas: ayudas.prefix(2).map { comoHabito($0.texto) },
+            holgura: alternativas.map { Horario($0) }.sorted()
+        )
+    }
+
+    /// Lo que marcó en pasado («Tenía el bolso listo»), escrito como algo que se repite («Dejar el bolso listo»).
+    private static func comoHabito(_ ayuda: String) -> String {
+        switch ayuda {
+        case "Tenía el bolso listo": "Dejar el bolso listo"
+        case "Bloqueé la agenda": "Bloquear la agenda"
+        case "Era corto": "Hacerlo corto"
+        case "Fui con alguien": "Ir con alguien"
+        case "Salí a la hora": "Salir a la hora"
+        default: ayuda
+        }
     }
 
     private static func cumplidos(_ hechos: [Bloque]) -> [Cumplido] {
