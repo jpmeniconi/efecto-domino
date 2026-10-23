@@ -145,7 +145,8 @@ enum Planificador {
         let slotPuente = puente(e, para: bloque, barrera: lectura.barrera)
         let slotHolgura = holgura(e, semanaDe: max(bloque.inicio, e.ahora), desde: e.ahora, excepto: bloque.id, preferir: bloque.tipo)
             .first { slot in slotPuente.map { !slot.fecha.mismoDia(que: $0.fecha) } ?? true }
-        let slotLunes = slotsDelPatron(e, desde: e.ahora.lunes.mas(dias: 7), cantidad: 1).first
+        // Solo si ese lunes viene después del bloque: partir el lunes nunca lo adelanta.
+        let slotLunes = slotsDelPatron(e, desde: e.ahora.lunes.mas(dias: 7), cantidad: 1).first { $0.fecha > bloque.inicio }
 
         let conHolgura = slotHolgura.map { slot in
             Propuesta(
@@ -194,8 +195,11 @@ enum Planificador {
     }
 
     static func pausas(_ e: EstadoObra) -> [Propuesta] {
-        let proximoLunes = e.ahora.lunes.mas(dias: 7)
-        let enDosSemanas = e.ahora.lunes.mas(dias: 14)
+        // Se cuenta desde el próximo bloque: una pausa nunca adelanta el plan ni queda vacía.
+        let proximo = e.bloques.filter { $0.estado == .planificado && $0.inicio >= e.ahora.inicioDelDia }.map(\.inicio).min()
+        let desde = max(e.ahora, proximo ?? e.ahora)
+        let proximoLunes = desde.lunes.mas(dias: 7)
+        let enDosSemanas = desde.lunes.mas(dias: 14)
         let opciones = [proximoLunes, enDosSemanas].map { hasta in
             Propuesta(
                 etiqueta: "Pausa",
@@ -243,7 +247,7 @@ enum Planificador {
 
     static func reubicar(_ e: EstadoObra, id: UUID, slot: Slot, puente: Bool) -> EstadoObra {
         var e = e
-        guard let i = e.bloques.firstIndex(where: { $0.id == id }) else { return e }
+        guard let i = e.bloques.firstIndex(where: { $0.id == id }), e.bloques[i].estado == .planificado else { return e }
         let original = e.bloques[i]
         asignar(&e.bloques[i], slot)
         e.bloques[i].esPuente = puente
@@ -257,7 +261,7 @@ enum Planificador {
     /// toma el espacio del que viene después. La semana nunca recibe más bloques.
     static func empujar(_ e: EstadoObra, id: UUID, a destino: Date) -> EstadoObra {
         var e = e
-        guard let i = e.bloques.firstIndex(where: { $0.id == id }) else { return e }
+        guard let i = e.bloques.firstIndex(where: { $0.id == id }), e.bloques[i].estado == .planificado else { return e }
         let original = e.bloques[i]
         let corte = destino.inicioDelDia
         let afectados = e.bloques.indices
