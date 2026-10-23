@@ -90,7 +90,7 @@ Si la lectura tarda más de dos segundos, sigue hablando: la primera del día es
 | Toca | Dices |
 |---|---|
 | El reloj de arriba (la cápsula «Escenario ficticio») y luego «Miércoles 06:45». | Miércoles, 06:45. Apagó la alarma por cuarta vez. |
-| Sube hasta «Bloque de hoy», deja la carta Gantt a la vista y toca «Ajustar». | |
+| Arriba aparece «Quedó sin registrar» del martes: no la toques. Ubica «Bloque de hoy», deja la carta Gantt a la vista y toca «Ajustar». | |
 | El atajo «Ya perdí la semana» | Esta es la frase que la tumba. La app la reconoce y sugiere un bloque puente: 20 minutos hoy en la tarde, que cuentan completo. |
 | La opción «Partir el lunes» | Pero si quiere partir el lunes, tampoco parte de cero: los bloques siguientes se corren un espacio, como fichas de dominó, y su meta se corre dos días. No se suma ningún bloque extra. |
 | «Confirmar ajuste» y mira la carta Gantt | Ahí va el efecto dominó. Y su avance sigue en seis fichas en pie. |
@@ -110,10 +110,10 @@ Vuelve al navegador y avanza a la 7. Tiempo de vuelta: 5 segundos.
 
 ### Si la demo falla
 
-- **Se cae la proyección del iPhone o la app no responde:** vuelve al navegador, que está en la diapositiva 6, y aprieta **1**: se abre el video del lunes. **2** es el miércoles, **3** el domingo y **4** el programa completo. Dices lo mismo de las tablas de arriba sobre el video. Espacio pausa, Esc cierra y → sigue a la 7.
+- **Se cae la proyección del iPhone o la app no responde:** vuelve al navegador, que está en la diapositiva 6, y aprieta **1**: se abre el respaldo del lunes (el video o, si no llegó, sus capturas lado a lado). **2** es el miércoles, **3** el domingo y **4** el programa completo. Dices lo mismo de las tablas de arriba. Espacio pausa el video, Esc cierra y → sigue a la 7.
 - **La lectura se queda pensando:** sigue hablando; a los 12 segundos aparece la lectura local. Para evitarlo, antes del pitch: reloj → «Usar solo lectura local».
 - **Tocaste otra opción:** «Deshacer» en el aviso de abajo (dura 6 segundos). Si ya se fue, sigue: cualquier opción muestra que no parte de cero.
-- **La app se cerró:** ábrela de nuevo. El plan y el reloj quedan guardados.
+- **La app se cerró:** ábrela de nuevo y toca la flecha de la bienvenida. El plan y el reloj quedan guardados.
 
 Variante, solo si un ensayo te da tiempo de sobra: en el miércoles, deja la sugerida («Bloque puente»), confirma, toca el reloj → «Miércoles 20:15» → «Fui» → «Guardar». Aparece «Volviste después de un atraso: ficha de regreso», que es justo lo que premiaba el estudio de Milkman. No muestra el efecto dominó en vivo.
 
@@ -143,7 +143,7 @@ Quédate en esta diapositiva durante las preguntas: tiene el QR del repo.
 
 - Batería sobre 80 %, modo Concentración «No molestar», brillo alto y bloqueo automático en «Nunca» (Ajustes → Pantalla y brillo).
 - Apple Intelligence activado, para que la lectura corra en el iPhone.
-- En Dominó: «…» arriba a la derecha → «Reiniciar escenario». Queda en lunes 19:05, con el plan nuevo.
+- En Dominó: «…» arriba a la derecha → «Reiniciar escenario». Queda en lunes 19:05, con el plan nuevo. Déjala abierta en «Mi plan»: si la cierras, al abrirla aparece primero la bienvenida.
 - Decide si vas con la semana de ejemplo o con el calendario «Camila · Dominó» conectado (reloj → «Conectar calendario») y ensaya con lo mismo que vas a usar. Al conectar o volver a leer el calendario, el plan se arma de nuevo desde el lunes.
 - Haz una lectura de prueba en «Ajustar» y cierra sin confirmar: así el modelo queda cargado. Si tarda más de 3 segundos, activa «Usar solo lectura local».
 - Vuelve a «Reiniciar escenario» después de cualquier ensayo.
@@ -183,8 +183,8 @@ Ya silenció las notificaciones, y recordatorios y premios funcionan solo mientr
 **5. ¿Cómo lo medirían? ¿Lo probaron con personas?**
 Con el tiempo de regreso después de una falta, la frecuencia semanal de la semana 1 a la 6 y la permanencia en la semana 12, contra un grupo de control. No lo probamos con personas reales porque el concurso exige datos ficticios; lo siguiente sería un piloto con consentimiento antes de sumar nada.
 
-**6. ¿Por qué cuatro bloques por semana y dos cortos?**
-Kaushal y Rhodes encontraron que cuatro sesiones por semana durante seis semanas es el mínimo para formar el hábito: pesa la frecuencia, no la intensidad. Los bloques cortos bajan la barrera de entrada y cuentan completo, igual que el bloque puente.
+**6. Sin recordatorios, ¿cómo vuelve a abrir la app?**
+No competimos por su atención: ya silenció las notificaciones. La abre cuando algo se mueve, que es justo cuando la necesita, y el domingo en la noche, cuando le llega el cargo del gimnasio y aparece el «mañana parto». Lo que sostiene el hábito no es un aviso: son cuatro horarios fijos que caben en su semana, como pide la evidencia de Kaushal y Rhodes, y que la lista «Antes de salir» le recuerda bloquear en su agenda.
 
 **7. ¿Qué pasa cuando terminan las seis semanas? ¿Queda dependiendo de la app?**
 No. «Lo que te funciona» le muestra qué horarios se cumplen, qué disfruta y cómo vuelve, y al terminar le queda un manual con sus horarios y tres reglas. Lo guarda o lo manda como texto, sin sus faltas.
