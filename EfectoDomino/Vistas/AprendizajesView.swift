@@ -6,15 +6,15 @@ import SwiftUI
 struct AprendizajesView: View {
     @Environment(ObraStore.self) private var store
     @Environment(\.dismiss) private var dismiss
-    @State private var viendoEjemplo = false
+    @State private var ejemplo: Aprendizajes?
 
     var body: some View {
         let datos = Aprendizajes(store.estado)
         NavigationStack {
             Group {
-                if viendoEjemplo {
-                    ListaDeAprendizajes(datos: .ejemplo, esEjemplo: true) {
-                        withAnimation { viendoEjemplo = false }
+                if let ejemplo {
+                    ListaDeAprendizajes(datos: ejemplo, esEjemplo: true) {
+                        withAnimation { self.ejemplo = nil }
                     }
                 } else if datos.registros < Aprendizajes.minimo {
                     estadoVacio(registros: datos.registros)
@@ -31,24 +31,29 @@ struct AprendizajesView: View {
             }
         }
         #if DEBUG
-        .onAppear { if Depuracion.ejemplo { viendoEjemplo = true } }
+        .onAppear { if Depuracion.ejemplo { verEjemplo() } }
         #endif
     }
 
     /// Con pocos registros no se inventan patrones: se dice cuántos faltan y se ofrece un ejemplo.
     private func estadoVacio(registros: Int) -> some View {
         ContentUnavailableView {
-            Label("Registra \(Aprendizajes.minimo) bloques para ver tus patrones", systemImage: "rectangle.split.1x2")
+            Label("Registra \(Aprendizajes.minimo) bloques para ver tus patrones", systemImage: "rectangle.split.1x2.fill")
         } description: {
             Text("Llevas \(registros) de \(Aprendizajes.minimo). Con menos, cualquier patrón sería casualidad.")
         } actions: {
             Button("Ver un ejemplo de la semana 6") {
-                withAnimation { viendoEjemplo = true }
+                withAnimation { verEjemplo() }
             }
             .buttonStyle(.glass)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
+    }
+
+    /// El ejemplo usa las fechas de su programa: su semana 6 y su meta estimada.
+    private func verEjemplo() {
+        ejemplo = .ejemplo(desde: store.estado.inicioObra)
     }
 }
 
@@ -91,6 +96,7 @@ private struct ListaDeAprendizajes: View {
     let datos: Aprendizajes
     var esEjemplo = false
     var alSalirDelEjemplo: () -> Void = {}
+    @Environment(\.dynamicTypeSize) private var tamano
 
     var body: some View {
         ScrollViewReader { desplazamiento in
@@ -228,11 +234,11 @@ private struct ListaDeAprendizajes: View {
 
     private var regreso: some View {
         Section {
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .top, spacing: 16) { cifrasDeRegreso }
-                VStack(alignment: .leading, spacing: 16) { cifrasDeRegreso }
-            }
-            .padding(.vertical, 4)
+            let disposicion = tamano.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 16))
+                : AnyLayout(HStackLayout(alignment: .top, spacing: 16))
+            disposicion { cifrasDeRegreso }
+                .padding(.vertical, 4)
             if let resumen = datos.resumenDeRegreso {
                 Text(resumen)
                     .font(.subheadline)
@@ -266,7 +272,7 @@ private struct ListaDeAprendizajes: View {
                 )
                 .accessibilityElement(children: .combine)
                 if let mejor = datos.espalda.mejorDespuesDe {
-                    Text("\(mejor.tipo.despuesDe) quedó mejor \(mejor.mejor) de \(mejor.total) veces.")
+                    Text("\(mejor.tipo.despuesDe), tu espalda quedó mejor \(mejor.mejor) de \(mejor.total) veces.")
                 }
             }
         } header: {
@@ -373,7 +379,6 @@ private struct SemanaReal: View {
                     .frame(maxWidth: .infinity)
                 }
             }
-            .frame(minHeight: 51, alignment: .bottom)
             HStack(alignment: .top, spacing: 6) {
                 ForEach(porDia.indices, id: \.self) { dia in
                     VStack(spacing: 1) {
@@ -409,6 +414,8 @@ private struct SemanaReal: View {
     }
 }
 
+/// Título y detalle en un solo párrafo (salto de línea U+2028): con letra muy grande, iOS deja el ícono
+/// en la primera línea y el resto usa todo el ancho, como en Ajustes.
 private struct FilaConIcono: View {
     let simbolo: String
     let color: Color
@@ -417,18 +424,11 @@ private struct FilaConIcono: View {
 
     var body: some View {
         Label {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(titulo)
-                    .font(.body.weight(.semibold))
-                Text(detalle)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
+            Text("\(Text(titulo).font(.body.weight(.semibold)))\u{2028}\(Text(detalle).font(.subheadline).foregroundStyle(.secondary))")
         } icon: {
             Image(systemName: simbolo)
                 .foregroundStyle(color)
         }
-        .accessibilityElement(children: .combine)
     }
 }
 
@@ -440,17 +440,11 @@ private struct FilaConEtiqueta: View {
 
     var body: some View {
         Label {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(etiqueta)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                Text(valor)
-            }
+            Text("\(Text(etiqueta).font(.subheadline).foregroundStyle(.secondary))\u{2028}\(Text(valor))")
         } icon: {
             Image(systemName: simbolo)
                 .foregroundStyle(Color.accentColor)
         }
-        .accessibilityElement(children: .combine)
     }
 }
 
@@ -508,7 +502,7 @@ private struct ConteoEspalda: View {
             columna(espalda.peor, "Peor", destacada: false)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Quedó mejor \(espalda.mejor), igual \(espalda.igual) y peor \(espalda.peor) veces")
+        .accessibilityLabel("Quedó mejor \(Aprendizajes.contar(espalda.mejor, "vez", "veces")), igual \(espalda.igual) y peor \(espalda.peor)")
     }
 
     private func columna(_ cantidad: Int, _ nombre: String, destacada: Bool) -> some View {
@@ -950,8 +944,7 @@ extension Aprendizajes {
     /// Semana 6 ficticia, para ver la hoja antes de tener datos propios. Siempre se muestra marcada como ejemplo.
     /// La historia: el miércoles 06:30 no resultó y pasó a la tarde; cuando algo se cayó, volvió con holgura
     /// o con un bloque puente. Pasa por el mismo cálculo que los datos reales.
-    static let ejemplo: Aprendizajes = {
-        let inicio = Date().lunes.mas(dias: -35)
+    static func ejemplo(desde inicio: Date) -> Aprendizajes {
         let ahora = inicio.mas(dias: 36).a(22, 0) // martes de la semana 6, después de su bloque
         let miercolesTarde = Ventana(dia: 3, hora: 19, minuto: 30, tipo: .gimnasio, minutos: 45)
 
@@ -1020,7 +1013,7 @@ extension Aprendizajes {
             porSemana: 4,
             semanas: 6
         )
-    }()
+    }
 
     private static func ayudasDeEjemplo(_ bloque: Bloque, semana: Int) -> [String] {
         if bloque.esPuente || bloque.tipo == .casa { return ["Era corto"] }
