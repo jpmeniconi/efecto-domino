@@ -18,6 +18,7 @@
 		736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */; };
 		775199A0A1DD9909841471D9 /* EscenarioSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */; };
 		7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */; };
+		84380DEAE26AB99D5A5C5992 /* CalendarioPega.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CBFED272AC84B827EA383 /* CalendarioPega.swift */; };
 		95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA964F16ED4D1B4D2F72BF /* Lector.swift */; };
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
 		B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE76A61151C40456DBB2C4 /* ObraView.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		107CBFED272AC84B827EA383 /* CalendarioPega.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioPega.swift; sourceTree = "<group>"; };
 		146AD4A6EF18AE910E38AAF1 /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
 		1878B681D1454824F438D06A /* GanttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttView.swift; sourceTree = "<group>"; };
 		20AA964F16ED4D1B4D2F72BF /* Lector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lector.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 			);
 			sourceTree = "<group>";
 		};
+		222CF0651451EF5049A317A8 /* Calendario */ = {
+			isa = PBXGroup;
+			children = (
+				107CBFED272AC84B827EA383 /* CalendarioPega.swift */,
+			);
+			path = Calendario;
+			sourceTree = "<group>";
+		};
 		4FCCA71AAC550848F2131AE3 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 			children = (
 				2B4BC19A09AE8506509AEE4A /* Assets.xcassets */,
 				4FCCA71AAC550848F2131AE3 /* App */,
+				222CF0651451EF5049A317A8 /* Calendario */,
 				F023FF3C2B1D60C23D840DB3 /* IA */,
 				E423B864E078593293983EB3 /* Modelo */,
 				DC3FC47609E19E11088B8AD6 /* Vistas */,
@@ -198,6 +209,7 @@
 			files = (
 				7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */,
 				22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */,
+				84380DEAE26AB99D5A5C5992 /* CalendarioPega.swift in Sources */,
 				A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */,
 				3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */,
 				D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */,
