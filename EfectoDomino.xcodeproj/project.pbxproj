@@ -22,6 +22,7 @@
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
 		B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE76A61151C40456DBB2C4 /* ObraView.swift */; };
 		BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48335995A8A75ADF0302F04A /* Ayudas.swift */; };
+		C0A6521B2C11D4011FBFA343 /* CompartirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */; };
 		C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */; };
 		D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */; };
 		D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586195A179880D548353BFF /* RegistroSheet.swift */; };
@@ -62,6 +63,7 @@
 		A22C5E55360B9D6F78247CF3 /* Escenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Escenario.swift; sourceTree = "<group>"; };
 		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
 		A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectorLocalTests.swift; sourceTree = "<group>"; };
+		AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartirTests.swift; sourceTree = "<group>"; };
 		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				48335995A8A75ADF0302F04A /* Ayudas.swift */,
+				AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */,
 				A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */,
 				2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */,
 			);
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */,
+				C0A6521B2C11D4011FBFA343 /* CompartirTests.swift in Sources */,
 				F87338C86149EC6794E572E2 /* LectorLocalTests.swift in Sources */,
 				C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */,
 			);
