@@ -117,7 +117,7 @@ button {
   font-size: clamp(31px, 8.4vw, 44px);
   font-weight: 700;
   line-height: 1.07;
-  letter-spacing: -.03em;
+  letter-spacing: -.022em;
   text-wrap: balance;
 }
 
@@ -206,7 +206,7 @@ button {
 .modo-deck.js .activa .entra { transform: none; }
 
 .modo-deck .kicker { margin-bottom: 26px; font-size: 30px; }
-.modo-deck .titulo { font-size: 84px; line-height: 1.04; letter-spacing: -.034em; }
+.modo-deck .titulo { font-size: 84px; line-height: 1.04; letter-spacing: -.025em; }
 .modo-deck .bajada { margin-top: 30px; font-size: 42px; line-height: 1.26; letter-spacing: -.016em; }
 .modo-deck .nota { margin-top: 32px; font-size: 26px; }
 
@@ -363,7 +363,7 @@ button {
   opacity: 0;
 }
 
-.arco { stroke-dasharray: .018 .014; }
+.arco { stroke-dasharray: 7 6; }
 
 .hito,
 .hito-meta rect { fill: var(--texto); }
@@ -448,7 +448,7 @@ button {
   font-size: clamp(64px, 19vw, 104px);
   font-weight: 700;
   line-height: .95;
-  letter-spacing: -.045em;
+  letter-spacing: -.035em;
 }
 
 .portada-frase {
@@ -558,8 +558,8 @@ button {
   stroke: var(--texto-3);
   stroke-width: 2.5;
   stroke-linecap: round;
-  stroke-dasharray: 1 1;
-  stroke-dashoffset: 1;
+  stroke-dasharray: 1288 1288;      /* largo del arco, en unidades del dibujo */
+  stroke-dashoffset: 1288;
   transition: stroke-dashoffset 1.3s var(--curva) 1.25s;
 }
 
@@ -704,7 +704,7 @@ button {
   margin-bottom: 6px;
   font-size: 30px;
   font-weight: 700;
-  letter-spacing: -.03em;
+  letter-spacing: -.02em;
   color: var(--acento);
 }
 
@@ -895,7 +895,7 @@ button {
 }
 
 .modo-deck .momento-dia { font-size: 38px; }
-.modo-deck .momento-hora { margin-top: 12px; font-size: 160px; line-height: 1; letter-spacing: -.035em; }
+.modo-deck .momento-hora { margin-top: 12px; font-size: 160px; line-height: 1; letter-spacing: -.025em; }
 .modo-deck .momento-texto { margin-top: 30px; font-size: 40px; }
 
 /* Respaldo: el video de cada momento si la demo en vivo falla. */
@@ -1238,7 +1238,7 @@ button {
   color: var(--texto-2);
 }
 
-.despedida-frase strong { font-size: 1.4em; font-weight: 700; letter-spacing: -.03em; color: var(--texto); }
+.despedida-frase strong { font-size: 1.4em; font-weight: 700; letter-spacing: -.022em; color: var(--texto); }
 
 .despedida-enlace {
   display: inline-flex;
@@ -1265,7 +1265,7 @@ button {
 }
 
 .modo-deck .metricas li { padding-top: 32px; border-top-width: 2px; }
-.modo-deck .metrica-nombre { font-size: 52px; letter-spacing: -.03em; }
+.modo-deck .metrica-nombre { font-size: 52px; letter-spacing: -.022em; }
 .modo-deck .metrica-detalle { margin-top: 10px; font-size: 32px; }
 
 .modo-deck .despedida {
