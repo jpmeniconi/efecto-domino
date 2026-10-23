@@ -30,13 +30,19 @@ enum CalendarioPega {
         let eventos: [EventoPega]
     }
 
-    private static let almacen = EKEventStore()
+    private static var almacen = EKEventStore()
 
-    /// Pide acceso completo la primera vez (iOS 17+) y lee el calendario.
+    /// Pide acceso completo la primera vez (iOS 17+). Justo después de darlo, el mismo almacén
+    /// puede no ver ningún calendario en la primera lectura, así que se reemplaza por uno nuevo.
+    private static func pedirAcceso() async {
+        guard EKEventStore.authorizationStatus(for: .event) == .notDetermined else { return }
+        _ = try? await almacen.requestFullAccessToEvents()
+        almacen = EKEventStore()
+    }
+
+    /// Pide acceso la primera vez y lee el calendario.
     static func conectar(desde lunes: Date) async -> Result<Lectura, Problema> {
-        if EKEventStore.authorizationStatus(for: .event) == .notDetermined {
-            _ = try? await almacen.requestFullAccessToEvents()
-        }
+        await pedirAcceso()
         if EKEventStore.authorizationStatus(for: .event) == .fullAccess {
             almacen.refreshSourcesIfNecessary()
         }
@@ -82,9 +88,7 @@ extension CalendarioPega {
     /// pega distinta a la de ejemplo, y otro calendario que la app debe ignorar.
     static func crearCalendarioDePrueba(desde lunes: Date) async {
         #if targetEnvironment(simulator)
-        if EKEventStore.authorizationStatus(for: .event) == .notDetermined {
-            _ = try? await almacen.requestFullAccessToEvents()
-        }
+        await pedirAcceso()
         guard EKEventStore.authorizationStatus(for: .event) == .fullAccess,
               let fuente = almacen.sources.first(where: { $0.sourceType == .local }) ?? almacen.defaultCalendarForNewEvents?.source
         else {
