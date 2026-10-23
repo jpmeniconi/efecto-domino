@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// Lo construido: la frecuencia de las primeras seis semanas, como un muro.
-/// Una falta nunca quita ladrillos.
+/// Lo construido nunca baja: empieza en las visitas de enero y solo suma.
+/// La frecuencia de las primeras seis semanas se ve en el muro, sin contadores que se reinicien.
 struct AvanceCard: View {
     let bloques: [Bloque]
     let proyecto: Proyecto
@@ -14,24 +14,21 @@ struct AvanceCard: View {
     private var hechos: Int { bloques.filter { $0.estado == .hecho }.count }
     private var regresos: Int { bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
     private var semanaActual: Int { max(0, inicioObra.dias(hasta: ahora) / 7) + 1 }
-    private var hechosEstaSemana: Int {
-        bloques.filter { $0.estado == .hecho && $0.inicio.lunes == ahora.lunes }.count
-    }
 
     var body: some View {
         Tarjeta {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Obra gruesa · semana \(semanaActual) de \(proyecto.semanas)")
+                        Text("Lo construido")
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.secondary)
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text("\(hechosEstaSemana)")
+                            Text("\(proyecto.fundaciones + hechos)")
                                 .font(.system(size: 46, weight: .bold, design: .rounded))
                                 .monospacedDigit()
                                 .contentTransition(.numericText())
-                            Text("de \(proyecto.porSemana) esta semana")
+                            Text("bloques desde enero")
                                 .font(.headline)
                                 .foregroundStyle(.secondary)
                         }
@@ -50,9 +47,12 @@ struct AvanceCard: View {
                             .multilineTextAlignment(.trailing)
                     }
                 }
-                .animation(.snappy, value: hechosEstaSemana)
+                .animation(.snappy, value: hechos)
                 .animation(.snappy, value: recepcion)
 
+                Text("Obra gruesa · semana \(semanaActual) de \(proyecto.semanas)")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
                 MuroSemanal(bloques: bloques, inicioObra: inicioObra, ahora: ahora, porSemana: proyecto.porSemana, semanasMinimas: proyecto.semanas)
                 Fundaciones(cantidad: proyecto.fundaciones)
 

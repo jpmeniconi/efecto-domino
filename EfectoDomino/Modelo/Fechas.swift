@@ -30,6 +30,8 @@ extension Date {
 
     var hora: Int { Calendar.obra.component(.hour, from: self) }
 
+    var minuto: Int { Calendar.obra.component(.minute, from: self) }
+
     func mas(dias: Int) -> Date {
         Calendar.obra.date(byAdding: .day, value: dias, to: self) ?? self
     }
@@ -86,6 +88,19 @@ enum Formato {
     /// "19:30"
     static func hora(_ fecha: Date) -> String {
         formatoHora.string(from: fecha)
+    }
+
+    /// "06:30"
+    static func hora(_ hora: Int, _ minuto: Int) -> String {
+        String(format: "%02d:%02d", hora, minuto)
+    }
+
+    static let nombresDias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+
+    /// "los miércoles", "los sábados".
+    static func cadaSemana(_ dia: Int) -> String {
+        let nombre = nombresDias[dia - 1]
+        return dia >= 6 ? "los \(nombre)s" : "los \(nombre)"
     }
 
     /// "lunes"

@@ -59,6 +59,19 @@ struct ObraView: View {
     private var contenido: some View {
         VStack(spacing: 16) {
             relojEscenario
+            if let lunes = store.semanaPorPlanificar {
+                PlanSemanaCard(
+                    lunes: lunes,
+                    bloques: store.bloques(enSemanaDe: lunes),
+                    numeroSemana: store.numeroDeSemana(lunes),
+                    semanas: store.proyecto.semanas,
+                    hechos: store.hechos,
+                    opciones: { store.opcionesDePlanificacion(para: $0) },
+                    alMover: { bloque, slot in store.moverEnPlanificacion(bloque.id, a: slot) },
+                    alConfirmar: { store.confirmarSemana(lunes) }
+                )
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
             AvanceCard(
                 bloques: store.estado.bloques,
                 proyecto: store.proyecto,
@@ -68,6 +81,14 @@ struct ObraView: View {
                 corrimiento: store.corrimientoRecepcion,
                 ajustes: store.estado.ajustes
             )
+            if let ajuste = store.ajusteSugerido {
+                AjusteCard(
+                    ajuste: ajuste,
+                    alAceptar: { store.aceptarAjuste(ajuste) },
+                    alDescartar: { store.descartarAjuste(ajuste) }
+                )
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
             ForEach(store.pendientes) { bloque in
                 PendienteCard(
                     bloque: bloque,
@@ -95,6 +116,8 @@ struct ObraView: View {
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 110)
+        .animation(.snappy, value: store.ajusteSugerido)
+        .animation(.snappy, value: store.semanaPorPlanificar)
     }
 
     #if DEBUG

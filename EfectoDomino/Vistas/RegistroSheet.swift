@@ -66,6 +66,14 @@ struct RegistroSheet: View {
             }
             .navigationTitle("Registrar bloque")
             .navigationBarTitleDisplayMode(.inline)
+            #if DEBUG
+            .task {
+                guard Depuracion.registrar else { return }
+                try? await Task.sleep(for: .seconds(1))
+                alGuardar(Registro(fecha: store.ahora, disfrute: .bien, espalda: .mejor, ayudo: ["Era corto"]), [])
+                dismiss()
+            }
+            #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cerrar", systemImage: "xmark") { dismiss() }

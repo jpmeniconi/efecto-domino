@@ -88,6 +88,13 @@ struct Ventana: Codable, Hashable {
     func slot(enSemanaDe lunes: Date) -> Slot {
         Slot(fecha: lunes.mas(dias: dia - 1).a(hora, minuto), tipo: tipo, minutos: minutos)
     }
+
+    /// "3-06:30" = miércoles 06:30.
+    var clave: String { "\(dia)-\(Formato.hora(hora, minuto))" }
+
+    func contiene(_ fecha: Date) -> Bool {
+        fecha.diaSemana == dia && fecha.hora == hora && fecha.minuto == minuto
+    }
 }
 
 struct Slot: Hashable {
@@ -119,6 +126,12 @@ struct EstadoObra: Codable {
     var recepcionBase: Date?
     var ajustes = 0
     var pausaHasta: Date?
+    /// Lunes de las semanas que Camila ya revisó (la planificación del domingo).
+    var semanasConfirmadas: [Date] = []
+    /// Cuántas veces se movió cada horario del patrón: así el plan aprende de su semana real.
+    var movidasPorVentana: [String: Int] = [:]
+    /// Ajustes al plan que ya se resolvieron (aceptados o descartados).
+    var ajustesResueltos: [String] = []
 }
 
 // MARK: - Lectura y propuestas
@@ -156,6 +169,13 @@ struct Propuesta: Identifiable, Equatable {
         case empujar(bloque: UUID, fecha: Date)
         /// Detiene la obra hasta una fecha sin perder lo construido.
         case pausar(hasta: Date)
+
+        var bloque: UUID? {
+            switch self {
+            case let .reubicar(id, _, _), let .empujar(id, _): id
+            case .pausar: nil
+            }
+        }
     }
 
     let id = UUID()

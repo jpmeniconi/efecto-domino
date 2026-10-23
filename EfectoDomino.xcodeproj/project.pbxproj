@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */; };
 		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
+		1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D3833CE807350C30491E /* PlanSemanaCard.swift */; };
 		22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F6347063B65A725861290 /* AvanceCard.swift */; };
 		3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */; };
 		489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED919F131C888330C1F42D /* Planificador.swift */; };
@@ -42,6 +43,7 @@
 		894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustarSheet.swift; sourceTree = "<group>"; };
 		A22C5E55360B9D6F78247CF3 /* Escenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Escenario.swift; sourceTree = "<group>"; };
 		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
+		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
 		EE44825984E2BCC6257A718C /* Estilo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilo.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				EE44825984E2BCC6257A718C /* Estilo.swift */,
 				1878B681D1454824F438D06A /* GanttView.swift */,
 				71AE76A61151C40456DBB2C4 /* ObraView.swift */,
+				B114D3833CE807350C30491E /* PlanSemanaCard.swift */,
 				D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */,
 				A586195A179880D548353BFF /* RegistroSheet.swift */,
 			);
@@ -203,6 +206,7 @@
 				F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */,
 				736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */,
 				B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */,
+				1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */,
 				489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */,
 				08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */,
 				D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */,

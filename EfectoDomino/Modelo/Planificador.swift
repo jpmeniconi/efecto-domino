@@ -82,6 +82,63 @@ enum Planificador {
         }
     }
 
+    // MARK: - Ajuste de rendimiento
+
+    /// Cuando una partida no rinde, se revisa el supuesto, no a la persona.
+    struct AjusteDeRendimiento: Equatable {
+        let desde: Ventana
+        let hacia: Ventana
+    }
+
+    static func ventanaDelPatron(_ e: EstadoObra, para bloque: Bloque) -> Ventana? {
+        e.patron.first { $0.contiene(bloque.inicio) }
+    }
+
+    /// Si un horario del patrón se movió, propone otro del mismo día y tipo.
+    static func ajusteDeRendimiento(_ e: EstadoObra) -> AjusteDeRendimiento? {
+        for ventana in e.patron where (e.movidasPorVentana[ventana.clave] ?? 0) > 0 && !e.ajustesResueltos.contains(ventana.clave) {
+            if let alternativa = e.alternativas.first(where: { $0.dia == ventana.dia && $0.tipo == ventana.tipo && $0 != ventana }) {
+                return AjusteDeRendimiento(desde: ventana, hacia: alternativa)
+            }
+        }
+        return nil
+    }
+
+    /// Cambia un horario del patrón y lleva a la nueva hora los bloques futuros que caían en él.
+    static func cambiarPatron(_ e: EstadoObra, ajuste: AjusteDeRendimiento) -> EstadoObra {
+        var e = e
+        guard let i = e.patron.firstIndex(of: ajuste.desde) else { return e }
+        e.patron[i] = ajuste.hacia
+        e.alternativas.removeAll { $0 == ajuste.hacia }
+        for j in e.bloques.indices where e.bloques[j].estado == .planificado
+            && e.bloques[j].inicio > e.ahora
+            && ajuste.desde.contiene(e.bloques[j].inicio) {
+            let nueva = e.bloques[j].inicio.inicioDelDia.a(ajuste.hacia.hora, ajuste.hacia.minuto)
+            guard !choca(e, inicio: nueva, minutos: ajuste.hacia.minutos) else { continue }
+            e.bloques[j].inicio = nueva
+            e.bloques[j].minutos = ajuste.hacia.minutos
+        }
+        e.ajustesResueltos.append(ajuste.desde.clave)
+        return e
+    }
+
+    // MARK: - Planificación de la semana
+
+    /// Espacios donde puede ir un bloque en su semana (patrón y alternativas), sin choques.
+    static func opcionesDePlanificacion(_ e: EstadoObra, para bloque: Bloque) -> [Slot] {
+        let lunes = bloque.inicio.lunes
+        let ocupados = Set(e.bloques.filter { $0.id != bloque.id }.map { $0.inicio.inicioDelDia })
+        let candidatos = Set((e.patron + e.alternativas).map { $0.slot(enSemanaDe: lunes) })
+        return candidatos
+            .filter { slot in
+                slot.fecha != bloque.inicio
+                    && slot.fecha > e.ahora
+                    && !ocupados.contains(slot.fecha.inicioDelDia)
+                    && !choca(e, inicio: slot.fecha, minutos: slot.minutos)
+            }
+            .sorted { $0.fecha < $1.fecha }
+    }
+
     // MARK: - Propuestas
 
     static func propuestas(_ e: EstadoObra, para bloque: Bloque, lectura: Lectura) -> [Propuesta] {

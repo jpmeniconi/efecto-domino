@@ -70,6 +70,29 @@ final class ObraStore {
         planificados.first { $0.id != bloque.id && $0.inicio > bloque.inicio }
     }
 
+    /// El fin de semana se ofrece mirar la semana siguiente: en vez de «mañana parto», un plan concreto.
+    var semanaPorPlanificar: Date? {
+        guard ahora.diaSemana >= 6 else { return nil }
+        let lunes = ahora.lunes.mas(dias: 7)
+        return estado.semanasConfirmadas.contains(lunes) ? nil : lunes
+    }
+
+    func bloques(enSemanaDe lunes: Date) -> [Bloque] {
+        estado.bloques.filter { $0.inicio.lunes == lunes }.sorted { $0.inicio < $1.inicio }
+    }
+
+    func numeroDeSemana(_ lunes: Date) -> Int {
+        estado.inicioObra.dias(hasta: lunes) / 7 + 1
+    }
+
+    func opcionesDePlanificacion(para bloque: Bloque) -> [Slot] {
+        Planificador.opcionesDePlanificacion(estado, para: bloque)
+    }
+
+    var ajusteSugerido: Planificador.AjusteDeRendimiento? {
+        Planificador.ajusteDeRendimiento(estado)
+    }
+
     func propuestas(para bloque: Bloque, lectura: Lectura) -> [Propuesta] {
         Planificador.propuestas(estado, para: bloque, lectura: lectura)
     }
@@ -100,6 +123,11 @@ final class ObraStore {
 
     func aplicar(_ propuesta: Propuesta) {
         anterior = estado
+        if let id = propuesta.accion.bloque,
+           let bloque = estado.bloques.first(where: { $0.id == id }),
+           let ventana = Planificador.ventanaDelPatron(estado, para: bloque) {
+            estado.movidasPorVentana[ventana.clave, default: 0] += 1
+        }
         estado = Planificador.aplicar(propuesta.accion, a: estado)
         estado.ajustes += 1
         aviso = Aviso(texto: propuesta.confirmacion, deshacer: true)
@@ -129,6 +157,39 @@ final class ObraStore {
                 : "Ladrillo \(hechos) de \(proyecto.meta). Esto no se demuele.",
             deshacer: true
         )
+        guardar()
+    }
+
+    func aceptarAjuste(_ ajuste: Planificador.AjusteDeRendimiento) {
+        anterior = estado
+        estado = Planificador.cambiarPatron(estado, ajuste: ajuste)
+        aviso = Aviso(
+            texto: "Listo: \(Formato.cadaSemana(ajuste.hacia.dia)) ahora son a las \(Formato.hora(ajuste.hacia.hora, ajuste.hacia.minuto)).",
+            deshacer: true
+        )
+        guardar()
+    }
+
+    func descartarAjuste(_ ajuste: Planificador.AjusteDeRendimiento) {
+        anterior = estado
+        estado.ajustesResueltos.append(ajuste.desde.clave)
+        guardar()
+    }
+
+    func confirmarSemana(_ lunes: Date) {
+        anterior = estado
+        estado.semanasConfirmadas.append(lunes)
+        aviso = Aviso(texto: "Semana confirmada. El lunes no partes de cero: sigues la obra.", deshacer: true)
+        guardar()
+    }
+
+    /// Cambio hecho al planificar: no es un atraso, así que no deja fantasma.
+    func moverEnPlanificacion(_ id: UUID, a slot: Slot) {
+        guard let i = estado.bloques.firstIndex(where: { $0.id == id }) else { return }
+        anterior = estado
+        estado.bloques[i].inicio = slot.fecha
+        estado.bloques[i].tipo = slot.tipo
+        estado.bloques[i].minutos = slot.minutos
         guardar()
     }
 
