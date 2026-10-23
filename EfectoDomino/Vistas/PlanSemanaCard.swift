@@ -43,7 +43,12 @@ struct PlanSemanaCard: View {
     }
 
     private var resumen: String {
-        let base = "En vez de «mañana parto»: \(bloques.count) bloques que caben en tu semana real, la \(numeroSemana) de \(semanas)."
+        let base: String
+        switch bloques.count {
+        case 0: base = "Esta semana no tienes bloques en tu plan."
+        case 1: base = "En vez de «mañana parto»: 1 bloque que cabe en tu semana real, la \(numeroSemana) de \(semanas)."
+        default: base = "En vez de «mañana parto»: \(bloques.count) bloques que caben en tu semana real, la \(numeroSemana) de \(semanas)."
+        }
         if hechos == 0 { return base + " Tus visitas de enero siguen ahí: no partes de cero." }
         let fichas = hechos == 1 ? "1 ficha en pie" : "\(hechos) fichas en pie"
         return base + " Llevas \(fichas): sigues, no partes de cero."
@@ -54,6 +59,7 @@ struct PlanSemanaCard: View {
             Image(systemName: bloque.tipo.simbolo)
                 .foregroundStyle(bloque.tipo.color)
                 .frame(width: 24)
+                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 1) {
                 Text("\(Formato.diaConNumero(bloque.inicio)) · \(Formato.hora(bloque.inicio))")
                     .font(.subheadline.weight(.semibold))
@@ -61,19 +67,25 @@ struct PlanSemanaCard: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+            .accessibilityElement(children: .combine)
             Spacer()
             let alternativas = opciones(bloque)
             if !alternativas.isEmpty {
                 Menu {
                     ForEach(alternativas, id: \.self) { slot in
-                        Button("\(Formato.diaConNumero(slot.fecha)) · \(Formato.hora(slot.fecha)) · \(slot.tipo.nombre)") {
+                        Button {
                             alMover(bloque, slot)
+                        } label: {
+                            Text("\(Formato.diaConNumero(slot.fecha)) · \(Formato.hora(slot.fecha))")
+                            Text("\(slot.tipo.nombre), \(slot.minutos) min")
+                            Image(systemName: slot.tipo.simbolo)
                         }
                     }
                 } label: {
                     Text("Cambiar")
                         .font(.subheadline)
                 }
+                .accessibilityLabel("Cambiar el bloque del \(Formato.dia(bloque.inicio)) \(bloque.inicio.diaDelMes)")
             }
         }
         .padding(.vertical, 10)
@@ -103,11 +115,12 @@ struct AjusteCard: View {
                 Text("Si un horario no te funciona, se cambia el horario, no tú.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
-                HStack(spacing: 12) {
+                ParDeBotones {
                     Button(action: alAceptar) {
                         Text("Sí, cambiar").frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.glassProminent)
+                    .accessibilityHint("Los próximos bloques del \(dia) pasan a las \(hacia)")
                     Button(action: alDescartar) {
                         Text("Mantener").frame(maxWidth: .infinity)
                     }
