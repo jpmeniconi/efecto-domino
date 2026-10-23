@@ -14,11 +14,19 @@ final class ObraStore {
     private(set) var anterior: EstadoObra?
     var aviso: Aviso?
     var forzarLecturaLocal = false
+    /// Calendario del que viene la pega. Sin valor, se usa la semana de ejemplo.
+    private(set) var calendarioPega: String?
+    /// Por qué no se pudo leer el calendario la última vez. Solo dura esta sesión.
+    private(set) var problemaCalendario: CalendarioPega.Problema?
+    private(set) var conectandoCalendario = false
 
     init() {
-        estado = ObraStore.cargar() ?? Escenario.semilla()
+        let guardado = ObraStore.cargar()
+        estado = guardado ?? Escenario.semilla()
+        // La pega guardada y su calendario van juntos: sin plan guardado, vuelve la semana de ejemplo.
+        if guardado != nil { calendarioPega = UserDefaults.standard.string(forKey: Self.claveCalendario) }
         #if DEBUG
-        if Depuracion.reiniciar { estado = Escenario.semilla() }
+        if Depuracion.reiniciar { reiniciar() }
         if let indice = Depuracion.momento {
             let momentos = Escenario.momentos(desde: estado.inicioObra)
             if momentos.indices.contains(indice) { estado.ahora = momentos[indice].fecha }
@@ -222,11 +230,66 @@ final class ObraStore {
         guardar()
     }
 
+    /// Parte de nuevo desde el lunes con la misma pega: si hay calendario conectado, se vuelve a leer.
     func reiniciar() {
-        estado = Escenario.semilla()
+        let lunes = Date().lunes
+        empezarDeNuevo(lunes: lunes, pega: pegaDelCalendario(desde: lunes))
+    }
+
+    private func empezarDeNuevo(lunes: Date, pega: [EventoPega]?) {
+        estado = Escenario.semilla(lunes: lunes, pega: pega)
         anterior = nil
         aviso = nil
         guardar()
+    }
+
+    // MARK: - Calendario de la pega
+
+    /// Lee «Camila · Dominó» y rearma el plan para que ningún bloque choque con esos eventos.
+    /// Sin permiso, sin calendario o sin eventos, sigue la semana de ejemplo.
+    func conectarCalendario() async {
+        guard !conectandoCalendario else { return }
+        conectandoCalendario = true
+        defer { conectandoCalendario = false }
+        let lunes = Date().lunes
+        switch await CalendarioPega.conectar(desde: lunes) {
+        case let .success(lectura):
+            problemaCalendario = nil
+            fijarCalendarioPega(lectura.calendario)
+            empezarDeNuevo(lunes: lunes, pega: lectura.eventos)
+        case let .failure(problema):
+            problemaCalendario = problema
+            guard calendarioPega != nil else { return }
+            fijarCalendarioPega(nil)
+            empezarDeNuevo(lunes: lunes, pega: nil)
+        }
+    }
+
+    func usarSemanaDeEjemplo() {
+        problemaCalendario = nil
+        fijarCalendarioPega(nil)
+        empezarDeNuevo(lunes: Date().lunes, pega: nil)
+    }
+
+    /// Pega del calendario conectado. Si ya no se puede leer, vuelve la semana de ejemplo.
+    private func pegaDelCalendario(desde lunes: Date) -> [EventoPega]? {
+        guard calendarioPega != nil else { return nil }
+        switch CalendarioPega.leer(desde: lunes) {
+        case let .success(lectura):
+            fijarCalendarioPega(lectura.calendario)
+            return lectura.eventos
+        case let .failure(problema):
+            problemaCalendario = problema
+            fijarCalendarioPega(nil)
+            return nil
+        }
+    }
+
+    private static let claveCalendario = "calendarioPega"
+
+    private func fijarCalendarioPega(_ nombre: String?) {
+        calendarioPega = nombre
+        UserDefaults.standard.set(nombre, forKey: Self.claveCalendario)
     }
 
     // MARK: - Persistencia local
