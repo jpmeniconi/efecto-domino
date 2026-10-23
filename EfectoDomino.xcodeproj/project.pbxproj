@@ -21,6 +21,7 @@
 		7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */; };
 		81C9F39BCC00EC3C7F5872A8 /* FrasesDeInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF400FCFCAB1443809DB40 /* FrasesDeInicio.swift */; };
 		8315693AC97B64C03C0B2AB5 /* DetalleBloqueSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274BEB2D2C63AB3F0A97C6C4 /* DetalleBloqueSheet.swift */; };
+		84380DEAE26AB99D5A5C5992 /* CalendarioPega.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CBFED272AC84B827EA383 /* CalendarioPega.swift */; };
 		8B8D7474AE61133FCAF7149D /* Arranque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D91F5D8768BC0FD3168092 /* Arranque.swift */; };
 		95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA964F16ED4D1B4D2F72BF /* Lector.swift */; };
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		08D91F5D8768BC0FD3168092 /* Arranque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arranque.swift; sourceTree = "<group>"; };
+		107CBFED272AC84B827EA383 /* CalendarioPega.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioPega.swift; sourceTree = "<group>"; };
 		146AD4A6EF18AE910E38AAF1 /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
 		1878B681D1454824F438D06A /* GanttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttView.swift; sourceTree = "<group>"; };
 		18AF400FCFCAB1443809DB40 /* FrasesDeInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrasesDeInicio.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			);
 			sourceTree = "<group>";
 		};
+		222CF0651451EF5049A317A8 /* Calendario */ = {
+			isa = PBXGroup;
+			children = (
+				107CBFED272AC84B827EA383 /* CalendarioPega.swift */,
+			);
+			path = Calendario;
+			sourceTree = "<group>";
+		};
 		4FCCA71AAC550848F2131AE3 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 				2B4BC19A09AE8506509AEE4A /* Assets.xcassets */,
 				4FCCA71AAC550848F2131AE3 /* App */,
 				6DC19B73BB7CA44F811CA8BB /* Bienvenida */,
+				222CF0651451EF5049A317A8 /* Calendario */,
 				F023FF3C2B1D60C23D840DB3 /* IA */,
 				E423B864E078593293983EB3 /* Modelo */,
 				DC3FC47609E19E11088B8AD6 /* Vistas */,
@@ -230,6 +241,7 @@
 				8B8D7474AE61133FCAF7149D /* Arranque.swift in Sources */,
 				22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */,
 				C3A142A9BE92B0FA82CACC02 /* BienvenidaView.swift in Sources */,
+				84380DEAE26AB99D5A5C5992 /* CalendarioPega.swift in Sources */,
 				A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */,
 				3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */,
 				8315693AC97B64C03C0B2AB5 /* DetalleBloqueSheet.swift in Sources */,
@@ -267,6 +279,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Efecto Dominó";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Efecto Dominó lee solo el calendario «Camila · Dominó» para encontrar espacios libres en su semana.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -416,6 +429,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Efecto Dominó";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Efecto Dominó lee solo el calendario «Camila · Dominó» para encontrar espacios libres en su semana.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

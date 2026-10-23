@@ -30,19 +30,42 @@ enum Escenario {
         Ventana(dia: 7, hora: 11, minuto: 0, tipo: .caminata, minutos: 40),
     ]
 
-    static func semilla(lunes: Date = Date().lunes) -> EstadoObra {
-        let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, visitasPrevias: 6, porSemana: 4, semanas: 6)
+    /// Semanas de pega que se arman o se leen del calendario: alcanzan para todo el plan.
+    static let semanasDePega = 10
 
-        // Su semana de pega: martes y jueves llega tarde.
+    /// Su semana de pega de ejemplo: martes y jueves llega tarde.
+    static func pegaDeEjemplo(desde lunes: Date) -> [EventoPega] {
         var pega: [EventoPega] = []
-        for semana in 0..<10 {
+        for semana in 0..<semanasDePega {
             let l = lunes.mas(dias: 7 * semana)
             pega.append(EventoPega(titulo: "Coordinación de obra", inicio: l.a(17, 0), fin: l.a(18, 45)))
             pega.append(EventoPega(titulo: "Comité con subcontratos", inicio: l.mas(dias: 1).a(17, 30), fin: l.mas(dias: 1).a(20, 45)))
             pega.append(EventoPega(titulo: "Visita a obra con mandante", inicio: l.mas(dias: 3).a(16, 0), fin: l.mas(dias: 3).a(20, 30)))
         }
+        return pega
+    }
 
-        var estado = EstadoObra(
+    static let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, visitasPrevias: 6, porSemana: 4, semanas: 6)
+
+    /// Arma el plan desde el lunes. Sin `pega` usa la semana de ejemplo; con la del calendario,
+    /// los bloques quedan solo donde no chocan con ningún evento y cada semana mantiene los suyos.
+    static func semilla(lunes: Date = Date().lunes, pega: [EventoPega]? = nil) -> EstadoObra {
+        var estado = base(lunes: lunes, pega: pega ?? pegaDeEjemplo(desde: lunes))
+        adaptarPatron(&estado, desde: lunes)
+        let slots = slotsDelPlan(estado, desde: lunes, cantidad: proyecto.meta)
+        estado.bloques = slots.map { Bloque(tipo: $0.tipo, inicio: $0.fecha, minutos: $0.minutos) }
+        estado.recepcionBase = Planificador.recepcion(estado)
+        return estado
+    }
+
+    /// Qué horarios del patrón cambia la pega, para contarlo en el escenario de demo.
+    static func cambiosDePatron(por pega: [EventoPega], desde lunes: Date) -> [(desde: Ventana, hacia: Ventana)] {
+        var estado = base(lunes: lunes, pega: pega)
+        return adaptarPatron(&estado, desde: lunes)
+    }
+
+    private static func base(lunes: Date, pega: [EventoPega]) -> EstadoObra {
+        EstadoObra(
             proyecto: proyecto,
             patron: patron,
             alternativas: alternativas,
@@ -51,10 +74,77 @@ enum Escenario {
             ahora: lunes.a(19, 5),
             inicioObra: lunes
         )
-        let slots = Planificador.slotsDelPatron(estado, desde: lunes, cantidad: proyecto.meta)
-        estado.bloques = slots.map { Bloque(tipo: $0.tipo, inicio: $0.fecha, minutos: $0.minutos) }
-        estado.recepcionBase = Planificador.recepcion(estado)
-        return estado
+    }
+
+    /// Un horario del patrón que choca con la pega la mitad de las semanas o más pasa a un espacio
+    /// libre, en un día sin otro bloque y del mismo tipo si se puede: se cambia el horario, no la meta.
+    /// Así también el efecto dominó y las pausas, que usan el patrón, mantienen cuatro bloques por semana.
+    @discardableResult
+    private static func adaptarPatron(_ e: inout EstadoObra, desde lunes: Date) -> [(desde: Ventana, hacia: Ventana)] {
+        let umbral = (e.proyecto.semanas + 1) / 2
+        var cambios: [(desde: Ventana, hacia: Ventana)] = []
+        for i in e.patron.indices {
+            let ventana = e.patron[i]
+            guard semanasConChoque(e, ventana, desde: lunes) >= umbral else { continue }
+            let diasOcupados = Set(e.patron.indices.filter { $0 != i }.map { e.patron[$0].dia })
+            let reemplazo = e.alternativas
+                .filter { !diasOcupados.contains($0.dia) }
+                .map { (ventana: $0, choques: semanasConChoque(e, $0, desde: lunes)) }
+                .filter { $0.choques < umbral }
+                .min { a, b in
+                    (a.ventana.tipo == ventana.tipo ? 0 : 1, a.choques, distancia(a.ventana, ventana))
+                        < (b.ventana.tipo == ventana.tipo ? 0 : 1, b.choques, distancia(b.ventana, ventana))
+                }?
+                .ventana
+            guard let reemplazo else { continue }
+            e.patron[i] = reemplazo
+            e.alternativas.removeAll { $0 == reemplazo }
+            cambios.append((ventana, reemplazo))
+        }
+        return cambios
+    }
+
+    /// En cuántas semanas del plan choca ese horario con la pega.
+    private static func semanasConChoque(_ e: EstadoObra, _ ventana: Ventana, desde lunes: Date) -> Int {
+        (0..<e.proyecto.semanas).filter { semana in
+            let slot = ventana.slot(enSemanaDe: lunes.mas(dias: 7 * semana))
+            return Planificador.choca(e, inicio: slot.fecha, minutos: slot.minutos)
+        }.count
+    }
+
+    /// Minutos entre dos horarios de la semana.
+    private static func distancia(_ a: Ventana, _ b: Ventana) -> Int {
+        abs(((a.dia - b.dia) * 24 + a.hora - b.hora) * 60 + a.minuto - b.minuto)
+    }
+
+    /// El patrón semana a semana. Si un evento choca con un horario solo esa semana, el bloque va a
+    /// un espacio libre de la misma semana (del mismo tipo si se puede): no se pierde y nunca hay
+    /// más bloques que los del patrón.
+    private static func slotsDelPlan(_ e: EstadoObra, desde lunes: Date, cantidad: Int) -> [Slot] {
+        let orden = e.patron.sorted { ($0.dia, $0.hora, $0.minuto) < ($1.dia, $1.hora, $1.minuto) }
+        var resultado: [Slot] = []
+        var semana = lunes
+        while resultado.count < cantidad, semana < lunes.mas(dias: 7 * 52) {
+            let delPatron = orden.map { $0.slot(enSemanaDe: semana) }
+            var libres = delPatron.filter { !Planificador.choca(e, inicio: $0.fecha, minutos: $0.minutos) }
+            var dias = Set(libres.map { $0.fecha.inicioDelDia })
+            for chocado in delPatron where !libres.contains(chocado) {
+                let espacio = e.alternativas
+                    .map { $0.slot(enSemanaDe: semana) }
+                    .filter { !dias.contains($0.fecha.inicioDelDia) && !Planificador.choca(e, inicio: $0.fecha, minutos: $0.minutos) }
+                    .min { a, b in
+                        (a.tipo == chocado.tipo ? 0 : 1, abs(a.fecha.timeIntervalSince(chocado.fecha)))
+                            < (b.tipo == chocado.tipo ? 0 : 1, abs(b.fecha.timeIntervalSince(chocado.fecha)))
+                    }
+                if let espacio {
+                    libres.append(espacio)
+                    dias.insert(espacio.fecha.inicioDelDia)
+                }
+            }
+            resultado += libres.sorted { $0.fecha < $1.fecha }
+            semana = semana.mas(dias: 7)
+        }
+        return Array(resultado.prefix(cantidad))
     }
 
     struct Momento: Identifiable {
