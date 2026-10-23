@@ -58,6 +58,12 @@ enum Escenario {
         return estado
     }
 
+    /// Qué horarios del patrón cambia la pega, para contarlo en el escenario de demo.
+    static func cambiosDePatron(por pega: [EventoPega], desde lunes: Date) -> [(desde: Ventana, hacia: Ventana)] {
+        var estado = base(lunes: lunes, pega: pega)
+        return adaptarPatron(&estado, desde: lunes)
+    }
+
     private static func base(lunes: Date, pega: [EventoPega]) -> EstadoObra {
         EstadoObra(
             proyecto: proyecto,

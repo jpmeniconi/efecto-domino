@@ -115,8 +115,26 @@ struct EscenarioSheet: View {
     }
 
     private var detalleCalendario: String {
-        if let calendario = store.calendarioPega { return "De «\(calendario)». El plan los esquiva." }
+        if let calendario = store.calendarioPega {
+            let cambios = Escenario.cambiosDePatron(por: store.estado.pega, desde: store.estado.inicioObra)
+            guard !cambios.isEmpty else { return "De «\(calendario)». El plan los esquiva." }
+            let texto = cambios.map(describir).formatted(.list(type: .and).locale(Formato.locale))
+            return "De «\(calendario)». El plan los esquiva: \(texto)."
+        }
         if let problema = store.problemaCalendario { return problema.texto }
         return "Ficticia: los martes y jueves llega tarde."
+    }
+
+    /// "el bloque en casa de los martes 21:15 pasa a los jueves 21:15"
+    private func describir(_ cambio: (desde: Ventana, hacia: Ventana)) -> String {
+        let bloque = switch cambio.desde.tipo {
+        case .gimnasio: "el gimnasio"
+        case .caminata: "la caminata"
+        case .casa: "el bloque en casa"
+        }
+        let hora = Formato.hora(cambio.hacia.hora, cambio.hacia.minuto)
+        var destino = cambio.hacia.dia == cambio.desde.dia ? "las \(hora)" : "\(Formato.cadaSemana(cambio.hacia.dia)) \(hora)"
+        if cambio.hacia.tipo != cambio.desde.tipo { destino = "\(cambio.hacia.tipo.nombre.lowercased()) \(destino)" }
+        return "\(bloque) de \(Formato.cadaSemana(cambio.desde.dia)) \(Formato.hora(cambio.desde.hora, cambio.desde.minuto)) pasa a \(destino)"
     }
 }
