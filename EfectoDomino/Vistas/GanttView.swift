@@ -315,7 +315,7 @@ struct Leyenda: View {
                 }
                 HStack(spacing: 4) {
                     Capsule().fill(Color(.systemGray4)).frame(width: 12, height: 6)
-                    Text("Pega")
+                    Text("Trabajo")
                 }
                 HStack(spacing: 4) {
                     Capsule()

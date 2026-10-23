@@ -1082,7 +1082,7 @@ struct CapsulaPega: View {
                     .padding(.horizontal, nivel == .completo ? 8 : nivel == .horas ? 4 : 3)
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel("Pega: \(evento.titulo), \(Formato.dia(evento.inicio)) de \(Formato.hora(evento.inicio)) a \(Formato.hora(evento.fin))")
+            .accessibilityLabel("Trabajo: \(evento.titulo), \(Formato.dia(evento.inicio)) de \(Formato.hora(evento.inicio)) a \(Formato.hora(evento.fin))")
     }
 
     @ViewBuilder
@@ -1164,7 +1164,7 @@ struct LeyendaPrograma: View {
                     .stroke(Color.accentColor.opacity(0.6), lineWidth: 1)
                     .clipShape(.rect(cornerRadius: 3))
             }
-            fila("Pega") {
+            fila("Trabajo") {
                 Capsule().fill(Color(.systemGray5))
                     .overlay { Image(systemName: "briefcase.fill").font(.system(size: 7)).foregroundStyle(Color(.systemGray)) }
             }

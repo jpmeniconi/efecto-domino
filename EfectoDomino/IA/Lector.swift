@@ -32,7 +32,7 @@ enum LectorIA {
 
     Lee lo que Camila escribe cuando un bloque de ejercicio no va a ocurrir como estaba planificado \
     y clasifica la barrera principal:
-    - horario: le falta tiempo; la pega, una reunión o un imprevisto le comió el espacio.
+    - horario: le falta tiempo; el trabajo, una reunión o un imprevisto le comió el espacio.
     - energia: está cansada, con sueño o sin energía.
     - reinicio: siente que ya perdió la semana o el avance, quiere partir de cero o "el lunes", o expresa culpa.
     - cuerpo: dolor o molestia física.
@@ -127,7 +127,7 @@ enum LectorLocal {
     }
 
     private static let resumenes: [TipoBarrera: String] = [
-        .horario: "La pega se alargó. Busquemos dónde cabe el bloque esta semana.",
+        .horario: "El trabajo se alargó. Busquemos dónde cabe el bloque esta semana.",
         .energia: "Hoy queda poca energía. Un bloque más corto también suma.",
         .reinicio: "Sientes que la semana se perdió, pero tu avance sigue ahí.",
         .cuerpo: "Si el cuerpo pide calma, bajemos la intensidad.",

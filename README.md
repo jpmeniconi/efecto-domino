@@ -2,7 +2,7 @@
 
 **Camila no necesita otra rutina: necesita que una falta no tumbe la obra.**
 
-App nativa para iPhone que trata el regreso al ejercicio como lo que Camila hace todos los días en la pega: gestionar una obra.
+App nativa para iPhone que trata el regreso al ejercicio como lo que Camila hace todos los días en el trabajo: gestionar una obra.
 Hackatón Señales de Makana · Caso 01: Camila · 23 y 24 de octubre de 2026.
 
 ## El problema que decidimos atacar
@@ -20,7 +20,7 @@ Como jefa de proyectos, en sus obras nunca demuele lo construido porque una part
 
 ## Qué construimos
 
-- **Carta Gantt viva** con su semana de pega (ficticia): los martes y jueves llega tarde.
+- **Carta Gantt viva** con su semana de trabajo (ficticia): los martes y jueves llega tarde.
 - **Ajustar un bloque.** Camila escribe qué pasó. Un modelo de lenguaje que corre en el iPhone (Foundation Models de Apple) identifica la barrera y un planificador con reglas propone opciones, cada una con su efecto en la fecha estimada de su meta:
   - **holgura**: el bloque cabe en la misma semana y no se mueve nada;
   - **bloque puente**: corto, pero cuenta completo;

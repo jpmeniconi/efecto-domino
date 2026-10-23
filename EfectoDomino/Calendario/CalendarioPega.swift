@@ -63,7 +63,7 @@ enum CalendarioPega {
         for evento in almacen.events(matching: predicado)
         where !evento.isAllDay && evento.status != .canceled && evento.endDate > evento.startDate {
             let titulo = evento.title ?? ""
-            let pega = EventoPega(titulo: titulo.isEmpty ? "Pega" : titulo, inicio: evento.startDate, fin: evento.endDate)
+            let pega = EventoPega(titulo: titulo.isEmpty ? "Trabajo" : titulo, inicio: evento.startDate, fin: evento.endDate)
             // Si hay dos calendarios con el mismo nombre, un evento repetido cuenta una vez.
             if !eventos.contains(where: { $0.titulo == pega.titulo && $0.inicio == pega.inicio && $0.fin == pega.fin }) {
                 eventos.append(pega)

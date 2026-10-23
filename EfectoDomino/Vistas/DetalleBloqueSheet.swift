@@ -234,7 +234,7 @@ struct DetalleBloqueSheet: View {
                     LabeledContent(evento.titulo, value: "\(Formato.hora(evento.inicio)) a \(Formato.hora(evento.fin))")
                 }
             } header: {
-                Text("Ese día en la pega").textCase(nil)
+                Text("Ese día en el trabajo").textCase(nil)
             }
         }
     }

@@ -102,9 +102,9 @@ struct EscenarioSheet: View {
                 Button("Volver a la semana de ejemplo") { store.usarSemanaDeEjemplo() }
             }
         } header: {
-            Text("Calendario de la pega").textCase(nil)
+            Text("Calendario del trabajo").textCase(nil)
         } footer: {
-            Text("La app lee solo el calendario «Camila · Dominó», sincronizado en el iPhone desde Ajustes. No muestra ni guarda los demás. Al cambiar la pega, el plan se arma de nuevo desde el lunes.")
+            Text("La app lee solo el calendario «Camila · Dominó», sincronizado en el iPhone desde Ajustes. No muestra ni guarda los demás. Al conectarlo o volver a leerlo, el plan se arma de nuevo desde el lunes.")
         }
     }
 
