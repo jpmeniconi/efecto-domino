@@ -87,6 +87,7 @@ struct AjustarSheet: View {
         .onChange(of: verPausas) { _, abiertas in
             if abiertas && pausas.isEmpty { pausas = store.pausas() }
         }
+        .task { LectorIA.precalentar() }
         #if DEBUG
         .task {
             guard let textoDePrueba = Depuracion.texto else { return }
@@ -108,6 +109,7 @@ struct AjustarSheet: View {
                 .foregroundStyle(bloque.tipo.color)
                 .frame(width: 48, height: 48)
                 .background(bloque.tipo.color.opacity(0.14), in: .circle)
+                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(bloque.tipo.nombre) · \(bloque.minutos) min")
                     .font(.headline)
@@ -115,6 +117,7 @@ struct AjustarSheet: View {
                     .foregroundStyle(.secondary)
             }
         }
+        .accessibilityElement(children: .combine)
     }
 
     private var pregunta: some View {
@@ -232,6 +235,7 @@ struct TarjetaPropuesta: View {
                     .font(.title3)
                     .foregroundStyle(Color.accentColor)
                     .frame(width: 28)
+                    .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 6) {
                         Text(propuesta.etiqueta)
@@ -261,6 +265,7 @@ struct TarjetaPropuesta: View {
                 Image(systemName: elegida ? "checkmark.circle.fill" : "circle")
                     .font(.title3)
                     .foregroundStyle(elegida ? Color.accentColor : Color.secondary.opacity(0.5))
+                    .accessibilityHidden(true)
             }
             .padding(16)
             .background(Color(.secondarySystemGroupedBackground), in: .rect(cornerRadius: 20))
@@ -271,6 +276,7 @@ struct TarjetaPropuesta: View {
             .contentShape(.rect(cornerRadius: 20))
         }
         .buttonStyle(.plain)
+        .accessibilityAddTraits(elegida ? .isSelected : [])
         .sensoryFeedback(.selection, trigger: elegida)
     }
 }

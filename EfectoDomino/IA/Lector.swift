@@ -66,8 +66,25 @@ enum LectorIA {
         }
     }
 
-    static func leer(texto: String, bloque: Bloque, ahora: Date) async throws -> Lectura {
+    /// Sesión con el modelo ya cargado. En frío, la primera lectura tarda varios segundos;
+    /// se usa una sola vez y las siguientes parten con una sesión nueva.
+    @MainActor private static var reserva: LanguageModelSession?
+
+    /// Carga el modelo antes de que Camila escriba, para que la lectura no la haga esperar.
+    @MainActor static func precalentar() {
+        guard reserva == nil, disponibilidad == .lista else { return }
         let sesion = LanguageModelSession(instructions: instrucciones)
+        sesion.prewarm()
+        reserva = sesion
+    }
+
+    @MainActor private static func tomarSesion() -> LanguageModelSession {
+        defer { reserva = nil }
+        return reserva ?? LanguageModelSession(instructions: instrucciones)
+    }
+
+    static func leer(texto: String, bloque: Bloque, ahora: Date) async throws -> Lectura {
+        let sesion = await tomarSesion()
         let prompt = """
         Bloque planificado: \(bloque.tipo.nombre), \(Formato.dia(bloque.inicio)) \(Formato.hora(bloque.inicio)), \(bloque.minutos) minutos.
         Momento actual: \(Formato.dia(ahora)) \(Formato.hora(ahora)).
