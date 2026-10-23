@@ -364,6 +364,7 @@
     botonVideo.hidden = !visibles;
     progreso.hidden = !visibles;
     barra.style.transform = 'scaleX(0)';
+    if (visibles) pintarEstado();
   }
 
   function alternarVideo() {
