@@ -214,7 +214,7 @@
         <li><button type="button" class="clip" data-clip="1" data-video="demo-lunes.mp4" data-capturas="mi-plan.png ajustar.png">
           <span class="clip-tecla">1</span><span class="clip-nombre">Lunes 19:05</span><span class="clip-texto">Se alarga la reunión</span>
         </button></li>
-        <li><button type="button" class="clip" data-clip="2" data-video="demo-miercoles.mp4" data-capturas="efecto-domino.png">
+        <li><button type="button" class="clip" data-clip="2" data-video="demo-miercoles.mp4" data-capturas="ajustar-miercoles.png efecto-domino.png meta-estimada.png">
           <span class="clip-tecla">2</span><span class="clip-nombre">Miércoles 06:45</span><span class="clip-texto">«Ya perdí la semana»</span>
         </button></li>
         <li><button type="button" class="clip" data-clip="3" data-capturas="domingo.png">
@@ -230,11 +230,17 @@
       </div>
       <button type="button" class="respaldo-cerrar" id="respaldo-cerrar">Volver a la diapositiva</button>
     </div>
-    <div class="respaldo-escena" id="respaldo-escena">
+    <div class="respaldo-escena" id="respaldo-escena" data-visibles="1">
       <figure class="telefono telefono-respaldo">
         <div class="pantalla">
           <img alt="" decoding="async">
           <video muted playsinline preload="none" disablepictureinpicture></video>
+          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo"></span><code></code></div>
+        </div>
+      </figure>
+      <figure class="telefono telefono-respaldo">
+        <div class="pantalla">
+          <img alt="" decoding="async">
           <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo"></span><code></code></div>
         </div>
       </figure>

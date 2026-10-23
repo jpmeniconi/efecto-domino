@@ -1021,13 +1021,15 @@ button {
 }
 
 .respaldo-escena .telefono { margin: 0; }
-.respaldo-escena .telefono + .telefono { display: none; }
-.respaldo-escena.dos .telefono + .telefono { display: block; }
+.respaldo-escena .telefono:not(:first-child) { display: none; }
+.respaldo-escena[data-visibles="2"] .telefono:nth-child(2),
+.respaldo-escena[data-visibles="3"] .telefono:nth-child(-n+3) { display: block; }
+.respaldo-escena:not([data-visibles="1"]) .telefono { --ancho: min(40vw, 190px); }
 
 .modo-deck .respaldo {
   position: absolute;
   z-index: 5;
-  grid-template-columns: 600px 1fr;
+  grid-template-columns: 540px 1fr;
   column-gap: 60px;
   align-content: center;
   align-items: center;
@@ -1043,9 +1045,10 @@ button {
 .modo-deck .respaldo-controles { gap: 24px; margin-top: 44px; }
 .modo-deck .boton-video { height: 60px; padding: 0 28px 0 24px; border-radius: 30px; font-size: 24px; gap: 14px; }
 .modo-deck .respaldo-cerrar { margin-top: 30px; font-size: 24px; }
-.modo-deck .respaldo-escena { flex-wrap: nowrap; gap: 64px; }
+.modo-deck .respaldo-escena { flex-wrap: nowrap; gap: 48px; }
 .modo-deck .respaldo-escena .telefono { --ancho: 384px; }
-.modo-deck .respaldo-escena.dos .telefono { --ancho: 360px; }
+.modo-deck .respaldo-escena[data-visibles="2"] .telefono { --ancho: 350px; }
+.modo-deck .respaldo-escena[data-visibles="3"] .telefono { --ancho: 292px; }
 
 /* ------------------------------------------------------------------ 7 y 8 · Texto con iPhone */
 

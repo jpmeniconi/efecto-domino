@@ -330,11 +330,13 @@
     var archivoVideo = boton.getAttribute('data-video') || '';
     capturasActuales = (boton.getAttribute('data-capturas') || '').split(/\s+/).filter(Boolean);
 
-    var esperados = (archivoVideo ? [archivoVideo] : []).concat(capturasActuales.slice(0, 1));
-    ponerCaptura(telefonos[0], capturasActuales[0], titulo, esperados);
-    ponerCaptura(telefonos[1], capturasActuales[1], titulo, capturasActuales.slice(1, 2));
-    // Sin video, las dos capturas lado a lado. Con video, solo cuando el video no está.
-    escena.classList.toggle('dos', !archivoVideo && capturasActuales.length > 1);
+    Array.prototype.forEach.call(telefonos, function (telefono, i) {
+      var esperados = capturasActuales.slice(i, i + 1);
+      if (i === 0 && archivoVideo) esperados.unshift(archivoVideo);
+      ponerCaptura(telefono, capturasActuales[i], titulo, esperados);
+    });
+    // Sin video, las capturas lado a lado. Con video, solo cuando el video no está.
+    mostrarCapturas(archivoVideo ? 1 : capturasActuales.length);
 
     video.pause();
     mostrarControles(false);
@@ -359,6 +361,10 @@
   }
 
   function videoListo() { return telefonos[0].classList.contains('con-video'); }
+
+  function mostrarCapturas(cantidad) {
+    escena.setAttribute('data-visibles', String(Math.min(Math.max(cantidad, 1), telefonos.length)));
+  }
 
   function mostrarControles(visibles) {
     botonVideo.hidden = !visibles;
@@ -393,7 +399,7 @@
   video.addEventListener('loadeddata', function () {
     if (video.getAttribute('src') !== videoEsperado) return;
     telefonos[0].classList.add('con-video');
-    escena.classList.remove('dos');
+    mostrarCapturas(1);
     mostrarControles(true);
     var promesa = video.play();
     if (promesa && promesa.catch) promesa.catch(function () { pintarEstado(); });
@@ -403,7 +409,7 @@
     if (!videoEsperado || video.getAttribute('src') !== videoEsperado) return;
     telefonos[0].classList.remove('con-video');
     mostrarControles(false);
-    escena.classList.toggle('dos', capturasActuales.length > 1);
+    mostrarCapturas(capturasActuales.length);
   });
 
   video.addEventListener('play', function () { pintarEstado(); cancelAnimationFrame(cuadro); cuadro = requestAnimationFrame(pintarProgreso); });
