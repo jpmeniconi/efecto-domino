@@ -77,6 +77,8 @@ struct ProgramaView: View {
                 .task { await abrirDesdeDepuracion() }
                 #endif
         }
+        // Juntar los dedos aleja la carta: no debe cerrar la pantalla. Se cierra con la X.
+        .interactiveDismissDisabled()
     }
 
     private var subtitulo: String {
@@ -231,7 +233,9 @@ struct CartaPrograma: View {
         let dias: Double
         let dedos: CGPoint
         let diaAncla: Double
-        let filaAncla: Double
+        /// La fila de la escalera de ese día y dónde se ve: así sus bloques no se van de la pantalla.
+        let filaAncla: Int
+        let yFilaAncla: CGFloat
     }
 
     private var altoEncabezado: CGFloat { altoSemanas + altoDias + altoPega }
@@ -306,6 +310,11 @@ struct CartaPrograma: View {
         .scrollDisabled(pellizco != nil)
         .onScrollGeometryChange(for: CGFloat.self, of: { $0.contentOffset.x }) { _, x in
             desplazamientoX = x
+        }
+        .onScrollPhaseChange { anterior, nueva in
+            if nueva == .idle, anterior == .decelerating || anterior == .interacting {
+                seguirEscalera(plan, m)
+            }
         }
         .simultaneousGesture(pellizcar(plan, m))
         .accessibilityElement(children: .contain)
@@ -631,7 +640,8 @@ struct CartaPrograma: View {
             .offset(x: xP - (anchoToque - anchoP) / 2, y: m.y(fila: fila.indice))
             .accessibilityLabel(PastillaPrograma.descripcion(bloque, ahora: store.ahora))
             .accessibilityHint("Abre el detalle del bloque")
-            if m.nivel == .iconos {
+            // La hora va al lado cuando no cabe dentro (el bloque puente es más corto).
+            if m.nivel == .iconos || (m.nivel == .horas && bloque.esPuente) {
                 Text(Formato.hora(bloque.inicio))
                     .font(.caption2.weight(.medium))
                     .monospacedDigit()
@@ -717,12 +727,20 @@ struct CartaPrograma: View {
     private func pellizcar(_ plan: PlanPrograma, _ m: MedidasPrograma) -> some Gesture {
         MagnifyGesture(minimumScaleDelta: 0.01)
             .onChanged { valor in
-                let inicial = pellizco ?? Pellizco(
-                    dias: zoom.dias(total: plan.dias),
-                    dedos: valor.startLocation,
-                    diaAncla: Double((desplazamientoX + valor.startLocation.x - margen) / m.anchoDia),
-                    filaAncla: Double((desplazamientoY + valor.startLocation.y - altoEncabezado - m.y(fila: 0)) / m.altoFila)
-                )
+                let inicial = pellizco ?? {
+                    let dia = Double((desplazamientoX + valor.startLocation.x - margen) / m.anchoDia)
+                    let fila = plan.fila(paraDia: dia)
+                    // Si la fila no se veía, queda en el primer cuarto de la pantalla.
+                    let y = m.y(fila: fila) - desplazamientoY
+                    let visible = y >= 0 && y + m.altoFila <= m.altoVisible
+                    return Pellizco(
+                        dias: zoom.dias(total: plan.dias),
+                        dedos: valor.startLocation,
+                        diaAncla: dia,
+                        filaAncla: fila,
+                        yFilaAncla: visible ? y : m.altoVisible / 4
+                    )
+                }()
                 pellizco = inicial
                 let dias = min(max(inicial.dias / Double(valor.magnification), diasMinimos), Double(plan.dias))
                 aplicarZoom(.libre(dias), ancla: inicial, plan, m)
@@ -742,7 +760,22 @@ struct CartaPrograma: View {
         let nueva = medidas(plan, m.tamano(encabezado: altoEncabezado), nuevo)
         zoom = nuevo
         posicionH.scrollTo(x: nueva.limitarX(nueva.x(dia: ancla.diaAncla) - ancla.dedos.x))
-        posicionV.scrollTo(y: nueva.limitarY(nueva.y(fila: ancla.filaAncla) - (ancla.dedos.y - altoEncabezado)))
+        posicionV.scrollTo(y: nueva.limitarY(nueva.y(fila: ancla.filaAncla) - ancla.yFilaAncla))
+    }
+
+    /// La escalera baja a medida que avanzan los días. Al soltar el desplazamiento horizontal,
+    /// si ningún bloque de los días a la vista se ve, la carta sube o baja hasta ellos.
+    private func seguirEscalera(_ plan: PlanPrograma, _ m: MedidasPrograma) {
+        let primerDia = Double((desplazamientoX - margen) / m.anchoDia)
+        let ultimoDia = Double((desplazamientoX + m.anchoVisible - margen) / m.anchoDia)
+        let aLaVista = plan.filas.filter { Double($0.dia + 1) > primerDia && Double($0.dia) < ultimoDia }
+        guard let primera = aLaVista.first?.indice, let ultima = aLaVista.last?.indice else { return }
+        let arriba = m.y(fila: primera)
+        let abajo = m.y(fila: ultima) + m.altoFila
+        guard abajo <= desplazamientoY || arriba >= desplazamientoY + m.altoVisible else { return }
+        withAnimation(.smooth(duration: 0.45)) {
+            posicionV.scrollTo(y: m.limitarY(arriba - m.altoFila))
+        }
     }
 
     /// Después de un ajuste, si el bloque quedó fuera de la pantalla, se lleva a la vista.
@@ -839,6 +872,11 @@ struct PlanPrograma {
         self.holguras = holguras
     }
 
+    /// La fila del primer bloque desde ese día: en la escalera, filas y días avanzan juntos.
+    func fila(paraDia dia: Double) -> Int {
+        filas.first { Double($0.dia + 1) > dia }?.indice ?? max(0, filas.count - 1)
+    }
+
     /// "20 oct"
     func fechaCorta(dia: Int) -> String {
         Formato.fechaCorta(inicio.mas(dias: dia))
@@ -903,8 +941,9 @@ struct MedidasPrograma {
     /// Ancho de una pastilla normal (y de su fantasma). El bloque puente es más corto.
     var anchoBase: CGFloat { anchoDia - min(3, anchoDia * 0.2) }
 
+    /// Un poco más ancho que en la tarjeta, para que le quepa la hora al acercar.
     func anchoPastilla(_ bloque: Bloque) -> CGFloat {
-        bloque.esPuente ? anchoBase * 0.62 : anchoBase
+        bloque.esPuente ? anchoBase * 0.7 : anchoBase
     }
 
     func x(dia: Int) -> CGFloat { margen + CGFloat(dia) * anchoDia }
@@ -978,6 +1017,12 @@ struct PastillaPrograma: View {
                 chico
                 Color.clear
             }
+        case .horas where bloque.esPuente:
+            // Su hora va al lado de la pastilla.
+            ViewThatFits {
+                chico
+                Color.clear
+            }
         case .horas:
             // El color ya dice el tipo; el ícono vuelve cuando hay espacio para todos.
             ViewThatFits {
@@ -986,6 +1031,7 @@ struct PastillaPrograma: View {
                     duracion
                 }
                 hora
+                chico
                 Color.clear
             }
         case .completo:
@@ -1004,6 +1050,7 @@ struct PastillaPrograma: View {
                     duracion
                 }
                 hora
+                chico
                 Color.clear
             }
         }
@@ -1107,7 +1154,7 @@ struct LeyendaPrograma: View {
                 Capsule()
                     .fill(Color.accentColor.opacity(0.16))
                     .overlay { Capsule().strokeBorder(Color.accentColor.opacity(0.85), lineWidth: 1.2) }
-                    .padding(.horizontal, 5)
+                    .padding(.horizontal, 4.5)
             }
             fila("Dónde estaba antes de moverse") {
                 Capsule().strokeBorder(Color.secondary, style: StrokeStyle(lineWidth: 1, dash: [3, 2]))
