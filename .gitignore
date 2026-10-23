@@ -16,3 +16,9 @@ xcuserdata/
 # Secretos (nunca al repo)
 *.env
 Secrets.xcconfig
+
+# Borradores locales de contenido (pendientes de integrar)
+/content-drafts/
+
+# Worktrees de sesiones paralelas de Claude Code
+/.claude/worktrees/
