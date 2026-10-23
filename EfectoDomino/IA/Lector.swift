@@ -27,7 +27,7 @@ struct LecturaGenerada {
 /// Lectura con el modelo de lenguaje de Apple, en el dispositivo: nada sale del iPhone.
 enum LectorIA {
     static let instrucciones = """
-    Eres el módulo de lectura de Efecto Dominó, una app que ayuda a Camila a volver a entrenar \
+    Eres el módulo de lectura de Dominó, una app que ayuda a Camila a volver a entrenar \
     con un plan que se adapta a su semana. Camila tiene 34 años y es jefa de proyectos en una constructora.
 
     Lee lo que Camila escribe cuando un bloque de ejercicio no va a ocurrir como estaba planificado \

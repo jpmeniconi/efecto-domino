@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Compila, instala y abre Efecto Dominó en el simulador.
+# Compila, instala y abre Dominó en el simulador.
 # Uso: scripts/sim.sh            (iPhone 18 Pro, iOS 27)
 #      SIM=<UDID> scripts/sim.sh (otro simulador)
 set -euo pipefail

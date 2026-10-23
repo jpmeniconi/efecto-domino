@@ -137,7 +137,7 @@ struct BotonEntrar: View {
         }
         .buttonStyle(AlTocar())
         .disabled(!lista)
-        .accessibilityLabel("Entrar a Efecto Dominó")
+        .accessibilityLabel("Entrar a Dominó")
         .accessibilityValue(lista ? "Listo" : "Preparando")
     }
 }
@@ -169,11 +169,11 @@ struct MarcaDomino: View {
                     .offset(x: 15)
             }
             .frame(width: 25, height: 23, alignment: .bottomLeading)
-            Text("Efecto Dominó")
+            Text("Dominó")
                 .font(.headline.weight(.medium))
                 .tracking(-0.3)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Efecto Dominó")
+        .accessibilityLabel("Dominó")
     }
 }

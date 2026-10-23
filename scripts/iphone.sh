@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Compila, instala y abre Efecto Dominó en un iPhone conectado por cable.
+# Compila, instala y abre Dominó en un iPhone conectado por cable.
 # Detecta el iPhone y el equipo de firma solos; se pueden forzar con IPHONE=<UDID> TEAM=<ID>.
 set -euo pipefail
 cd "$(dirname "$0")/.."

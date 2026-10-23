@@ -54,7 +54,7 @@ struct ReporteView: View {
                 .font(.system(size: 15, weight: .medium))
                 .foregroundStyle(.white.opacity(0.9))
             Spacer(minLength: 0)
-            Text("Efecto Dominó")
+            Text("Dominó")
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(.white.opacity(0.75))
         }

@@ -1,4 +1,4 @@
-# Efecto Dominó · instrucciones para agentes
+# Dominó · instrucciones para agentes
 
 Hackatón Señales de Makana · Santiago, 23 y 24 de octubre de 2026 · Caso 01: Camila. Equipo de una persona: JP Meniconi.
 
@@ -13,6 +13,8 @@ Hackatón Señales de Makana · Santiago, 23 y 24 de octubre de 2026 · Caso 01:
 ## Producto
 
 App nativa para iPhone (SwiftUI, iOS 26+) que trata el regreso de Camila al ejercicio como una obra con carta Gantt.
+
+Se llamó «Efecto Dominó» hasta la tarde del 23 de octubre. El target, las carpetas, el repo y el bundle (`cl.jpmeniconi.efectodomino`) conservan ese nombre a propósito: cambiar el bundle instalaría otra app en el iPhone y perdería su estado.
 
 - Un bloque que se cae primero se absorbe en la **holgura** de la semana. Si no cabe, los siguientes se corren un espacio (**efecto dominó**) y se mueve la fecha estimada de la meta.
 - **Frecuencia antes que intensidad:** cuatro bloques por semana, dos de ellos cortos (Kaushal y Rhodes, 2015).
@@ -50,4 +52,4 @@ App nativa para iPhone (SwiftUI, iOS 26+) que trata el regreso de Camila al ejer
 - Sin etiquetas de IA ("IA en el iPhone") ni íconos de destellos.
 - Componentes nativos de iOS 26 (Liquid Glass), tipografía del sistema y un solo acento naranja.
 - Español de Chile, cálido y concreto. Sin frases motivacionales ni culpa.
-- Vocabulario de la interfaz: Mi plan, Tu avance, Meta estimada, fichas en pie, bloque, bloque puente, holgura, programa y muro. Evitar jerga de obra (obra gruesa, recepción, fundaciones, partida, supuesto, ladrillo).
+- Vocabulario de la interfaz: Mi plan, Tu avance, Meta estimada, fichas en pie, bloque, bloque puente, holgura, programa, muro y trabajo (no «pega»). Evitar jerga de obra (obra gruesa, recepción, fundaciones, partida, supuesto, ladrillo).

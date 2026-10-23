@@ -121,7 +121,7 @@ final class ObraStore {
                     try await LectorIA.leer(texto: texto, bloque: bloque, ahora: ahora)
                 }
             } catch {
-                print("[Efecto Dominó] Lectura con IA no disponible: \(error)")
+                print("[Dominó] Lectura con IA no disponible: \(error)")
             }
         }
         return LectorLocal.leer(texto)
@@ -324,7 +324,7 @@ final class ObraStore {
             let datos = try JSONEncoder().encode(estado)
             try datos.write(to: Self.archivo, options: .atomic)
         } catch {
-            print("[Efecto Dominó] No se pudo guardar: \(error)")
+            print("[Dominó] No se pudo guardar: \(error)")
         }
     }
 

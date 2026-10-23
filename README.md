@@ -1,4 +1,4 @@
-# Efecto Dominó
+# Dominó
 
 **Camila no necesita otra rutina: necesita que una falta no tumbe la obra.**
 

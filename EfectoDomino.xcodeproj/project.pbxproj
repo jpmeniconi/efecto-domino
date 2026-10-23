@@ -354,9 +354,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Efecto Dominó";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dominó";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Efecto Dominó lee solo el calendario «Camila · Dominó» para encontrar espacios libres en su semana.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Dominó lee solo el calendario «Camila · Dominó» para encontrar espacios libres en su semana.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -542,9 +542,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Efecto Dominó";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dominó";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Efecto Dominó lee solo el calendario «Camila · Dominó» para encontrar espacios libres en su semana.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Dominó lee solo el calendario «Camila · Dominó» para encontrar espacios libres en su semana.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

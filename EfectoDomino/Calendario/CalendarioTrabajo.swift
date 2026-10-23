@@ -92,7 +92,7 @@ extension CalendarioTrabajo {
         guard EKEventStore.authorizationStatus(for: .event) == .fullAccess,
               let fuente = almacen.sources.first(where: { $0.sourceType == .local }) ?? almacen.defaultCalendarForNewEvents?.source
         else {
-            print("[Efecto Dominó] Sin acceso para crear el calendario de prueba.")
+            print("[Dominó] Sin acceso para crear el calendario de prueba.")
             return
         }
         do {
@@ -113,10 +113,10 @@ extension CalendarioTrabajo {
             try eventoDePrueba("Evento de otro calendario", en: otro, inicio: lunes.mas(dias: 12).a(10, 0), fin: lunes.mas(dias: 12).a(11, 30))
             try almacen.commit()
         } catch {
-            print("[Efecto Dominó] No se pudo crear el calendario de prueba: \(error)")
+            print("[Dominó] No se pudo crear el calendario de prueba: \(error)")
         }
         #else
-        print("[Efecto Dominó] El calendario de prueba se crea solo en el simulador.")
+        print("[Dominó] El calendario de prueba se crea solo en el simulador.")
         #endif
     }
 
