@@ -676,6 +676,14 @@ struct CartaPrograma: View {
         centrada = true
         #if DEBUG
         if let texto = DepuracionPrograma.zoom { zoom = ZoomPrograma(depuracion: texto) ?? zoom }
+        if let preset = DepuracionPrograma.luego.flatMap(ZoomPrograma.init(depuracion:))?.preset {
+            Task {
+                // Como si Camila tocara el control segmentado.
+                try? await Task.sleep(for: .seconds(2))
+                let actual = PlanPrograma(store.estado)
+                cambiarZoom(a: preset, actual, medidas(actual, tamano, zoom))
+            }
+        }
         #endif
         centrarEnHoy(plan, medidas(plan, tamano, zoom), animado: false)
     }
@@ -1178,6 +1186,8 @@ enum DepuracionPrograma {
 
     /// semana, dos, todo o un número de días visibles.
     static var zoom: String? { ajustes.string(forKey: "zoom") }
+    /// Preset que se elige dos segundos después de abrir, como un toque en el control.
+    static var luego: String? { ajustes.string(forKey: "luego") }
     /// Fila (bloque en orden de fecha) cuyo detalle se abre.
     static var detalle: Int? { ajustes.object(forKey: "detalle") == nil ? nil : ajustes.integer(forKey: "detalle") }
     /// fui o ajustar, desde el detalle.
