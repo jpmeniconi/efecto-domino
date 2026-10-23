@@ -11,7 +11,6 @@
   var negro = document.getElementById('negro');
   var ayuda = document.getElementById('ayuda');
   var vertical = window.matchMedia('(orientation: portrait)');
-  var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)');
   var actual = -1;
   var salidas = [];
   var imprimiendo = false;
@@ -28,7 +27,7 @@
   function fijarHash(indice) {
     var hash = '#' + (indice + 1);
     if (location.hash === hash) return;
-    try { history.replaceState(null, '', hash); } catch (e) { location.hash = hash; }
+    try { history.replaceState(null, '', hash); } catch { location.hash = hash; }
   }
 
   // ------------------------------------------------------------------ Navegación
@@ -38,7 +37,7 @@
     indice = limitar(indice);
     cerrarRespaldo();
     if (indice === actual) return;
-    var anterior = actual;
+    var previa = actual;
     actual = indice;
     fijarHash(indice);
     if (!enDeck()) return;
@@ -59,10 +58,10 @@
     });
 
     // La que sale conserva su estado hasta terminar el fundido; después queda lista para volver a entrar.
-    if (anterior >= 0) {
-      var saliente = diapositivas[anterior];
-      clearTimeout(salidas[anterior]);
-      salidas[anterior] = setTimeout(function () {
+    if (previa >= 0) {
+      var saliente = diapositivas[previa];
+      clearTimeout(salidas[previa]);
+      salidas[previa] = setTimeout(function () {
         if (diapositivas[actual] !== saliente) saliente.classList.remove('activa');
       }, 420);
     }
@@ -248,7 +247,7 @@
         promesa = (raiz.requestFullscreen || raiz.webkitRequestFullscreen).call(raiz);
       }
       if (promesa && promesa.catch) promesa.catch(function () {});
-    } catch (e) { /* El navegador no lo permite: queda en ventana. */ }
+    } catch { /* El navegador no lo permite: queda en ventana. */ }
   }
 
   function alternarTema() {
@@ -257,7 +256,7 @@
     else raiz.removeAttribute('data-tema');
     var color = document.querySelector('meta[name="theme-color"]');
     if (color) color.setAttribute('content', claro ? '#ffffff' : '#000000');
-    try { localStorage.setItem('domino-tema', claro ? 'claro' : 'oscuro'); } catch (e) {}
+    try { localStorage.setItem('domino-tema', claro ? 'claro' : 'oscuro'); } catch { /* sin almacenamiento */ }
   }
 
   var focoAntesDeAyuda = null;
@@ -366,11 +365,11 @@
     escena.setAttribute('data-visibles', String(Math.min(Math.max(cantidad, 1), telefonos.length)));
   }
 
-  function mostrarControles(visibles) {
-    botonVideo.hidden = !visibles;
-    progreso.hidden = !visibles;
+  function mostrarControles(mostrar) {
+    botonVideo.hidden = !mostrar;
+    progreso.hidden = !mostrar;
     barra.style.transform = 'scaleX(0)';
-    if (visibles) pintarEstado();
+    if (mostrar) pintarEstado();
   }
 
   function alternarVideo() {
