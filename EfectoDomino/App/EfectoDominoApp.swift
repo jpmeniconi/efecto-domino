@@ -6,7 +6,7 @@ struct EfectoDominoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ObraView()
+            RaizView()
                 .environment(store)
         }
     }

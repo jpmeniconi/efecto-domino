@@ -8,6 +8,8 @@ struct ObraView: View {
     @State private var propuestaPendiente: Propuesta?
     @State private var registroPendiente: RegistroPendiente?
     @State private var mostrandoEscenario = false
+    @State private var viendoPrograma = false
+    @Namespace private var transicion
 
     private struct RegistroPendiente {
         let id: UUID
@@ -62,6 +64,10 @@ struct ObraView: View {
             }
             .sheet(isPresented: $mostrandoEscenario) {
                 EscenarioSheet()
+            }
+            .fullScreenCover(isPresented: $viendoPrograma) {
+                ProgramaView()
+                    .navigationTransition(.zoom(sourceID: "programa", in: transicion))
             }
             .overlay(alignment: .bottom) { avisoFlotante }
             .animation(.spring(duration: 0.4), value: store.aviso)
@@ -123,8 +129,10 @@ struct ObraView: View {
                 pega: store.estado.pega,
                 inicio: store.inicioPrograma,
                 ahora: store.ahora,
-                diasHolgura: store.diasDeHolgura
+                diasHolgura: store.diasDeHolgura,
+                alVerCompleto: { viendoPrograma = true }
             )
+            .matchedTransitionSource(id: "programa", in: transicion)
             .id("gantt")
         }
         .padding(.horizontal, 16)
@@ -140,6 +148,7 @@ struct ObraView: View {
         case "ajustar": ajustando = store.proximo
         case "registrar": registrando = store.proximo
         case "escenario": mostrandoEscenario = true
+        case "programa": viendoPrograma = true
         default: break
         }
     }

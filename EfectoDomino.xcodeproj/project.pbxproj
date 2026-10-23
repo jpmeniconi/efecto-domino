@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */; };
+		0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */; };
 		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
 		1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D3833CE807350C30491E /* PlanSemanaCard.swift */; };
 		22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F6347063B65A725861290 /* AvanceCard.swift */; };
@@ -18,24 +19,34 @@
 		736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */; };
 		775199A0A1DD9909841471D9 /* EscenarioSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */; };
 		7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */; };
+		81C9F39BCC00EC3C7F5872A8 /* FrasesDeInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF400FCFCAB1443809DB40 /* FrasesDeInicio.swift */; };
+		8315693AC97B64C03C0B2AB5 /* DetalleBloqueSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274BEB2D2C63AB3F0A97C6C4 /* DetalleBloqueSheet.swift */; };
 		84380DEAE26AB99D5A5C5992 /* CalendarioPega.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CBFED272AC84B827EA383 /* CalendarioPega.swift */; };
+		8B8D7474AE61133FCAF7149D /* Arranque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D91F5D8768BC0FD3168092 /* Arranque.swift */; };
 		95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA964F16ED4D1B4D2F72BF /* Lector.swift */; };
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
 		B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE76A61151C40456DBB2C4 /* ObraView.swift */; };
+		C3A142A9BE92B0FA82CACC02 /* BienvenidaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944C51BD2D23CE5FEBDE4659 /* BienvenidaView.swift */; };
+		D1266C8B65EB46EF01A984F3 /* Frases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116CBF033005A494B95F549 /* Frases.swift */; };
 		D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */; };
 		D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586195A179880D548353BFF /* RegistroSheet.swift */; };
 		E9A55BE40AD18A4B0DC9AF29 /* Escenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22C5E55360B9D6F78247CF3 /* Escenario.swift */; };
 		F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146AD4A6EF18AE910E38AAF1 /* Modelos.swift */; };
+		F7B844285727EAD41FBAC146 /* AprendizajesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F52BE3199ED44C83DB006 /* AprendizajesView.swift */; };
 		FE022396FC593A30367997A5 /* Estilo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE44825984E2BCC6257A718C /* Estilo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08D91F5D8768BC0FD3168092 /* Arranque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arranque.swift; sourceTree = "<group>"; };
 		107CBFED272AC84B827EA383 /* CalendarioPega.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioPega.swift; sourceTree = "<group>"; };
 		146AD4A6EF18AE910E38AAF1 /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
 		1878B681D1454824F438D06A /* GanttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttView.swift; sourceTree = "<group>"; };
+		18AF400FCFCAB1443809DB40 /* FrasesDeInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrasesDeInicio.swift; sourceTree = "<group>"; };
 		20AA964F16ED4D1B4D2F72BF /* Lector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lector.swift; sourceTree = "<group>"; };
+		274BEB2D2C63AB3F0A97C6C4 /* DetalleBloqueSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleBloqueSheet.swift; sourceTree = "<group>"; };
 		2B4BC19A09AE8506509AEE4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Depuracion.swift; sourceTree = "<group>"; };
+		379F52BE3199ED44C83DB006 /* AprendizajesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AprendizajesView.swift; sourceTree = "<group>"; };
 		3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObraStore.swift; sourceTree = "<group>"; };
 		4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenarioSheet.swift; sourceTree = "<group>"; };
 		5CA6D2BE9399345B79399A20 /* Compartir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compartir.swift; sourceTree = "<group>"; };
@@ -45,9 +56,12 @@
 		83ED919F131C888330C1F42D /* Planificador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planificador.swift; sourceTree = "<group>"; };
 		867069D08B37A8354D4E3F16 /* EfectoDomino.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = EfectoDomino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustarSheet.swift; sourceTree = "<group>"; };
+		9116CBF033005A494B95F549 /* Frases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frases.swift; sourceTree = "<group>"; };
+		944C51BD2D23CE5FEBDE4659 /* BienvenidaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BienvenidaView.swift; sourceTree = "<group>"; };
 		A22C5E55360B9D6F78247CF3 /* Escenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Escenario.swift; sourceTree = "<group>"; };
 		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
 		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
+		D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaView.swift; sourceTree = "<group>"; };
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
 		EE44825984E2BCC6257A718C /* Estilo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilo.swift; sourceTree = "<group>"; };
@@ -92,6 +106,7 @@
 			children = (
 				2B4BC19A09AE8506509AEE4A /* Assets.xcassets */,
 				4FCCA71AAC550848F2131AE3 /* App */,
+				6DC19B73BB7CA44F811CA8BB /* Bienvenida */,
 				222CF0651451EF5049A317A8 /* Calendario */,
 				F023FF3C2B1D60C23D840DB3 /* IA */,
 				E423B864E078593293983EB3 /* Modelo */,
@@ -100,17 +115,31 @@
 			path = EfectoDomino;
 			sourceTree = "<group>";
 		};
+		6DC19B73BB7CA44F811CA8BB /* Bienvenida */ = {
+			isa = PBXGroup;
+			children = (
+				08D91F5D8768BC0FD3168092 /* Arranque.swift */,
+				944C51BD2D23CE5FEBDE4659 /* BienvenidaView.swift */,
+				9116CBF033005A494B95F549 /* Frases.swift */,
+				18AF400FCFCAB1443809DB40 /* FrasesDeInicio.swift */,
+			);
+			path = Bienvenida;
+			sourceTree = "<group>";
+		};
 		DC3FC47609E19E11088B8AD6 /* Vistas */ = {
 			isa = PBXGroup;
 			children = (
 				894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */,
+				379F52BE3199ED44C83DB006 /* AprendizajesView.swift */,
 				757F6347063B65A725861290 /* AvanceCard.swift */,
 				5CA6D2BE9399345B79399A20 /* Compartir.swift */,
+				274BEB2D2C63AB3F0A97C6C4 /* DetalleBloqueSheet.swift */,
 				4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */,
 				EE44825984E2BCC6257A718C /* Estilo.swift */,
 				1878B681D1454824F438D06A /* GanttView.swift */,
 				71AE76A61151C40456DBB2C4 /* ObraView.swift */,
 				B114D3833CE807350C30491E /* PlanSemanaCard.swift */,
+				D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */,
 				D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */,
 				A586195A179880D548353BFF /* RegistroSheet.swift */,
 			);
@@ -208,15 +237,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */,
+				F7B844285727EAD41FBAC146 /* AprendizajesView.swift in Sources */,
+				8B8D7474AE61133FCAF7149D /* Arranque.swift in Sources */,
 				22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */,
+				C3A142A9BE92B0FA82CACC02 /* BienvenidaView.swift in Sources */,
 				84380DEAE26AB99D5A5C5992 /* CalendarioPega.swift in Sources */,
 				A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */,
 				3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */,
+				8315693AC97B64C03C0B2AB5 /* DetalleBloqueSheet.swift in Sources */,
 				D633D6AA18B4FD590A3CC936 /* EfectoDominoApp.swift in Sources */,
 				E9A55BE40AD18A4B0DC9AF29 /* Escenario.swift in Sources */,
 				775199A0A1DD9909841471D9 /* EscenarioSheet.swift in Sources */,
 				FE022396FC593A30367997A5 /* Estilo.swift in Sources */,
 				5BB9363822F34D0D9442AD71 /* Fechas.swift in Sources */,
+				D1266C8B65EB46EF01A984F3 /* Frases.swift in Sources */,
+				81C9F39BCC00EC3C7F5872A8 /* FrasesDeInicio.swift in Sources */,
 				10159B89A051A89B809C2F2D /* GanttView.swift in Sources */,
 				95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */,
 				F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */,
@@ -224,6 +259,7 @@
 				B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */,
 				1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */,
 				489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */,
+				0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */,
 				08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */,
 				D9FF597D6373D1A7C670C4FF /* RegistroSheet.swift in Sources */,
 			);
