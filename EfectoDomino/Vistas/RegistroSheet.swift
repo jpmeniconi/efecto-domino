@@ -91,10 +91,10 @@ struct RegistroSheet: View {
 
     private var encabezado: some View {
         VStack(spacing: 8) {
-            Image(systemName: "square.stack.3d.up.fill")
+            Image(systemName: "rectangle.split.1x2.fill")
                 .font(.system(size: 40))
                 .foregroundStyle(Color.accentColor)
-            Text("Bloque \(store.hechos + 1) de \(store.proyecto.meta)")
+            Text("Ficha \(store.hechos + 1) de \(store.proyecto.meta)")
                 .font(.title2.weight(.bold))
             Text("\(bloque.tipo.nombre) · \(bloque.minutos) min" + (bloque.esPuente ? " · bloque puente" : ""))
                 .foregroundStyle(.secondary)

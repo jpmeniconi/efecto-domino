@@ -45,8 +45,8 @@ struct PlanSemanaCard: View {
     private var resumen: String {
         let base = "En vez de «mañana parto»: \(bloques.count) bloques que caben en tu semana real, la \(numeroSemana) de \(semanas)."
         if hechos == 0 { return base + " Tus visitas de enero siguen ahí: no partes de cero." }
-        let bloquesHechos = hechos == 1 ? "1 bloque hecho" : "\(hechos) bloques hechos"
-        return base + " Llevas \(bloquesHechos): sigues, no partes de cero."
+        let fichas = hechos == 1 ? "1 ficha en pie" : "\(hechos) fichas en pie"
+        return base + " Llevas \(fichas): sigues, no partes de cero."
     }
 
     private func fila(_ bloque: Bloque) -> some View {

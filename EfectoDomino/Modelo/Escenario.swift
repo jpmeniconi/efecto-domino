@@ -31,7 +31,7 @@ enum Escenario {
     ]
 
     static func semilla(lunes: Date = Date().lunes) -> EstadoObra {
-        let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, fundaciones: 6, porSemana: 4, semanas: 6)
+        let proyecto = Proyecto(nombre: "Sentirme bien en mi cuerpo", meta: 24, visitasPrevias: 6, porSemana: 4, semanas: 6)
 
         // Su semana de pega: martes y jueves llega tarde.
         var pega: [EventoPega] = []

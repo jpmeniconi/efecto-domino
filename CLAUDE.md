@@ -14,10 +14,10 @@ Hackatón Señales de Makana · Santiago, 23 y 24 de octubre de 2026 · Caso 01:
 
 App nativa para iPhone (SwiftUI, iOS 26+) que trata el regreso de Camila al ejercicio como una obra con carta Gantt.
 
-- Un bloque que se cae primero se absorbe en la **holgura** de la semana. Si no cabe, los siguientes se corren un espacio (**efecto dominó**) y se mueve la fecha de recepción.
+- Un bloque que se cae primero se absorbe en la **holgura** de la semana. Si no cabe, los siguientes se corren un espacio (**efecto dominó**) y se mueve la fecha estimada de la meta.
 - **Frecuencia antes que intensidad:** cuatro bloques por semana, dos de ellos cortos (Kaushal y Rhodes, 2015).
-- **Ladrillo de regreso:** volver después de un atraso se reconoce (Milkman et al., 2021).
-- **Fundaciones:** las seis visitas de enero no se cuentan de nuevo, pero Camila no parte de cero.
+- **Fichas en pie:** cada bloque hecho deja una ficha; una falta no bota ninguna. Volver después de un atraso deja una **ficha de regreso** (Milkman et al., 2021).
+- Las seis visitas de enero ya cuentan: Camila no parte de cero.
 - No se usa la culpa por la mensualidad (DellaVigna y Malmendier, 2006).
 
 ## Reglas del planificador (no romper)
@@ -47,3 +47,4 @@ App nativa para iPhone (SwiftUI, iOS 26+) que trata el regreso de Camila al ejer
 - Sin etiquetas de IA ("IA en el iPhone") ni íconos de destellos.
 - Componentes nativos de iOS 26 (Liquid Glass), tipografía del sistema y un solo acento naranja.
 - Español de Chile, cálido y concreto. Sin frases motivacionales ni culpa.
+- Vocabulario de la interfaz: Mi plan, Tu avance, Meta estimada, fichas en pie, bloque, bloque puente, holgura, programa y muro. Evitar jerga de obra (obra gruesa, recepción, fundaciones, partida, supuesto, ladrillo).

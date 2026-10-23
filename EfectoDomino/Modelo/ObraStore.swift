@@ -134,7 +134,7 @@ final class ObraStore {
         guardar()
     }
 
-    /// "Fui": solo esto suma un ladrillo. Aceptar un plan no es entrenar.
+    /// "Fui": solo esto pone una ficha en pie. Aceptar un plan no es entrenar.
     func registrar(_ id: UUID, registro: Registro, prepararSiguiente: [String] = []) {
         guard let i = estado.bloques.firstIndex(where: { $0.id == id }) else { return }
         anterior = estado
@@ -153,8 +153,8 @@ final class ObraStore {
 
         aviso = Aviso(
             texto: veniaDeUnAtraso
-                ? "Volviste después de un atraso. Eso es lo que más cuenta."
-                : "Bloque \(hechos) de \(proyecto.meta). Tu avance no se borra.",
+                ? "Volviste después de un atraso: ficha de regreso."
+                : "Ficha \(hechos) en pie. Una falta no la bota.",
             deshacer: true
         )
         guardar()

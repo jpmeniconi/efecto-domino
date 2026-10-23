@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Lo construido nunca baja: empieza en las visitas de enero y solo suma.
+/// El avance nunca baja: parte en las visitas de enero y solo suma fichas en pie.
 /// La frecuencia de las primeras seis semanas se ve en el muro, sin contadores que se reinicien.
 struct AvanceCard: View {
     let bloques: [Bloque]
@@ -24,11 +24,11 @@ struct AvanceCard: View {
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.secondary)
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text("\(proyecto.fundaciones + hechos)")
+                            Text("\(proyecto.visitasPrevias + hechos)")
                                 .font(.system(size: 46, weight: .bold, design: .rounded))
                                 .monospacedDigit()
                                 .contentTransition(.numericText())
-                            Text("bloques desde enero")
+                            Text("fichas en pie")
                                 .font(.headline)
                                 .foregroundStyle(.secondary)
                         }
@@ -54,10 +54,10 @@ struct AvanceCard: View {
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
                 MuroSemanal(bloques: bloques, inicioObra: inicioObra, ahora: ahora, porSemana: proyecto.porSemana, semanasMinimas: proyecto.semanas)
-                Fundaciones(cantidad: proyecto.fundaciones)
+                VisitasPrevias(cantidad: proyecto.visitasPrevias)
 
                 HStack(spacing: 8) {
-                    Chip(texto: "\(hechos) de \(proyecto.meta) bloques", simbolo: "square.stack.3d.up.fill")
+                    Chip(texto: "\(hechos) de \(proyecto.meta) fichas", simbolo: "rectangle.split.1x2.fill")
                     if regresos > 0 {
                         Chip(texto: regresos == 1 ? "1 regreso" : "\(regresos) regresos", simbolo: "arrow.uturn.backward")
                             .foregroundStyle(Color.accentColor)
@@ -76,7 +76,7 @@ struct AvanceCard: View {
     }
 }
 
-/// Una columna por semana; cada ladrillo es un bloque. Lo hecho va abajo.
+/// Una columna por semana; cada bloque hecho deja una ficha en pie. Lo hecho va abajo.
 struct MuroSemanal: View {
     let bloques: [Bloque]
     let inicioObra: Date
@@ -97,7 +97,7 @@ struct MuroSemanal: View {
         }
         .animation(.spring(duration: 0.5, bounce: 0.3), value: bloques)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(bloques.filter { $0.estado == .hecho }.count) bloques hechos")
+        .accessibilityLabel("\(bloques.filter { $0.estado == .hecho }.count) fichas en pie")
     }
 
     private func columna(_ semana: Int) -> some View {
@@ -108,7 +108,7 @@ struct MuroSemanal: View {
         let esActual = ahora.lunes == lunes
         return VStack(spacing: 3) {
             ForEach((0..<porSemana).reversed(), id: \.self) { nivel in
-                Ladrillo(bloque: nivel < enSemana.count ? enSemana[nivel] : nil)
+                Ficha(bloque: nivel < enSemana.count ? enSemana[nivel] : nil)
             }
             Text("S\(semana + 1)")
                 .font(.system(size: 10, weight: esActual ? .bold : .medium, design: .rounded))
@@ -125,7 +125,8 @@ struct MuroSemanal: View {
     }
 }
 
-struct Ladrillo: View {
+/// Una ficha de dominó acostada. La de regreso lleva su flecha.
+struct Ficha: View {
     let bloque: Bloque?
 
     var body: some View {
@@ -138,6 +139,12 @@ struct Ladrillo: View {
                         Image(systemName: "arrow.uturn.backward")
                             .font(.system(size: 8, weight: .heavy))
                             .foregroundStyle(.white)
+                    } else {
+                        HStack(spacing: 0) {
+                            Circle().fill(.white.opacity(0.85)).frame(width: 3, height: 3).frame(maxWidth: .infinity)
+                            Rectangle().fill(.white.opacity(0.5)).frame(width: 1).padding(.vertical, 3)
+                            Circle().fill(.white.opacity(0.85)).frame(width: 3, height: 3).frame(maxWidth: .infinity)
+                        }
                     }
                 } else {
                     forma.strokeBorder(Color.accentColor.opacity(0.45), style: StrokeStyle(lineWidth: 1, dash: [3, 2]))
@@ -151,7 +158,7 @@ struct Ladrillo: View {
 }
 
 /// Las seis visitas de enero: no se cuentan de nuevo, pero no se parte de cero.
-struct Fundaciones: View {
+struct VisitasPrevias: View {
     let cantidad: Int
 
     var body: some View {

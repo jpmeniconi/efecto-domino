@@ -21,14 +21,14 @@ Como jefa de proyectos, en sus obras nunca demuele lo construido porque una part
 ## Qué construimos
 
 - **Carta Gantt viva** con su semana de pega (ficticia): los martes y jueves llega tarde.
-- **Ajustar un bloque.** Camila escribe qué pasó. Un modelo de lenguaje que corre en el iPhone (Foundation Models de Apple) identifica la barrera y un planificador con reglas propone opciones, cada una con su efecto en la fecha de recepción:
+- **Ajustar un bloque.** Camila escribe qué pasó. Un modelo de lenguaje que corre en el iPhone (Foundation Models de Apple) identifica la barrera y un planificador con reglas propone opciones, cada una con su efecto en la fecha estimada de su meta:
   - **holgura**: el bloque cabe en la misma semana y no se mueve nada;
   - **bloque puente**: corto, pero cuenta completo;
   - **efecto dominó**: los bloques siguientes se corren un espacio. Nunca se acumula deuda.
 
   Nada cambia sin su confirmación y todo se puede deshacer.
-- **Lo construido nunca baja.** Sus seis visitas de enero son las fundaciones. Cada bloque es un ladrillo y volver después de un atraso deja un **ladrillo de regreso**.
-- **Ajuste al plan.** Si el miércoles 06:30 no rinde, la app propone pasarlo a la tarde: se revisa el supuesto, no a la persona.
+- **Su avance nunca baja.** Sus seis visitas de enero ya cuentan. Cada bloque hecho deja una **ficha en pie**: en el efecto dominó una ficha bota a las demás; aquí una falta no bota ninguna. Volver después de un atraso deja una **ficha de regreso**.
+- **Ajuste al plan.** Si el miércoles 06:30 no le funciona, la app propone pasarlo a la tarde: se cambia el horario, no a ella.
 - **Domingo en la noche.** En vez de «mañana parto», su semana concreta para confirmar en un toque.
 - **Checklists** antes de salir (bolso, agenda bloqueada) y después (qué ayudó, dejar listo el próximo).
 

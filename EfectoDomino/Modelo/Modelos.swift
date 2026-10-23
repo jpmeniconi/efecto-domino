@@ -105,10 +105,10 @@ struct Slot: Hashable {
 
 struct Proyecto: Codable, Hashable {
     var nombre: String
-    /// Ladrillos de la obra gruesa: frecuencia de las primeras seis semanas.
+    /// Fichas de las primeras seis semanas: la frecuencia, no la intensidad.
     var meta: Int
-    /// Fundaciones: las seis visitas de enero. No se cuentan de nuevo, pero no se parte de cero.
-    var fundaciones: Int
+    /// Las seis visitas de enero: no se cuentan de nuevo, pero no se parte de cero.
+    var visitasPrevias: Int
     /// Bloques comprometidos por semana. Nunca se exige más para "recuperar".
     var porSemana: Int
     var semanas: Int

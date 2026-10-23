@@ -36,7 +36,7 @@ struct ObraView: View {
                             inicioObra: store.estado.inicioObra,
                             ahora: store.ahora
                         ),
-                        preview: SharePreview("Mi avance", image: Image(systemName: "square.stack.3d.up.fill"))
+                        preview: SharePreview("Mi avance", image: Image(systemName: "rectangle.split.1x2.fill"))
                     ) {
                         Label("Compartir avance", systemImage: "square.and.arrow.up")
                     }

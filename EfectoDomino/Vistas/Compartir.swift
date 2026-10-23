@@ -37,9 +37,9 @@ struct ReporteView: View {
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundStyle(.white.opacity(0.85))
             HStack(alignment: .firstTextBaseline, spacing: 8) {
-                Text("\(reporte.proyecto.fundaciones + hechos)")
+                Text("\(reporte.proyecto.visitasPrevias + hechos)")
                     .font(.system(size: 68, weight: .bold, design: .rounded))
-                Text("bloques desde enero")
+                Text("fichas en pie")
                     .font(.system(size: 18, weight: .semibold))
             }
             .foregroundStyle(.white)
