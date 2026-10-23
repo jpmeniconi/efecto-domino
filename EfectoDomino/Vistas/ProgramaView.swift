@@ -35,8 +35,9 @@ struct ProgramaView: View {
 
     var body: some View {
         NavigationStack {
+            // La carta es densa: su texto crece hasta XXXL. El detalle de cada bloque crece sin tope.
             CartaPrograma(foco: foco) { elegido = BloqueElegido(id: $0) }
-                .dynamicTypeSize(...DynamicTypeSize.accessibility2)
+                .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                 .background(Color(.systemBackground))
                 .navigationTitle("Programa completo")
                 .navigationBarTitleDisplayMode(.inline)
@@ -208,7 +209,7 @@ struct CartaPrograma: View {
     @ScaledMetric(relativeTo: .caption2) private var altoDias: CGFloat = 40
     @ScaledMetric(relativeTo: .caption2) private var altoPega: CGFloat = 26
     @ScaledMetric(relativeTo: .caption2) private var circuloHoy: CGFloat = 24
-    @ScaledMetric(relativeTo: .caption2) private var umbralIconos: CGFloat = 18
+    @ScaledMetric(relativeTo: .caption2) private var umbralIconos: CGFloat = 15
     @ScaledMetric(relativeTo: .caption2) private var umbralHoras: CGFloat = 44
     @ScaledMetric(relativeTo: .caption2) private var umbralCompleto: CGFloat = 100
 
