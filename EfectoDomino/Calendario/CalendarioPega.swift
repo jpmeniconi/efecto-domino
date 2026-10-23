@@ -102,6 +102,8 @@ extension CalendarioPega {
             try eventoDePrueba("Comité de obra", en: camila, inicio: lunes.mas(dias: 1).a(17, 0), fin: lunes.mas(dias: 1).a(19, 30), semanal: true)
             try eventoDePrueba("Visita a terreno", en: camila, inicio: lunes.mas(dias: 3).a(7, 30), fin: lunes.mas(dias: 3).a(9, 0), semanal: true)
             try eventoDePrueba("Revisión de presupuesto", en: camila, inicio: lunes.mas(dias: 4).a(16, 0), fin: lunes.mas(dias: 4).a(19, 0), semanal: true)
+            // Choca todas las semanas con el bloque en casa del martes 21:15: ese horario tiene que cambiar.
+            try eventoDePrueba("Llamada con obra en regiones", en: camila, inicio: lunes.mas(dias: 1).a(21, 0), fin: lunes.mas(dias: 1).a(22, 0), semanal: true)
             // Choca con el gimnasio del primer lunes a las 19:30: ese bloque tiene que esquivarla.
             try eventoDePrueba("Reunión con mandante que se alarga", en: camila, inicio: lunes.a(18, 30), fin: lunes.a(20, 30))
             // De todo el día: se ignora, así que la caminata de ese sábado se queda.
