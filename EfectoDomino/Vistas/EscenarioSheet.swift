@@ -5,6 +5,7 @@ struct EscenarioSheet: View {
     @Environment(ObraStore.self) private var store
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
+    @State private var confirmandoReinicio = false
 
     var body: some View {
         @Bindable var store = store
@@ -51,6 +52,9 @@ struct EscenarioSheet: View {
 
                 Section {
                     Button("Reiniciar escenario", role: .destructive) {
+                        confirmandoReinicio = true
+                    }
+                    .confirmarReinicio($confirmandoReinicio, estado: store.estado) {
                         store.reiniciar()
                         dismiss()
                     }
@@ -136,5 +140,33 @@ struct EscenarioSheet: View {
         var destino = cambio.hacia.dia == cambio.desde.dia ? "las \(hora)" : "\(Formato.cadaSemana(cambio.hacia.dia)) \(hora)"
         if cambio.hacia.tipo != cambio.desde.tipo { destino = "\(cambio.hacia.tipo.nombre.lowercased()) \(destino)" }
         return "\(bloque) de \(Formato.cadaSemana(cambio.desde.dia)) \(Formato.hora(cambio.desde.hora, cambio.desde.minuto)) pasa a \(destino)"
+    }
+}
+
+/// Reiniciar borra lo hecho en la demo: se pregunta antes, en el menú de Mi plan y en el escenario.
+enum Reinicio {
+    static let titulo = "¿Reiniciar el escenario?"
+
+    static func mensaje(_ e: EstadoObra) -> String {
+        let fichas = e.bloques.filter { $0.estado == .hecho }.count
+        var partes: [String] = []
+        if fichas > 0 { partes.append(fichas == 1 ? "1 ficha en pie" : "\(fichas) fichas en pie") }
+        if e.ajustes > 0 { partes.append(e.ajustes == 1 ? "1 ajuste" : "\(e.ajustes) ajustes") }
+        let plan = "el plan se arma de nuevo desde el lunes de esta semana. No se puede deshacer."
+        switch partes.count {
+        case 0: return "El plan se arma de nuevo desde el lunes de esta semana. No se puede deshacer."
+        case 1: return "\(fichas + e.ajustes == 1 ? "Se borra" : "Se borran") \(partes[0]) y \(plan)"
+        default: return "Se borran \(partes[0]) y \(partes[1]), y \(plan)"
+        }
+    }
+}
+
+extension View {
+    func confirmarReinicio(_ presentado: Binding<Bool>, estado: EstadoObra, alConfirmar: @escaping () -> Void) -> some View {
+        confirmationDialog(Reinicio.titulo, isPresented: presentado, titleVisibility: .visible) {
+            Button("Reiniciar escenario", role: .destructive, action: alConfirmar)
+        } message: {
+            Text(Reinicio.mensaje(estado))
+        }
     }
 }

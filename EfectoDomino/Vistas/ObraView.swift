@@ -11,6 +11,7 @@ struct ObraView: View {
     @State private var propuestaPendiente: Propuesta?
     @State private var registroPendiente: RegistroPendiente?
     @State private var mostrandoEscenario = false
+    @State private var confirmandoReinicio = false
     #if DEBUG
     @State private var depuracionHecha = false
     #endif
@@ -38,7 +39,7 @@ struct ObraView: View {
                     Menu {
                         Button("Escenario de demo", systemImage: "slider.horizontal.3") { mostrandoEscenario = true }
                         Button("Reiniciar escenario", systemImage: "arrow.counterclockwise", role: .destructive) {
-                            store.reiniciar()
+                            confirmandoReinicio = true
                         }
                     } label: {
                         Label("Opciones", systemImage: "ellipsis")
@@ -56,6 +57,7 @@ struct ObraView: View {
             .sheet(isPresented: $mostrandoEscenario) {
                 EscenarioSheet()
             }
+            .confirmarReinicio($confirmandoReinicio, estado: store.estado) { store.reiniciar() }
             .overlay(alignment: .bottom) { AvisoFlotante() }
             .animation(.spring(duration: 0.4), value: store.aviso)
             .sensoryFeedback(.success, trigger: store.hechos)

@@ -26,6 +26,7 @@
 		81C9F39BCC00EC3C7F5872A8 /* FrasesDeInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AF400FCFCAB1443809DB40 /* FrasesDeInicio.swift */; };
 		8315693AC97B64C03C0B2AB5 /* DetalleBloqueSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274BEB2D2C63AB3F0A97C6C4 /* DetalleBloqueSheet.swift */; };
 		8B8D7474AE61133FCAF7149D /* Arranque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D91F5D8768BC0FD3168092 /* Arranque.swift */; };
+		8E110B913D380C87E03A2B01 /* EscenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA6137808D476EAE32A1DE /* EscenarioTests.swift */; };
 		95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA964F16ED4D1B4D2F72BF /* Lector.swift */; };
 		96DC562E54B8887E883B486B /* CalendarioTrabajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2371547E118A0BA32B01C8D6 /* CalendarioTrabajo.swift */; };
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
@@ -102,6 +103,7 @@
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
 		EE44825984E2BCC6257A718C /* Estilo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilo.swift; sourceTree = "<group>"; };
+		FCFA6137808D476EAE32A1DE /* EscenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenarioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -216,6 +218,7 @@
 			children = (
 				48335995A8A75ADF0302F04A /* Ayudas.swift */,
 				AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */,
+				FCFA6137808D476EAE32A1DE /* EscenarioTests.swift */,
 				A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */,
 				AF822B9CEDD0AB9C2824B107 /* LogrosTests.swift */,
 				CA044F28F75F7CE7F6FF9B8F /* ModoJuegoTests.swift */,
@@ -358,6 +361,7 @@
 			files = (
 				BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */,
 				C0A6521B2C11D4011FBFA343 /* CompartirTests.swift in Sources */,
+				8E110B913D380C87E03A2B01 /* EscenarioTests.swift in Sources */,
 				F87338C86149EC6794E572E2 /* LectorLocalTests.swift in Sources */,
 				17023BBF1F6D33AAC8A2928E /* LogrosTests.swift in Sources */,
 				AE8189C2379EC62925540B0D /* ModoJuegoTests.swift in Sources */,
