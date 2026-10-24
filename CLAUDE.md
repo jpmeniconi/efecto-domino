@@ -40,6 +40,8 @@ Se llamó «Efecto Dominó» hasta la tarde del 23 de octubre. El target, las ca
   `xcrun simctl launch <sim> cl.jpmeniconi.efectodomino -reiniciar YES -momento 1 -abrir ajustar -texto "..." -aplicar 0 -foco gantt`
   - `-abrir aprendizajes -ejemplo YES` abre «Lo que te funciona» con el ejemplo de la semana 6 y `-foco alterminar` baja al manual (`-ejemplo` vive en `Vistas/AprendizajesView.swift`).
   - `-crearCalendarioDePrueba YES` crea en el simulador un calendario «Camila · Dominó» de prueba y `-conectarCalendario YES` lo conecta (`NO` vuelve a la semana de ejemplo). En el simulador, dar antes el permiso: `xcrun simctl privacy <sim> grant calendar cl.jpmeniconi.efectodomino`.
+  - `-ritmo YES` escribe y elige en «Ajustar» a velocidad humana y `-lecturaLocal YES` usa solo la lectura local: con ellos `scripts/videos.sh` graba los videos de respaldo de la demo en `presentacion/medios/`.
+  - `-sinBienvenida YES` salta la frase de inicio. En el programa (`-abrir programa`): `-zoom semana|dos|todo|<días>`, `-luego <zoom>` (lo cambia a los dos segundos, como un toque), `-detalle <n>` abre el bloque n en orden de fecha, `-accion fui|ajustar` sigue desde ese detalle y `-detente grande` lo abre expandido. En el detalle, `-seccion origen|registro|trabajo` baja a esa sección.
 - `Modelo/`: datos, escenario ficticio y `Planificador` (determinístico).
 - `IA/Lector.swift`: Foundation Models en el dispositivo clasifica la barrera. `LectorLocal` es el respaldo.
 - Codex trabaja en paralelo en contenido (`content-drafts/`, ignorado por git). No tocar sus archivos.

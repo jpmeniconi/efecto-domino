@@ -14,6 +14,10 @@ enum Depuracion {
     static var texto: String? { ajustes.string(forKey: "texto") }
     static var aplicar: Int? { entero("aplicar") }
     static var registrar: Bool { ajustes.bool(forKey: "registrar") }
+    /// Escribir y elegir a velocidad humana en «Ajustar» (videos de la demo).
+    static var ritmo: Bool { ajustes.bool(forKey: "ritmo") }
+    /// Usar solo la lectura local: rápida y siempre igual, sin esperar al modelo.
+    static var lecturaLocal: Bool { ajustes.bool(forKey: "lecturaLocal") }
     /// Crea en el simulador un calendario local «Camila · Dominó» con una semana de trabajo de prueba.
     static var crearCalendarioDePrueba: Bool { ajustes.bool(forKey: "crearCalendarioDePrueba") }
     static var conectarCalendario: Bool? {

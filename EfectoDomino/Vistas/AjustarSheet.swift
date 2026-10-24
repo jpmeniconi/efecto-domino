@@ -91,10 +91,24 @@ struct AjustarSheet: View {
         #if DEBUG
         .task {
             guard let textoDePrueba = Depuracion.texto else { return }
-            texto = textoDePrueba
+            // -ritmo YES escribe y elige a velocidad humana, para grabar los videos de la demo.
+            if Depuracion.ritmo {
+                try? await Task.sleep(for: .seconds(1.2))
+                for letra in textoDePrueba {
+                    texto.append(letra)
+                    try? await Task.sleep(for: .milliseconds(55))
+                }
+                try? await Task.sleep(for: .seconds(0.6))
+            } else {
+                texto = textoDePrueba
+            }
             await leer()
             if let indice = Depuracion.aplicar, propuestas.indices.contains(indice) {
-                try? await Task.sleep(for: .seconds(1))
+                try? await Task.sleep(for: .seconds(Depuracion.ritmo ? 2.5 : 1))
+                if Depuracion.ritmo {
+                    elegida = propuestas[indice].id
+                    try? await Task.sleep(for: .seconds(1.5))
+                }
                 alConfirmar(propuestas[indice])
                 dismiss()
             }

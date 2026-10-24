@@ -27,6 +27,7 @@ final class ObraStore {
         fijarCalendarioTrabajo(guardado == nil ? nil : UserDefaults.standard.string(forKey: Self.claveCalendario))
         #if DEBUG
         if Depuracion.reiniciar { reiniciar() }
+        if Depuracion.lecturaLocal { forzarLecturaLocal = true }
         aplicarMomentoDeDepuracion()
         if Depuracion.crearCalendarioDePrueba || Depuracion.conectarCalendario != nil {
             Task { await prepararCalendarioDeDepuracion() }
@@ -39,7 +40,6 @@ final class ObraStore {
     var ahora: Date { estado.ahora }
     var proyecto: Proyecto { estado.proyecto }
     var hechos: Int { estado.bloques.filter { $0.estado == .hecho }.count }
-    var regresos: Int { estado.bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
 
     var planificados: [Bloque] {
         estado.bloques.filter { $0.estado == .planificado }.sorted { $0.inicio < $1.inicio }
@@ -181,6 +181,8 @@ final class ObraStore {
     func descartarAjuste(_ ajuste: Planificador.AjusteDeRendimiento) {
         anterior = estado
         estado.ajustesResueltos.append(ajuste.desde.clave)
+        // El aviso que siga en pantalla ofrecía deshacer otra cosa: «Deshacer» ya no le correspondería.
+        aviso = nil
         guardar()
     }
 
@@ -198,6 +200,7 @@ final class ObraStore {
         estado.bloques[i].inicio = slot.fecha
         estado.bloques[i].tipo = slot.tipo
         estado.bloques[i].minutos = slot.minutos
+        aviso = nil
         guardar()
     }
 

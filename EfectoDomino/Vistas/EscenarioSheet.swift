@@ -42,7 +42,7 @@ struct EscenarioSheet: View {
 
                 Section {
                     Toggle("Usar solo lectura local", isOn: $store.forzarLecturaLocal)
-                    LabeledContent("IA en el dispositivo", value: store.disponibilidadIA.descripcion)
+                    LabeledContent("Modelo del iPhone", value: store.disponibilidadIA.descripcion)
                 } header: {
                     Text("Lectura").textCase(nil)
                 } footer: {
