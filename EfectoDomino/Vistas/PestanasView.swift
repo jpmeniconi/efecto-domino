@@ -7,6 +7,7 @@ enum Pestana: String, Hashable {
 /// Las tres pestañas de Camila: lo de hoy, el programa entero y su avance.
 /// Los controles del escenario de demo no son una pestaña: quedan arriba en «Mi plan», en el reloj y el menú.
 struct PestanasView: View {
+    @Environment(ObraStore.self) private var store
     @State private var pestana = PestanasView.inicial
 
     var body: some View {
@@ -20,6 +21,15 @@ struct PestanasView: View {
             // Tres barras que suben: el muro de fichas por semana.
             Tab("Tu avance", systemImage: "chart.bar", value: .avance) {
                 AvanceView()
+            }
+        }
+        .onChange(of: store.notificaciones.apertura, initial: true) { _, apertura in
+            guard let apertura else { return }
+            if apertura.tipo == .refuerzo {
+                pestana = .avance
+                store.notificaciones.apertura = nil
+            } else {
+                pestana = .plan
             }
         }
         // Sin .tabBarMinimizeBehavior(.onScrollDown): si la barra se achica al desplazar,

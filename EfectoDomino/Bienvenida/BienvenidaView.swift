@@ -2,6 +2,7 @@ import SwiftUI
 
 /// Raíz de la app: la frase de inicio y, cuando Camila quiere, sus pestañas.
 struct RaizView: View {
+    @Environment(ObraStore.self) private var store
     @Environment(\.accessibilityReduceMotion) private var reducirMovimiento
     @State private var enBienvenida = RaizView.mostrarBienvenida
 
@@ -21,6 +22,9 @@ struct RaizView: View {
             }
         }
         .sensoryFeedback(.impact(weight: .light, intensity: 0.7), trigger: enBienvenida)
+        .onChange(of: store.notificaciones.apertura, initial: true) { _, apertura in
+            if apertura != nil { enBienvenida = false }
+        }
     }
 
     private static var mostrarBienvenida: Bool {

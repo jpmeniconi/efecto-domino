@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		059C1E7408C47835D3FA4F3C /* HojasDelBloque.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31BF2BE23C8CE22664C5DA /* HojasDelBloque.swift */; };
 		08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */; };
+		0A90307218615E689F38D9EE /* NotificacionesSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196598B9BE323CF590FD16A /* NotificacionesSheet.swift */; };
 		0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */; };
 		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
 		14B2A7C78DEFA25CBB18967D /* SabiasQue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406AB83CC166C041BC8C93E /* SabiasQue.swift */; };
 		17023BBF1F6D33AAC8A2928E /* LogrosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF822B9CEDD0AB9C2824B107 /* LogrosTests.swift */; };
+		1BCC7E44FD60486E198EE246 /* PlanDeAvisos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9495E1CAAB401B37F52A08A /* PlanDeAvisos.swift */; };
 		1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D3833CE807350C30491E /* PlanSemanaCard.swift */; };
 		22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F6347063B65A725861290 /* AvanceCard.swift */; };
 		3C9E934299CE64F3232539D7 /* PestanasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */; };
@@ -20,6 +22,8 @@
 		489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED919F131C888330C1F42D /* Planificador.swift */; };
 		4C44FCABA27FB4609C2F9712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4BC19A09AE8506509AEE4A /* Assets.xcassets */; };
 		5BB9363822F34D0D9442AD71 /* Fechas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADEA3276D221129D155C8BB /* Fechas.swift */; };
+		6B9CC0D2E677D92C55C925C4 /* NotificacionesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F1A0EE92206AB2EBD0F95 /* NotificacionesTests.swift */; };
+		6D2CF6C1EA2AB6F73315A3D1 /* Notificaciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5D8343EAF80E613C74B4F /* Notificaciones.swift */; };
 		736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */; };
 		775199A0A1DD9909841471D9 /* EscenarioSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */; };
 		7AF5538686BE4CC6B9AD0494 /* AjustarSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */; };
@@ -63,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		08D91F5D8768BC0FD3168092 /* Arranque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arranque.swift; sourceTree = "<group>"; };
+		104F1A0EE92206AB2EBD0F95 /* NotificacionesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacionesTests.swift; sourceTree = "<group>"; };
 		146AD4A6EF18AE910E38AAF1 /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
 		148C57FCF9BA2BD53D3BF610 /* ModoJuego.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModoJuego.swift; sourceTree = "<group>"; };
 		1878B681D1454824F438D06A /* GanttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanttView.swift; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 		894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjustarSheet.swift; sourceTree = "<group>"; };
 		9116CBF033005A494B95F549 /* Frases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frases.swift; sourceTree = "<group>"; };
 		944C51BD2D23CE5FEBDE4659 /* BienvenidaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BienvenidaView.swift; sourceTree = "<group>"; };
+		99D5D8343EAF80E613C74B4F /* Notificaciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificaciones.swift; sourceTree = "<group>"; };
 		A22C5E55360B9D6F78247CF3 /* Escenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Escenario.swift; sourceTree = "<group>"; };
 		A406AB83CC166C041BC8C93E /* SabiasQue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SabiasQue.swift; sourceTree = "<group>"; };
 		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
@@ -99,11 +105,13 @@
 		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
 		B8F607414CAB5FEDF93D849C /* AvanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvanceView.swift; sourceTree = "<group>"; };
 		BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestanasView.swift; sourceTree = "<group>"; };
+		C196598B9BE323CF590FD16A /* NotificacionesSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacionesSheet.swift; sourceTree = "<group>"; };
 		CA044F28F75F7CE7F6FF9B8F /* ModoJuegoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModoJuegoTests.swift; sourceTree = "<group>"; };
 		D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaView.swift; sourceTree = "<group>"; };
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
 		EE44825984E2BCC6257A718C /* Estilo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilo.swift; sourceTree = "<group>"; };
+		F9495E1CAAB401B37F52A08A /* PlanDeAvisos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDeAvisos.swift; sourceTree = "<group>"; };
 		FB31BF2BE23C8CE22664C5DA /* HojasDelBloque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojasDelBloque.swift; sourceTree = "<group>"; };
 		FCFA6137808D476EAE32A1DE /* EscenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenarioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +148,7 @@
 			children = (
 				2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */,
 				75F734C89A44491AB0FF3BE2 /* EfectoDominoApp.swift */,
+				99D5D8343EAF80E613C74B4F /* Notificaciones.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -185,6 +194,7 @@
 				FB31BF2BE23C8CE22664C5DA /* HojasDelBloque.swift */,
 				7B3AA1A684794C6B10C9C2FF /* Logros.swift */,
 				148C57FCF9BA2BD53D3BF610 /* ModoJuego.swift */,
+				C196598B9BE323CF590FD16A /* NotificacionesSheet.swift */,
 				71AE76A61151C40456DBB2C4 /* ObraView.swift */,
 				BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */,
 				B114D3833CE807350C30491E /* PlanSemanaCard.swift */,
@@ -203,6 +213,7 @@
 				DADEA3276D221129D155C8BB /* Fechas.swift */,
 				146AD4A6EF18AE910E38AAF1 /* Modelos.swift */,
 				3CE4A859E85A4FA7A2DFD070 /* ObraStore.swift */,
+				F9495E1CAAB401B37F52A08A /* PlanDeAvisos.swift */,
 				83ED919F131C888330C1F42D /* Planificador.swift */,
 			);
 			path = Modelo;
@@ -225,6 +236,7 @@
 				A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */,
 				AF822B9CEDD0AB9C2824B107 /* LogrosTests.swift */,
 				CA044F28F75F7CE7F6FF9B8F /* ModoJuegoTests.swift */,
+				104F1A0EE92206AB2EBD0F95 /* NotificacionesTests.swift */,
 				69D6B96E294C6C19C98CE397 /* PersistenciaTests.swift */,
 				2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */,
 			);
@@ -347,9 +359,12 @@
 				BDEA37E4B9AEF161AC3B4CE7 /* Logros.swift in Sources */,
 				F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */,
 				7D8A6857760A1412DD829141 /* ModoJuego.swift in Sources */,
+				6D2CF6C1EA2AB6F73315A3D1 /* Notificaciones.swift in Sources */,
+				0A90307218615E689F38D9EE /* NotificacionesSheet.swift in Sources */,
 				736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */,
 				B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */,
 				3C9E934299CE64F3232539D7 /* PestanasView.swift in Sources */,
+				1BCC7E44FD60486E198EE246 /* PlanDeAvisos.swift in Sources */,
 				1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */,
 				489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */,
 				0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */,
@@ -369,6 +384,7 @@
 				F87338C86149EC6794E572E2 /* LectorLocalTests.swift in Sources */,
 				17023BBF1F6D33AAC8A2928E /* LogrosTests.swift in Sources */,
 				AE8189C2379EC62925540B0D /* ModoJuegoTests.swift in Sources */,
+				6B9CC0D2E677D92C55C925C4 /* NotificacionesTests.swift in Sources */,
 				C64F8E2F25852EDF0781974F /* PersistenciaTests.swift in Sources */,
 				C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */,
 			);

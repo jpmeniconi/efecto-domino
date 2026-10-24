@@ -14,6 +14,7 @@ final class ObraStore {
     private(set) var anterior: EstadoObra?
     var aviso: Aviso?
     var forzarLecturaLocal = false
+    let notificaciones = Notificaciones()
     /// Calendario del que viene su semana de trabajo. Sin valor, se usa la semana de ejemplo.
     private(set) var calendarioTrabajo: String?
     /// Por qué no se pudo leer el calendario la última vez. Solo dura esta sesión.
@@ -33,6 +34,7 @@ final class ObraStore {
             Task { await prepararCalendarioDeDepuracion() }
         }
         #endif
+        notificaciones.actualizar(estado)
     }
 
     // MARK: - Lecturas
@@ -146,7 +148,7 @@ final class ObraStore {
 
     /// "Fui": solo esto pone una ficha en pie. Aceptar un plan no es entrenar.
     func registrar(_ id: UUID, registro: Registro, prepararSiguiente: [String] = []) {
-        guard let i = estado.bloques.firstIndex(where: { $0.id == id }) else { return }
+        guard let i = estado.bloques.firstIndex(where: { $0.id == id && $0.estado == .planificado }) else { return }
         anterior = estado
         let bloque = estado.bloques[i]
         let veniaDeUnAtraso = Planificador.esRegreso(estado, bloque)
@@ -165,6 +167,7 @@ final class ObraStore {
                 ? "Volviste a tu plan: ficha de regreso."
                 : "Ficha \(fichasEnPie) en pie. Queda en tu muro."
         )
+        notificaciones.registrar(id)
         guardar()
     }
 
@@ -242,6 +245,7 @@ final class ObraStore {
         estado = Escenario.semilla(lunes: lunes, trabajo: trabajo)
         anterior = nil
         aviso = nil
+        notificaciones.limpiarRefuerzo()
         guardar()
     }
 
@@ -328,6 +332,7 @@ final class ObraStore {
         } catch {
             print("[Dominó] No se pudo guardar: \(error)")
         }
+        notificaciones.actualizar(estado)
     }
 
     private static func cargar() -> EstadoObra? {

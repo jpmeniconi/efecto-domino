@@ -10,6 +10,10 @@ struct ObraView: View {
     @State private var registrando: Bloque?
     @State private var mostrandoEscenario = false
     @State private var confirmandoReinicio = false
+    @State private var mostrandoNotificaciones = false
+    @State private var detalleDeAviso: Bloque?
+    @State private var registroDesdeAviso: Bloque?
+    @State private var ajusteDesdeAviso: Bloque?
     #if DEBUG
     @State private var depuracionHecha = false
     #endif
@@ -23,12 +27,34 @@ struct ObraView: View {
                 #if DEBUG
                 .onAppear { abrirDesdeDepuracion(desplazamiento) }
                 #endif
+                .onChange(of: store.notificaciones.apertura, initial: true) { _, apertura in
+                    guard let apertura, apertura.tipo != .refuerzo else { return }
+                    // Un aviso real abre el plan a la hora real; no altera sus bloques.
+                    store.fijarAhora(Date())
+                    mostrandoNotificaciones = false
+                    mostrandoEscenario = false
+                    ajustando = nil
+                    registrando = nil
+                    detalleDeAviso = nil
+                    Task { @MainActor in
+                        // Deja terminar cualquier hoja que estaba abierta antes de pasar al bloque.
+                        try? await Task.sleep(for: .milliseconds(350))
+                        guard store.notificaciones.apertura?.id == apertura.id else { return }
+                        if let id = apertura.bloque {
+                            detalleDeAviso = store.estado.bloques.first { $0.id == id }
+                        } else {
+                            desplazamiento.scrollTo("inicio", anchor: .top)
+                        }
+                        store.notificaciones.apertura = nil
+                    }
+                }
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Mi plan")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
+                        Button("Notificaciones", systemImage: "bell") { mostrandoNotificaciones = true }
                         Button("Escenario de demo", systemImage: "slider.horizontal.3") { mostrandoEscenario = true }
                         Button("Reiniciar escenario", systemImage: "arrow.counterclockwise", role: .destructive) {
                             confirmandoReinicio = true
@@ -42,6 +68,15 @@ struct ObraView: View {
             .sheet(isPresented: $mostrandoEscenario) {
                 EscenarioSheet()
             }
+            .sheet(isPresented: $mostrandoNotificaciones) {
+                NotificacionesSheet(notificaciones: store.notificaciones)
+            }
+            .sheet(item: $detalleDeAviso, onDismiss: {
+                if let bloque = registroDesdeAviso { registrando = bloque; registroDesdeAviso = nil }
+                if let bloque = ajusteDesdeAviso { ajustando = bloque; ajusteDesdeAviso = nil }
+            }) { bloque in
+                DetalleBloqueSheet(id: bloque.id, alRegistrar: { registroDesdeAviso = $0 }, alAjustar: { ajusteDesdeAviso = $0 })
+            }
             .confirmarReinicio($confirmandoReinicio, estado: store.estado) { store.reiniciar() }
             .overlay(alignment: .bottom) { AvisoFlotante() }
             .animation(.spring(duration: 0.4), value: store.aviso)
@@ -52,6 +87,7 @@ struct ObraView: View {
     private var contenido: some View {
         VStack(spacing: 16) {
             relojEscenario
+                .id("inicio")
             if let lunes = store.semanaPorPlanificar {
                 PlanSemanaCard(
                     lunes: lunes,
@@ -122,6 +158,7 @@ struct ObraView: View {
         case "ajustar": ajustando = store.proximo
         case "registrar": registrando = store.proximo
         case "escenario": mostrandoEscenario = true
+        case "notificaciones": mostrandoNotificaciones = true
         default: break
         }
     }
