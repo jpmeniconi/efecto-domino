@@ -1050,7 +1050,52 @@ button {
 .modo-deck .respaldo-escena[data-visibles="2"] .telefono { --ancho: 350px; }
 .modo-deck .respaldo-escena[data-visibles="3"] .telefono { --ancho: 292px; }
 
-/* ------------------------------------------------------------------ 7 y 8 · Texto con iPhone */
+/* ------------------------------------------------------------------ 7 · Y además */
+
+.extras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 16px;
+  margin-top: 40px;
+}
+
+.extra { text-align: center; }
+.extra .telefono { --ancho: min(38vw, 190px); margin: 0 auto; }
+
+.extra h3 {
+  margin-top: 22px;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -.016em;
+}
+
+.extra p {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.38;
+  color: var(--texto-2);
+  text-wrap: balance;
+}
+
+.modo-deck .extras {
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 48px;
+  margin-top: 46px;
+}
+
+.modo-deck .extra .telefono { --ancho: 240px; }
+.modo-deck .extra h3 { margin-top: 28px; font-size: 38px; }
+.modo-deck .extra p { margin-top: 6px; padding: 0 8px; font-size: 28px; line-height: 1.24; }
+
+.modo-deck .ademas-nota {
+  position: absolute;
+  top: 116px;
+  right: 150px;
+  margin: 0;
+  line-height: 36px;
+}
+
+/* ------------------------------------------------------------------ 8 y 9 · Texto con iPhone */
 
 .puntos {
   display: grid;
@@ -1151,7 +1196,7 @@ button {
 .modo-deck .telefono-atras { left: 0; top: 0; }
 .modo-deck .telefono-adelante { right: 0; bottom: 0; }
 
-/* ------------------------------------------------------------------ 9 · Qué dejamos fuera */
+/* ------------------------------------------------------------------ 10 · Qué dejamos fuera */
 
 .descartes {
   display: grid;
@@ -1190,7 +1235,7 @@ button {
 .modo-deck .descartes dt { font-size: 36px; }
 .modo-deck .descartes dd { margin: 0; font-size: 32px; line-height: 1.3; }
 
-/* ------------------------------------------------------------------ 10 · Cómo sabríamos si funciona */
+/* ------------------------------------------------------------------ 11 · Cómo sabríamos si funciona */
 
 .metricas {
   display: grid;

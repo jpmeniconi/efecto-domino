@@ -10,15 +10,16 @@ Son 5 minutos con demo en vivo y 3 de preguntas. Es un pitch, no una exposición
 | 1 | Portada | 0:10 | 0:10 |
 | 2 | Camila | 0:30 | 0:40 |
 | 3 | Nuestra lectura | 0:25 | 1:05 |
-| 4 | Por qué este problema | 0:25 | 1:30 |
-| 5 | La solución | 0:20 | 1:50 |
-| 6 | Demo en vivo | 2:00 | 3:50 |
-| 7 | Su semana real | 0:15 | 4:05 |
-| 8 | Cuando termina el programa | 0:20 | 4:25 |
-| 9 | Qué dejamos fuera | 0:15 | 4:40 |
-| 10 | Cómo sabríamos si funciona | 0:20 | 5:00 |
+| 4 | Por qué este problema | 0:20 | 1:25 |
+| 5 | La solución | 0:20 | 1:45 |
+| 6 | Demo en vivo | 2:00 | 3:45 |
+| 7 | Y además | 0:15 | 4:00 |
+| 8 | Su semana real | 0:10 | 4:10 |
+| 9 | Cuando termina el programa | 0:15 | 4:25 |
+| 10 | Qué dejamos fuera | 0:15 | 4:40 |
+| 11 | Cómo sabríamos si funciona | 0:20 | 5:00 |
 
-Marcas para mirar el reloj: a la **1:50** tienes que estar entrando a la demo y a las **3:50** volviendo a la presentación. Si vas atrasado, la 7 y la 9 se dicen en una frase cada una.
+Marcas para mirar el reloj: a la **1:45** tienes que estar entrando a la demo y a las **3:45** volviendo a la presentación. Si vas atrasado, la 7, la 8 y la 10 se dicen en una frase cada una.
 
 ## Teclas de la presentación
 
@@ -54,19 +55,19 @@ Mientras hablas, la flecha del diagrama vuelve al comienzo: no la nombres, se en
 
 Esta es la diapositiva que el jurado premia con un 7 en «Problema»: algo de Camila que la ficha no dice tal cual y que cambia cómo se ataca. Dila lento.
 
-## 4 · Por qué este problema · 1:05 a 1:30
+## 4 · Por qué este problema · 1:05 a 1:25
 
-> Elegimos este momento por evidencia. En el estudio de Milkman, con 61.293 socios de gimnasio, lo que más subió la asistencia fue premiar volver después de faltar. El hábito se forma con frecuencia: cuatro veces por semana durante seis semanas. Y lo que ya probó se rompe justo ahí: una racha vuelve a cero el día que falta.
+> En el estudio de Milkman, con 61.293 socios de gimnasio, lo que más subió la asistencia fue premiar volver después de faltar. El hábito se forma con frecuencia: cuatro veces por semana, seis semanas. Y lo que ya probó se rompe justo ahí: una racha vuelve a cero el día que falta.
 
 No leas las citas ni la fila de abajo: están en la pantalla para quien quiera mirarlas. Si te preguntan por la mensualidad, la respuesta está en la fila de abajo.
 
-## 5 · La solución · 1:30 a 1:50
+## 5 · La solución · 1:25 a 1:45
 
 > Su plan, como una carta Gantt viva. Si un bloque se cae, primero la holgura de la semana. Si cuesta volver, un bloque puente: corto, pero cuenta completo. Si no cabe, los siguientes se corren un espacio, sin acumular deuda. Nada cambia sin que ella confirme, y su avance nunca baja.
 
 Los tres diagramas se animan uno tras otro: deja que el de la holgura se mueva antes de nombrarlo.
 
-## 6 · Demo en vivo · 1:50 a 3:50
+## 6 · Demo en vivo · 1:45 a 3:45
 
 > Ahora en vivo. Es lunes, 19:05, y se le alarga la reunión.
 
@@ -108,30 +109,36 @@ Si vas a tiempo (10 s): toca la pestaña «Programa» y luego «Todo». Dices: �
 
 > Vuelvo a la presentación.
 
-Vuelve al navegador y avanza a la 7. Tiempo de vuelta: 5 segundos.
+Vuelve al navegador y avanza a la 7, «Y además». Tiempo de vuelta: 5 segundos.
 
 ### Si la demo falla
 
-- **Se cae la proyección del iPhone o la app no responde:** vuelve al navegador, que está en la diapositiva 6, y aprieta **1**: se abre el respaldo del lunes (el video o, si no llegó, sus capturas lado a lado). **2** es el miércoles, **3** el domingo y **4** el programa completo. Dices lo mismo de las tablas de arriba. Espacio pausa el video, Esc cierra y → sigue a la 7.
+- **Se cae la proyección del iPhone o la app no responde:** vuelve al navegador, que está en la diapositiva 6, y aprieta **1**: se abre el respaldo del lunes (el video o, si no llegó, sus capturas lado a lado). **2** es el miércoles, **3** el domingo y **4** el programa completo. Dices lo mismo de las tablas de arriba. Espacio pausa el video, Esc cierra y → sigue a la 7, «Y además».
 - **La lectura se queda pensando:** sigue hablando; a los 12 segundos aparece la lectura local. Para evitarlo, antes del pitch: reloj → «Usar solo lectura local».
 - **Tocaste otra opción:** «Deshacer» en el aviso de abajo (dura 6 segundos). Si ya se fue, sigue: cualquier opción muestra que no parte de cero.
 - **La app se cerró:** ábrela de nuevo y toca la flecha de la bienvenida. El plan y el reloj quedan guardados.
 
 Variante, solo si un ensayo te da tiempo de sobra: en el miércoles, deja la sugerida («Bloque puente»), confirma, toca el reloj → «Miércoles 20:15» → «Fui» → «Guardar». Aparece «Volviste después de un atraso: ficha de regreso», que es justo lo que premiaba el estudio de Milkman. No muestra el efecto dominó en vivo.
 
-## 7 · Su semana real · 3:50 a 4:05
+## 7 · Y además · 3:45 a 4:00
 
-> Las barras grises de la carta son su trabajo. Dominó lee un solo calendario, «Camila · Dominó», y pone cada bloque donde no choca. Si una reunión choca casi todas las semanas, cambia el horario, no la meta.
+> Y en Tu avance, todo suma. Su nivel sube cada siete fichas y nunca baja. Cada ficha guarda su foto. Y en el Modo juego con Javiera, una ficha por día como máximo: gana quien se mueve más días, no quien entrena más fuerte.
 
-## 8 · Cuando termina el programa · 4:05 a 4:25
+Señala cada iPhone mientras lo nombras, de izquierda a derecha. «¿Sabías que?» no lo digas: se lee solo. Si vas atrasado, basta con la primera frase y la última. Si te sobran segundos: «Y cada día, un dato de un estudio publicado, con su fuente: no una frase motivacional».
 
-> Los recordatorios funcionan solo mientras duran, así que el programa termina en sus manos. «Lo que te funciona» le muestra qué horarios se cumplen, qué disfruta y cómo vuelve. Al terminar las seis semanas, le queda un manual con tres reglas: primero la holgura, después un bloque puente y nunca recuperar con más bloques.
+## 8 · Su semana real · 4:00 a 4:10
 
-## 9 · Qué dejamos fuera · 4:25 a 4:40
+> Las barras grises de la carta son su trabajo: Dominó lee un solo calendario y pone cada bloque donde no choca. Si una reunión choca casi siempre, cambia el horario, no la meta.
 
-> Dejamos fuera, a propósito, recordatorios, rachas y avisar a su círculo cuando falta: exponer faltas genera vergüenza. Tampoco rutinas, nutrición ni wearables: no son su problema. Y su calendario real, porque el concurso pide datos ficticios.
+## 9 · Cuando termina el programa · 4:10 a 4:25
 
-## 10 · Cómo sabríamos si funciona · 4:40 a 5:00
+> El programa termina en sus manos. «Lo que te funciona» le muestra qué horarios se cumplen y cómo vuelve, y al terminar le queda un manual con tres reglas: primero la holgura, después un bloque puente y nunca recuperar con más bloques.
+
+## 10 · Qué dejamos fuera · 4:25 a 4:40
+
+> Dejamos fuera recordatorios, rachas que vuelven a cero y avisar a su círculo cuando falta: en el Modo juego, Javiera ve cuántas fichas puso, nunca qué días. Tampoco rutinas, nutrición ni wearables. Y su calendario real, porque el concurso pide datos ficticios.
+
+## 11 · Cómo sabríamos si funciona · 4:40 a 5:00
 
 > ¿Cómo sabríamos si funciona? Lo mediríamos en vez de suponerlo: cuánto tarda en volver después de faltar, cuántos bloques hace por semana entre la uno y la seis, y si sigue en la semana doce, contra un grupo de control. Dominó: una falta no tumba la obra. Gracias.
 
@@ -155,13 +162,13 @@ Quédate en esta diapositiva durante las preguntas: tiene el QR del repo.
 - Prueba cómo se ve el iPhone en la pantalla. Lo más firme es por cable: QuickTime Player → Archivo → Nueva grabación de película → en la flecha junto al botón rojo, elige el iPhone como cámara, y pásalo a pantalla completa. Si el proyector tiene una segunda entrada, un adaptador USB‑C a HDMI directo del iPhone también sirve.
 - Practica una vez el cambio entre el navegador y el iPhone (Comando + Tab). Si el cambio se ve feo, aprieta B antes de cambiar: la pantalla queda negra.
 - Abre `presentacion/index.html` como archivo local (no necesita internet) y aprieta F. Ten también la versión de Vercel abierta en otra pestaña.
-- Mira la diapositiva 3 y la 5 desde el fondo de la sala. Si el negro se ve gris o lavado, aprieta T.
+- Mira la diapositiva 3, la 5 y la 7 desde el fondo de la sala. Si el negro se ve gris o lavado, aprieta T.
 - En la diapositiva 6, aprieta 1 para comprobar que el video de respaldo se ve, y Esc para volver.
 - Si usas puntero de presentación, comprueba que avance y retroceda.
 
 **Tú**
 
-- Un ensayo completo con cronómetro. Si pasas de 5:15, recorta la 7 y la 9.
+- Un ensayo completo con cronómetro. Si pasas de 5:15, recorta la 7, la 8 y la 10.
 - Agua a mano. Respira antes de la demo: el silencio de dos segundos mientras la app lee está bien.
 
 ---
@@ -200,10 +207,19 @@ Encaja como una intervención dentro del bienestar laboral, y su calendario de t
 **10. ¿Y si le duele la espalda?**
 Si escribe que le duele, la app lo lee como molestia física, propone un bloque suave y corto, y le sugiere ver a un profesional si el dolor sigue o es intenso. No damos consejos médicos.
 
+**11. ¿Esto no es gamificación?**
+Sí, pero al revés de la de siempre: no hay rachas que se rompan ni puntos que se pierdan. El nivel sube cada siete fichas en pie y nunca baja, porque una falta no bota fichas. Los 11 logros premian lo mismo que la evidencia: volver después de un atraso, usar la holgura, un bloque puente, una semana completa. No vencen ni se comparan con los de nadie.
+
+**12. ¿Competir no le mete presión a Camila?**
+Por eso las reglas del Modo juego: una ficha por día como máximo, así que entrenar más fuerte no sirve; gana quien se mueve más días, que es justo lo que forma el hábito. Javiera ve cuántas fichas puso, nunca qué días, y un día sin ficha no aparece como falta. Lo puesto queda guardado y nada baja. Si no quiere competir con nadie, juega contra su propio récord.
+
+**13. ¿Javiera es real? ¿Cómo jugaría con una amiga de verdad?**
+Javiera es ficticia, como todo el escenario, y su partida está simulada en el iPhone. Con una amiga real harían falta cuentas y un servidor, que dejamos fuera a propósito. Y lo que se compartiría sería lo mismo que hoy: cuántas fichas, nunca qué días ni sus faltas.
+
 Si preguntan algo que no sabes, dilo así: «No lo medimos todavía; lo mediríamos con…» y vuelve a una de las tres métricas.
 
 ## Lo que mira el jurado y dónde está en el pitch
 
 - **Problema (7):** algo de Camila que no estaba escrito tal cual y que cambia cómo se ataca. Está en la diapositiva 3 (la regla de sus obras) y se defiende con la 4.
-- **Solución (7):** corre en vivo, cada parte responde al problema y saben decir qué dejaron fuera. Está en la demo (holgura, efecto dominó y la semana del domingo) y en la 9.
-- **Convicción (7):** responder con precisión. Están las diez preguntas de arriba. Vuelve siempre a Camila y a lo que pasa después de faltar.
+- **Solución (7):** corre en vivo, cada parte responde al problema y saben decir qué dejaron fuera. Está en la demo (holgura, efecto dominó y la semana del domingo), en la 7 (todo suma, nada resta) y en la 10.
+- **Convicción (7):** responder con precisión. Están las trece preguntas de arriba. Vuelve siempre a Camila y a lo que pasa después de faltar.

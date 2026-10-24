@@ -63,7 +63,8 @@ struct AvisoFlotante: View {
             .padding(.bottom, 8)
             .transition(.move(edge: .bottom).combined(with: .opacity))
             .task(id: aviso.id) {
-                try? await Task.sleep(for: .seconds(6))
+                // Al cambiar de pestaña esta tarea se cancela: el aviso sigue para la pestaña que aparece.
+                guard (try? await Task.sleep(for: .seconds(6))) != nil else { return }
                 store.cerrarAviso(aviso.id)
             }
         }
