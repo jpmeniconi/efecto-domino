@@ -462,3 +462,25 @@
 
   aplicarModo();
 })();
+
+// Lámina 8: vista previa local de una invitación; no abre ni envía mensajes.
+(function () {
+  'use strict';
+  var boton = document.getElementById('semana-invitar');
+  var mensaje = document.getElementById('semana-mensaje');
+  if (!boton || !mensaje) return;
+
+  boton.addEventListener('keydown', function (e) {
+    // Deja que Enter y espacio activen el botón nativo, sin avanzar la presentación.
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') e.stopPropagation();
+  });
+  boton.closest('.semana-invitacion').addEventListener('click', function (e) {
+    e.stopPropagation();
+  });
+  boton.addEventListener('click', function () {
+    var abierto = boton.getAttribute('aria-expanded') !== 'true';
+    boton.setAttribute('aria-expanded', String(abierto));
+    boton.querySelector('span').textContent = abierto ? 'Ocultar invitación' : 'Ver invitación';
+    mensaje.hidden = !abierto;
+  });
+})();

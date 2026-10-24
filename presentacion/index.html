@@ -300,7 +300,6 @@
       <p>Un dato de un estudio por día, con su fuente.</p>
     </li>
   </ul>
-  <p class="nota ademas-nota entra" style="--i:6">Camila, Javiera y las fotos son ficticias.</p>
 </section>
 
 <!-- 8 · Su semana real -->
@@ -308,17 +307,28 @@
   <div class="columna-texto">
     <p class="kicker entra" style="--i:0">Su semana real</p>
     <h2 class="titulo entra" style="--i:1">El plan esquiva su trabajo.</h2>
-    <p class="bajada entra" style="--i:2">Dominó lee un solo calendario, «Camila · Dominó», y pone cada bloque donde no choca.</p>
-    <ul class="puntos entra" style="--i:3">
-      <li>Si una reunión choca una semana, el bloque pasa a un espacio libre de esa semana.</li>
-      <li>Si choca casi todas las semanas, se cambia el horario, no la meta.</li>
-    </ul>
-    <p class="nota entra" style="--i:4">Calendario ficticio, como pide el concurso. Los demás calendarios no se muestran ni se guardan.</p>
+    <p class="bajada entra" style="--i:2">Dominó se conecta a su <span class="semana-calendario">Calendario</span> y encuentra espacio para moverse.</p>
+    <p class="semana-contexto entra" style="--i:3">El plan considera sus compromisos y propone horarios disponibles.</p>
+    <div class="semana-invitacion entra" style="--i:4">
+      <div class="semana-invitacion-cabecera">
+        <div>
+          <h3>Invita por <span class="semana-acento">WhatsApp</span></h3>
+          <p>Comparte un bloque con alguien cercano.</p>
+        </div>
+        <button type="button" class="semana-invitar" id="semana-invitar" aria-expanded="false" aria-controls="semana-mensaje">
+          <span>Ver invitación</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="semana-mensaje" id="semana-mensaje" hidden>
+        <p class="semana-mensaje-etiqueta">Vista previa del mensaje</p>
+        <p>¿Te sumas el sábado 24 a las 10:30? Voy a caminar 30 minutos. Si no puedes, no pasa nada: igual voy.</p>
+      </div>
+    </div>
   </div>
   <figure class="telefono entra" style="--i:2">
     <div class="pantalla">
-      <img src="medios/calendario.png" alt="Mi plan con el calendario «Camila · Dominó» conectado" decoding="async">
-      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Plan con «Camila · Dominó»</span><code>medios/calendario.png</code></div>
+      <img src="medios/calendario.png" alt="Mi plan con Calendario conectado" decoding="async">
+      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Plan con Calendario</span><code>medios/calendario.png</code></div>
     </div>
   </figure>
 </section>
@@ -337,13 +347,13 @@
     <p class="nota entra" style="--i:4">Lo guarda o lo manda como texto, sin sus faltas.</p>
   </div>
   <div class="par-telefonos">
-    <figure class="telefono telefono-atras entra" style="--i:2">
+    <figure class="telefono telefono-atras detalle-captura detalle-horarios entra" style="--i:2">
       <div class="pantalla">
         <img src="medios/lo-que-te-funciona.png" alt="«Lo que te funciona»: horarios que se cumplen, lo que disfruta y cómo vuelve" decoding="async">
         <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Lo que te funciona</span><code>medios/lo-que-te-funciona.png</code></div>
       </div>
     </figure>
-    <figure class="telefono telefono-adelante entra" style="--i:3">
+    <figure class="telefono telefono-adelante detalle-captura detalle-manual entra" style="--i:3">
       <div class="pantalla">
         <img src="medios/manual.png" alt="El manual para seguir al terminar las 6 semanas, con sus horarios y tres reglas" decoding="async">
         <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">El manual</span><code>medios/manual.png</code></div>
@@ -361,7 +371,6 @@
     <div class="entra" style="--i:3"><dt>Rachas que vuelven a cero</dt><dd>El día que falla, la culpa la saca de nuevo. Su nivel y sus logros nunca bajan.</dd></div>
     <div class="entra" style="--i:4"><dt>Avisar a su círculo cuando falta</dt><dd>Exponer faltas genera vergüenza. En el Modo juego, Javiera ve cuántas fichas puso, nunca qué días.</dd></div>
     <div class="entra" style="--i:5"><dt>Rutinas, nutrición, wearables, cuentas y servidor</dt><dd>No son su problema y no caben en dos días.</dd></div>
-    <div class="entra" style="--i:6"><dt>Su calendario real</dt><dd>El concurso exige datos ficticios.</dd></div>
   </dl>
 </section>
 
