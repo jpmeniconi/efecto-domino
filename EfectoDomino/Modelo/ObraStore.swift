@@ -27,6 +27,7 @@ final class ObraStore {
         fijarCalendarioTrabajo(guardado == nil ? nil : UserDefaults.standard.string(forKey: Self.claveCalendario))
         #if DEBUG
         if Depuracion.reiniciar { reiniciar() }
+        if Depuracion.lecturaLocal { forzarLecturaLocal = true }
         aplicarMomentoDeDepuracion()
         if Depuracion.crearCalendarioDePrueba || Depuracion.conectarCalendario != nil {
             Task { await prepararCalendarioDeDepuracion() }
