@@ -48,6 +48,9 @@ struct Registro: Codable, Hashable {
     var disfrute: Disfrute?
     var espalda: Sensacion?
     var ayudo: [String]
+    /// Recurso de `Assets.xcassets` o JPEG en `Application Support/fotos/`. Opcional: así el plan
+    /// guardado antes de las fotos se sigue leyendo.
+    var foto: String? = nil
 }
 
 struct Bloque: Identifiable, Codable, Hashable {

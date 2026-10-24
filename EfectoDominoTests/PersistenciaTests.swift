@@ -16,4 +16,17 @@ final class PersistenciaTests: XCTestCase {
         XCTAssertEqual(leido.bloques, estado.bloques)
         XCTAssertEqual(leido.patron, estado.patron)
     }
+
+    func testUnRegistroGuardadoAntesDeLasFotosSeSigueLeyendo() throws {
+        let json = #"{"fecha": 790000000, "disfrute": "bien", "espalda": "mejor", "ayudo": ["Era corto"]}"#
+        let registro = try JSONDecoder().decode(Registro.self, from: Data(json.utf8))
+        XCTAssertNil(registro.foto)
+        XCTAssertEqual(registro.disfrute, .bien)
+        XCTAssertEqual(registro.ayudo, ["Era corto"])
+
+        var conFoto = registro
+        conFoto.foto = "foto-mat"
+        let leido = try JSONDecoder().decode(Registro.self, from: JSONEncoder().encode(conFoto))
+        XCTAssertEqual(leido.foto, "foto-mat")
+    }
 }
