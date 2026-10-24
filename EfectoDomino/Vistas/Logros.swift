@@ -228,7 +228,7 @@ private struct NivelTarjeta: View {
         Tarjeta {
             VStack(alignment: .leading, spacing: 14) {
                 HStack(alignment: .firstTextBaseline) {
-                    Label("Tu nivel", systemImage: "rectangle.split.1x2")
+                    Label("Tu nivel", systemImage: "stairs")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.secondary)
                     Spacer(minLength: 8)
@@ -438,6 +438,12 @@ private struct LogrosTarjeta: View {
         .onAppear(perform: notarNuevos)
         .onChange(of: logros.filter(\.conseguido).map(\.id)) { notarNuevos() }
         .onDisappear { nuevos = [] }
+        #if DEBUG
+        // `-logro <clave>` abre el detalle de esa medalla, para las capturas.
+        .task {
+            elegido = UserDefaults.standard.string(forKey: "logro").flatMap(Logro.Clave.init(rawValue:))
+        }
+        #endif
     }
 
     private func medalla(_ logro: Logro) -> some View {
@@ -561,7 +567,7 @@ private struct ListaDeLogros: View {
             }
         }
         .navigationTitle("Logros")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
     }
 
     private func fila(_ logro: Logro) -> some View {
