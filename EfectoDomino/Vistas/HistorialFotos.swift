@@ -209,11 +209,13 @@ struct HistorialFotosSeccion: View {
             .task { abrirDesdeDepuracion(fotos) }
             #endif
             .fullScreenCover(isPresented: $ampliando) {
-                FotosAmpliadas(fotos: fotos, actual: $actual)
-                    .navigationTransition(.zoom(sourceID: actual, in: zoom))
+                // Si desliza hasta otra foto, el carrusel la deja a la vista para que el zoom vuelva a ella.
+                FotosAmpliadas(fotos: fotos, inicial: actual) { numero in
+                    actual = numero
+                    visible = numero
+                }
+                .navigationTransition(.zoom(sourceID: actual, in: zoom))
             }
-            // Si deslizó hasta otra foto, el carrusel la deja a la vista para que el zoom vuelva a ella.
-            .onChange(of: actual) { _, numero in visible = numero }
         }
     }
 
@@ -288,8 +290,15 @@ struct MiniaturaDeFicha: View {
 /// Las fotos a pantalla completa: se desliza entre ellas y se cierra deslizando hacia abajo.
 struct FotosAmpliadas: View {
     let fotos: [FotoDeFicha]
-    @Binding var actual: Int
+    var alCambiar: (Int) -> Void
     @Environment(\.dismiss) private var dismiss
+    @State private var actual: Int
+
+    init(fotos: [FotoDeFicha], inicial: Int, alCambiar: @escaping (Int) -> Void) {
+        self.fotos = fotos
+        self.alCambiar = alCambiar
+        _actual = State(initialValue: inicial)
+    }
 
     private var foto: FotoDeFicha? { fotos.first { $0.id == actual } }
 
@@ -307,6 +316,7 @@ struct FotosAmpliadas: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
+            .onChange(of: actual) { _, numero in alCambiar(numero) }
             .background(Color.black.ignoresSafeArea())
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
