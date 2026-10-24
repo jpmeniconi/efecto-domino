@@ -552,9 +552,11 @@ button {
 .contexto-signo { display: flex; align-items: center; height: 48px; color: var(--acento); font-size: 42px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
 .contexto-signo svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .camila-contexto h3 { margin: 14px 0 10px; font-size: 22px; line-height: 1.2; }
-.camila-contexto p { color: var(--texto-2); font-size: 18px; line-height: 1.4; text-wrap: pretty; }
+.camila-contexto p { color: var(--texto-2); font-size: 18px; line-height: 1.4; text-wrap: balance; }
 .modo-deck .camila .titulo { max-width: 1400px; }
 .modo-deck .camila .bajada { max-width: 1350px; }
+.modo-deck .camila .frase-completa { display: block; }
+.modo-deck .camila .bajada strong { white-space: nowrap; }
 .modo-deck .camila-contexto { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 76px; }
 .modo-deck .camila-contexto li { padding-top: 30px; }
 .modo-deck .contexto-signo { height: 86px; font-size: 76px; }
@@ -1085,6 +1087,7 @@ button {
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -.012em;
+  text-wrap: balance;
 }
 
 .descartes dd {
@@ -1092,6 +1095,7 @@ button {
   font-size: 17px;
   line-height: 1.4;
   color: var(--texto-2);
+  text-wrap: balance;
 }
 
 .modo-deck .descartes { margin-top: 64px; }
