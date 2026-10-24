@@ -1,6 +1,6 @@
 # Presentación del pitch
 
-Diez diapositivas de Dominó en HTML, CSS y JS, sin dependencias ni compilación. Usan la tipografía del sistema (SF en Mac) y no necesitan internet. En una pantalla horizontal es una presentación 16:9; en un celular vertical se lee como página. Lo que dice JP en cada diapositiva, los toques de la demo y las preguntas probables están en [`guion.md`](guion.md).
+Once diapositivas de Dominó en HTML, CSS y JS, sin dependencias ni compilación. Usan la tipografía del sistema (SF en Mac) y no necesitan internet. En una pantalla horizontal es una presentación 16:9; en un celular vertical se lee como página. Lo que dice JP en cada diapositiva, los toques de la demo y las preguntas probables están en [`guion.md`](guion.md).
 
 ## Verla en local
 
@@ -48,10 +48,15 @@ Van en `medios/` con estos nombres. Mientras falte alguno, su iPhone muestra el 
 | `meta-estimada.png` | La meta corrida 2 días y el «Ajuste al plan» | Respaldo del miércoles, si falta el video |
 | `programa.png` | El programa completo | Respaldo del programa |
 | `domingo.png` | La semana para confirmar | Respaldo del domingo |
-| `calendario.png` | El plan con el calendario «Camila · Dominó» | 7 · Su semana real |
+| `tu-avance.png` | Tu avance con Tu nivel | 7 · Y además |
+| `foto-ampliada.png` | La foto de una ficha, con día y hora | 7 · Y además |
+| `modo-juego.png` | El Modo juego con Javiera y «Es tu turno» | 7 · Y además |
+| `tu-avance-abajo.png` | Tus fotos, el Modo juego y «¿Sabías que?» en Tu avance | 7 · Y además |
+| `fotos.png`, `registrar-foto.png`, `registrar.png`, `modo-juego-tablero.png` | El carrusel de fotos, agregar una foto, registrar un bloque y el tablero del Modo juego | No aparecen; quedan de referencia |
+| `calendario.png` | El plan con el calendario «Camila · Dominó» | 8 · Su semana real |
 | `calendario-escenario.png` | El escenario de demo con el calendario conectado | No aparece; queda de referencia |
-| `lo-que-te-funciona.png` | «Lo que te funciona» | 8 · Cuando termina el programa |
-| `manual.png` | El manual al terminar las 6 semanas | 8 · Cuando termina el programa |
+| `lo-que-te-funciona.png` | «Lo que te funciona» | 9 · Cuando termina el programa |
+| `manual.png` | El manual al terminar las 6 semanas | 9 · Cuando termina el programa |
 | `demo-lunes.mp4` | La demo del lunes | Respaldo del lunes (tecla 1) |
 | `demo-miercoles.mp4` | La demo del miércoles | Respaldo del miércoles (tecla 2) |
 | `demo-programa.mp4` | El programa completo | Respaldo del programa (tecla 4) |
