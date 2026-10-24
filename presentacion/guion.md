@@ -1,245 +1,241 @@
 # Guion del pitch · Dominó
 
-Sábado 24 de octubre. Entrega a las 13:00, prueba del proyector a las 13:00, pitch a las 14:00.
-Son 5 minutos con demo en vivo y 3 de preguntas. Es un pitch, no una exposición: lo que el jurado ve funcionar pesa más que lo que le cuentan. Por eso la demo se lleva casi la mitad del tiempo.
+Sábado 24 de octubre. Entrega a las 13:00 y pitches desde las 14:00. El pitch tiene un máximo de cinco minutos, seguido de tres de preguntas.
+
+El relato completo es: **Camila quiere sentirse bien → encuentra espacio en su semana → elige un paso posible → lo hace → ve su avance → descubre qué le funciona.** La demo debe llegar hasta «Fui», «Guardar» y «Tu avance»: ahí se ve para qué existe el plan.
 
 ## Los cinco minutos
 
 | # | Diapositiva | Dura | Termina en |
 |---|---|---|---|
-| 1 | Portada | 0:10 | 0:10 |
-| 2 | Camila | 0:30 | 0:40 |
-| 3 | Nuestra lectura | 0:25 | 1:05 |
-| 4 | Por qué este problema | 0:20 | 1:25 |
-| 5 | La solución | 0:20 | 1:45 |
-| 6 | Demo en vivo | 2:00 | 3:45 |
-| 7 | Y además | 0:15 | 4:00 |
-| 8 | Su semana real | 0:10 | 4:10 |
-| 9 | Cuando termina el programa | 0:15 | 4:25 |
-| 10 | Qué dejamos fuera | 0:15 | 4:40 |
-| 11 | Cómo sabríamos si funciona | 0:20 | 5:00 |
+| 1 | Dominó · Hacer espacio para moverte | 0:10 | 0:10 |
+| 2 | Quiere volver a sentirse bien | 0:30 | 0:40 |
+| 3 | Una forma de planificar que ya conoce | 0:25 | 1:05 |
+| 4 | Qué ayuda a sostener el movimiento | 0:20 | 1:25 |
+| 5 | Un plan que se adapta contigo | 0:20 | 1:45 |
+| 6 | Su plan encaja en su semana | 0:10 | 1:55 |
+| 7 | Demo · Un paso posible. Un avance real | 2:00 | 3:55 |
+| 8 | Su avance se hace visible | 0:15 | 4:10 |
+| 9 | Descubrir qué le funciona | 0:15 | 4:25 |
+| 10 | Cuidar la continuidad | 0:15 | 4:40 |
+| 11 | ¿Camila vuelve y lo sostiene? | 0:20 | 5:00 |
 
-Marcas para mirar el reloj: a la **1:45** tienes que estar entrando a la demo y a las **3:45** volviendo a la presentación. Si vas atrasado, la 7, la 8 y la 10 se dicen en una frase cada una.
+Estas duraciones suman **5:00** y son un presupuesto, no un ensayo medido. Ensaya a **4:30–4:40** para dejar margen para las transiciones y la lectura de la app. Las dos referencias son entrar a la demo a más tardar en **1:55** y volver al navegador en **3:55**. Si hace falta recortar, di la 6, la 8 y la 10 en una frase cada una; conserva registrar el bloque y ver el avance.
 
 ## Teclas de la presentación
 
 | Tecla | Qué hace |
 |---|---|
-| → · espacio · clic · PageDown | Siguiente (los punteros de presentación mandan PageDown y PageUp) |
+| → · espacio · clic · PageDown | Siguiente lámina |
 | ← · PageUp | Anterior |
 | F | Pantalla completa |
 | B | Pantalla negra; otra tecla la quita |
-| 1 · 2 · 3 · 4 | En la diapositiva 6: videos de respaldo de la demo |
-| Espacio | Con un video de respaldo abierto: pausa o sigue |
+| 1 · 2 · 3 · 4 | En la lámina 7: ajuste, registro, avance y programa, respectivamente |
+| Espacio | Con un respaldo abierto: pausa o sigue el video |
 | Esc | Cierra el respaldo o la ayuda |
-| T | Tema claro u oscuro, por si el proyector lava el negro |
-| ? | Muestra estas teclas |
+| T | Tema claro u oscuro |
+| ? | Muestra la ayuda |
 
 ---
 
-## 1 · Portada · 0:00 a 0:10
+## 1 · Dominó · 0:00 a 0:10
 
-> Soy JP Meniconi. Esto es Dominó. Camila no necesita otra rutina: necesita que una falta no tumbe la obra.
+> Soy JP Meniconi. Esto es Dominó: una app para ayudar a Camila a hacer espacio para moverse, con un plan que se adapta a su semana.
 
-Pausa de un segundo después de «la obra». Avanza.
+La bienvenida dentro del iPhone de la portada alterna citas con su autor. Es un recurso de esta presentación: puedes pausarlo o cambiar la frase manualmente. Con Reducir movimiento se evita la rotación automática. En la app nativa, la frase de bienvenida permanece hasta que la persona toca la flecha; terminar de cargar solo habilita esa flecha.
+
+No leas la cita ni esperes a que termine la rotación. La portada introduce el propósito.
 
 ## 2 · Camila · 0:10 a 0:40
 
-> Camila tiene 34 años y es jefa de proyectos en una constructora. Leyendo su ficha, vimos que no abandona por falta de tiempo ni de ganas: dejó de ir incluso en semanas tranquilas. Lo que la tumba es lo que pasa después de faltar. Falta una vez, dice «mañana parto», siente que tiene que partir de cero, y la culpa la aleja más. Cada reinicio es más grande que el anterior.
+> Camila tiene 34 años y dirige proyectos en una constructora. Quiere volver a sentirse bien en su cuerpo y tener más energía. Se inscribió al gimnasio y fue seis veces: ya tiene una historia de movimiento. Entre reuniones que se alargan y una semana cambiante, le cuesta darle continuidad. Su caso también muestra que retomar pesa emocionalmente. Nuestra oportunidad es ayudarla a convertir las ganas de volver en un siguiente paso que le acomode.
 
-Mientras hablas, la flecha del diagrama vuelve al comienzo: no la nombres, se entiende sola.
+Presenta una persona con una aspiración. El tiempo, la energía y cómo vive el regreso pueden influir a la vez; la ficha no permite declarar que una sola causa explica todo.
 
-## 3 · Nuestra lectura · 0:40 a 1:05
+## 3 · Una forma de planificar que ya conoce · 0:40 a 1:05
 
-> Y aquí está lo que no estaba escrito. En el trabajo, Camila nunca demuele una obra porque algo se atrasó: usa la holgura, reprograma y la entrega se mantiene. Con su cuerpo hace lo contrario: una falta y se cae todo. Dominó lleva a su cuerpo la regla que ya domina en sus obras.
+> Elegimos partir de algo que Camila ya sabe hacer: planificar proyectos. Una carta Gantt permite ver el camino, encontrar espacio y acomodar etapas cuando cambia la semana. Trajimos esa lógica a su plan de movimiento: los próximos bloques se pueden ajustar y lo que ya hizo queda visible. Su experiencia como jefa de proyectos se convierte en una herramienta para cuidarse.
 
-Esta es la diapositiva que el jurado premia con un 7 en «Problema»: algo de Camila que la ficha no dice tal cual y que cambia cómo se ataca. Dila lento.
+Señala los bloques que se acomodan y el avance que permanece. La metáfora organiza el plan; la fecha estimada corresponde al programa, no promete una fecha para «estar en forma».
 
-## 4 · Por qué este problema · 1:05 a 1:25
+## 4 · Qué ayuda a sostener el movimiento · 1:05 a 1:25
 
-> En el estudio de Milkman, con 61.293 socios de gimnasio, lo que más subió la asistencia fue premiar volver después de faltar. El hábito se forma con frecuencia: cuatro veces por semana, seis semanas. Y lo que ya probó se rompe justo ahí: una racha vuelve a cero el día que falta.
+> La evidencia nos orientó a tres decisiones: hacer los pasos simples y repetibles, reconocer el regreso y conservar el avance. Un estudio con nuevos socios relacionó simplicidad y disfrute con el hábito. Un megaestudio encontró buenos resultados al incentivar el regreso. Dominó toma esas pistas para diseñar; su efecto todavía hay que probarlo.
 
-No leas las citas ni la fila de abajo: están en la pantalla para quien quiera mirarlas. Si te preguntan por la mensualidad, la respuesta está en la fila de abajo.
+Las fichas y el avance conservado son decisiones de producto inspiradas en esa evidencia. No se ha probado que una ficha digital tenga el mismo efecto que los incentivos del estudio. Las fuentes y los límites están al final de este guion; no hace falta leerlos en voz alta.
 
-## 5 · La solución · 1:25 a 1:45
+## 5 · Un plan que se adapta contigo · 1:25 a 1:45
 
-> Su plan, como una carta Gantt viva. Si un bloque se cae, primero la holgura de la semana. Si cuesta volver, un bloque puente: corto, pero cuenta completo. Si no cabe, los siguientes se corren un espacio, sin acumular deuda. Nada cambia sin que ella confirme, y su avance nunca baja.
+> Dominó ofrece tres maneras de seguir: usar un espacio disponible, elegir un bloque puente más corto o reprogramar los próximos bloques. Camila ve las opciones y confirma la que le sirve. El plan conserva lo realizado y mantiene una carga semanal acotada. Siempre hay un próximo paso claro.
 
-Los tres diagramas se animan uno tras otro: deja que el de la holgura se mueva antes de nombrarlo.
+Deja que se vea cada diagrama antes de pasar al siguiente. «Siempre hay un próximo paso claro» expresa el criterio de diseño; si ninguna opción acomoda, la app también permite una pausa del plan.
 
-## 6 · Demo en vivo · 1:45 a 3:45
+## 6 · Su plan encaja en su semana · 1:45 a 1:55
 
-> Les muestro cómo Dominó ayuda a Camila a hacer espacio para moverse en su semana.
+> Su Calendario aporta los compromisos de trabajo para encontrar espacio. Y desde un bloque puede invitar por WhatsApp a alguien cercano, con el día, la hora y la actividad ya escritos.
 
-Cambia a la pantalla del iPhone proyectada en el Mac. Este recorrido se guía por funciones: las fechas y horas pueden ser las que aparezcan en tu teléfono. El tiempo de cada fila es una meta de ensayo, no una duración medida.
+Si lo ensayaste dentro de estos diez segundos, toca **Invitar a alguien** para mostrar la vista previa animada. Volver a tocarlo repite la animación. En la presentación es una vista previa; en el iPhone la app abre la hoja del sistema para compartir y Camila elige cómo enviarlo.
+
+La integración implementada lee el calendario «Camila · Dominó» disponible en el iPhone. No es una conexión directa de la app a la API de Google Calendar ni un envío automático por WhatsApp.
+
+## 7 · Demo: un paso posible, un avance real · 1:55 a 3:55
+
+> Les muestro cómo ese plan se convierte en una acción que Camila puede hacer hoy.
+
+Cambia a la pantalla del iPhone proyectada en el Mac. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
 
 | Tiempo de demo | Muestra / toca | Dices |
 |---|---|---|
-| 0:00–0:20 | **Mi plan**: próximo bloque, carta Gantt y **Antes de salir**. Marca una preparación, como **Bolso listo** o **Zapatillas a mano**, según el bloque. | «Camila quiere volver a sentirse bien en su cuerpo. Aquí tiene su próximo paso y cómo prepararlo. El plan considera sus compromisos para encontrar espacio en su semana.» |
-| 0:20–0:50 | **Ajustar** → **Estoy agotada** → **Bloque puente** → **Confirmar ajuste**. Deja que se vea el cambio. | «Hoy necesita algo más liviano. Puede elegir un bloque corto que sí le acomode. Camila decide; al confirmar, el plan se ajusta y conserva lo que ya hizo.» |
-| 0:50–1:05 | Pestaña **Programa** → **Todo**. Señala el bloque cambiado y el resto del camino. | «Este paso sigue conectado con un plan completo. Puede ver cómo se organiza el camino hacia su objetivo.» |
-| 1:05–1:20 | Vuelve a **Mi plan** → **Invitar a alguien**, en un bloque futuro de gimnasio o caminata. Muestra la hoja para compartir y ciérrala. | «También puede invitar a alguien por WhatsApp con el día, la hora y la actividad ya escritos. El apoyo parte de una invitación concreta.» |
-| 1:20–1:45 | Con el reloj de demo después del bloque elegido: **Fui** → muestra el registro de sensaciones y qué ayudó → **Guardar**. | «Después de moverse, registra cómo se sintió y qué le ayudó. Ese paso ya está hecho y queda guardado.» |
-| 1:45–1:55 | **Tu avance**: ficha nueva y nivel. | «Su esfuerzo se hace visible. Cada sesión suma a una historia que sigue construyendo.» |
-| 1:55–2:00 | Vuelve al navegador, lámina 7. | «Dominó: hacer espacio para moverte.» |
+| 0:00–0:20 | **Mi plan**: próximo bloque, carta Gantt y **Antes de salir**. Marca una preparación disponible, como **Bolso listo** o **Zapatillas a mano**. | «Aquí tiene su próximo paso y cómo prepararlo. Tener lo necesario a mano también hace más fácil salir.» |
+| 0:20–0:50 | **Ajustar** → atajo **Estoy agotada** → opción **Bloque puente** → **Confirmar ajuste**. Deja que se vea el cambio. | «Hoy necesita algo más liviano. Puede elegir un bloque corto que le acomode. Camila decide; al confirmar, el plan se ajusta y conserva lo que ya hizo.» |
+| 0:50–1:10 | Pestaña **Programa** → **Todo**. Señala el bloque cambiado y el resto del camino. | «Ese paso sigue conectado con su objetivo. Puede ver cómo se organiza el camino completo y acomodarlo a su semana.» |
+| 1:10–1:45 | Vuelve a **Mi plan**. Usa el reloj para representar una hora posterior al final del bloque elegido. **Fui** → muestra cómo se sintió y qué ayudó → **Guardar**. | «Avancemos a después de la sesión. Camila registra cómo se sintió y qué la ayudó a ir. Ese paso ya está hecho y queda guardado.» |
+| 1:45–1:55 | **Tu avance**: ficha nueva y, si alcanza, nivel. | «Su esfuerzo se hace visible. Cada sesión suma a una historia que sigue construyendo.» |
+| 1:55–2:00 | Vuelve al navegador y avanza a la lámina 8. | «Y ese avance tiene un lugar propio.» |
 
 ### Preparar el recorrido una vez
 
-- Elige un bloque donde **Estoy agotada** ofrezca **Bloque puente**. Si conectaste Calendario, usa los horarios que proponga; no memorices una hora que no está en tu iPhone.
-- Deja el calendario conectado antes de empezar si vas a mostrar sus compromisos. La autorización y conexión no forman parte de la demo.
-- **Invitar a alguien** aparece para bloques futuros de gimnasio o caminata. Si el bloque elegido es en casa, muestra otro bloque adecuado o explica esta función en la lámina 8.
-- No hace falta enviar un WhatsApp durante el pitch. Abrir la hoja para compartir demuestra el punto y permite volver a la app sin esperar a un destinatario.
-- Para representar una sesión terminada, cambia el reloj de demo a una hora posterior a su final. Ejemplo: caminata a las 20:00 de 20 minutos → 20:30. Di «Avancemos a después de la sesión». El reloj es un control del ensayo, no una función para Camila.
-- El registro aparece con **Fui** o **Sí, fui** si el bloque quedó pendiente. Las respuestas de sensaciones son opcionales; no agregues una foto durante el recorrido principal.
-- En **Tu avance**, muestra el resultado que aparezca: no prometas una subida de nivel cada vez que guardas una sesión.
-- Si al ensayar te pasas de dos minutos, pasa la invitación a la lámina 8. Conserva **ajustar → confirmar → registrar → ver avance**.
-
-### Para preguntas o una demostración más larga
-
-- **Fotos:** abre una ficha con foto para mostrar la memoria de un momento concreto.
-- **Modo juego:** muestra el tablero y explica la ficha por día. La partida con Javiera está simulada; no es una conexión multijugador funcionando.
-- **Lo que te funciona:** muestra los horarios y ayudas que aparecen tras varios registros. El ejemplo de la semana 6 sirve para explicar el resultado futuro del programa; un registro nuevo no produce esas conclusiones.
-- **Confirmar semana:** muestra cómo deja lista la semana siguiente. No hace falta recorrer todos estos extras en los cinco minutos.
+- Elige un bloque donde **Estoy agotada** ofrezca **Bloque puente**. El atajo inicia la lectura directamente; no necesitas tocar además **Ver opciones**. Confirma la propuesta con ese nombre, aunque cambie su hora o actividad.
+- Decide antes del ensayo si usarás la semana de ejemplo o el calendario «Camila · Dominó» conectado. Usa el mismo escenario durante el pitch. Conectar, volver a leer el calendario o volver a la semana de ejemplo rearma el plan desde el lunes y reemplaza los ajustes y registros actuales del escenario.
+- **Reiniciar escenario** también reemplaza los ajustes y registros del plan; hazlo solo como preparación, antes de empezar el recorrido. Si hay calendario conectado, intenta volver a leerlo. No necesitas que el teléfono tenga el mismo estado que el simulador o los videos.
+- Para representar una sesión terminada, toca el reloj de **Mi plan** y sitúalo después del final del bloque. Por ejemplo: caminata a las 20:00 de 20 minutos → 20:30. Di «Avancemos a después de la sesión». Este reloj es un control del ensayo.
+- **Fui** se activa treinta minutos antes del bloque. Si quedó pendiente de un día anterior, el botón es **Sí, fui**. Elige el bloque que acabas de ajustar.
+- En el registro puedes marcar **Bien**, **Mejor** y **Era corto**, como respuestas del recorrido. Son opcionales. **Guardar** es lo que registra la sesión; cerrar el panel no lo hace.
+- Guarda las fotos para la lámina siguiente o las preguntas. El recorrido principal debe terminar con la ficha registrada.
+- En **Tu avance**, muestra el resultado que aparezca: el total crece con la sesión guardada, pero el nivel no cambia en cada sesión. La animación de nivel también depende de lo que se vio antes en esa instalación.
+- El plan y el reloj quedan guardados localmente. Cerrar y abrir la app no prepara un escenario nuevo.
 
 ### Si la demo se interrumpe
 
-- **Se cae la proyección o la app no responde:** vuelve a la lámina 6. La tecla **1** muestra el ajuste del lunes; **2**, otro recorrido de ajuste; **4**, el programa. Son respaldos de funciones, no una copia exacta de esta secuencia. Espacio pausa y Esc cierra.
-- **La lectura tarda:** sigue explicando qué está eligiendo Camila; a los 12 segundos entra el respaldo local. Para un ensayo predecible puedes preparar antes reloj → **Usar solo lectura local**.
-- **Tocaste otra opción:** usa **Deshacer** mientras esté visible, o muestra el resultado elegido y continúa.
-- **La app se cerró:** vuelve a abrirla y toca la flecha de bienvenida. El plan y el reloj quedan guardados.
+- **Se interrumpe la proyección o la app no responde:** vuelve a la lámina **7**. **1** muestra el ajuste, **2** el registro, **3** el avance y **4** el programa completo. Son videos de funciones: sus horarios o cifras pueden diferir de los del iPhone. Espacio pausa y Esc cierra.
+- **La lectura tarda:** sigue explicando la elección de Camila; tras doce segundos la app recurre a la lectura local. Para un ensayo predecible puedes activar antes reloj → **Usar solo lectura local**. Si te preguntan, distingue esa lectura por palabras clave del modelo de Apple.
+- **Tocaste otra opción:** usa **Deshacer** mientras esté visible, o muestra la opción elegida y continúa.
+- **La app se cerró:** vuelve a abrirla y toca la flecha de bienvenida; el plan y el reloj conservan su estado.
 
-## 7 · Y además · 3:45 a 4:00
+### Funciones para las preguntas
 
-> Y en Tu avance, todo suma. Su nivel sube cada siete fichas y nunca baja. Cada ficha guarda su foto. Y en el Modo juego con Javiera, una ficha por día como máximo: gana quien se mueve más días, no quien entrena más fuerte.
+- **Invitar a alguien:** en un bloque futuro de gimnasio o caminata, abre la hoja para compartir y ciérrala. No necesitas enviar un mensaje durante el pitch.
+- **Fotos:** abre una ficha con foto y muestra ese momento del recorrido.
+- **Modo juego:** muestra el tablero y explica la regla de una ficha por día. La partida con Javiera es una demostración local; el prototipo no conecta dos teléfonos.
+- **Lo que te funciona:** la app habilita los patrones desde tres registros. Eso permite explorar lo registrado, no establecer causas. El ejemplo de la semana 6 ilustra un programa con más datos; no es el resultado de la única sesión recién guardada.
+- **Confirmar semana:** muestra cómo deja lista la semana siguiente. Estas funciones quedan fuera del recorrido principal de dos minutos.
 
-Señala cada iPhone mientras lo nombras, de izquierda a derecha. «¿Sabías que?» no lo digas: se lee solo. Si vas atrasado, basta con la primera frase y la última. Si te sobran segundos: «Y cada día, un dato de un estudio publicado, con su fuente: no una frase motivacional».
+## 8 · Su avance se hace visible · 3:55 a 4:10
 
-## 8 · Su semana real · 4:00 a 4:10
+> Cada sesión deja una ficha y puede guardar una foto. Camila ve lo que está construyendo: momentos concretos, esfuerzo acumulado y nuevos logros. Ese avance también puede compartirlo cuando ella quiera.
 
-> Dominó se conecta a su Calendario para encontrar espacio. Y Camila puede compartir un bloque por WhatsApp para invitar a alguien cercano.
+Los dos iPhones muestran fichas y nivel, y la foto de un momento. Señálalos en ese orden. El nivel sube cada siete fichas, incluyendo las seis visitas de enero. No presentes aquí una lista de funciones: el punto es que Camila puede reconocer su progreso.
 
-Toca «Invitar a alguien»: aparece una vista previa animada del mensaje. El botón conserva su nombre; volver a tocarlo repite la animación. Es una demostración de compartir, no envía un mensaje desde la presentación.
+## 9 · Descubrir qué le funciona · 4:10 a 4:25
 
-## 9 · Cuando termina el programa · 4:10 a 4:25
+> Con varios registros puede mirar qué horarios cumple, qué disfruta y qué la ayuda a ir. Esos aprendizajes alimentan su manual para seguir. Camila siempre decide; ahora tiene más información de su propio recorrido para hacerlo.
 
-> El programa termina en sus manos. «Lo que te funciona» le muestra qué horarios se cumplen y cómo vuelve, y al terminar le queda un manual con tres reglas: primero la holgura, después un bloque puente y nunca recuperar con más bloques.
+Las imágenes muestran cómo se organiza esa información al avanzar el programa. No atribuyas a la sesión recién registrada todos los patrones de la captura.
 
-## 10 · Qué dejamos fuera · 4:25 a 4:40
+## 10 · Cuidar la continuidad · 4:25 a 4:40
 
-> Dejamos fuera recordatorios, rachas que vuelven a cero y avisar a su círculo cuando falta: en el Modo juego, Javiera ve cuántas fichas puso, nunca qué días. Tampoco rutinas, nutrición ni wearables.
+> Tres decisiones guían Dominó: conservar el avance, dejar el control de los ajustes y de lo que comparte en manos de Camila, y enfocarse en hacer viable el próximo paso. Por eso este prototipo se concentra en planificar, registrar y aprender.
 
-## 11 · Cómo sabríamos si funciona · 4:40 a 5:00
+Si preguntan por alcance: el prototipo no incluye rutinas personalizadas, nutrición, wearables, recordatorios automáticos ni conexión multijugador. Son límites de esta versión, no afirmaciones de que esas herramientas sean inútiles.
 
-> ¿Cómo sabríamos si funciona? Lo mediríamos en vez de suponerlo: cuánto tarda en volver después de faltar, cuántos bloques hace por semana entre la uno y la seis, y si sigue en la semana doce, contra un grupo de control. Dominó: una falta no tumba la obra. Gracias.
+## 11 · ¿Camila vuelve y lo sostiene? · 4:40 a 5:00
 
-Quédate en esta diapositiva durante las preguntas: tiene el QR del repo.
+> La pregunta es si Camila vuelve y lo sostiene. Proponemos medir el tiempo hasta su próxima sesión, cuántas sesiones realiza cada semana y si continúa a las doce semanas. Eso requiere un piloto: hoy mostramos el mecanismo funcionando. Dominó: hacer espacio para moverte. Gracias.
 
----
-
-## Antes de subir (prueba del proyector, 13:00)
-
-**iPhone**
-
-- Batería sobre 80 %, modo Concentración «No molestar», brillo alto y bloqueo automático en «Nunca» (Ajustes → Pantalla y brillo).
-- Apple Intelligence activado, para que la lectura corra en el iPhone.
-- En Dominó, pestaña «Mi plan»: «…» arriba a la derecha → «Reiniciar escenario». Queda en lunes 19:05, con el plan nuevo. Déjala abierta en «Mi plan»: si la cierras, al abrirla aparece primero la bienvenida.
-- Decide si vas con la semana de ejemplo o con el calendario «Camila · Dominó» conectado (reloj → «Conectar calendario») y ensaya con lo mismo que vas a usar. Al conectar o volver a leer el calendario, el plan se arma de nuevo desde el lunes.
-- Haz una lectura de prueba en «Ajustar» y cierra sin confirmar: así el modelo queda cargado. Si tarda más de 3 segundos, activa «Usar solo lectura local».
-- Vuelve a «Reiniciar escenario» después de cualquier ensayo.
-
-**Proyector**
-
-- Prueba cómo se ve el iPhone en la pantalla. Lo más firme es por cable: QuickTime Player → Archivo → Nueva grabación de película → en la flecha junto al botón rojo, elige el iPhone como cámara, y pásalo a pantalla completa. Si el proyector tiene una segunda entrada, un adaptador USB‑C a HDMI directo del iPhone también sirve.
-- Practica una vez el cambio entre el navegador y el iPhone (Comando + Tab). Si el cambio se ve feo, aprieta B antes de cambiar: la pantalla queda negra.
-- Abre `presentacion/index.html` como archivo local (no necesita internet) y aprieta F. Ten también la versión de Vercel abierta en otra pestaña.
-- Mira la diapositiva 3, la 5 y la 7 desde el fondo de la sala. Si el negro se ve gris o lavado, aprieta T.
-- En la diapositiva 6, aprieta 1 para comprobar que el video de respaldo se ve, y Esc para volver.
-- Si usas puntero de presentación, comprueba que avance y retroceda.
-
-**Tú**
-
-- Un ensayo completo con cronómetro. Apunta a 4:30–4:40 para dejar margen dentro de los cinco minutos; recorta la 7, la 8 y la 10 si hace falta.
-- Agua a mano. Respira antes de la demo: el silencio de dos segundos mientras la app lee está bien.
+Quédate en esta lámina para las preguntas: contiene el QR del repositorio. Las métricas son un plan de validación, no resultados obtenidos.
 
 ---
+
+## Antes de subir
+
+**iPhone y recorrido**
+
+- Comprueba batería, brillo y que las notificaciones personales no interrumpan la proyección. Ensaya con la conexión iPhone–Mac ya acordada con Makana.
+- Usa el mismo estado y la misma opción de calendario que ensayaste. Si quieres empezar con el plan inicial, **Mi plan → … → Reiniciar escenario**, antes del pitch.
+- Decide entre el modelo de Apple y **Usar solo lectura local** según lo que funcione en ese iPhone. Haz una lectura de prueba y cierra sin confirmar para comprobar la respuesta.
+- Recorre una vez **ajustar → confirmar → registrar → ver avance**. Después vuelve a preparar el escenario inicial que usarás.
+- Deja la app abierta en **Mi plan**. Si vuelves a abrirla, la bienvenida requiere tocar la flecha cuando esté lista.
+
+**Presentación y proyección**
+
+- Prueba el cambio entre el navegador y la pantalla del iPhone. La presentación permanece en la lámina **7** durante la demo.
+- Ten el archivo local `presentacion/index.html` y la versión de Vercel disponibles. El archivo local usa los medios que tengas descargados junto a él.
+- Mira las láminas 3, 5 y 8 desde el fondo de la sala. Si hace falta, **T** cambia entre claro y oscuro.
+- Desde la lámina **7**, prueba las teclas **1**, **2**, **3** y **4**; cierra cada respaldo con **Esc**.
+- Comprueba avance, retroceso y pantalla completa. En la portada puedes pausar las citas si prefieres mantener una durante la espera.
+
+**Ensayo**
+
+- Haz un ensayo completo con cronómetro y apunta a **4:30–4:40**. El guion reserva cinco minutos, pero un margen real protege la demo.
+- Practica el cambio de reloj antes de **Fui**. Elige de antemano la hora posterior al bloque que mostrarás.
+- Conserva unos segundos de silencio para que el jurado vea cambiar el plan y aparecer la ficha. No hace falta narrar cada toque.
 
 ## Preguntas probables del jurado
 
-El jurado es el equipo de producto de Makana. Pone de 1 a 7 en problema, solución y convicción. En convicción, un 7 es responder con precisión y dejarlos convencidos de que Camila cambiaría con esto. Responde corto y vuelve a Camila.
+Responde con precisión: qué se ve funcionar, qué decisión tomaste y qué queda por validar.
 
-**1. ¿Qué hace exactamente la IA? ¿Qué pasa si se equivoca?**
-Solo lee lo que Camila escribe y lo clasifica: horario, energía, ganas de partir de cero o molestia física. Los horarios los decide un planificador con reglas fijas, así que un error de lectura cambia el orden de las opciones, no el plan, y nada se aplica sin que ella confirme. Corre en el iPhone; si el modelo no está, una lectura local por palabras clave hace lo mismo.
+**1. ¿Qué hace la IA? ¿Qué pasa si interpreta otra cosa?**
 
-**2. ¿Qué pasa si falta varias veces seguidas? ¿No se le acumula todo?**
-Nunca: cada semana tiene como máximo cuatro bloques. Lo que no cabe se corre, como en la demo, y la meta estimada se mueve; nunca se recupera con más bloques. Si ninguna opción le sirve, puede pausar el plan una o dos semanas sin perder su avance.
+Clasifica lo que Camila escribe en horario, energía, deseo de reiniciar, molestia física u otra situación, y genera un resumen. El planificador calcula los horarios con reglas fijas. La clasificación influye en las opciones y su orden; Camila revisa y confirma antes de aplicar un cambio. Cuando está disponible, el modelo de Apple corre en el iPhone. Si no responde a tiempo o no está disponible, hay una lectura local por palabras clave.
 
-**3. ¿Cómo saben que su problema es volver y no la falta de tiempo?**
-Porque la ficha dice que dejó de ir incluso en semanas tranquilas: si fuera tiempo, esas semanas habría ido. Lo que se repite es «mañana parto» y partir de cero. Y en el megaestudio de Milkman, lo que más funcionó fue justamente premiar volver después de faltar.
+**2. ¿Qué ocurre si necesita reprogramar varias sesiones?**
 
-**4. ¿Por qué no rachas, recordatorios o notificaciones?**
-Ya silenció las notificaciones, y recordatorios y premios funcionan solo mientras duran. Una racha vuelve a cero el día que falla, que es justo cuando la culpa la saca. Aquí cada bloque hecho deja una ficha en pie, y una falta no bota ninguna.
+La app mantiene una carga semanal acotada al patrón y conserva lo realizado. Puede usar un espacio libre, cambiar el tipo o duración del bloque, correr próximos bloques o pausar el plan. La fecha estimada se ajusta al programa; no predice una transformación física.
 
-**5. ¿Cómo lo medirían? ¿Lo probaron con personas?**
-Con el tiempo de regreso después de una falta, la frecuencia semanal de la semana 1 a la 6 y la permanencia en la semana 12, contra un grupo de control. Todavía no lo probamos con personas; lo siguiente sería un piloto con consentimiento.
+**3. ¿Cómo saben qué necesita Camila?**
 
-**6. Sin recordatorios, ¿cómo vuelve a abrir la app?**
-No competimos por su atención: ya silenció las notificaciones. La abre cuando algo se mueve, que es justo cuando la necesita, y el domingo en la noche, cuando le llega el cargo del gimnasio y aparece el «mañana parto». Lo que sostiene el hábito no es un aviso: son cuatro horarios fijos que caben en su semana, como pide la evidencia de Kaushal y Rhodes, y que la lista «Antes de salir» le recuerda bloquear en su agenda.
+El caso menciona tanto semanas laborales variables como dificultad para retomar y la idea de empezar cada lunes. Nuestra hipótesis combina esas pistas: un próximo paso viable, un plan adaptable y progreso visible. La carta Gantt aprovecha su experiencia en proyectos. Para saber qué parte ayuda más necesitamos conversar con personas con experiencias similares y probarlo.
 
-**7. ¿Qué pasa cuando terminan las seis semanas? ¿Queda dependiendo de la app?**
-No. «Lo que te funciona» le muestra qué horarios se cumplen, qué disfruta y cómo vuelve, y al terminar le queda un manual con sus horarios y tres reglas. Lo guarda o lo manda como texto, sin sus faltas.
+**4. ¿Por qué fichas en vez de rachas o más recordatorios?**
 
-**8. ¿Una carta Gantt no es muy técnica para otras personas?**
-Para Camila no: gestiona obras todos los días, y por eso la regla de la holgura le hace sentido al tiro. El mecanismo de holgura, bloque puente y efecto dominó funciona igual en una lista simple. Elegimos diseñar para ella y no para todos.
+Elegimos que cada sesión deje una señal acumulativa de progreso, coherente con el objetivo de continuidad. En este caso Camila ya había silenciado notificaciones; por alcance, priorizamos preparar y adaptar el siguiente paso. No concluimos que los recordatorios o las rachas nunca sirvan. Las fichas son una hipótesis de diseño que habría que comparar.
 
-**9. ¿Cómo encajaría en Makana? ¿Qué vería la empresa?**
-Encaja como una intervención dentro del bienestar laboral, y su calendario de trabajo ya es parte de ese contexto. La empresa no vería faltas de nadie: compartir es siempre decisión de Camila, y lo que comparte muestra sus fichas en pie y no nombra faltas. Si algún día hay métricas para la empresa, tendrían que ser agregadas y anónimas; en este prototipo no existen.
+**5. ¿Ya demostraron que funciona con personas?**
 
-**10. ¿Y si le duele la espalda?**
-Si escribe que le duele, la app lo lee como molestia física, propone un bloque suave y corto, y le sugiere ver a un profesional si el dolor sigue o es intenso. No damos consejos médicos.
+Todavía no. Demostramos el flujo del prototipo. El siguiente paso sería un piloto con consentimiento, seguimiento de sesiones realizadas y una comparación adecuada. Mediríamos el tiempo hasta la próxima sesión —incluido el regreso tras una interrupción—, la frecuencia semanal y la continuidad a doce semanas. Registrar algo en la app es una señal; en el piloto habría que definir cómo comprobar la actividad.
 
-**11. ¿Esto no es gamificación?**
-Sí, pero al revés de la de siempre: no hay rachas que se rompan ni puntos que se pierdan. El nivel sube cada siete fichas en pie y nunca baja, porque una falta no bota fichas. Los 11 logros premian lo mismo que la evidencia: volver después de un atraso, usar la holgura, un bloque puente, una semana completa. No vencen ni se comparan con los de nadie.
+**6. ¿Cómo vuelve a abrir la app?**
 
-**12. ¿Competir no le mete presión a Camila?**
-Por eso las reglas del Modo juego: una ficha por día como máximo, así que entrenar más fuerte no sirve; gana quien se mueve más días, que es justo lo que forma el hábito. Javiera ve cuántas fichas puso, nunca qué días, y un día sin ficha no aparece como falta. Lo puesto queda guardado y nada baja. Si no quiere competir con nadie, juega contra su propio récord.
+La propuesta es que la consulte para preparar su próximo bloque, ajustar el plan y registrar después de moverse. La revisión semanal ofrece otro momento concreto. Que esos momentos sean suficientes para que regrese a la app es una pregunta del piloto, no algo resuelto por el prototipo.
 
-**13. ¿Javiera es real? ¿Cómo jugaría con una amiga de verdad?**
-La partida con Javiera está simulada en el iPhone. Para jugar entre dos personas harían falta cuentas y un servidor, que dejamos fuera a propósito. Y lo que se compartiría sería lo mismo que hoy: cuántas fichas, nunca qué días ni sus faltas.
+**7. ¿Qué pasa después del programa?**
 
-Si preguntan algo que no sabes, dilo así: «No lo medimos todavía; lo mediríamos con…» y vuelve a una de las tres métricas.
+Puede consultar y compartir su manual con horarios y ayudas que registró. La intención es que use esos aprendizajes para seguir organizándose. Todavía no sabemos cuánto sostiene esa continuidad después de las seis semanas: por eso proponemos medir también en la semana doce.
 
-## Lo que mira el jurado y dónde está en el pitch
+**8. ¿Una carta Gantt no es demasiado técnica?**
 
-- **Problema (7):** algo de Camila que no estaba escrito tal cual y que cambia cómo se ataca. Está en la diapositiva 3 (la regla de sus obras) y se defiende con la 4.
-- **Solución (7):** corre en vivo, cada parte responde al problema y saben decir qué dejaron fuera. Está en la demo (holgura, efecto dominó y la semana del domingo), en la 7 (todo suma, nada resta) y en la 10.
-- **Convicción (7):** responder con precisión. Están las trece preguntas de arriba. Vuelve siempre a Camila y a lo que pasa después de faltar.
+Elegimos ese lenguaje por la experiencia de Camila como jefa de proyectos. La interacción principal sigue siendo elegir un bloque, ajustarlo y registrar. El piloto tendría que comprobar si la vista completa ayuda a orientarse o si una vista más simple resulta más clara.
 
----
+**9. ¿Cómo encajaría en Makana?**
 
-## Revisión del relato: propuestas por lámina
+Como una posible intervención de bienestar que considera la semana laboral. Hoy no hay un panel para empresas. Camila elige si comparte una invitación o su avance. Cualquier futura medición organizacional necesitaría un diseño específico de consentimiento y privacidad; no forma parte de esta versión.
 
-Estas son propuestas para la próxima revisión editorial; no están aplicadas a todos los textos de las diapositivas. Los cambios ya implementados son la limpieza de aclaraciones del escenario, Calendario con gradiente, la invitación de WhatsApp y el recorrido de demo de este guion.
+**10. ¿Cómo maneja una molestia física?**
 
-La historia que conviene sostener es: **Camila quiere sentirse bien → encuentra espacio en su semana → elige un paso posible → lo hace → ve su avance → descubre qué le funciona.** La presentación actual vuelve demasiadas veces a faltar y empezar de cero; además, las funciones de progreso quedan presentadas como extras. El cambio importante es darle protagonismo a la acción y a la capacidad de decisión de Camila.
+El prototipo identifica esa categoría, ofrece una opción suave y breve y muestra una indicación de consultar a un profesional si el dolor continúa o es intenso. Ese comportamiento está implementado, pero no ha sido validado clínicamente: no lo presentaríamos como una recomendación personalizada ni como una función médica.
 
-| Lámina | Qué cambiaría | Qué debería dejar claro |
-|---|---|---|
-| 1 · Portada | Sustituir la frase sobre tumbar la obra por **«Dominó. Hacer espacio para moverte.»** Mostrar el plan como imagen principal. | En los primeros segundos se entiende para qué sirve. |
-| 2 · Camila | Abrir con **«Camila quiere volver a sentirse bien en su cuerpo»**. Presentar su contexto y la dificultad de retomar una sola vez. Quitar la certeza de que el tiempo no influye. | Hay una persona con un objetivo deseado, y seis visitas que ya forman parte de su historia. |
-| 3 · Nuestra lectura | **«Una forma de planificar que ya conoce.»** Animar bloques que se acomodan y conservar los realizados. Retirar la demolición del cuerpo. | Su experiencia como jefa de proyectos es un recurso. La metáfora explica el plan, no juzga su cuerpo. |
-| 4 · Evidencia | **«Qué ayuda a sostener el movimiento.»** Reducir a dos o tres decisiones respaldadas: repetición, contexto sencillo y reconocer el regreso. | La evidencia informa el diseño; no promete que cuatro sesiones por seis semanas garantizan un hábito. |
-| 5 · Solución | **«Un plan que se adapta contigo.»** Explicar una opción corta, un nuevo horario y la confirmación de Camila. | La app ayuda a elegir una acción viable. La fecha estimada corresponde al programa, no a una promesa de estar en forma. |
-| 6 · Demo | Hacer obligatorio **ajustar → confirmar → Fui → Guardar → Tu avance**. Usar el nuevo recorrido de funciones. | La demostración termina con una acción realizada y un resultado visible. |
-| 7 · Y además | Renombrar a **«Su avance se hace visible.»** Dar más tamaño a las fichas y fotos; dejar datos diarios y detalles del juego para preguntas. | El progreso es parte central de la propuesta. Evita un catálogo de cuatro funciones pequeñas. |
-| 8 · Su semana real | Titular **«Su plan encaja en su semana.»** Mantener Calendario y WhatsApp como apoyos concretos. | Calendario aporta disponibilidad; compartir facilita compañía. El código usa el calendario del iPhone y la hoja para compartir, no un acceso directo propio a Google Calendar o WhatsApp. |
-| 9 · Final del programa | **«Descubrir qué le funciona.»** Mostrar horarios, ayudas y aprendizajes. Evitar que «pasa a sus manos» sugiera que antes no tenía control. | Camila siempre decide; con varios registros puede entender mejor su propio proceso. |
-| 10 · Alcance | **«Decisiones para cuidar la continuidad.»** Resumir en tres decisiones: conservar el avance, compartir por elección y enfocarse en planificar. | Explica el criterio del producto sin dedicar toda una lámina a una lista defensiva de ausencias. |
-| 11 · Cierre | Volver al desafío: **«¿Camila vuelve y lo sostiene?»** Mostrar métricas como plan de validación y cerrar con **«Hacer espacio para moverte.»** | La app funciona como prototipo; el efecto sobre la continuidad todavía necesita medirse. |
+**11. ¿Los niveles y logros están probados científicamente?**
 
-Movería la lámina 8 justo antes de la demo: primero se entiende cómo cabe en su vida, luego se ve la acción. El cierre debe recuperar la misma idea positiva de la portada.
+Son decisiones de diseño, no una intervención validada. El nivel suma una mano cada siete fichas; los logros reconocen acciones del recorrido. El estudio de Milkman nos inspiró a prestar atención al regreso, pero probó incentivos distintos de estas fichas. Tendríamos que medir si estos elementos ayudan a Camila o si conviene simplificarlos.
 
-### Precisión de la evidencia
+**12. ¿Cómo funciona el juego con una amiga?**
 
-- [Milkman et al., Nature 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC8822539/): el experimento con 61.293 socios respalda investigar intervenciones de asistencia y regreso; no demuestra que una ficha digital tenga el mismo efecto que un incentivo monetario ni que todos los recordatorios dejen de servir al terminar.
-- [Kaushal y Rhodes, 2015](https://www.uvic.ca/research/labs/bmed/assets/docs/Kaushal,%20Rhodes,%202015.pdf): el estudio de 111 nuevos socios observa asociaciones con frecuencia, simplicidad, disfrute y contexto. Cuatro veces por semana durante seis semanas no es una garantía universal.
-- [Sperandei et al., 2016](https://researchers.westernsydney.edu.au/en/publications/adherence-to-physical-activity-in-an-unsupervised-setting-explana/): el abandono observado corresponde a un gimnasio de Río. No presentarlo como una tasa inevitable para Camila o para cualquier gimnasio.
+La partida con Javiera es local y sirve para explorar la idea. Cuenta una ficha por día y no usa la intensidad del ejercicio como puntaje. Para que dos personas jueguen desde teléfonos diferentes habría que desarrollar cuentas, sincronización y acuerdos sobre qué compartir. La invitación mediante la hoja del sistema sí está implementada.
+
+**13. ¿Qué se conecta realmente al Calendario y WhatsApp?**
+
+La app lee los eventos del calendario «Camila · Dominó» disponible en el iPhone, con permiso del sistema, y calcula espacios para el plan. Para invitar, prepara un texto y abre la hoja de compartir de iOS; la persona elige WhatsApp u otra aplicación y decide si lo envía. No envía mensajes automáticamente.
+
+Si te preguntan algo que no mediste: «Todavía no lo medimos; lo probaríamos con…». Distingue el funcionamiento del prototipo de su efecto en la vida de una persona.
+
+## Criterios del relato y fuentes
+
+- **Problema:** presentar la aspiración de Camila y reconocer varias barreras posibles. La carta Gantt es una hipótesis de diseño basada en su contexto.
+- **Solución:** mostrar un paso elegido, confirmado y realizado. La demo termina en el avance visible, no solo en mover el calendario.
+- **Convicción:** explicar decisiones y límites con precisión. Las métricas del cierre describen el próximo experimento.
+
+[Kaushal y Rhodes, 2015](https://www.uvic.ca/research/labs/bmed/assets/docs/Kaushal,%20Rhodes,%202015.pdf) siguieron a 111 nuevos socios durante doce semanas mediante encuestas. Consistencia, simplicidad, entorno y disfrute predijeron cambios en el hábito. El resultado de cuatro sesiones semanales durante seis semanas corresponde a esa muestra; no garantiza un hábito para cualquier persona ni justifica una prescripción universal.
+
+[Milkman et al., Nature 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC8822539/) compararon 54 programas digitales en 61.293 socios. El programa con mayor aumento de asistencia incluía pequeñas recompensas por regresar tras una sesión no realizada. Algunos efectos persistieron después de la intervención; el estudio no permite afirmar que todos los recordatorios o premios solo funcionen mientras duran. Tampoco prueba el efecto de nuestras fichas digitales.
+
+[Sperandei et al., 2016](https://researchers.westernsydney.edu.au/en/publications/adherence-to-physical-activity-in-an-unsupervised-setting-explana/) analizaron registros de 5.240 miembros de un gimnasio de Río de Janeiro. El 63 % observado en ese contexto no es una tasa universal ni el destino esperado de Camila. Por eso no se usa como idea central del pitch.

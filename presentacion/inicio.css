@@ -1,0 +1,132 @@
+/* Portada: varias bienvenidas de muestra. La app mantiene una cita hasta el toque. */
+.inicio-demo {
+  --inicio-acento: #f46a21;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #151515;
+  background: #f2f2f7;
+  padding: calc(var(--ancho) * .06) calc(var(--ancho) * .05) calc(var(--ancho) * .10);
+}
+
+.inicio-estado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  padding: 0 calc(var(--ancho) * .035);
+  font-size: calc(var(--ancho) * .044);
+  font-weight: 600;
+}
+.inicio-estado svg { width: calc(var(--ancho) * .17); height: calc(var(--ancho) * .046); }
+
+.inicio-marca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--ancho) * .028);
+  margin-top: calc(var(--ancho) * .10);
+  font-size: calc(var(--ancho) * .054);
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.inicio-logo {
+  display: block;
+  width: calc(var(--ancho) * .085);
+  height: calc(var(--ancho) * .085);
+  border-radius: calc(var(--ancho) * .022);
+  background: url("icono.svg") center / cover no-repeat;
+}
+
+.inicio-cita {
+  width: 100%;
+  margin: auto 0;
+  overflow: hidden;
+  border-radius: calc(var(--ancho) * .066);
+  background: #fff;
+}
+.inicio-ilustracion {
+  position: relative;
+  aspect-ratio: 1086 / 450;
+  overflow: hidden;
+}
+.inicio-ilustracion::before {
+  content: "";
+  position: absolute;
+  width: 111.111%;
+  aspect-ratio: 1206 / 2622;
+  left: -5.555%;
+  top: -170%;
+  background: url("medios/bienvenida.png") top center / 100% auto no-repeat;
+}
+.inicio-cita-textos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(var(--ancho) * .51);
+  padding: calc(var(--ancho) * .052);
+}
+.inicio-frase {
+  font-size: calc(var(--ancho) * .059);
+  line-height: 1.26;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  text-wrap: pretty;
+}
+.inicio-autor {
+  margin-top: calc(var(--ancho) * .034);
+  font-size: calc(var(--ancho) * .038);
+  color: #76767d;
+  line-height: 1.3;
+}
+
+.inicio-entrada {
+  width: calc(var(--ancho) * .202);
+  height: calc(var(--ancho) * .202);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  color: #9d9da3;
+  transition: color .35s var(--curva), background .35s var(--curva);
+}
+.inicio-entrada svg { width: 100%; height: 100%; overflow: visible; }
+.inicio-anillo-base { fill: none; stroke: #d9d9de; stroke-width: 1.6; }
+.inicio-anillo { fill: none; stroke: var(--inicio-acento); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: var(--inicio-carga, 100); transform: rotate(-90deg); transform-origin: 38px 38px; }
+.inicio-flecha { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.inicio-demo[data-listo="true"] .inicio-entrada { color: var(--inicio-acento); background: #f46a211c; }
+.inicio-caption { margin-top: calc(var(--ancho) * .04); color: #87878e; font-size: calc(var(--ancho) * .034); }
+.inicio-home { width: calc(var(--ancho) * .36); height: calc(var(--ancho) * .012); border-radius: 8px; background: #202024; position: absolute; bottom: calc(var(--ancho) * .025); }
+
+.inicio-controles {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 125%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px 12px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--texto-2);
+}
+.inicio-etiqueta { flex-basis: 100%; text-align: center; font-size: 12px; }
+.inicio-controles button { min-height: 44px; padding: 4px 8px; font-size: inherit; }
+.inicio-controles button:hover { color: var(--acento); }
+.inicio-controles button:disabled { cursor: default; color: var(--texto-3); }
+.inicio-controles .inicio-contador { font-variant-numeric: tabular-nums; }
+.modo-pagina .inicio-telefono { margin-bottom: 90px; }
+.modo-deck .inicio-controles { top: calc(100% + 14px); font-size: 18px; }
+.modo-deck .inicio-etiqueta { font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .inicio-entrada { transition: none; }
+}
+@media print {
+  .inicio-controles { display: none; }
+  .inicio-anillo { stroke-dashoffset: 0; }
+  .inicio-entrada { color: var(--inicio-acento); background: #f46a211c; }
+}

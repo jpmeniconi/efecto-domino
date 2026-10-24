@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dominó · Hackatón Señales de Makana</title>
-<meta name="description" content="Camila no necesita otra rutina: necesita que una falta no tumbe la obra. Pitch de Dominó, caso 01 de la Hackatón Señales de Makana.">
+<meta name="description" content="Dominó. Hacer espacio para moverte. Un plan que se adapta a tu semana y conserva tu avance. Pitch del caso Camila, Hackatón Señales de Makana.">
 <meta property="og:title" content="Dominó">
-<meta property="og:description" content="Camila no necesita otra rutina: necesita que una falta no tumbe la obra.">
+<meta property="og:description" content="Dominó. Hacer espacio para moverte.">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="icono.svg" type="image/svg+xml">
 <link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="inicio.css">
 <script>
   // Antes de pintar: modo (presentación o página vertical), escala del lienzo de 1920 × 1080 y tema guardado.
   (function () {
@@ -29,54 +30,64 @@
   })();
 </script>
 <script src="presentacion.js" defer></script>
+<script src="inicio.js" defer></script>
 </head>
 <body>
 <main class="deck" id="deck" aria-roledescription="presentación" aria-label="Dominó">
 <div class="escenario" id="escenario">
 
-<!-- 1 · Portada -->
+<!-- 1 · Dominó -->
 <section class="diapositiva portada" id="1" aria-roledescription="diapositiva" aria-label="1 de 11: Dominó" data-titulo="Dominó">
   <div class="portada-texto">
     <img class="portada-icono entra" style="--i:0" src="icono.svg" alt="" width="128" height="128">
     <h1 class="portada-nombre entra" style="--i:1">Dominó</h1>
-    <p class="portada-frase entra" style="--i:2"><span>Camila no necesita otra rutina:</span> necesita que una falta no tumbe la obra.</p>
+    <p class="portada-frase entra" style="--i:2">Hacer espacio<br>para moverte.</p>
+    <p class="portada-descripcion entra" style="--i:3">Un plan que se adapta a tu semana.<br>Un avance que sigue contigo.</p>
   </div>
   <p class="portada-pie entra" style="--i:4">Hackatón Señales de Makana · Caso 01: Camila<br><span>JP Meniconi</span></p>
-  <figure class="telefono entra" style="--i:3">
-    <div class="pantalla">
-      <img src="medios/bienvenida.png" alt="Bienvenida de Dominó en el iPhone" decoding="async">
-      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Bienvenida</span><code>medios/bienvenida.png</code></div>
+  <figure class="telefono inicio-telefono entra" style="--i:3" aria-label="Vista previa de tres bienvenidas de Dominó">
+    <div class="pantalla inicio-demo" id="inicio-demo" data-listo="false" data-cita="cita_042">
+      <div class="inicio-estado" aria-hidden="true"><span>9:41</span><svg viewBox="0 0 68 20"><path fill="currentColor" d="M1 14h4v5H1zM7 10h4v9H7zM13 5h4v14h-4zM19 1h4v18h-4z"/><path d="M29 7q10-9 20 0M33 11q6-5 12 0M37 15q2-2 4 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><rect x="54" y="4" width="12" height="12" rx="3" fill="#34c759"/><path d="m61 2-4 8h4l-2 8 6-10h-5z" fill="white"/></svg></div>
+      <div class="inicio-marca"><span class="inicio-logo" aria-hidden="true"></span><span>Dominó</span></div>
+      <div class="inicio-cita">
+        <div class="inicio-ilustracion" role="img" aria-label="Camila se estira en casa"></div>
+        <div class="inicio-cita-textos" aria-live="off">
+          <p class="inicio-frase" id="inicio-frase">Empieza, entonces, por las cosas pequeñas.</p>
+          <p class="inicio-autor" id="inicio-autor">Epicteto</p>
+        </div>
+      </div>
+      <div class="inicio-entrada" aria-hidden="true"><svg viewBox="0 0 76 76"><circle class="inicio-anillo-base" cx="38" cy="38" r="35"/><circle class="inicio-anillo" cx="38" cy="38" r="35" pathLength="100"/><path class="inicio-flecha" d="M27 38h22M40 29l9 9-9 9"/></svg></div>
+      <p class="inicio-caption" id="inicio-caption">Preparando tu plan…</p>
+      <div class="inicio-home" aria-hidden="true"></div>
     </div>
+    <figcaption class="inicio-controles">
+      <span class="inicio-etiqueta">Una frase en cada bienvenida</span>
+      <button type="button" id="inicio-pausa">Pausar</button>
+      <span class="inicio-contador" id="inicio-contador" aria-label="Ejemplo de bienvenida">1 / 3</span>
+      <button type="button" id="inicio-siguiente" aria-label="Siguiente frase de bienvenida">Otra frase →</button>
+    </figcaption>
   </figure>
 </section>
 
 <!-- 2 · Camila -->
 <section class="diapositiva camila" id="2" aria-roledescription="diapositiva" aria-label="2 de 11: Camila" data-titulo="Camila">
   <p class="kicker entra" style="--i:0">Camila, 34 años, jefa de proyectos en una constructora</p>
-  <h2 class="titulo entra" style="--i:1">No abandona por falta de tiempo ni de ganas.</h2>
-  <p class="bajada entra" style="--i:2">Dejó de ir incluso en semanas tranquilas. <strong>La tumba lo que pasa después de faltar.</strong></p>
-  <div class="ciclo entra" style="--i:3">
-    <svg class="ciclo-vuelta" viewBox="0 0 1620 150" aria-hidden="true">
-      <path class="ciclo-arco" d="M1417 112 C1417 40 1300 16 810 16 C320 16 203 40 203 118"/>
-      <path class="ciclo-punta" d="M191 104 L203 120 L215 104"/>
-    </svg>
-    <p class="ciclo-nota">Y cada reinicio es más grande que el anterior.</p>
-    <ol class="ciclo-pasos">
-      <li><span class="ciclo-punto"></span>Falta una vez</li>
-      <li><span class="ciclo-punto"></span>«Mañana parto»</li>
-      <li><span class="ciclo-punto"></span>Siente que parte de cero</li>
-      <li><span class="ciclo-punto"></span>La culpa la aleja más</li>
-    </ol>
-  </div>
+  <h2 class="titulo entra" style="--i:1">Quiere volver a sentirse bien.</h2>
+  <p class="bajada entra" style="--i:2">Le gustaría hacer del movimiento parte de su vida. Después de una pausa, <strong>le cuesta encontrar cómo retomar.</strong></p>
+  <ul class="camila-contexto">
+    <li class="entra" style="--i:3"><span class="contexto-signo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="22" rx="4"/><path d="M4 13h24M11 3v8M21 3v8M10 19h4M18 19h4M10 24h4"/></svg></span><h3>Una semana que cambia</h3><p>Reuniones que se alargan y días que terminan tarde.</p></li>
+    <li class="entra" style="--i:4"><span class="contexto-signo" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1"/></svg></span><h3>Un objetivo propio</h3><p>Sentirse bien en su cuerpo y hacer espacio para sí misma.</p></li>
+    <li class="entra" style="--i:5"><span class="contexto-signo">6</span><h3>Visitas que ya cuentan</h3><p>Una historia que puede seguir construyendo.</p></li>
+  </ul>
 </section>
 
 <!-- 3 · Nuestra lectura -->
 <section class="diapositiva lectura" id="3" aria-roledescription="diapositiva" aria-label="3 de 11: Nuestra lectura" data-titulo="Nuestra lectura">
   <p class="kicker entra" style="--i:0">Nuestra lectura</p>
-  <h2 class="titulo entra" style="--i:1">En el trabajo, nunca demuele una obra por un atraso. Con su cuerpo, sí.</h2>
+  <h2 class="titulo entra" style="--i:1">Una forma de planificar que ya conoce.</h2>
   <div class="paneles">
     <figure class="panel entra" style="--i:3">
-      <figcaption class="panel-titulo">En sus obras</figcaption>
+      <figcaption class="panel-titulo">Planificar con margen</figcaption>
       <svg class="dibujo dibujo-obra" viewBox="0 0 660 250" aria-hidden="true">
         <defs><pattern id="rayado-obra" class="rayado" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="14"/></pattern></defs>
         <rect class="holgura" x="512" y="10" width="128" height="200" rx="12" fill="url(#rayado-obra)"/>
@@ -88,10 +99,10 @@
         <rect class="fantasma" x="385" y="167" width="126" height="28" rx="14"/>
         <rect class="barra barra-atraso" x="384" y="166" width="128" height="30" rx="15"/>
       </svg>
-      <p class="panel-pie">Usa la holgura. La entrega no se mueve.</p>
+      <p class="panel-pie">Acomoda los próximos pasos al tiempo disponible.</p>
     </figure>
     <figure class="panel entra" style="--i:4">
-      <figcaption class="panel-titulo">Con su cuerpo</figcaption>
+      <figcaption class="panel-titulo">Reconocer lo hecho</figcaption>
       <svg class="dibujo dibujo-cuerpo" viewBox="0 0 660 250" aria-hidden="true">
         <line class="suelo" x1="10" y1="226" x2="650" y2="226"/>
         <g class="ficha-domino" style="--n:0"><rect x="20" y="94" width="40" height="132" rx="9"/><circle cx="40" cy="127" r="6"/><circle cx="40" cy="193" r="6"/><line x1="28" y1="160" x2="52" y2="160"/></g>
@@ -101,35 +112,29 @@
         <g class="ficha-domino" style="--n:4"><rect x="388" y="94" width="40" height="132" rx="9"/><circle cx="408" cy="127" r="6"/><circle cx="408" cy="193" r="6"/><line x1="396" y1="160" x2="420" y2="160"/></g>
         <g class="ficha-domino" style="--n:5"><rect x="480" y="94" width="40" height="132" rx="9"/><circle cx="500" cy="127" r="6"/><circle cx="500" cy="193" r="6"/><line x1="488" y1="160" x2="512" y2="160"/></g>
       </svg>
-      <p class="panel-pie">Una falta bota todo. Vuelve a partir de cero.</p>
+      <p class="panel-pie">Cada sesión hecha deja una ficha en pie.</p>
     </figure>
   </div>
-  <p class="remate entra" style="--i:5">Dominó lleva a su cuerpo la regla que ya domina en sus obras.</p>
+  <p class="remate entra" style="--i:5">Acomodar lo que viene. Conservar lo que ya hizo.</p>
 </section>
 
-<!-- 4 · Por qué ese problema -->
-<section class="diapositiva porque" id="4" aria-roledescription="diapositiva" aria-label="4 de 11: Por qué este problema" data-titulo="Por qué este problema">
-  <p class="kicker entra" style="--i:0">Por qué este problema</p>
-  <h2 class="titulo entra" style="--i:1">Atacamos el momento después de faltar.</h2>
-  <h3 class="evidencia-encabezado entra" style="--i:2">Dónde se juega</h3>
-  <ul class="evidencia evidencia-datos">
-    <li class="entra" style="--i:2"><span class="dato">61.293 socios</span><p>Lo que más subió la asistencia: un premio por volver después de faltar.</p><cite>Milkman et al., 2021</cite></li>
-    <li class="entra" style="--i:3"><span class="dato">4 por semana</span><p>Durante 6 semanas: el hábito lo forma la frecuencia, no la intensidad.</p><cite>Kaushal y Rhodes, 2015</cite></li>
-    <li class="entra" style="--i:4"><span class="dato">12 semanas</span><p>Ahí se juega el abandono.</p><cite>Sperandei et al., 2016</cite></li>
+<!-- 4 · Qué ayuda a sostener el movimiento -->
+<section class="diapositiva porque" id="4" aria-roledescription="diapositiva" aria-label="4 de 11: Qué ayuda a sostener el movimiento" data-titulo="Qué ayuda a sostener el movimiento">
+  <p class="kicker entra" style="--i:0">Qué aprendimos de la evidencia</p>
+  <h2 class="titulo entra" style="--i:1">Qué ayuda a sostener el movimiento.</h2>
+  <ul class="evidencia">
+    <li class="entra" style="--i:2"><span class="evidencia-numero">01</span><h3>Un ritmo repetible</h3><p>La frecuencia y un contexto estable se asociaron con formar el hábito.</p><cite><a href="https://www.uvic.ca/research/labs/bmed/assets/docs/Kaushal,%20Rhodes,%202015.pdf" target="_blank" rel="noopener noreferrer">Kaushal y Rhodes, 2015 · 111 nuevos socios</a></cite></li>
+    <li class="entra" style="--i:3"><span class="evidencia-numero">02</span><h3>Pasos sencillos</h3><p>La simplicidad y el disfrute también se asociaron con ese proceso.</p><cite><a href="https://www.uvic.ca/research/labs/bmed/assets/docs/Kaushal,%20Rhodes,%202015.pdf" target="_blank" rel="noopener noreferrer">Kaushal y Rhodes, 2015</a></cite></li>
+    <li class="entra" style="--i:4"><span class="evidencia-numero">03</span><h3>Reconocer el regreso</h3><p>En un experimento, incentivar el regreso tras una ausencia aumentó la asistencia.</p><cite><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8822539/" target="_blank" rel="noopener noreferrer">Milkman et al., 2021 · 61.293 socios</a></cite></li>
   </ul>
-  <h3 class="evidencia-encabezado entra" style="--i:5">Por qué no le resultó antes</h3>
-  <ul class="evidencia evidencia-intentos">
-    <li class="entra" style="--i:5"><p>Recordatorios y premios funcionan solo mientras duran.</p><cite>Milkman et al., 2021</cite></li>
-    <li class="entra" style="--i:6"><p>La mensualidad no motiva por sí sola. No usamos la culpa por el pago.</p><cite>DellaVigna y Malmendier, 2006</cite></li>
-    <li class="entra" style="--i:7"><p>Rutinas y rachas suponen una semana perfecta. Ninguna dice qué hacer después de faltar.</p></li>
-  </ul>
+  <p class="evidencia-hipotesis entra" style="--i:5">Nuestra hipótesis: un plan adaptable puede ayudar a sostener ese ritmo.</p>
 </section>
 
 <!-- 5 · La solución -->
 <section class="diapositiva solucion" id="5" aria-roledescription="diapositiva" aria-label="5 de 11: La solución" data-titulo="La solución">
   <div class="solucion-texto">
     <p class="kicker entra" style="--i:0">La solución</p>
-    <h2 class="titulo entra" style="--i:1">Su plan, como una carta Gantt viva.</h2>
+    <h2 class="titulo entra" style="--i:1">Un plan que se adapta contigo.</h2>
     <ol class="mecanismos">
       <li class="mecanismo entra" style="--i:2">
         <svg class="dibujo dibujo-holgura" viewBox="0 -34 700 106" aria-hidden="true">
@@ -147,8 +152,8 @@
         </svg>
         <div>
           <h3>Holgura</h3>
-          <p>Si cabe en la misma semana, se mueve y nada más cambia.</p>
-          <p class="impacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tu meta no se mueve</p>
+          <p>Mover el bloque a un espacio libre de la misma semana.</p>
+          <p class="impacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Conserva la fecha del programa</p>
         </div>
       </li>
       <li class="mecanismo entra" style="--i:3">
@@ -162,8 +167,8 @@
         </svg>
         <div>
           <h3>Bloque puente</h3>
-          <p>Si cuesta volver, uno corto el mismo día. Cuenta completo.</p>
-          <p class="impacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tu meta no se mueve</p>
+          <p>Una sesión breve para retomar el movimiento.</p>
+          <p class="impacto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Una sesión hecha suma una ficha</p>
         </div>
       </li>
       <li class="mecanismo entra" style="--i:4">
@@ -179,31 +184,62 @@
         </svg>
         <div>
           <h3>Efecto dominó</h3>
-          <p>Si no cabe, los siguientes se corren un espacio. Nunca se acumula deuda.</p>
-          <p class="impacto impacto-corre"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6.5l5.5 5.5-5.5 5.5"/></svg>Tu meta se corre un espacio</p>
+          <p>Reorganizar los próximos bloques, respetando la carga semanal.</p>
+          <p class="impacto impacto-corre"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6.5l5.5 5.5-5.5 5.5"/></svg>Actualiza la fecha del programa</p>
         </div>
       </li>
     </ol>
     <ul class="garantias entra" style="--i:5">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M7.6 12.3l3 3 5.8-6.2"/></svg>Nada cambia sin su confirmación.</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2.6"/><line x1="12" y1="9.6" x2="12" y2="14.4"/><circle cx="7.6" cy="12" r="1.2"/><circle cx="16.4" cy="12" r="1.2"/></svg>Su avance nunca baja: una falta no bota ninguna ficha.</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M7.6 12.3l3 3 5.8-6.2"/></svg>Camila confirma cada cambio.</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2.6"/><line x1="12" y1="9.6" x2="12" y2="14.4"/><circle cx="7.6" cy="12" r="1.2"/><circle cx="16.4" cy="12" r="1.2"/></svg>Lo que ya hizo permanece.</li>
     </ul>
   </div>
 </section>
 
-<!-- 6 · Demo en vivo -->
-<section class="diapositiva demo" id="6" aria-roledescription="diapositiva" aria-label="6 de 11: Demo en vivo" data-titulo="Demo en vivo">
-  <p class="kicker entra" style="--i:0">Una semana de Camila, en su iPhone</p>
-  <h2 class="titulo entra" style="--i:1">Demo en vivo</h2>
+<!-- 6 · Su semana real -->
+<section class="diapositiva semana" id="6" aria-roledescription="diapositiva" aria-label="6 de 11: Su semana real" data-titulo="Su semana real">
+  <div class="columna-texto">
+    <p class="kicker entra" style="--i:0">Su semana real</p>
+    <h2 class="titulo entra" style="--i:1">Su plan encaja en su semana.</h2>
+    <p class="bajada entra" style="--i:2">Dominó se conecta a su <span class="semana-calendario">Calendario</span> y encuentra espacio para moverse.</p>
+    <p class="semana-contexto entra" style="--i:3">El plan considera sus compromisos y propone horarios disponibles.</p>
+    <div class="semana-invitacion entra" style="--i:4">
+      <div class="semana-invitacion-cabecera">
+        <div>
+          <h3>Invita por <span class="semana-acento">WhatsApp</span></h3>
+          <p>Comparte un bloque con alguien cercano.</p>
+        </div>
+        <button type="button" class="semana-invitar" id="semana-invitar" aria-expanded="false" aria-controls="semana-mensaje">
+          <span>Invitar a alguien</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="semana-mensaje" id="semana-mensaje" hidden>
+        <p class="semana-mensaje-etiqueta">Vista previa del mensaje</p>
+        <p>¿Te sumas el sábado 24 a las 10:30? Voy a caminar 30 minutos. Si no puedes, no pasa nada: igual voy.</p>
+      </div>
+    </div>
+  </div>
+  <figure class="telefono entra" style="--i:2">
+    <div class="pantalla">
+      <img src="medios/calendario.png" alt="Mi plan con Calendario conectado" decoding="async">
+      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Plan con Calendario</span><code>medios/calendario.png</code></div>
+    </div>
+  </figure>
+</section>
+
+<!-- 7 · Demo en vivo -->
+<section class="diapositiva demo" id="7" aria-roledescription="diapositiva" aria-label="7 de 11: Demo en vivo" data-titulo="Demo en vivo">
+  <p class="kicker entra" style="--i:0">Del plan a la acción, en su iPhone</p>
+  <h2 class="titulo entra" style="--i:1">Un paso posible. Un avance real.</h2>
   <ol class="momentos">
-    <li class="entra" style="--i:2"><button type="button" class="momento" data-clip="1" aria-label="Lunes 19:05, se alarga la reunión. Abre el video de respaldo.">
-      <span class="momento-dia">Lunes</span><span class="momento-hora">19:05</span><span class="momento-texto">Se alarga la reunión.</span>
+    <li class="entra" style="--i:2"><button type="button" class="momento" data-clip="1" aria-label="Adaptar el plan. Abrir video de respaldo.">
+      <span class="momento-dia">Adaptar</span><span class="momento-hora">01</span><span class="momento-texto">Elegir lo que hoy le acomoda.</span>
     </button></li>
-    <li class="entra" style="--i:3"><button type="button" class="momento" data-clip="2" aria-label="Miércoles 06:45, ya perdí la semana. Abre el video de respaldo.">
-      <span class="momento-dia">Miércoles</span><span class="momento-hora">06:45</span><span class="momento-texto">«Ya perdí la semana.»</span>
+    <li class="entra" style="--i:3"><button type="button" class="momento" data-clip="2" aria-label="Registrar una sesión. Abrir video de respaldo.">
+      <span class="momento-dia">Registrar</span><span class="momento-hora">02</span><span class="momento-texto">Guardar ese paso que ya hizo.</span>
     </button></li>
-    <li class="entra" style="--i:4"><button type="button" class="momento" data-clip="3" aria-label="Domingo 23:55, la semana en un toque. Abre la captura de respaldo.">
-      <span class="momento-dia">Domingo</span><span class="momento-hora">23:55</span><span class="momento-texto">La semana en un toque.</span>
+    <li class="entra" style="--i:4"><button type="button" class="momento" data-clip="3" aria-label="Reconocer su avance. Abrir video de respaldo.">
+      <span class="momento-dia">Reconocer</span><span class="momento-hora">03</span><span class="momento-texto">Ver cómo crece su avance.</span>
     </button></li>
   </ol>
 
@@ -212,16 +248,16 @@
       <p class="kicker">Respaldo de la demo</p>
       <ol class="respaldo-lista">
         <li><button type="button" class="clip" data-clip="1" data-video="demo-lunes.mp4" data-capturas="mi-plan.png ajustar.png">
-          <span class="clip-tecla">1</span><span class="clip-nombre">Lunes 19:05</span><span class="clip-texto">Se alarga la reunión</span>
+          <span class="clip-tecla">1</span><span class="clip-nombre">Adaptar el plan</span><span class="clip-texto">Encontrar un horario disponible</span>
         </button></li>
-        <li><button type="button" class="clip" data-clip="2" data-video="demo-miercoles.mp4" data-capturas="ajustar-miercoles.png efecto-domino.png meta-estimada.png">
-          <span class="clip-tecla">2</span><span class="clip-nombre">Miércoles 06:45</span><span class="clip-texto">«Ya perdí la semana»</span>
+        <li><button type="button" class="clip" data-clip="2" data-video="demo-registrar.mp4" data-capturas="registrar.png">
+          <span class="clip-tecla">2</span><span class="clip-nombre">Registrar una sesión</span><span class="clip-texto">Fui, cómo me sentí y qué ayudó</span>
         </button></li>
-        <li><button type="button" class="clip" data-clip="3" data-capturas="domingo.png">
-          <span class="clip-tecla">3</span><span class="clip-nombre">Domingo 23:55</span><span class="clip-texto">La semana en un toque</span>
+        <li><button type="button" class="clip" data-clip="3" data-video="demo-tu-avance.mp4" data-capturas="tu-avance.png">
+          <span class="clip-tecla">3</span><span class="clip-nombre">Ver su avance</span><span class="clip-texto">Fichas, nivel y momentos guardados</span>
         </button></li>
         <li><button type="button" class="clip" data-clip="4" data-video="demo-programa.mp4" data-capturas="programa.png">
-          <span class="clip-tecla">4</span><span class="clip-nombre">Programa completo</span><span class="clip-texto">De la semana 1 a la meta estimada</span>
+          <span class="clip-tecla">4</span><span class="clip-nombre">Programa completo</span><span class="clip-texto">El camino y la fecha estimada</span>
         </button></li>
       </ol>
       <div class="respaldo-controles">
@@ -254,97 +290,40 @@
   </div>
 </section>
 
-<!-- 7 · Y además -->
-<section class="diapositiva ademas" id="7" aria-roledescription="diapositiva" aria-label="7 de 11: Y además" data-titulo="Y además">
-  <p class="kicker entra" style="--i:0">Y además, en Tu avance</p>
-  <h2 class="titulo entra" style="--i:1">Todo suma, nada resta.</h2>
+<!-- 8 · Su avance -->
+<section class="diapositiva ademas" id="8" aria-roledescription="diapositiva" aria-label="8 de 11: Su avance" data-titulo="Su avance">
+  <p class="kicker entra" style="--i:0">Tu avance</p>
+  <h2 class="titulo entra" style="--i:1">Su avance se hace visible.</h2>
   <ul class="extras">
     <li class="extra entra" style="--i:2">
-      <figure class="telefono">
-        <div class="pantalla">
-          <img src="medios/tu-avance.png" alt="Tu avance: seis fichas en pie y Tu nivel, con seis de las siete fichas de la mano" decoding="async">
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Tu nivel</span><code>medios/tu-avance.png</code></div>
-        </div>
-      </figure>
-      <h3>Tu nivel</h3>
-      <p>Sube cada 7 fichas en pie y nunca baja.</p>
+      <div class="extra-texto"><h3>Cada sesión suma</h3><p>Una nueva ficha. Un nivel que crece con las sesiones realizadas.</p><span class="extra-nota">Lo hecho permanece.</span></div>
+      <figure class="telefono"><div class="pantalla">
+        <img src="medios/tu-avance.png" alt="Tu avance: fichas en pie y el progreso del nivel" decoding="async">
+        <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Tu avance</span><code>medios/tu-avance.png</code></div>
+      </div></figure>
     </li>
     <li class="extra entra" style="--i:3">
-      <figure class="telefono">
-        <div class="pantalla">
-          <img src="medios/foto-ampliada.png" alt="La foto de la ficha 2, del miércoles 7 de enero a las 20:30" decoding="async">
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Tus fotos</span><code>medios/foto-ampliada.png</code></div>
-        </div>
-      </figure>
-      <h3>Tus fotos</h3>
-      <p>Cada ficha guarda su foto, con día y hora.</p>
-    </li>
-    <li class="extra entra" style="--i:4">
-      <figure class="telefono">
-        <div class="pantalla">
-          <img src="medios/modo-juego.png" alt="Modo juego: Camila y Javiera en el día 15 de 28, con «Es tu turno»" decoding="async">
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Modo juego</span><code>medios/modo-juego.png</code></div>
-        </div>
-      </figure>
-      <h3>Modo juego</h3>
-      <p>Una ficha por día: gana quien se mueve más días.</p>
-    </li>
-    <li class="extra entra" style="--i:5">
-      <figure class="telefono">
-        <div class="pantalla">
-          <img src="medios/tu-avance-abajo.png" alt="«¿Sabías que?»: un dato de Steffens et al., 2016, con su fuente" decoding="async">
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">¿Sabías que?</span><code>medios/tu-avance-abajo.png</code></div>
-        </div>
-      </figure>
-      <h3>¿Sabías que?</h3>
-      <p>Un dato de un estudio por día, con su fuente.</p>
+      <div class="extra-texto"><h3>Momentos que quedan</h3><p>Puede guardar una foto de la sesión y volver a ese momento.</p><span class="extra-nota">Una historia propia.</span></div>
+      <figure class="telefono"><div class="pantalla">
+        <img src="medios/foto-ampliada.png" alt="Una foto guardada con la ficha de una sesión" decoding="async">
+        <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Tus fotos</span><code>medios/foto-ampliada.png</code></div>
+      </div></figure>
     </li>
   </ul>
-</section>
-
-<!-- 8 · Su semana real -->
-<section class="diapositiva semana" id="8" aria-roledescription="diapositiva" aria-label="8 de 11: Su semana real" data-titulo="Su semana real">
-  <div class="columna-texto">
-    <p class="kicker entra" style="--i:0">Su semana real</p>
-    <h2 class="titulo entra" style="--i:1">El plan esquiva su trabajo.</h2>
-    <p class="bajada entra" style="--i:2">Dominó se conecta a su <span class="semana-calendario">Calendario</span> y encuentra espacio para moverse.</p>
-    <p class="semana-contexto entra" style="--i:3">El plan considera sus compromisos y propone horarios disponibles.</p>
-    <div class="semana-invitacion entra" style="--i:4">
-      <div class="semana-invitacion-cabecera">
-        <div>
-          <h3>Invita por <span class="semana-acento">WhatsApp</span></h3>
-          <p>Comparte un bloque con alguien cercano.</p>
-        </div>
-        <button type="button" class="semana-invitar" id="semana-invitar" aria-expanded="false" aria-controls="semana-mensaje">
-          <span>Invitar a alguien</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-      <div class="semana-mensaje" id="semana-mensaje" hidden>
-        <p class="semana-mensaje-etiqueta">Vista previa del mensaje</p>
-        <p>¿Te sumas el sábado 24 a las 10:30? Voy a caminar 30 minutos. Si no puedes, no pasa nada: igual voy.</p>
-      </div>
-    </div>
-  </div>
-  <figure class="telefono entra" style="--i:2">
-    <div class="pantalla">
-      <img src="medios/calendario.png" alt="Mi plan con Calendario conectado" decoding="async">
-      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Plan con Calendario</span><code>medios/calendario.png</code></div>
-    </div>
-  </figure>
 </section>
 
 <!-- 9 · Cuando termina el programa -->
 <section class="diapositiva termina" id="9" aria-roledescription="diapositiva" aria-label="9 de 11: Cuando termina el programa" data-titulo="Cuando termina el programa">
   <div class="columna-texto">
     <p class="kicker entra" style="--i:0">Cuando termina el programa</p>
-    <h2 class="titulo entra" style="--i:1">El plan pasa a sus manos.</h2>
-    <p class="bajada entra" style="--i:2">«Lo que te funciona» le muestra qué horarios se cumplen, qué disfruta y cómo vuelve. Al terminar las 6 semanas, le queda un manual con tres reglas.</p>
+    <h2 class="titulo entra" style="--i:1">Descubrir qué le funciona.</h2>
+    <p class="bajada entra" style="--i:2">Con sus registros, Camila reconoce los horarios que le acomodan, lo que disfruta y qué la ayuda. Al terminar el programa, puede guardar su propio manual.</p>
     <ol class="reglas entra" style="--i:3">
-      <li>Si un bloque se cae, primero la holgura.</li>
-      <li>Si cuesta volver, un bloque puente.</li>
-      <li>Nunca recuperar con más bloques.</li>
+      <li>Encontrar sus horarios más viables.</li>
+      <li>Reconocer las ayudas que le sirven.</li>
+      <li>Llevar ese aprendizaje a lo que viene.</li>
     </ol>
-    <p class="nota entra" style="--i:4">Lo guarda o lo manda como texto, sin sus faltas.</p>
+    <p class="nota entra" style="--i:4">Camila decide qué guardar y compartir.</p>
   </div>
   <div class="par-telefonos">
     <figure class="telefono telefono-atras detalle-captura detalle-horarios entra" style="--i:2">
@@ -362,31 +341,31 @@
   </div>
 </section>
 
-<!-- 10 · Qué dejamos fuera -->
-<section class="diapositiva fuera" id="10" aria-roledescription="diapositiva" aria-label="10 de 11: Qué dejamos fuera" data-titulo="Qué dejamos fuera">
-  <p class="kicker entra" style="--i:0">Qué dejamos fuera</p>
-  <h2 class="titulo entra" style="--i:1">Lo que no hicimos, a propósito.</h2>
+<!-- 10 · Decisiones de producto -->
+<section class="diapositiva fuera" id="10" aria-roledescription="diapositiva" aria-label="10 de 11: Decisiones de producto" data-titulo="Decisiones de producto">
+  <p class="kicker entra" style="--i:0">Decisiones de producto</p>
+  <h2 class="titulo entra" style="--i:1">Cuidar la continuidad.</h2>
   <dl class="descartes">
-    <div class="entra" style="--i:2"><dt>Recordatorios y correos</dt><dd>Ya silenció las notificaciones, y funcionan solo mientras duran.</dd></div>
-    <div class="entra" style="--i:3"><dt>Rachas que vuelven a cero</dt><dd>El día que falla, la culpa la saca de nuevo. Su nivel y sus logros nunca bajan.</dd></div>
-    <div class="entra" style="--i:4"><dt>Avisar a su círculo cuando falta</dt><dd>Exponer faltas genera vergüenza. En el Modo juego, Javiera ve cuántas fichas puso, nunca qué días.</dd></div>
-    <div class="entra" style="--i:5"><dt>Rutinas, nutrición, wearables, cuentas y servidor</dt><dd>No son su problema y no caben en dos días.</dd></div>
+    <div class="entra" style="--i:2"><dt>Conservar el avance</dt><dd>Cada sesión realizada queda en su historia.</dd></div>
+    <div class="entra" style="--i:3"><dt>Compartir por elección</dt><dd>Camila decide cuándo invitar a alguien y qué compartir.</dd></div>
+    <div class="entra" style="--i:4"><dt>Facilitar el próximo paso</dt><dd>Planificar, preparar, ajustar y registrar con una carga semanal acotada.</dd></div>
   </dl>
+  <p class="nota alcance entra" style="--i:5">Foco del prototipo: continuidad. Rutinas, nutrición y wearables quedan fuera de esta versión.</p>
 </section>
 
 <!-- 11 · Cómo sabríamos si funciona -->
 <section class="diapositiva cierre" id="11" aria-roledescription="diapositiva" aria-label="11 de 11: Cómo sabríamos si funciona" data-titulo="Cómo sabríamos si funciona">
   <p class="kicker entra" style="--i:0">Cómo sabríamos si funciona</p>
-  <h2 class="titulo entra" style="--i:1">Lo mediríamos en vez de suponerlo.</h2>
+  <h2 class="titulo entra" style="--i:1">¿Camila vuelve y lo sostiene?</h2>
   <ul class="metricas">
-    <li class="entra" style="--i:2"><span class="metrica-nombre">Tiempo de regreso</span><span class="metrica-detalle">después de faltar</span></li>
+    <li class="entra" style="--i:2"><span class="metrica-nombre">Tiempo de regreso</span><span class="metrica-detalle">entre una pausa y la siguiente sesión</span></li>
     <li class="entra" style="--i:3"><span class="metrica-nombre">Frecuencia</span><span class="metrica-detalle">por semana, de la 1 a la 6</span></li>
     <li class="entra" style="--i:4"><span class="metrica-nombre">Permanencia</span><span class="metrica-detalle">en la semana 12</span></li>
   </ul>
-  <p class="nota entra" style="--i:5">Comparado con un grupo de control.</p>
+  <p class="nota entra" style="--i:5">Próximo paso: un piloto con grupo de comparación. Estas son las métricas que proponemos evaluar.</p>
   <div class="despedida entra" style="--i:6">
     <img class="despedida-icono" src="icono.svg" alt="" width="88" height="88">
-    <p class="despedida-frase"><strong>Dominó</strong><span>Una falta no tumba la obra.</span></p>
+    <p class="despedida-frase"><strong>Dominó</strong><span>Hacer espacio para moverte.</span></p>
     <a class="despedida-enlace" href="https://github.com/jpmeniconi/efecto-domino">
       <img class="qr" src="qr-repo.svg" alt="Código QR del repositorio" width="200" height="200">
       <span>github.com/jpmeniconi/efecto-domino</span>
