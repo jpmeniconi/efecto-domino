@@ -12,6 +12,7 @@
 		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
 		1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D3833CE807350C30491E /* PlanSemanaCard.swift */; };
 		22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F6347063B65A725861290 /* AvanceCard.swift */; };
+		3C9E934299CE64F3232539D7 /* PestanasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */; };
 		3D3EB556F8EAC498F25D8810 /* Depuracion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B9A234FAEB7E33B4D2BA7 /* Depuracion.swift */; };
 		489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED919F131C888330C1F42D /* Planificador.swift */; };
 		4C44FCABA27FB4609C2F9712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4BC19A09AE8506509AEE4A /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		96DC562E54B8887E883B486B /* CalendarioTrabajo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2371547E118A0BA32B01C8D6 /* CalendarioTrabajo.swift */; };
 		A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6D2BE9399345B79399A20 /* Compartir.swift */; };
 		B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE76A61151C40456DBB2C4 /* ObraView.swift */; };
+		B55EAC44139A27D7B39A547B /* AvanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F607414CAB5FEDF93D849C /* AvanceView.swift */; };
 		BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48335995A8A75ADF0302F04A /* Ayudas.swift */; };
 		C0A6521B2C11D4011FBFA343 /* CompartirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */; };
 		C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */; };
@@ -82,6 +84,8 @@
 		A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectorLocalTests.swift; sourceTree = "<group>"; };
 		AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartirTests.swift; sourceTree = "<group>"; };
 		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
+		B8F607414CAB5FEDF93D849C /* AvanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvanceView.swift; sourceTree = "<group>"; };
+		BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestanasView.swift; sourceTree = "<group>"; };
 		D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramaView.swift; sourceTree = "<group>"; };
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
@@ -155,12 +159,14 @@
 				894511EFD8E3BC38FE6B04F7 /* AjustarSheet.swift */,
 				379F52BE3199ED44C83DB006 /* AprendizajesView.swift */,
 				757F6347063B65A725861290 /* AvanceCard.swift */,
+				B8F607414CAB5FEDF93D849C /* AvanceView.swift */,
 				5CA6D2BE9399345B79399A20 /* Compartir.swift */,
 				274BEB2D2C63AB3F0A97C6C4 /* DetalleBloqueSheet.swift */,
 				4F7A0D56EF4F80575B45B9AC /* EscenarioSheet.swift */,
 				EE44825984E2BCC6257A718C /* Estilo.swift */,
 				1878B681D1454824F438D06A /* GanttView.swift */,
 				71AE76A61151C40456DBB2C4 /* ObraView.swift */,
+				BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */,
 				B114D3833CE807350C30491E /* PlanSemanaCard.swift */,
 				D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */,
 				D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */,
@@ -297,6 +303,7 @@
 				F7B844285727EAD41FBAC146 /* AprendizajesView.swift in Sources */,
 				8B8D7474AE61133FCAF7149D /* Arranque.swift in Sources */,
 				22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */,
+				B55EAC44139A27D7B39A547B /* AvanceView.swift in Sources */,
 				C3A142A9BE92B0FA82CACC02 /* BienvenidaView.swift in Sources */,
 				96DC562E54B8887E883B486B /* CalendarioTrabajo.swift in Sources */,
 				A2785264EA7B5F95B583E5FE /* Compartir.swift in Sources */,
@@ -314,6 +321,7 @@
 				F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */,
 				736FF3B27B6FA6E44C1F40E4 /* ObraStore.swift in Sources */,
 				B1A7342D6BEF1BB9900CE3E4 /* ObraView.swift in Sources */,
+				3C9E934299CE64F3232539D7 /* PestanasView.swift in Sources */,
 				1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */,
 				489878043A5D9C6EAE5001BB /* Planificador.swift in Sources */,
 				0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */,

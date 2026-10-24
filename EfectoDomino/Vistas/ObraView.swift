@@ -3,13 +3,17 @@ import SwiftUI
 struct ObraView: View {
     @Environment(ObraStore.self) private var store
 
+    /// Lleva a otra pestaña: el programa completo o «Tu avance».
+    var alAbrir: (Pestana) -> Void
+
     @State private var ajustando: Bloque?
     @State private var registrando: Bloque?
     @State private var propuestaPendiente: Propuesta?
     @State private var registroPendiente: RegistroPendiente?
     @State private var mostrandoEscenario = false
-    @State private var viendoPrograma = false
-    @Namespace private var transicion
+    #if DEBUG
+    @State private var depuracionHecha = false
+    #endif
 
     private struct RegistroPendiente {
         let id: UUID
@@ -30,19 +34,6 @@ struct ObraView: View {
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Mi plan")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    ShareLink(
-                        item: ReporteDeAvance(
-                            bloques: store.estado.bloques,
-                            proyecto: store.proyecto,
-                            inicioObra: store.estado.inicioObra,
-                            ahora: store.ahora
-                        ),
-                        preview: SharePreview("Mi avance", image: Image(systemName: "rectangle.split.1x2.fill"))
-                    ) {
-                        Label("Compartir avance", systemImage: "square.and.arrow.up")
-                    }
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Button("Escenario de demo", systemImage: "slider.horizontal.3") { mostrandoEscenario = true }
@@ -65,11 +56,7 @@ struct ObraView: View {
             .sheet(isPresented: $mostrandoEscenario) {
                 EscenarioSheet()
             }
-            .fullScreenCover(isPresented: $viendoPrograma) {
-                ProgramaView()
-                    .navigationTransition(.zoom(sourceID: "programa", in: transicion))
-            }
-            .overlay(alignment: .bottom) { avisoFlotante }
+            .overlay(alignment: .bottom) { AvisoFlotante() }
             .animation(.spring(duration: 0.4), value: store.aviso)
             .sensoryFeedback(.success, trigger: store.hechos)
         }
@@ -91,14 +78,12 @@ struct ObraView: View {
                 )
                 .transition(.move(edge: .top).combined(with: .opacity))
             }
-            AvanceCard(
-                bloques: store.estado.bloques,
-                proyecto: store.proyecto,
-                inicioObra: store.estado.inicioObra,
-                ahora: store.ahora,
+            ResumenAvanceCard(
+                fichas: store.proyecto.visitasPrevias + store.hechos,
                 recepcion: store.recepcion,
                 corrimiento: store.corrimientoRecepcion,
-                ajustes: store.estado.ajustes
+                ajustes: store.estado.ajustes,
+                alAbrir: { alAbrir(.avance) }
             )
             if let ajuste = store.ajusteSugerido {
                 AjusteCard(
@@ -130,9 +115,8 @@ struct ObraView: View {
                 inicio: store.inicioPrograma,
                 ahora: store.ahora,
                 diasHolgura: store.diasDeHolgura,
-                alVerCompleto: { viendoPrograma = true }
+                alVerCompleto: { alAbrir(.programa) }
             )
-            .matchedTransitionSource(id: "programa", in: transicion)
             .id("gantt")
         }
         .padding(.horizontal, 16)
@@ -142,13 +126,15 @@ struct ObraView: View {
     }
 
     #if DEBUG
+    /// Una sola vez: al volver a esta pestaña no se repite el ajuste de prueba.
     private func abrirDesdeDepuracion(_ desplazamiento: ScrollViewProxy) {
+        guard !depuracionHecha else { return }
+        depuracionHecha = true
         if let foco = Depuracion.foco { desplazamiento.scrollTo(foco, anchor: .top) }
         switch Depuracion.abrir {
         case "ajustar": ajustando = store.proximo
         case "registrar": registrando = store.proximo
         case "escenario": mostrandoEscenario = true
-        case "programa": viendoPrograma = true
         default: break
         }
     }
@@ -168,35 +154,6 @@ struct ObraView: View {
         .buttonStyle(.plain)
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityHint("Abre los controles del escenario de demo")
-    }
-
-    @ViewBuilder
-    private var avisoFlotante: some View {
-        if let aviso = store.aviso {
-            HStack(spacing: 12) {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(Color.accentColor)
-                Text(aviso.texto)
-                    .font(.subheadline.weight(.medium))
-                    .fixedSize(horizontal: false, vertical: true)
-                Spacer(minLength: 4)
-                if aviso.deshacer {
-                    Button("Deshacer") { store.deshacer() }
-                        .font(.subheadline.weight(.semibold))
-                }
-            }
-            .padding(.horizontal, 18)
-            .padding(.vertical, 14)
-            .glassEffect(.regular, in: .rect(cornerRadius: 24))
-            .padding(.horizontal, 16)
-            .padding(.bottom, 8)
-            .transition(.move(edge: .bottom).combined(with: .opacity))
-            .task(id: aviso.id) {
-                try? await Task.sleep(for: .seconds(6))
-                store.cerrarAviso(aviso.id)
-            }
-        }
     }
 
     /// Se aplica después de cerrar el panel, para que Camila vea moverse la carta Gantt.
