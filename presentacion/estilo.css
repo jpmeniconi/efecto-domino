@@ -1196,6 +1196,20 @@ button {
 .modo-deck .telefono-atras { left: 0; top: 0; }
 .modo-deck .telefono-adelante { right: 0; bottom: 0; }
 
+/* Detalles de las capturas: horarios y manual, sin encabezados del escenario de prueba. */
+.detalle-captura { border-radius: calc(var(--ancho) * .07); }
+.detalle-captura .pantalla {
+  border-radius: calc(var(--ancho) * .05);
+  clip-path: inset(0 round calc(var(--ancho) * .05));
+}
+.detalle-captura .pantalla::after { display: none; }
+.detalle-captura .pantalla img { height: auto; bottom: auto; object-fit: initial; }
+.detalle-horarios .pantalla { aspect-ratio: 1206 / 1400; }
+.detalle-horarios .pantalla img { top: -67.857143%; }
+.detalle-manual .pantalla { aspect-ratio: 1206 / 1630; }
+.detalle-manual .pantalla img { top: -21.472393%; }
+.modo-deck .termina .par-telefonos { height: 740px; }
+
 /* ------------------------------------------------------------------ 10 · Qué dejamos fuera */
 
 .descartes {
@@ -1431,3 +1445,107 @@ button {
 /* En el celular, el respaldo abierto no deja desplazar la página de atrás. */
 .modo-pagina.con-respaldo,
 .modo-pagina.con-respaldo body { overflow: hidden; }
+
+/* ------------------------------------------------------------------ 8 · Calendario y compañía */
+
+.semana-acento,
+.semana-calendario { color: var(--acento); }
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .semana-calendario {
+    background: linear-gradient(105deg, var(--acento) 20%, #ffb783 45%, var(--acento) 70%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: semana-luz 7s ease-in-out infinite paused;
+  }
+  .activa .semana-calendario { animation-play-state: running; }
+}
+
+@keyframes semana-luz {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+.semana-contexto {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--texto-2);
+}
+
+.semana-invitacion {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--linea);
+}
+
+.semana-invitacion-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.semana-invitacion h3 { font-size: 23px; line-height: 1.2; letter-spacing: -.02em; }
+.semana-invitacion-cabecera p { margin-top: 8px; color: var(--texto-2); font-size: 17px; line-height: 1.4; }
+
+.semana-invitar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background .25s var(--curva), border-color .25s var(--curva);
+}
+
+.semana-invitar:hover,
+.semana-invitar[aria-expanded="true"] { background: var(--acento-suave); border-color: var(--acento); }
+.semana-invitar svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.semana-mensaje {
+  margin-top: 22px;
+  padding: 20px 24px;
+  border-radius: 22px 22px 6px 22px;
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  font-size: 18px;
+  line-height: 1.4;
+  animation: semana-aparecer .5s var(--curva) both;
+}
+
+.semana-mensaje-etiqueta { margin-bottom: 8px; color: var(--texto-2); font-size: 13px; }
+@keyframes semana-aparecer {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modo-deck .semana-contexto { margin-top: 24px; font-size: 30px; max-width: 960px; }
+.modo-deck .semana-invitacion { margin-top: 36px; padding-top: 30px; min-height: 294px; }
+.modo-deck .semana-invitacion h3 { font-size: 36px; }
+.modo-deck .semana-invitacion-cabecera p { font-size: 28px; }
+.modo-deck .semana-invitar { padding: 16px 22px; font-size: 24px; gap: 16px; }
+.modo-deck .semana-invitar svg { width: 26px; height: 26px; }
+.modo-deck .semana-mensaje { margin-top: 26px; padding: 22px 28px; font-size: 29px; }
+.modo-deck .semana-mensaje-etiqueta { font-size: 20px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .semana-calendario,
+  .semana-mensaje { animation: none; }
+  .semana-invitar { transition: none; }
+}
+
+@media print {
+  .semana-calendario { color: var(--acento); background: none; animation: none; }
+  .semana-invitar { display: none; }
+  .semana-mensaje[hidden] { display: block !important; }
+  .semana-mensaje { animation: none; }
+}

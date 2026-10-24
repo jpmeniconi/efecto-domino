@@ -69,56 +69,44 @@ Los tres diagramas se animan uno tras otro: deja que el de la holgura se mueva a
 
 ## 6 · Demo en vivo · 1:45 a 3:45
 
-> Ahora en vivo. Es lunes, 19:05, y se le alarga la reunión.
+> Les muestro cómo Dominó ayuda a Camila a hacer espacio para moverse en su semana.
 
-Cambia a la vista del iPhone. La app ya está en el lunes 19:05 (ver «Antes de subir»).
+Cambia a la pantalla del iPhone proyectada en el Mac. Este recorrido se guía por funciones: las fechas y horas pueden ser las que aparezcan en tu teléfono. El tiempo de cada fila es una meta de ensayo, no una duración medida.
 
-Los textos de las opciones de abajo son con la semana de trabajo de ejemplo. Si conectaste el calendario «Camila · Dominó», los días y las horas pueden cambiar; el recorrido es el mismo.
+| Tiempo de demo | Muestra / toca | Dices |
+|---|---|---|
+| 0:00–0:20 | **Mi plan**: próximo bloque, carta Gantt y **Antes de salir**. Marca una preparación, como **Bolso listo** o **Zapatillas a mano**, según el bloque. | «Camila quiere volver a sentirse bien en su cuerpo. Aquí tiene su próximo paso y cómo prepararlo. El plan considera sus compromisos para encontrar espacio en su semana.» |
+| 0:20–0:50 | **Ajustar** → **Estoy agotada** → **Bloque puente** → **Confirmar ajuste**. Deja que se vea el cambio. | «Hoy necesita algo más liviano. Puede elegir un bloque corto que sí le acomode. Camila decide; al confirmar, el plan se ajusta y conserva lo que ya hizo.» |
+| 0:50–1:05 | Pestaña **Programa** → **Todo**. Señala el bloque cambiado y el resto del camino. | «Este paso sigue conectado con un plan completo. Puede ver cómo se organiza el camino hacia su objetivo.» |
+| 1:05–1:20 | Vuelve a **Mi plan** → **Invitar a alguien**, en un bloque futuro de gimnasio o caminata. Muestra la hoja para compartir y ciérrala. | «También puede invitar a alguien por WhatsApp con el día, la hora y la actividad ya escritos. El apoyo parte de una invitación concreta.» |
+| 1:20–1:45 | Con el reloj de demo después del bloque elegido: **Fui** → muestra el registro de sensaciones y qué ayudó → **Guardar**. | «Después de moverse, registra cómo se sintió y qué le ayudó. Ese paso ya está hecho y queda guardado.» |
+| 1:45–1:55 | **Tu avance**: ficha nueva y nivel. | «Su esfuerzo se hace visible. Cada sesión suma a una historia que sigue construyendo.» |
+| 1:55–2:00 | Vuelve al navegador, lámina 7. | «Dominó: hacer espacio para moverte.» |
 
-### Lunes 19:05 · se alarga la reunión · 40 s
+### Preparar el recorrido una vez
 
-| Toca | Dices |
-|---|---|
-| Baja un poco en «Mi plan», hasta que se vean los botones de «Próximo bloque» y la carta Gantt debajo. | |
-| «Ajustar» | Camila cuenta qué pasó, con sus palabras. |
-| El atajo «Se alargó la reunión» | El iPhone lo lee ahí mismo, sin mandarlo a ningún lado: choque de horario. Y el planificador le ofrece la holgura: el viernes a las 19:30 hay espacio. Su meta no se mueve. |
-| «Confirmar ajuste» | Confirmo. El bloque pasa al viernes y deja marcado dónde estaba. Si se arrepiente, lo deshace. |
+- Elige un bloque donde **Estoy agotada** ofrezca **Bloque puente**. Si conectaste Calendario, usa los horarios que proponga; no memorices una hora que no está en tu iPhone.
+- Deja el calendario conectado antes de empezar si vas a mostrar sus compromisos. La autorización y conexión no forman parte de la demo.
+- **Invitar a alguien** aparece para bloques futuros de gimnasio o caminata. Si el bloque elegido es en casa, muestra otro bloque adecuado o explica esta función en la lámina 8.
+- No hace falta enviar un WhatsApp durante el pitch. Abrir la hoja para compartir demuestra el punto y permite volver a la app sin esperar a un destinatario.
+- Para representar una sesión terminada, cambia el reloj de demo a una hora posterior a su final. Ejemplo: caminata a las 20:00 de 20 minutos → 20:30. Di «Avancemos a después de la sesión». El reloj es un control del ensayo, no una función para Camila.
+- El registro aparece con **Fui** o **Sí, fui** si el bloque quedó pendiente. Las respuestas de sensaciones son opcionales; no agregues una foto durante el recorrido principal.
+- En **Tu avance**, muestra el resultado que aparezca: no prometas una subida de nivel cada vez que guardas una sesión.
+- Si al ensayar te pasas de dos minutos, pasa la invitación a la lámina 8. Conserva **ajustar → confirmar → registrar → ver avance**.
 
-Si la lectura tarda más de dos segundos, sigue hablando: la primera del día es la más lenta y a los 12 segundos la app usa sola la lectura local.
+### Para preguntas o una demostración más larga
 
-### Miércoles 06:45 · «ya perdí la semana» · 50 s
+- **Fotos:** abre una ficha con foto para mostrar la memoria de un momento concreto.
+- **Modo juego:** muestra el tablero y explica la ficha por día. La partida con Javiera está simulada; no es una conexión multijugador funcionando.
+- **Lo que te funciona:** muestra los horarios y ayudas que aparecen tras varios registros. El ejemplo de la semana 6 sirve para explicar el resultado futuro del programa; un registro nuevo no produce esas conclusiones.
+- **Confirmar semana:** muestra cómo deja lista la semana siguiente. No hace falta recorrer todos estos extras en los cinco minutos.
 
-| Toca | Dices |
-|---|---|
-| El reloj de arriba (la cápsula «Escenario ficticio») y luego «Miércoles 06:45». | Miércoles, 06:45. Apagó la alarma por cuarta vez. |
-| Arriba aparece «Quedó sin registrar» del martes: no la toques. Ubica «Bloque de hoy», deja la carta Gantt a la vista y toca «Ajustar». | |
-| El atajo «Ya perdí la semana» | Esta es la frase que la tumba. La app la reconoce y sugiere un bloque puente: 20 minutos hoy en la tarde, que cuentan completo. |
-| La opción «Partir el lunes» | Pero si quiere partir el lunes, tampoco parte de cero: los bloques siguientes se corren un espacio, como fichas de dominó, y su meta se corre dos días. No se suma ningún bloque extra. |
-| «Confirmar ajuste» y mira la carta Gantt | Ahí va el efecto dominó. Y su avance sigue en seis fichas en pie. |
-| Sube a la tarjeta «Ajuste al plan» y toca «Sí, cambiar». | Como el miércoles a las 6:30 no le funciona, la app propone pasarlo a la tarde: se cambia el horario, no a ella. |
+### Si la demo se interrumpe
 
-Si vas a tiempo (10 s): toca la pestaña «Programa» y luego «Todo». Dices: «Este es todo su plan: la meta estimada quedó al final, corrida dos días, y nada de lo hecho se borró». Vuelve con la pestaña «Mi plan».
-
-### Domingo 23:55 · la semana en un toque · 25 s
-
-| Toca | Dices |
-|---|---|
-| El reloj de arriba y luego «Domingo 23:55». Sube hasta arriba. | Domingo, 23:55. Le llega el cargo del gimnasio: es el momento del «mañana parto». |
-| | En vez de eso, su semana concreta, que cabe en su semana real. |
-| «Confirmar semana» | Un toque, y el lunes no parte de cero: sigue. |
-
-> Vuelvo a la presentación.
-
-Vuelve al navegador y avanza a la 7, «Y además». Tiempo de vuelta: 5 segundos.
-
-### Si la demo falla
-
-- **Se cae la proyección del iPhone o la app no responde:** vuelve al navegador, que está en la diapositiva 6, y aprieta **1**: se abre el respaldo del lunes (el video o, si no llegó, sus capturas lado a lado). **2** es el miércoles, **3** el domingo y **4** el programa completo. Dices lo mismo de las tablas de arriba. Espacio pausa el video, Esc cierra y → sigue a la 7, «Y además».
-- **La lectura se queda pensando:** sigue hablando; a los 12 segundos aparece la lectura local. Para evitarlo, antes del pitch: reloj → «Usar solo lectura local».
-- **Tocaste otra opción:** «Deshacer» en el aviso de abajo (dura 6 segundos). Si ya se fue, sigue: cualquier opción muestra que no parte de cero.
-- **La app se cerró:** ábrela de nuevo y toca la flecha de la bienvenida. El plan y el reloj quedan guardados.
-
-Variante, solo si un ensayo te da tiempo de sobra: en el miércoles, deja la sugerida («Bloque puente»), confirma, toca el reloj → «Miércoles 20:15» → «Fui» → «Guardar». Aparece «Volviste después de un atraso: ficha de regreso», que es justo lo que premiaba el estudio de Milkman. No muestra el efecto dominó en vivo.
+- **Se cae la proyección o la app no responde:** vuelve a la lámina 6. La tecla **1** muestra el ajuste del lunes; **2**, otro recorrido de ajuste; **4**, el programa. Son respaldos de funciones, no una copia exacta de esta secuencia. Espacio pausa y Esc cierra.
+- **La lectura tarda:** sigue explicando qué está eligiendo Camila; a los 12 segundos entra el respaldo local. Para un ensayo predecible puedes preparar antes reloj → **Usar solo lectura local**.
+- **Tocaste otra opción:** usa **Deshacer** mientras esté visible, o muestra el resultado elegido y continúa.
+- **La app se cerró:** vuelve a abrirla y toca la flecha de bienvenida. El plan y el reloj quedan guardados.
 
 ## 7 · Y además · 3:45 a 4:00
 
@@ -128,7 +116,9 @@ Señala cada iPhone mientras lo nombras, de izquierda a derecha. «¿Sabías que
 
 ## 8 · Su semana real · 4:00 a 4:10
 
-> Las barras grises de la carta son su trabajo: Dominó lee un solo calendario y pone cada bloque donde no choca. Si una reunión choca casi siempre, cambia el horario, no la meta.
+> Dominó se conecta a su Calendario para encontrar espacio. Y Camila puede compartir un bloque por WhatsApp para invitar a alguien cercano.
+
+Toca «Ver invitación»: aparece una vista previa del mensaje. Es una demostración de compartir, no envía un mensaje desde la presentación.
 
 ## 9 · Cuando termina el programa · 4:10 a 4:25
 
@@ -136,7 +126,7 @@ Señala cada iPhone mientras lo nombras, de izquierda a derecha. «¿Sabías que
 
 ## 10 · Qué dejamos fuera · 4:25 a 4:40
 
-> Dejamos fuera recordatorios, rachas que vuelven a cero y avisar a su círculo cuando falta: en el Modo juego, Javiera ve cuántas fichas puso, nunca qué días. Tampoco rutinas, nutrición ni wearables. Y su calendario real, porque el concurso pide datos ficticios.
+> Dejamos fuera recordatorios, rachas que vuelven a cero y avisar a su círculo cuando falta: en el Modo juego, Javiera ve cuántas fichas puso, nunca qué días. Tampoco rutinas, nutrición ni wearables.
 
 ## 11 · Cómo sabríamos si funciona · 4:40 a 5:00
 
@@ -168,7 +158,7 @@ Quédate en esta diapositiva durante las preguntas: tiene el QR del repo.
 
 **Tú**
 
-- Un ensayo completo con cronómetro. Si pasas de 5:15, recorta la 7, la 8 y la 10.
+- Un ensayo completo con cronómetro. Apunta a 4:30–4:40 para dejar margen dentro de los cinco minutos; recorta la 7, la 8 y la 10 si hace falta.
 - Agua a mano. Respira antes de la demo: el silencio de dos segundos mientras la app lee está bien.
 
 ---
@@ -190,7 +180,7 @@ Porque la ficha dice que dejó de ir incluso en semanas tranquilas: si fuera tie
 Ya silenció las notificaciones, y recordatorios y premios funcionan solo mientras duran. Una racha vuelve a cero el día que falla, que es justo cuando la culpa la saca. Aquí cada bloque hecho deja una ficha en pie, y una falta no bota ninguna.
 
 **5. ¿Cómo lo medirían? ¿Lo probaron con personas?**
-Con el tiempo de regreso después de una falta, la frecuencia semanal de la semana 1 a la 6 y la permanencia en la semana 12, contra un grupo de control. No lo probamos con personas reales porque el concurso exige datos ficticios; lo siguiente sería un piloto con consentimiento antes de sumar nada.
+Con el tiempo de regreso después de una falta, la frecuencia semanal de la semana 1 a la 6 y la permanencia en la semana 12, contra un grupo de control. Todavía no lo probamos con personas; lo siguiente sería un piloto con consentimiento.
 
 **6. Sin recordatorios, ¿cómo vuelve a abrir la app?**
 No competimos por su atención: ya silenció las notificaciones. La abre cuando algo se mueve, que es justo cuando la necesita, y el domingo en la noche, cuando le llega el cargo del gimnasio y aparece el «mañana parto». Lo que sostiene el hábito no es un aviso: son cuatro horarios fijos que caben en su semana, como pide la evidencia de Kaushal y Rhodes, y que la lista «Antes de salir» le recuerda bloquear en su agenda.
@@ -214,7 +204,7 @@ Sí, pero al revés de la de siempre: no hay rachas que se rompan ni puntos que 
 Por eso las reglas del Modo juego: una ficha por día como máximo, así que entrenar más fuerte no sirve; gana quien se mueve más días, que es justo lo que forma el hábito. Javiera ve cuántas fichas puso, nunca qué días, y un día sin ficha no aparece como falta. Lo puesto queda guardado y nada baja. Si no quiere competir con nadie, juega contra su propio récord.
 
 **13. ¿Javiera es real? ¿Cómo jugaría con una amiga de verdad?**
-Javiera es ficticia, como todo el escenario, y su partida está simulada en el iPhone. Con una amiga real harían falta cuentas y un servidor, que dejamos fuera a propósito. Y lo que se compartiría sería lo mismo que hoy: cuántas fichas, nunca qué días ni sus faltas.
+La partida con Javiera está simulada en el iPhone. Para jugar entre dos personas harían falta cuentas y un servidor, que dejamos fuera a propósito. Y lo que se compartiría sería lo mismo que hoy: cuántas fichas, nunca qué días ni sus faltas.
 
 Si preguntan algo que no sabes, dilo así: «No lo medimos todavía; lo mediríamos con…» y vuelve a una de las tres métricas.
 
@@ -223,3 +213,33 @@ Si preguntan algo que no sabes, dilo así: «No lo medimos todavía; lo mediría
 - **Problema (7):** algo de Camila que no estaba escrito tal cual y que cambia cómo se ataca. Está en la diapositiva 3 (la regla de sus obras) y se defiende con la 4.
 - **Solución (7):** corre en vivo, cada parte responde al problema y saben decir qué dejaron fuera. Está en la demo (holgura, efecto dominó y la semana del domingo), en la 7 (todo suma, nada resta) y en la 10.
 - **Convicción (7):** responder con precisión. Están las trece preguntas de arriba. Vuelve siempre a Camila y a lo que pasa después de faltar.
+
+---
+
+## Revisión del relato: propuestas por lámina
+
+Estas son propuestas para la próxima revisión editorial; no están aplicadas a todos los textos de las diapositivas. Los cambios ya implementados son la limpieza de aclaraciones del escenario, Calendario con gradiente, la invitación de WhatsApp y el recorrido de demo de este guion.
+
+La historia que conviene sostener es: **Camila quiere sentirse bien → encuentra espacio en su semana → elige un paso posible → lo hace → ve su avance → descubre qué le funciona.** La presentación actual vuelve demasiadas veces a faltar y empezar de cero; además, las funciones de progreso quedan presentadas como extras. El cambio importante es darle protagonismo a la acción y a la capacidad de decisión de Camila.
+
+| Lámina | Qué cambiaría | Qué debería dejar claro |
+|---|---|---|
+| 1 · Portada | Sustituir la frase sobre tumbar la obra por **«Dominó. Hacer espacio para moverte.»** Mostrar el plan como imagen principal. | En los primeros segundos se entiende para qué sirve. |
+| 2 · Camila | Abrir con **«Camila quiere volver a sentirse bien en su cuerpo»**. Presentar su contexto y la dificultad de retomar una sola vez. Quitar la certeza de que el tiempo no influye. | Hay una persona con un objetivo deseado, y seis visitas que ya forman parte de su historia. |
+| 3 · Nuestra lectura | **«Una forma de planificar que ya conoce.»** Animar bloques que se acomodan y conservar los realizados. Retirar la demolición del cuerpo. | Su experiencia como jefa de proyectos es un recurso. La metáfora explica el plan, no juzga su cuerpo. |
+| 4 · Evidencia | **«Qué ayuda a sostener el movimiento.»** Reducir a dos o tres decisiones respaldadas: repetición, contexto sencillo y reconocer el regreso. | La evidencia informa el diseño; no promete que cuatro sesiones por seis semanas garantizan un hábito. |
+| 5 · Solución | **«Un plan que se adapta contigo.»** Explicar una opción corta, un nuevo horario y la confirmación de Camila. | La app ayuda a elegir una acción viable. La fecha estimada corresponde al programa, no a una promesa de estar en forma. |
+| 6 · Demo | Hacer obligatorio **ajustar → confirmar → Fui → Guardar → Tu avance**. Usar el nuevo recorrido de funciones. | La demostración termina con una acción realizada y un resultado visible. |
+| 7 · Y además | Renombrar a **«Su avance se hace visible.»** Dar más tamaño a las fichas y fotos; dejar datos diarios y detalles del juego para preguntas. | El progreso es parte central de la propuesta. Evita un catálogo de cuatro funciones pequeñas. |
+| 8 · Su semana real | Titular **«Su plan encaja en su semana.»** Mantener Calendario y WhatsApp como apoyos concretos. | Calendario aporta disponibilidad; compartir facilita compañía. El código usa el calendario del iPhone y la hoja para compartir, no un acceso directo propio a Google Calendar o WhatsApp. |
+| 9 · Final del programa | **«Descubrir qué le funciona.»** Mostrar horarios, ayudas y aprendizajes. Evitar que «pasa a sus manos» sugiera que antes no tenía control. | Camila siempre decide; con varios registros puede entender mejor su propio proceso. |
+| 10 · Alcance | **«Decisiones para cuidar la continuidad.»** Resumir en tres decisiones: conservar el avance, compartir por elección y enfocarse en planificar. | Explica el criterio del producto sin dedicar toda una lámina a una lista defensiva de ausencias. |
+| 11 · Cierre | Volver al desafío: **«¿Camila vuelve y lo sostiene?»** Mostrar métricas como plan de validación y cerrar con **«Hacer espacio para moverte.»** | La app funciona como prototipo; el efecto sobre la continuidad todavía necesita medirse. |
+
+Movería la lámina 8 justo antes de la demo: primero se entiende cómo cabe en su vida, luego se ve la acción. El cierre debe recuperar la misma idea positiva de la portada.
+
+### Precisión de la evidencia
+
+- [Milkman et al., Nature 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC8822539/): el experimento con 61.293 socios respalda investigar intervenciones de asistencia y regreso; no demuestra que una ficha digital tenga el mismo efecto que un incentivo monetario ni que todos los recordatorios dejen de servir al terminar.
+- [Kaushal y Rhodes, 2015](https://www.uvic.ca/research/labs/bmed/assets/docs/Kaushal,%20Rhodes,%202015.pdf): el estudio de 111 nuevos socios observa asociaciones con frecuencia, simplicidad, disfrute y contexto. Cuatro veces por semana durante seis semanas no es una garantía universal.
+- [Sperandei et al., 2016](https://researchers.westernsydney.edu.au/en/publications/adherence-to-physical-activity-in-an-unsupervised-setting-explana/): el abandono observado corresponde a un gimnasio de Río. No presentarlo como una tasa inevitable para Camila o para cualquier gimnasio.
