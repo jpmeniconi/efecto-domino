@@ -4,10 +4,10 @@ import Observation
 @MainActor
 @Observable
 final class ObraStore {
+    /// Todo aviso ofrece «Deshacer» lo último que hizo Camila.
     struct Aviso: Identifiable, Equatable {
         let id = UUID()
         var texto: String
-        var deshacer: Bool
     }
 
     private(set) var estado: EstadoObra
@@ -63,8 +63,9 @@ final class ObraStore {
 
     var inicioPrograma: Date { ahora.lunes }
 
-    func bloquesEnPrograma(dias: Int = 14) -> [Bloque] {
-        let fin = inicioPrograma.mas(dias: dias)
+    /// Las dos semanas que muestra la carta Gantt de Mi plan.
+    func bloquesEnPrograma() -> [Bloque] {
+        let fin = inicioPrograma.mas(dias: 14)
         return estado.bloques
             .filter { $0.inicio >= inicioPrograma && $0.inicio < fin }
             .sorted { $0.inicio < $1.inicio }
@@ -138,7 +139,7 @@ final class ObraStore {
         }
         estado = Planificador.aplicar(propuesta.accion, a: estado)
         estado.ajustes += 1
-        aviso = Aviso(texto: propuesta.confirmacion, deshacer: true)
+        aviso = Aviso(texto: propuesta.confirmacion)
         guardar()
     }
 
@@ -161,8 +162,7 @@ final class ObraStore {
         aviso = Aviso(
             texto: veniaDeUnAtraso
                 ? "Volviste después de un atraso: ficha de regreso."
-                : "Ficha \(hechos) en pie. Una falta no la bota.",
-            deshacer: true
+                : "Ficha \(hechos) en pie. Una falta no la bota."
         )
         guardar()
     }
@@ -171,8 +171,7 @@ final class ObraStore {
         anterior = estado
         estado = Planificador.cambiarPatron(estado, ajuste: ajuste)
         aviso = Aviso(
-            texto: "Listo: \(Formato.cadaSemana(ajuste.hacia.dia)) ahora son a las \(Formato.hora(ajuste.hacia.hora, ajuste.hacia.minuto)).",
-            deshacer: true
+            texto: "Listo: \(Formato.cadaSemana(ajuste.hacia.dia)) ahora son a las \(Formato.hora(ajuste.hacia.hora, ajuste.hacia.minuto))."
         )
         guardar()
     }
@@ -188,7 +187,7 @@ final class ObraStore {
     func confirmarSemana(_ lunes: Date) {
         anterior = estado
         estado.semanasConfirmadas.append(lunes)
-        aviso = Aviso(texto: "Semana confirmada. El lunes no partes de cero: sigues tu plan.", deshacer: true)
+        aviso = Aviso(texto: "Semana confirmada. El lunes no partes de cero: sigues tu plan.")
         guardar()
     }
 

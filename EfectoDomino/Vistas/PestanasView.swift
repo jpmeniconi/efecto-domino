@@ -53,10 +53,8 @@ struct AvisoFlotante: View {
                     .font(.subheadline.weight(.medium))
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 4)
-                if aviso.deshacer {
-                    Button("Deshacer") { store.deshacer() }
-                        .font(.subheadline.weight(.semibold))
-                }
+                Button("Deshacer") { store.deshacer() }
+                    .font(.subheadline.weight(.semibold))
             }
             .padding(.horizontal, 18)
             .padding(.vertical, 14)

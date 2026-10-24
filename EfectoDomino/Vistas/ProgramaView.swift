@@ -923,7 +923,6 @@ struct MedidasPrograma {
     func x(dia: Int) -> CGFloat { margen + CGFloat(dia) * anchoDia }
     func x(dia: Double) -> CGFloat { margen + CGFloat(dia) * anchoDia }
     func y(fila: Int) -> CGFloat { margenArriba + CGFloat(fila) * altoFila }
-    func y(fila: Double) -> CGFloat { margenArriba + CGFloat(fila) * altoFila }
 
     func limitarX(_ x: CGFloat) -> CGFloat {
         min(max(0, x), max(0, anchoContenido - anchoVisible))

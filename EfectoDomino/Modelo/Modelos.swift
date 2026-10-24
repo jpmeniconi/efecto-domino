@@ -114,6 +114,8 @@ struct Slot: Hashable {
 }
 
 struct Proyecto: Codable, Hashable {
+    /// No se muestra, pero se guarda en obra.json: sin él, una versión anterior de la app no podría
+    /// leer el plan y partiría de cero sin avisar.
     var nombre: String
     /// Fichas de las primeras seis semanas: la frecuencia, no la intensidad.
     var meta: Int
