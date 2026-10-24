@@ -52,7 +52,9 @@ En la portada, tres citas de autores se alternan cada cinco segundos dentro del 
 
 La lámina 8 incorpora «Tu progreso, ciclo a ciclo»: periodos de 28 días del Modo juego, una ficha por día y comparación con el propio récord. Son distintos del programa de seis semanas; el historial de sesiones permanece.
 
-En la lámina 6, **Invitar a alguien** muestra una vista previa animada y repetir el toque repite la animación. La presentación no envía mensajes. En la app nativa, la invitación usa la hoja para compartir de iOS.
+En la lámina 6 se reproduce una vez al entrar `semana-recorrido.mp4`, de unos ocho segundos: 0–4 s muestran la caminata del sábado 24 a las 10:30 con **Invitar a alguien**; 4–8 s muestran un acercamiento editorial al fragmento real de la Gantt con otro bloque reubicado del miércoles 21 al lunes 26, su flecha y su origen, con la etiqueta **2 · Detalle del cambio**. Este encuadre pertenece al video y no representa un gesto de zoom nativo. Las dos escenas provienen del mismo estado de la app.
+
+El control ofrece **Pausar**, **Continuar** y **Repetir**. **Invitar a alguien** vuelve a la imagen de la caminata y muestra el mensaje animado. Con Reducir movimiento se mantiene esa imagen hasta pulsar **Ver recorrido**; si falla el video, se alternan las imágenes de respaldo. En la app nativa, compartir abre la hoja de iOS: la persona elige el destino y confirma el envío. La presentación solo muestra una vista previa.
 
 ## Publicación en Vercel
 
@@ -85,20 +87,23 @@ Medios visibles en las otras láminas:
 | Archivo | Uso |
 |---|---|
 | `bienvenida.png` | Referencia visual de la bienvenida; la portada usa su representación interactiva |
-| `calendario.png` | 6 · Su plan encaja en su semana |
+| `semana-recorrido.mp4` | 6 · Recorrido de invitación y reubicación, unos ocho segundos |
+| `semana-invitar.png`, `semana-reubicacion.png` | 6 · Imágenes inicial y de respaldo del recorrido |
 | `tu-avance.png` | 8 · Fichas y nivel |
 | `foto-ampliada.png` | 8 · Foto de una ficha |
 | `lo-que-te-funciona.png`, `manual.png` | 9 · Aprendizajes y manual |
 
-Los demás archivos de `medios/`, incluidos el juego, las fotos, el miércoles y el domingo, quedan disponibles como referencias y recorridos adicionales. `recorrido.mp4` reúne varias funciones y no sustituye el ensayo de dos minutos descrito en el guion.
+El generador `swift scripts/clip-semana.swift`, ejecutado desde la raíz del repositorio, regenera el video de la lámina 6 y sus dos imágenes a partir de las grabaciones existentes; no abre el simulador ni cambia datos de la app.
 
-Las capturas PNG son verticales del simulador iPhone 18 Pro, 1206 × 2622. Los videos son MP4 H.264 verticales y sin audio. Mantén las imágenes dentro del marco de iPhone y revisa la legibilidad tanto a 1920 × 1080 como en vertical.
+Los demás archivos de `medios/`, incluida la antigua captura `calendario.png`, el juego, las fotos, el miércoles y el domingo, quedan disponibles como referencias y recorridos adicionales. `recorrido.mp4` reúne varias funciones y no sustituye el ensayo de dos minutos descrito en el guion.
+
+Las capturas PNG originales son verticales del simulador iPhone 18 Pro, 1206 × 2622. El video y las dos imágenes de la lámina 6 están a 720 × 1564. Los videos son MP4 H.264 verticales y sin audio. Mantén las imágenes dentro del marco de iPhone y revisa la legibilidad tanto a 1920 × 1080 como en vertical.
 
 ## Verificación antes de compartir
 
 1. Recorre las once láminas en horizontal y vertical; comprueba texto, imágenes y consola.
 2. En la portada, comprueba la rotación automática cada cinco segundos, la ausencia de botones y contador y la frase estática con Reducir movimiento.
-3. En la lámina 6, repite la invitación; debe mantener su etiqueta y no avanzar de lámina.
+3. En la lámina 6, comprueba una reproducción al entrar, pausa, continuación y repetición. **Invitar a alguien** debe volver a la tarjeta de caminata y animar el mensaje sin avanzar de lámina. Prueba también Reducir movimiento, **Ver recorrido** y las imágenes de respaldo si falla el video.
 4. Desde `#7`, prueba los cuatro respaldos, pausa y cierre. El registro y el avance deben ocupar las teclas 2 y 3.
 5. Comprueba el enlace del QR y que el guion conserve un presupuesto total de 5:00.
 

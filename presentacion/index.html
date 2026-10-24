@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="estilo.css">
 <link rel="stylesheet" href="inicio.css">
 <link rel="stylesheet" href="avisos.css">
+<link rel="stylesheet" href="semana.css">
 <script>
   // Antes de pintar: modo (presentación o página vertical), escala del lienzo de 1920 × 1080 y tema guardado.
   (function () {
@@ -33,6 +34,7 @@
 <script src="presentacion.js" defer></script>
 <script src="inicio.js" defer></script>
 <script src="avisos.js" defer></script>
+<script src="semana.js" defer></script>
 </head>
 <body>
 <main class="deck" id="deck" aria-roledescription="presentación" aria-label="Dominó">
@@ -43,7 +45,7 @@
   <div class="portada-texto">
     <img class="portada-icono entra" style="--i:0" src="icono.svg" alt="" width="128" height="128">
     <h1 class="portada-nombre entra" style="--i:1">Dominó</h1>
-    <p class="portada-frase entra" style="--i:2">Hacer espacio<br>para moverte.</p>
+    <p class="portada-frase entra" style="--i:2">Hacer espacio para moverte.</p>
     <p class="portada-descripcion entra" style="--i:3">Un plan que se adapta a tu semana.<br>Un avance que sigue contigo.</p>
   </div>
   <p class="portada-pie entra" style="--i:4">Hackatón Señales de Makana · Caso 01: Camila<br><span>Juan Pablo Meniconi</span></p>
@@ -198,7 +200,7 @@
     <p class="kicker entra" style="--i:0">Su semana real</p>
     <h2 class="titulo entra" style="--i:1">Su plan encaja en su semana.</h2>
     <p class="bajada entra" style="--i:2">Dominó se conecta a su <span class="semana-calendario">Calendario</span> y encuentra espacio para moverse.</p>
-    <p class="semana-contexto entra" style="--i:3">El plan considera sus compromisos y propone horarios disponibles.</p>
+    <p class="semana-contexto entra" style="--i:3">En la carta Gantt, una flecha une el horario original con el nuevo.</p>
     <div class="semana-invitacion entra" style="--i:4">
       <div class="semana-invitacion-cabecera">
         <div>
@@ -215,11 +217,13 @@
       </div>
     </div>
   </div>
-  <figure class="telefono entra" style="--i:2">
+  <figure class="telefono semana-telefono entra" id="semana-telefono" style="--i:2">
     <div class="pantalla">
-      <img src="medios/calendario.png" alt="Mi plan con Calendario conectado" decoding="async">
-      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Plan con Calendario</span><code>medios/calendario.png</code></div>
+      <img id="semana-poster" src="medios/semana-invitar.png" alt="Caminata del sábado 24 a las 10:30, con su preparación y el botón Invitar a alguien" decoding="async">
+      <video id="semana-video" src="medios/semana-recorrido.mp4" poster="medios/semana-invitar.png" muted playsinline preload="metadata" disablepictureinpicture aria-label="Recorrido por la tarjeta de invitación y la Gantt con un bloque reubicado"></video>
+      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Invitación y programa</span><code>medios/semana-invitar.png</code></div>
     </div>
+    <figcaption class="semana-video-controles"><span id="semana-etapa">1 · Invitar</span><button type="button" id="semana-reproducir" aria-controls="semana-video">Ver recorrido</button></figcaption>
   </figure>
 </section>
 

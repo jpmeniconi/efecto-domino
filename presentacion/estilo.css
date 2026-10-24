@@ -463,6 +463,58 @@ button {
 .portada-descripcion { margin-top: 20px; color: var(--texto-2); font-size: 18px; line-height: 1.45; }
 .modo-deck .portada-descripcion { margin-top: 30px; font-size: 30px; }
 
+/* Un acento vivo para tres momentos del relato: apertura, idea y despedida. */
+.portada-descripcion,
+.lectura .remate,
+.despedida-frase > span {
+  --luz-base: #ff7a3d;
+  --luz-clara: #ffc79b;
+  --luz-sombra: rgba(255, 122, 61, .18);
+  color: var(--luz-base);
+}
+
+:root[data-tema="claro"] .portada-descripcion,
+:root[data-tema="claro"] .lectura .remate,
+:root[data-tema="claro"] .despedida-frase > span {
+  --luz-base: #b83b0b;
+  --luz-clara: #ca531c;
+  --luz-sombra: transparent;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .portada-descripcion,
+  .lectura .remate,
+  .despedida-frase > span {
+    background: linear-gradient(105deg, var(--luz-base) 20%, var(--luz-clara) 45%, var(--luz-base) 70%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: relato-luz 7s ease-in-out infinite paused;
+  }
+
+  .activa .portada-descripcion,
+  .activa.lectura .remate,
+  .activa .despedida-frase > span { animation-play-state: running; }
+}
+
+@keyframes relato-luz {
+  0%, 100% { background-position: 100% 50%; filter: drop-shadow(0 0 5px var(--luz-sombra)); }
+  50% { background-position: 0% 50%; filter: drop-shadow(0 0 12px var(--luz-sombra)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portada-descripcion,
+  .lectura .remate,
+  .despedida-frase > span { animation: none; filter: none; }
+}
+
+@media print {
+  .portada-descripcion,
+  .lectura .remate,
+  .despedida-frase > span { color: var(--luz-base); background: none; animation: none; filter: none; }
+}
+
 .portada-pie {
   margin-top: 28px;
   font-size: 15px;
@@ -483,7 +535,8 @@ button {
 .modo-deck .portada .telefono { --ancho: 370px; margin: 0; }
 .modo-deck .portada-icono { width: 124px; height: 124px; margin-bottom: 52px; }
 .modo-deck .portada-nombre { font-size: 200px; }
-.modo-deck .portada-frase { max-width: 1000px; margin-top: 38px; font-size: 66px; line-height: 1.12; }
+.modo-deck .portada-texto { min-width: 0; }
+.modo-deck .portada-frase { max-width: 100%; margin-top: 38px; font-size: 66px; line-height: 1.12; white-space: nowrap; }
 
 .modo-deck .portada-pie {
   position: absolute;
@@ -499,7 +552,7 @@ button {
 .contexto-signo { display: flex; align-items: center; height: 48px; color: var(--acento); font-size: 42px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
 .contexto-signo svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .camila-contexto h3 { margin: 14px 0 10px; font-size: 22px; line-height: 1.2; }
-.camila-contexto p { color: var(--texto-2); font-size: 18px; line-height: 1.4; }
+.camila-contexto p { color: var(--texto-2); font-size: 18px; line-height: 1.4; text-wrap: pretty; }
 .modo-deck .camila .titulo { max-width: 1400px; }
 .modo-deck .camila .bajada { max-width: 1350px; }
 .modo-deck .camila-contexto { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 76px; }
@@ -536,6 +589,7 @@ button {
   line-height: 1.35;
   font-weight: 500;
   letter-spacing: -.01em;
+  text-wrap: balance;
 }
 
 .remate {
@@ -560,7 +614,7 @@ button {
 .evidencia li { padding-top: 24px; border-top: 1px solid var(--linea-fuerte); }
 .evidencia-numero { display: block; color: var(--acento); font-size: 26px; margin-bottom: 20px; font-weight: 600; }
 .evidencia h3 { font-size: 24px; line-height: 1.2; letter-spacing: -.02em; }
-.evidencia p { font-size: 18px; line-height: 1.4; margin-top: 18px; color: var(--texto-2); }
+.evidencia p { font-size: 18px; line-height: 1.4; margin-top: 18px; color: var(--texto-2); text-wrap: pretty; }
 .evidencia cite { display: block; font-size: 13px; color: var(--texto-2); margin-top: 22px; line-height: 1.5; }
 .evidencia cite a { text-decoration-color: var(--linea-fuerte); text-underline-offset: 4px; }
 .evidencia-hipotesis { margin-top: 36px; font-size: 21px; line-height: 1.4; max-width: 1100px; }
@@ -886,13 +940,13 @@ button {
 .extras { display: grid; gap: 24px; margin-top: 36px; }
 .extra { display: grid; gap: 28px; padding: 28px; border-radius: 28px; background: var(--superficie); }
 .extra .telefono { --ancho: 220px; margin: 0 auto; }
-.extra h3 { font-size: 27px; font-weight: 700; letter-spacing: -.016em; line-height: 1.15; }
-.extra p { margin-top: 18px; font-size: 18px; line-height: 1.4; color: var(--texto-2); }
+.extra h3 { font-size: 27px; font-weight: 700; letter-spacing: -.016em; line-height: 1.15; text-wrap: balance; }
+.extra p { margin-top: 18px; font-size: 18px; line-height: 1.4; color: var(--texto-2); text-wrap: pretty; }
 .extra-nota { display: block; margin-top: 24px; font-size: 15px; color: var(--acento); font-weight: 600; }
 .modo-deck .extras { grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 52px; }
 .modo-deck .extra { grid-template-columns: minmax(0, 1fr) 250px; align-items: center; gap: 32px; padding: 36px; border-radius: 36px; }
 .modo-deck .extra .telefono { --ancho: 250px; margin: 0; }
-.modo-deck .extra h3 { font-size: 44px; }
+.modo-deck .extra h3 { font-size: 40px; }
 .modo-deck .extra p { font-size: 30px; margin-top: 24px; }
 .modo-deck .extra-nota { font-size: 24px; margin-top: 32px; }
 .ciclos-nota { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; font-size: 17px; line-height: 1.4; color: var(--texto-2); }
@@ -1079,6 +1133,7 @@ button {
   margin-top: 2px;
   font-size: 17px;
   color: var(--texto-2);
+  text-wrap: balance;
 }
 
 .despedida {
