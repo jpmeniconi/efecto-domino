@@ -478,9 +478,13 @@
     e.stopPropagation();
   });
   boton.addEventListener('click', function () {
-    var abierto = boton.getAttribute('aria-expanded') !== 'true';
-    boton.setAttribute('aria-expanded', String(abierto));
-    boton.querySelector('span').textContent = abierto ? 'Ocultar invitación' : 'Ver invitación';
-    mensaje.hidden = !abierto;
+    boton.setAttribute('aria-expanded', 'true');
+    mensaje.hidden = false;
+    // Repite la entrada sin ocultar el mensaje ni cambiar el nombre de la acción.
+    // Con Reducir movimiento, el CSS no crea ninguna animación.
+    mensaje.getAnimations().forEach(function (animacion) {
+      animacion.currentTime = 0;
+      animacion.play();
+    });
   });
 })();

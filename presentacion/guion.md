@@ -118,7 +118,7 @@ Señala cada iPhone mientras lo nombras, de izquierda a derecha. «¿Sabías que
 
 > Dominó se conecta a su Calendario para encontrar espacio. Y Camila puede compartir un bloque por WhatsApp para invitar a alguien cercano.
 
-Toca «Ver invitación»: aparece una vista previa del mensaje. Es una demostración de compartir, no envía un mensaje desde la presentación.
+Toca «Invitar a alguien»: aparece una vista previa animada del mensaje. El botón conserva su nombre; volver a tocarlo repite la animación. Es una demostración de compartir, no envía un mensaje desde la presentación.
 
 ## 9 · Cuando termina el programa · 4:10 a 4:25
 
