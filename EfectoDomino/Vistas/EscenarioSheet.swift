@@ -16,7 +16,7 @@ struct EscenarioSheet: View {
                 } header: {
                     Text("Reloj del escenario").textCase(nil)
                 } footer: {
-                    Text("Toda la app usa este reloj. Camila y sus datos son ficticios.")
+                    Text("El plan usa este reloj.")
                 }
 
                 Section {
@@ -126,7 +126,7 @@ struct EscenarioSheet: View {
             return "De «\(calendario)». El plan los esquiva: \(texto)."
         }
         if let problema = store.problemaCalendario { return problema.texto }
-        return "Ficticia: los martes y jueves llega tarde."
+        return "Los martes y jueves llega tarde."
     }
 
     /// "el bloque en casa de los martes 21:15 pasa a los jueves 21:15"

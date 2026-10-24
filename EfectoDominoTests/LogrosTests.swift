@@ -40,6 +40,27 @@ final class LogrosTests: XCTestCase {
         XCTAssertEqual(Logros.siguiente(Logros.calcular(e))?.id, .primeraFicha)
     }
 
+    func testLasVisitasDeEneroSumanAlMuroPeroNoCompletanElPlan() {
+        var e = Prueba.semilla()
+        XCTAssertEqual(e.fichasEnPie, 6)
+        XCTAssertEqual(e.bloques.fichasEnPie, 0)
+
+        e.marcarHecho(e.bloques[0].id)
+        XCTAssertEqual(e.fichasEnPie, 7)
+        XCTAssertEqual(e.bloques.fichasEnPie, 1)
+
+        for i in e.bloques.indices.prefix(e.proyecto.meta - e.proyecto.visitasPrevias) {
+            e.bloques[i].estado = .hecho
+        }
+        XCTAssertEqual(e.fichasEnPie, 24)
+        XCTAssertFalse(logro(.programaCompleto, en: e).conseguido)
+
+        for i in e.bloques.indices { e.bloques[i].estado = .hecho }
+        XCTAssertEqual(e.fichasEnPie, 30)
+        XCTAssertEqual(e.bloques.fichasEnPie, 24)
+        XCTAssertTrue(logro(.programaCompleto, en: e).conseguido)
+    }
+
     func testLoSiguienteNuncaPideFaltar() {
         var e = Prueba.semilla()
         for i in e.bloques.indices { e.bloques[i].estado = .hecho }

@@ -11,23 +11,23 @@ enum SabiasQue {
     /// Cada dato está redactado como asociación, sin prometer resultados ni dar indicaciones médicas.
     static let datos: [DatoDeEvidencia] = [
         DatoDeEvidencia(
-            texto: "Faltar una vez no echa a perder un hábito: en un estudio que siguió a 96 personas formando uno nuevo, saltarse un día no cambió su avance.",
+            texto: "Un día distinto no borra un hábito: en un estudio que siguió a 96 personas formando uno nuevo, un día sin hacerlo no afectó de forma importante su avance.",
             fuente: "Lally et al., 2010 · European Journal of Social Psychology"
         ),
         DatoDeEvidencia(
-            texto: "Formar un hábito tomó en promedio 66 días, con casos desde 18 hasta 254. Los famosos 21 días no salen de ningún estudio.",
+            texto: "Un estudio estimó tiempos de 18 a 254 días para formar un hábito, con una mediana de 66 días. El tiempo varió mucho entre personas.",
             fuente: "Lally et al., 2010 · European Journal of Social Psychology"
         ),
         DatoDeEvidencia(
-            texto: "En personas que recién entraban a un gimnasio, ir al menos cuatro veces por semana durante seis semanas fue lo que formó el hábito.",
+            texto: "En personas que recién entraban a un gimnasio, ir al menos cuatro veces por semana durante seis semanas se asoció con formar el hábito.",
             fuente: "Kaushal y Rhodes, 2015 · Journal of Behavioral Medicine"
         ),
         DatoDeEvidencia(
-            texto: "En un megaestudio con 61.293 socios de gimnasio, lo que más subió la asistencia fue premiar volver después de faltar.",
+            texto: "En un megaestudio con 61.293 socios de gimnasio, la propuesta que más subió la asistencia incluía un pequeño premio por volver después de un día sin ir.",
             fuente: "Milkman et al., 2021 · Nature"
         ),
         DatoDeEvidencia(
-            texto: "Quienes juntan su actividad en uno o dos días a la semana tienen cerca de 30 % menos riesgo de muerte por cualquier causa que quienes no se mueven.",
+            texto: "En un estudio, reunir al menos 150 minutos de actividad moderada o 75 de intensa en uno o dos días por semana se asoció con cerca de 30 % menos mortalidad que no hacer actividad.",
             fuente: "O'Donovan et al., 2017 · JAMA Internal Medicine"
         ),
         DatoDeEvidencia(
@@ -43,11 +43,11 @@ enum SabiasQue {
             fuente: "Pearce et al., 2022 · JAMA Psychiatry"
         ),
         DatoDeEvidencia(
-            texto: "El ejercicio junto con educación redujo en cerca de 45 % el riesgo de volver a tener un episodio de dolor lumbar.",
+            texto: "Una revisión de ensayos encontró que el ejercicio junto con educación redujo en cerca de 45 % el riesgo de un episodio de dolor lumbar a corto plazo.",
             fuente: "Steffens et al., 2016 · JAMA Internal Medicine"
         ),
         DatoDeEvidencia(
-            texto: "Cómo te sientes mientras te mueves predice si lo vas a repetir: disfrutar un bloque pesa más que hacerlo intenso.",
+            texto: "Una revisión de estudios encontró que sentirse bien durante la actividad se relacionó con hacer más actividad física después.",
             fuente: "Rhodes y Kates, 2015 · Annals of Behavioral Medicine"
         ),
     ]

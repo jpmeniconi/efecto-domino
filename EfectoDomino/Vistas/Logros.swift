@@ -68,7 +68,7 @@ enum Logros {
                 Logro(
                     id: clave, titulo: "Enero cuenta", simbolo: "calendar",
                     conseguido: e.proyecto.visitasPrevias > 0,
-                    detalle: "Tus \(e.proyecto.visitasPrevias) visitas de enero ya están en tu muro: no partiste de cero."
+                    detalle: "Tus \(e.proyecto.visitasPrevias) visitas de enero ya están en tu muro: cuentan desde el primer día."
                 )
             case .primeraFicha:
                 Logro(
@@ -116,23 +116,23 @@ enum Logros {
                     conseguido: usoHolgura,
                     detalle: usoHolgura
                         ? "Moviste un bloque dentro de su semana y el plan siguió en pie."
-                        : "Si un bloque se cae, «Ajustar» lo lleva a un espacio libre de la misma semana."
+                        : "Si un bloque no calza, «Ajustar» lo lleva a un espacio libre de la misma semana."
                 )
             case .puente:
                 Logro(
                     id: clave, titulo: "Bloque puente", simbolo: "timer",
                     conseguido: e.bloques.contains(where: \.esPuente),
                     detalle: e.bloques.contains(where: \.esPuente)
-                        ? "Elegiste un bloque corto en vez de saltarte el día. Cuenta completo."
-                        : "Cuando cueste ir, un bloque puente es corto y cuenta completo."
+                        ? "Elegiste un bloque corto para ese día. Cuenta completo."
+                        : "Con poco tiempo o energía, un bloque puente es corto y cuenta completo."
                 )
             case .regreso:
                 Logro(
                     id: clave, titulo: "Ficha de regreso", simbolo: "arrow.uturn.backward",
                     conseguido: regresos > 0,
                     detalle: regresos == 0
-                        ? "Si un bloque se atrasa, al volver te llevas una ficha de regreso."
-                        : regresos == 1 ? "Volviste después de un atraso." : "Volviste \(regresos) veces después de un atraso."
+                        ? "Al retomar tu plan después de un cambio, te llevas una ficha de regreso."
+                        : regresos == 1 ? "Retomaste tu plan." : "Retomaste tu plan \(regresos) veces."
                 )
             case .ajustePlan:
                 Logro(
@@ -148,7 +148,7 @@ enum Logros {
                     conseguido: hechos.count >= meta,
                     detalle: hechos.count >= meta
                         ? "Hiciste las \(meta) fichas del programa. Tu manual para seguir está listo."
-                        : "Llevas \(hechos.count) de \(meta) fichas. Al completarlas, el plan pasa a tus manos con tu manual."
+                        : "Llevas \(hechos.count) de \(meta) fichas del plan. Al completarlas, el plan pasa a tus manos con tu manual."
                 )
             }
         }
@@ -255,7 +255,7 @@ private struct NivelTarjeta: View {
                 Text("Con \(Text(cuantas).fontWeight(.semibold)) más llegas al nivel \(nivel.numero + 1): \(NivelDeFichas.nombre(nivel.numero + 1)).")
                     .font(.subheadline)
                     .fixedSize(horizontal: false, vertical: true)
-                Text("Cada \(NivelDeFichas.fichasPorMano) fichas en pie, una mano de dominó, subes un nivel. Una falta no bota fichas, así que el nivel no baja.")
+                Text("Cada \(NivelDeFichas.fichasPorMano) fichas en pie, una mano de dominó, subes un nivel. Cada ficha queda, así que el nivel solo sube.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)

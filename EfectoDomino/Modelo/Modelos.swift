@@ -127,6 +127,9 @@ struct Proyecto: Codable, Hashable {
 }
 
 struct EstadoObra: Codable {
+    /// El muro completo incluye las visitas de enero; la meta del plan cuenta solo sus bloques.
+    var fichasEnPie: Int { proyecto.visitasPrevias + bloques.fichasEnPie }
+
     var proyecto: Proyecto
     var patron: [Ventana]
     var alternativas: [Ventana]
@@ -164,7 +167,7 @@ enum TipoBarrera: String, Codable, CaseIterable {
         switch self {
         case .horario: "Choque de horario"
         case .energia: "Poca energía"
-        case .reinicio: "Ganas de partir de cero"
+        case .reinicio: "Ganas de empezar de nuevo"
         case .cuerpo: "Molestia física"
         case .otra: "Algo cambió"
         }

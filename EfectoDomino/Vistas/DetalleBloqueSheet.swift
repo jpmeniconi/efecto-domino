@@ -225,7 +225,7 @@ struct DetalleBloqueSheet: View {
         } header: {
             Text("Tu registro").textCase(nil)
         } footer: {
-            Text(bloque.esRegreso ? "Volviste después de un atraso: ficha de regreso." : "Una ficha en pie. Una falta no la bota.")
+            Text(bloque.esRegreso ? "Volviste a tu plan: ficha de regreso." : "Una ficha en pie. Queda en tu muro.")
         }
     }
 

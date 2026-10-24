@@ -42,7 +42,7 @@ struct AvanceCard: View {
                 VisitasPrevias(cantidad: proyecto.visitasPrevias)
 
                 HStack(spacing: 8) {
-                    Chip(texto: "\(hechos) de \(proyecto.meta) fichas", simbolo: "rectangle.split.1x2.fill")
+                    Chip(texto: "\(hechos) de \(proyecto.meta) del plan", simbolo: "rectangle.split.1x2.fill")
                     if regresos > 0 {
                         Chip(texto: regresos == 1 ? "1 regreso" : "\(regresos) regresos", simbolo: "arrow.uturn.backward")
                             .foregroundStyle(Color.accentColor)
@@ -165,7 +165,7 @@ struct MuroSemanal: View {
         }
         .animation(.spring(duration: 0.5, bounce: 0.3), value: bloques)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(bloques.fichasEnPie) fichas en pie")
+        .accessibilityLabel("\(bloques.fichasEnPie) fichas del plan en pie")
     }
 
     private func columna(_ semana: Int) -> some View {

@@ -7,7 +7,7 @@ struct PlanSemanaCard: View {
     let bloques: [Bloque]
     let numeroSemana: Int
     let semanas: Int
-    let hechos: Int
+    let fichas: Int
     let opciones: (Bloque) -> [Slot]
     var alMover: (Bloque, Slot) -> Void
     var alConfirmar: () -> Void
@@ -47,12 +47,11 @@ struct PlanSemanaCard: View {
         let base: String
         switch bloques.count {
         case 0: base = "Esta semana no tienes bloques en tu plan."
-        case 1: base = "En vez de «mañana parto»: 1 bloque que cabe en tu semana real, la \(numeroSemana) de \(semanas)."
-        default: base = "En vez de «mañana parto»: \(bloques.count) bloques que caben en tu semana real, la \(numeroSemana) de \(semanas)."
+        case 1: base = "1 bloque que cabe en tu semana real, la \(numeroSemana) de \(semanas)."
+        default: base = "\(bloques.count) bloques que caben en tu semana real, la \(numeroSemana) de \(semanas)."
         }
-        if hechos == 0 { return base + " Tus visitas de enero siguen ahí: no partes de cero." }
-        let fichas = hechos == 1 ? "1 ficha en pie" : "\(hechos) fichas en pie"
-        return base + " Llevas \(fichas): sigues, no partes de cero."
+        let avance = fichas == 1 ? "tu ficha en pie" : "tus \(fichas) fichas en pie"
+        return base + " Sigues desde \(avance)."
     }
 
     private func fila(_ bloque: Bloque) -> some View {

@@ -4,6 +4,22 @@ import XCTest
 /// Compartir es decisión de Camila: el avance como imagen y la invitación a un bloque.
 final class CompartirTests: XCTestCase {
 
+    func testElResumenCompartidoNoExponeLasFaltas() {
+        var e = Prueba.enMomento(2)
+        func resumen() -> String {
+            ReporteDeAvance(bloques: e.bloques, proyecto: e.proyecto, inicioObra: e.inicioObra, ahora: e.ahora).resumen
+        }
+        XCTAssertEqual(resumen(), "Cada ficha queda en mi muro.")
+
+        e.bloques[0].estado = .hecho
+        e.bloques[0].esRegreso = true
+        XCTAssertEqual(resumen(), "Volví a mi plan 1 vez.")
+
+        e.bloques[1].estado = .hecho
+        e.bloques[1].esRegreso = true
+        XCTAssertEqual(resumen(), "Volví a mi plan 2 veces.")
+    }
+
     func testLaInvitacionNoDependeDeLaOtraPersona() throws {
         let e = Prueba.enMomento(0)
         let lunes = try XCTUnwrap(e.proximo)

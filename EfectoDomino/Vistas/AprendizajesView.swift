@@ -108,7 +108,7 @@ private struct ListaDeAprendizajes: View {
     }
 
     private var subtitulo: String {
-        if esEjemplo { return "Ejemplo con datos ficticios" }
+        if esEjemplo { return "Ejemplo de la semana 6" }
         return datos.registros == 1 ? "Con tu primer bloque registrado" : "Con tus \(datos.registros) bloques registrados"
     }
 
@@ -116,7 +116,7 @@ private struct ListaDeAprendizajes: View {
     private var avisoDeEjemplo: some View {
         Section {
             VStack(alignment: .leading, spacing: 4) {
-                Label("Ejemplo con datos ficticios", systemImage: "eye")
+                Label("Ejemplo de la semana 6", systemImage: "eye")
                     .font(.headline)
                     .foregroundStyle(Color.accentColor)
                 Text("Así se ve esta hoja en la semana 6, con \(datos.registros) bloques registrados. No son tus datos.")
@@ -231,7 +231,7 @@ private struct ListaDeAprendizajes: View {
         } header: {
             Text("Cómo vuelves").textCase(nil)
         } footer: {
-            Text("Cada regreso deja una ficha. Una falta no bota ninguna.")
+            Text("Cada regreso deja una ficha.")
         }
         .id("regreso")
     }
@@ -330,8 +330,8 @@ private struct ListaDeAprendizajes: View {
             }
         } footer: {
             Text(esEjemplo
-                ? "El texto del ejemplo avisa que los datos son ficticios."
-                : "Texto simple con lo que te funciona, sin faltas. Tú decides si lo guardas o a quién se lo mandas.")
+                ? "El texto también dice que es un ejemplo."
+                : "Texto simple con lo que te funciona. Tú decides si lo guardas o a quién se lo mandas.")
         }
         .id("compartir")
     }
@@ -667,12 +667,12 @@ struct Aprendizajes {
             return [
                 Regla(
                     numero: 1,
-                    titulo: "Si un bloque se cae, primero la holgura de la semana.",
+                    titulo: "Si un bloque no calza, primero la holgura de la semana.",
                     detalle: holgura.isEmpty ? "Muévelo a otro espacio libre de la misma semana." : "Espacios libres: \(espacios)."
                 ),
                 Regla(
                     numero: 2,
-                    titulo: "Si cuesta volver, un bloque puente.",
+                    titulo: "Con poco tiempo o energía, un bloque puente.",
                     detalle: "15 o 20 minutos el mismo día. Corto, pero cuenta completo."
                 ),
                 Regla(
@@ -685,7 +685,7 @@ struct Aprendizajes {
 
         /// Texto simple para guardarlo o mandarlo. En primera persona: es su manual.
         func texto(esEjemplo: Bool) -> String {
-            var lineas = esEjemplo ? ["Ejemplo con datos ficticios.", ""] : []
+            var lineas = esEjemplo ? ["Ejemplo de la semana 6.", ""] : []
             lineas.append("Mi manual para seguir")
             if !horarios.isEmpty {
                 lineas += ["", "Mis horarios"] + horarios.map { "• \($0.horario.nombre) · \($0.tipo.nombre), \($0.minutos) min" }

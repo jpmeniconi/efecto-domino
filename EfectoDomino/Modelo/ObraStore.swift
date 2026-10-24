@@ -40,6 +40,7 @@ final class ObraStore {
     var ahora: Date { estado.ahora }
     var proyecto: Proyecto { estado.proyecto }
     var hechos: Int { estado.bloques.fichasEnPie }
+    var fichasEnPie: Int { estado.fichasEnPie }
 
     var planificados: [Bloque] {
         estado.bloques.filter { $0.estado == .planificado }.sorted { $0.inicio < $1.inicio }
@@ -161,8 +162,8 @@ final class ObraStore {
 
         aviso = Aviso(
             texto: veniaDeUnAtraso
-                ? "Volviste después de un atraso: ficha de regreso."
-                : "Ficha \(hechos) en pie. Una falta no la bota."
+                ? "Volviste a tu plan: ficha de regreso."
+                : "Ficha \(fichasEnPie) en pie. Queda en tu muro."
         )
         guardar()
     }
@@ -187,7 +188,7 @@ final class ObraStore {
     func confirmarSemana(_ lunes: Date) {
         anterior = estado
         estado.semanasConfirmadas.append(lunes)
-        aviso = Aviso(texto: "Semana confirmada. El lunes no partes de cero: sigues tu plan.")
+        aviso = Aviso(texto: "Semana confirmada. El lunes sigues tu plan.")
         guardar()
     }
 

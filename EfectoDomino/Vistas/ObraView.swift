@@ -58,7 +58,7 @@ struct ObraView: View {
                     bloques: store.bloques(enSemanaDe: lunes),
                     numeroSemana: store.numeroDeSemana(lunes),
                     semanas: store.proyecto.semanas,
-                    hechos: store.hechos,
+                    fichas: store.fichasEnPie,
                     opciones: { store.opcionesDePlanificacion(para: $0) },
                     alMover: { bloque, slot in store.moverEnPlanificacion(bloque.id, a: slot) },
                     alConfirmar: { store.confirmarSemana(lunes) }
@@ -66,7 +66,7 @@ struct ObraView: View {
                 .transition(.move(edge: .top).combined(with: .opacity))
             }
             ResumenAvanceCard(
-                fichas: store.proyecto.visitasPrevias + store.hechos,
+                fichas: store.fichasEnPie,
                 recepcion: store.recepcion,
                 corrimiento: store.corrimientoRecepcion,
                 ajustes: store.estado.ajustes,
@@ -131,7 +131,7 @@ struct ObraView: View {
         Button {
             mostrandoEscenario = true
         } label: {
-            Label("Escenario ficticio · \(Formato.fechaConDia(store.ahora)) · \(Formato.hora(store.ahora))", systemImage: "clock")
+            Label("\(Formato.fechaConDia(store.ahora)) · \(Formato.hora(store.ahora))", systemImage: "clock")
                 .font(.footnote.weight(.medium))
                 .foregroundStyle(.secondary)
                 .padding(.horizontal, 12)

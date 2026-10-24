@@ -131,7 +131,7 @@ struct PendienteCard: View {
     var body: some View {
         Tarjeta {
             VStack(alignment: .leading, spacing: 12) {
-                Label("Quedó sin registrar", systemImage: "questionmark.circle")
+                Label("¿Fuiste el \(Formato.dia(bloque.inicio))?", systemImage: "questionmark.circle")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
                 Text("\(Formato.diaConNumero(bloque.inicio)) · \(Formato.hora(bloque.inicio)) · \(bloque.tipo.nombre)")
@@ -142,7 +142,7 @@ struct PendienteCard: View {
                     }
                     .buttonStyle(.glassProminent)
                     Button(action: alAjustar) {
-                        Label("No alcancé", systemImage: "arrow.triangle.branch").frame(maxWidth: .infinity)
+                        Label("Moverlo", systemImage: "arrow.triangle.branch").frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.glass)
                 }

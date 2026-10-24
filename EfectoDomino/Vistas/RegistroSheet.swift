@@ -109,8 +109,11 @@ struct RegistroSheet: View {
         VStack(spacing: 0) {
             IlustracionBloque(tipo: bloque.tipo)
             VStack(spacing: 4) {
-                Text("Ficha \(store.hechos + 1) de \(store.proyecto.meta)")
+                Text("Ficha \(store.fichasEnPie + 1)")
                     .font(.title2.weight(.bold))
+                Text("\(store.hechos + 1) de \(store.proyecto.meta) del plan")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                 Text("\(bloque.tipo.nombre) · \(bloque.minutos) min" + (bloque.esPuente ? " · bloque puente" : ""))
                     .foregroundStyle(.secondary)
             }

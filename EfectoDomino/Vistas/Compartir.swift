@@ -8,6 +8,14 @@ struct ReporteDeAvance: Transferable {
     let inicioObra: Date
     let ahora: Date
 
+    /// El texto compartido cuenta el avance, sin exponer faltas ni atrasos.
+    var resumen: String {
+        let regresos = bloques.regresos
+        return regresos == 0
+            ? "Cada ficha queda en mi muro."
+            : "Volví a mi plan \(regresos == 1 ? "1 vez" : "\(regresos) veces")."
+    }
+
     static var transferRepresentation: some TransferRepresentation {
         DataRepresentation(exportedContentType: .png) { reporte in
             try await reporte.png()
@@ -28,7 +36,6 @@ struct ReporteView: View {
     let reporte: ReporteDeAvance
 
     private var hechos: Int { reporte.bloques.fichasEnPie }
-    private var regresos: Int { reporte.bloques.regresos }
     private var semanaActual: Int { reporte.ahora.semanaDelPlan(desde: reporte.inicioObra) }
 
     /// Igual que el muro de la app: si el efecto dominó llevó bloques a la semana 7, también se ven.
@@ -50,7 +57,7 @@ struct ReporteView: View {
             }
             .foregroundStyle(.white)
             muro
-            Text(regresos == 0 ? "Sin partir de cero." : "Volví después de un atraso \(regresos == 1 ? "1 vez" : "\(regresos) veces"). Sin partir de cero.")
+            Text(reporte.resumen)
                 .font(.system(size: 15, weight: .medium))
                 .foregroundStyle(.white.opacity(0.9))
             Spacer(minLength: 0)
