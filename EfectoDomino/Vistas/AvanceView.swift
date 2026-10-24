@@ -11,16 +11,23 @@ struct AvanceView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                AvanceCard(
-                    bloques: store.estado.bloques,
-                    proyecto: store.proyecto,
-                    inicioObra: store.estado.inicioObra,
-                    ahora: store.ahora,
-                    recepcion: store.recepcion,
-                    corrimiento: store.corrimientoRecepcion,
-                    ajustes: store.estado.ajustes,
-                    alVerAprendizajes: { viendoAprendizajes = true }
-                )
+                // Cada sección vive en su propio archivo, así varias sesiones pueden trabajar en paralelo.
+                VStack(spacing: 16) {
+                    AvanceCard(
+                        bloques: store.estado.bloques,
+                        proyecto: store.proyecto,
+                        inicioObra: store.estado.inicioObra,
+                        ahora: store.ahora,
+                        recepcion: store.recepcion,
+                        corrimiento: store.corrimientoRecepcion,
+                        ajustes: store.estado.ajustes,
+                        alVerAprendizajes: { viendoAprendizajes = true }
+                    )
+                    LogrosSeccion()
+                    HistorialFotosSeccion()
+                    ModoJuegoTarjeta()
+                    SabiasQueTarjeta()
+                }
                 .padding(.horizontal, 16)
                 .padding(.bottom, 110)
             }
