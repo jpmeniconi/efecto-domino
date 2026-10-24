@@ -545,7 +545,7 @@ private struct TableroTarjeta: View {
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Text(partida.camila.count == 1 ? "1 ficha en pie" : "\(partida.camila.count) fichas en pie")
+                    Text(partida.camila.count == 1 ? "1 ficha puesta" : "\(partida.camila.count) fichas puestas")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(Color.accentColor)
                 }
