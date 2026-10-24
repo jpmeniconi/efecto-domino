@@ -74,11 +74,13 @@ Deja que se vea cada diagrama antes de pasar al siguiente. «Siempre hay un pró
 
 ## 6 · Su plan encaja en su semana · 1:45 a 1:55
 
-> Su Calendario aporta los compromisos de trabajo para encontrar espacio. Y desde un bloque puede invitar por WhatsApp a alguien cercano, con el día, la hora y la actividad ya escritos.
+> Desde un bloque puede invitar a alguien cercano con el día y la hora listos. Y en el programa ve cómo el plan se acomoda a los compromisos de su Calendario.
 
-Si lo ensayaste dentro de estos diez segundos, toca **Invitar a alguien** para mostrar la vista previa animada. Volver a tocarlo repite la animación. En la presentación es una vista previa; en el iPhone la app abre la hoja del sistema para compartir y Camila elige cómo enviarlo.
+El iPhone de esta lámina reproduce una vez un recorrido de unos ocho segundos al entrar. Primero muestra la caminata del sábado 24 a las 10:30 con **Invitar a alguien**; después, un acercamiento editorial al fragmento real de la Gantt con otro bloque reubicado del miércoles 21 al lunes 26, su flecha y su origen, etiquetado **2 · Detalle del cambio**. Es un encuadre del video para facilitar la lectura, no un gesto de zoom de la app. Ambas escenas corresponden al mismo estado de la app. Habla sobre esas dos imágenes dentro de los diez segundos asignados.
 
-La integración implementada lee el calendario «Camila · Dominó» disponible en el iPhone. No es una conexión directa de la app a la API de Google Calendar ni un envío automático por WhatsApp.
+El control permite **Pausar**, **Continuar** o **Repetir**. Si tocas **Invitar a alguien**, vuelve a la imagen de la caminata y aparece el mensaje animado; úsalo solo si lo ensayaste dentro del tiempo. Con Reducir movimiento queda esa imagen estática hasta tocar **Ver recorrido**. Si no carga el video, se alternan las dos imágenes de respaldo.
+
+En el iPhone, la invitación abre la hoja de compartir de iOS y Camila decide cómo y a quién enviarla; no se envía automáticamente. La integración de Calendario lee «Camila · Dominó» disponible en el teléfono. La animación del mensaje de esta lámina es una vista previa.
 
 ## 7 · Demo: un paso posible, un avance real · 1:55 a 3:55
 

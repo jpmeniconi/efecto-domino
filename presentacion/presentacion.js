@@ -463,7 +463,7 @@
   aplicarModo();
 })();
 
-// Lámina 8: vista previa local de una invitación; no abre ni envía mensajes.
+// Lámina 6: vista previa local de una invitación; no abre ni envía mensajes.
 (function () {
   'use strict';
   var boton = document.getElementById('semana-invitar');
