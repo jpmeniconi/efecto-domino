@@ -11,6 +11,7 @@
 		0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */; };
 		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
 		14B2A7C78DEFA25CBB18967D /* SabiasQue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A406AB83CC166C041BC8C93E /* SabiasQue.swift */; };
+		17023BBF1F6D33AAC8A2928E /* LogrosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF822B9CEDD0AB9C2824B107 /* LogrosTests.swift */; };
 		1DAD86722602BB8A7DD912E7 /* PlanSemanaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114D3833CE807350C30491E /* PlanSemanaCard.swift */; };
 		22879908804C78A8636E4B78 /* AvanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F6347063B65A725861290 /* AvanceCard.swift */; };
 		3C9E934299CE64F3232539D7 /* PestanasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */; };
@@ -91,6 +92,7 @@
 		A586195A179880D548353BFF /* RegistroSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroSheet.swift; sourceTree = "<group>"; };
 		A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectorLocalTests.swift; sourceTree = "<group>"; };
 		AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartirTests.swift; sourceTree = "<group>"; };
+		AF822B9CEDD0AB9C2824B107 /* LogrosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogrosTests.swift; sourceTree = "<group>"; };
 		B114D3833CE807350C30491E /* PlanSemanaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSemanaCard.swift; sourceTree = "<group>"; };
 		B8F607414CAB5FEDF93D849C /* AvanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvanceView.swift; sourceTree = "<group>"; };
 		BB1CFC8C40B97A8B77447C5F /* PestanasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PestanasView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				48335995A8A75ADF0302F04A /* Ayudas.swift */,
 				AD90814BE44F63CCEE55B2C2 /* CompartirTests.swift */,
 				A5B2F061C4E6ED327CD7C3DC /* LectorLocalTests.swift */,
+				AF822B9CEDD0AB9C2824B107 /* LogrosTests.swift */,
 				69D6B96E294C6C19C98CE397 /* PersistenciaTests.swift */,
 				2083F3670CE203687CE9D0DA /* PlanificadorTests.swift */,
 			);
@@ -353,6 +356,7 @@
 				BBC6AC1C4F9B75644E9E9B34 /* Ayudas.swift in Sources */,
 				C0A6521B2C11D4011FBFA343 /* CompartirTests.swift in Sources */,
 				F87338C86149EC6794E572E2 /* LectorLocalTests.swift in Sources */,
+				17023BBF1F6D33AAC8A2928E /* LogrosTests.swift in Sources */,
 				C64F8E2F25852EDF0781974F /* PersistenciaTests.swift in Sources */,
 				C24BB5A50094081D17380311 /* PlanificadorTests.swift in Sources */,
 			);
