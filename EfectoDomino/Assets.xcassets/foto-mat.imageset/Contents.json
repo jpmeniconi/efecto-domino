@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "foto-mat.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

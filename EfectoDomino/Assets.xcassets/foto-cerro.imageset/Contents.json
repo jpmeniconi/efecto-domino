@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "foto-cerro.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

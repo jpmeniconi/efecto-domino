@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "juego-espadas.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
