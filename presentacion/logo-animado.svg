@@ -1,39 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Dominó">
-<!-- El ícono de Dominó (icono.svg) animado una vez, en 1,3 s: tres fichas de dominó de pie caen
-     en cascada y, al caer, se estiran hasta ser las barras de la carta Gantt; al final se dibuja
-     el bloque de holgura. Sin animación (Reducir movimiento) queda el ícono quieto. -->
+<!-- El ícono de Dominó (icono.svg) animado una vez, en 1,2 s: cuatro fichas de dominó se paran en fila
+     y, una tras otra, cambian de forma con un rebote suave hasta ser las tres barras de la carta Gantt
+     y el bloque de holgura. Animación SVG nativa: corre también dentro de <img>.
+     Con Reducir movimiento se muestra el ícono quieto. -->
 <style>
-  .fondo, .bloque { transform-box: fill-box; }
-  .fondo {
-    transform-origin: 50% 50%;
-    animation: aparece .3s cubic-bezier(.2, .7, .2, 1) both;
-  }
-  /* Cada barra parte como ficha de pie (girada sobre su esquina inferior izquierda y más corta)
-     y cae hacia la derecha con la curva de las fichas de la diapositiva 3. */
-  .bloque {
-    transform-origin: 0 100%;
-    animation:
-      aparece .25s ease-out .05s both,
-      var(--cae) .4s cubic-bezier(.5, 0, .75, .35) var(--d) both;
-  }
-  .bloque-1 { --cae: cae-1; --d: .34s; }
-  .bloque-2 { --cae: cae-2; --d: .46s; }
-  .bloque-3 { --cae: cae-3; --d: .58s; }
-  /* Los puntos de cada ficha se apagan apenas empieza a caer. */
-  .puntos { animation: aparece .25s ease-out .05s both; }
-  .puntos > g { opacity: 0; animation: apaga .08s linear var(--d) both; }
-  .holgura {
-    stroke-dasharray: 600;
-    animation: dibuja .35s cubic-bezier(.2, .7, .2, 1) .98s both;
-  }
-  @keyframes aparece { from { opacity: 0; transform: scale(.9); } }
-  @keyframes cae-1 { from { transform: rotate(-90deg) scaleX(.612); } }
-  @keyframes cae-2 { from { transform: rotate(-90deg) scaleX(.693); } }
-  @keyframes cae-3 { from { transform: rotate(-90deg) scaleX(.63); } }
-  @keyframes apaga { from { opacity: 1; } to { opacity: 0; } }
-  @keyframes dibuja { from { stroke-dashoffset: 600; } }
+  .quieto { display: none; }
   @media (prefers-reduced-motion: reduce) {
-    .fondo, .bloque, .puntos, .puntos > g, .holgura { animation: none; }
+    .animado { display: none; }
+    .quieto { display: inline; }
   }
 </style>
 <defs>
@@ -41,14 +15,55 @@
   <!-- El mismo degradado en coordenadas del ícono: los puntos se ven como agujeros en la ficha. -->
   <linearGradient id="naranja-fondo" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1024" y2="1024"><stop offset="0" stop-color="#f78c3d"/><stop offset="1" stop-color="#e04d1a"/></linearGradient>
 </defs>
-<path class="fondo" d="M289.6 0L734.4 0C817.8 0 859.5 0 904.4 14.2C953.4 32 992 70.6 1009.8 119.6C1024 164.5 1024 206.2 1024 289.6L1024 734.4C1024 817.8 1024 859.5 1009.8 904.4C992 953.4 953.4 992 904.4 1009.8C859.5 1024 817.8 1024 734.4 1024L289.6 1024C206.2 1024 164.5 1024 119.6 1009.8C70.6 992 32 953.4 14.2 904.4C0 859.5 0 817.8 0 734.4L0 289.6C0 206.2 0 164.5 14.2 119.6C32 70.6 70.6 32 119.6 14.2C164.5 0 206.2 0 289.6 0Z" fill="url(#naranja)"/>
-<rect class="bloque bloque-1" x="168" y="220" width="340" height="104" rx="52" fill="#fff"/>
-<rect class="bloque bloque-2" x="312" y="376" width="300" height="104" rx="52" fill="#fff" fill-opacity=".92"/>
-<rect class="bloque bloque-3" x="456" y="532" width="330" height="104" rx="52" fill="#fff" fill-opacity=".84"/>
-<g class="puntos" fill="url(#naranja-fondo)" stroke="url(#naranja-fondo)" stroke-width="9" stroke-linecap="round">
-  <g style="--d:.34s"><circle cx="116" cy="168" r="17" stroke="none"/><circle cx="116" cy="272" r="17" stroke="none"/><line x1="90" y1="220" x2="142" y2="220"/></g>
-  <g style="--d:.46s"><circle cx="260" cy="324" r="17" stroke="none"/><circle cx="260" cy="428" r="17" stroke="none"/><line x1="234" y1="376" x2="286" y2="376"/></g>
-  <g style="--d:.58s"><circle cx="404" cy="480" r="17" stroke="none"/><circle cx="404" cy="584" r="17" stroke="none"/><line x1="378" y1="532" x2="430" y2="532"/></g>
+<path d="M289.6 0L734.4 0C817.8 0 859.5 0 904.4 14.2C953.4 32 992 70.6 1009.8 119.6C1024 164.5 1024 206.2 1024 289.6L1024 734.4C1024 817.8 1024 859.5 1009.8 904.4C992 953.4 953.4 992 904.4 1009.8C859.5 1024 817.8 1024 734.4 1024L289.6 1024C206.2 1024 164.5 1024 119.6 1009.8C70.6 992 32 953.4 14.2 904.4C0 859.5 0 817.8 0 734.4L0 289.6C0 206.2 0 164.5 14.2 119.6C32 70.6 70.6 32 119.6 14.2C164.5 0 206.2 0 289.6 0Z" fill="url(#naranja)"/>
+<g class="animado">
+  <rect x="226" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity="1">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.060s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.060s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="226;168;168" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.420s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;362;340" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.420s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;224.0;220" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.420s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;96;104" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.420s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;48.0;52" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.420s" dur="0.52s" fill="freeze"/>
+  </rect>
+  <g fill="url(#naranja-fondo)" stroke="url(#naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.252s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.420s" dur="0.12s" fill="freeze"/><circle cx="278" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.420s" dur="0.2s" fill="freeze"/></circle><circle cx="278" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.420s" dur="0.2s" fill="freeze"/></circle><line x1="252" y1="512" x2="304" y2="512"/></g>
+  <rect x="382" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity=".92">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.105s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.105s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="382;312;312" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;322;300" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;380.0;376" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;96;104" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;48.0;52" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+  </rect>
+  <g fill="url(#naranja-fondo)" stroke="url(#naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.297s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.505s" dur="0.12s" fill="freeze"/><circle cx="434" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.505s" dur="0.2s" fill="freeze"/></circle><circle cx="434" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.505s" dur="0.2s" fill="freeze"/></circle><line x1="408" y1="512" x2="460" y2="512"/></g>
+  <rect x="538" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity=".84">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.150s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.150s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="538;456;456" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.590s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;352;330" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.590s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;536.0;532" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.590s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;96;104" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.590s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;48.0;52" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.590s" dur="0.52s" fill="freeze"/>
+  </rect>
+  <g fill="url(#naranja-fondo)" stroke="url(#naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.342s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.590s" dur="0.12s" fill="freeze"/><circle cx="590" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.590s" dur="0.2s" fill="freeze"/></circle><circle cx="590" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.590s" dur="0.2s" fill="freeze"/></circle><line x1="564" y1="512" x2="616" y2="512"/></g>
+  <rect x="694" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity="1" stroke="#fff" stroke-opacity="0" stroke-width="14">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.195s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.195s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="694;607;607" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;258;242" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;699.0;695" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;82;90" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;41.0;45" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="fill-opacity" values="1;0" begin="0.725s" dur="0.28600000000000003s" fill="freeze"/>
+    <animate attributeName="stroke-opacity" values="0;0.9" begin="0.725s" dur="0.28600000000000003s" fill="freeze"/>
+  </rect>
+  <g fill="url(#naranja-fondo)" stroke="url(#naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.387s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.675s" dur="0.12s" fill="freeze"/><circle cx="746" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.675s" dur="0.2s" fill="freeze"/></circle><circle cx="746" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.675s" dur="0.2s" fill="freeze"/></circle><line x1="720" y1="512" x2="772" y2="512"/></g>
 </g>
-<rect class="holgura" x="607" y="695" width="242" height="90" rx="45" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="14"/>
+<g class="quieto">
+  <rect x="168" y="220" width="340" height="104" rx="52" fill="#fff"/>
+  <rect x="312" y="376" width="300" height="104" rx="52" fill="#fff" fill-opacity=".92"/>
+  <rect x="456" y="532" width="330" height="104" rx="52" fill="#fff" fill-opacity=".84"/>
+  <rect x="607" y="695" width="242" height="90" rx="45" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="14"/>
+</g>
 </svg>
