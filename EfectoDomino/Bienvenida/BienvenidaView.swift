@@ -53,9 +53,9 @@ struct BienvenidaView: View {
             MarcaDomino()
                 .padding(.top, 20)
                 .opacity(aparecio ? 1 : 0)
-            Spacer(minLength: 32)
+            Spacer(minLength: 24)
             cita
-            Spacer(minLength: 32)
+            Spacer(minLength: 24)
             VStack(spacing: 16) {
                 BotonEntrar(avance: avance, lista: lista, accion: alEntrar)
                 Text(lista ? "Listo cuando tú quieras" : "Preparando tu plan…")
@@ -67,26 +67,37 @@ struct BienvenidaView: View {
             .opacity(aparecio ? 1 : 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.systemBackground).ignoresSafeArea())
+        .background(Color(.systemGroupedBackground).ignoresSafeArea())
         .task { await cargar() }
     }
 
+    /// La frase va en una tarjeta como las del resto de la app, con una ilustración de Camila que cambia con la frase.
     private var cita: some View {
-        VStack(spacing: 22) {
-            Text(frase.texto)
-                .font(frase.esLarga ? .title.weight(.medium) : .largeTitle.weight(.medium))
-                .tracking(frase.esLarga ? -0.5 : -0.9)
-                .multilineTextAlignment(.center)
-                .fixedSize(horizontal: false, vertical: true)
-            Text(frase.autor)
-                .font(.footnote)
-                .foregroundStyle(.secondary)
+        VStack(alignment: .leading, spacing: 0) {
+            IlustracionBloque(tipo: tipoDeLaIlustracion, alto: 150)
+            VStack(alignment: .leading, spacing: 14) {
+                Text(frase.texto)
+                    .font(frase.esLarga ? .title3.weight(.semibold) : .title2.weight(.semibold))
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(frase.autor)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 28)
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(.rect(cornerRadius: 26, style: .continuous))
+        .padding(.horizontal, 20)
         .opacity(aparecio ? 1 : 0)
         .offset(y: aparecio || reducirMovimiento ? 0 : 10)
         .blur(radius: aparecio || reducirMovimiento ? 0 : 4)
         .accessibilityElement(children: .combine)
+    }
+
+    private var tipoDeLaIlustracion: TipoBloque {
+        let suma = frase.id.unicodeScalars.reduce(0) { $0 + Int($1.value) }
+        return TipoBloque.allCases[suma % TipoBloque.allCases.count]
     }
 
     private func cargar() async {
@@ -154,25 +165,16 @@ private struct AlTocar: ButtonStyle {
     }
 }
 
-/// Una ficha que se inclina junto a otra que sigue en pie.
+/// El ícono de la app y su nombre, arriba de la frase de inicio.
 struct MarcaDomino: View {
     var body: some View {
-        HStack(spacing: 9) {
-            ZStack(alignment: .bottomLeading) {
-                RoundedRectangle(cornerRadius: 2.5, style: .continuous)
-                    .fill(Color.accentColor.opacity(0.45))
-                    .frame(width: 8, height: 21)
-                    .rotationEffect(.degrees(-24), anchor: .bottom)
-                    .offset(x: 3)
-                RoundedRectangle(cornerRadius: 2.5, style: .continuous)
-                    .fill(Color.accentColor)
-                    .frame(width: 8, height: 21)
-                    .offset(x: 15)
-            }
-            .frame(width: 25, height: 23, alignment: .bottomLeading)
+        HStack(spacing: 10) {
+            Image("logo")
+                .resizable()
+                .frame(width: 34, height: 34)
+                .clipShape(.rect(cornerRadius: 8, style: .continuous))
             Text("Dominó")
-                .font(.headline.weight(.medium))
-                .tracking(-0.3)
+                .font(.title3.weight(.semibold))
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("Dominó")
