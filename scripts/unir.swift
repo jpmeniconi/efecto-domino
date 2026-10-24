@@ -31,14 +31,15 @@ func fraccionBlanca(_ img: CGImage) -> Double {
     return Double(blancos) / Double(total)
 }
 
-/// El segundo del primer cuadro con contenido, buscando en los primeros 4 s. Si el video no parte en blanco, 0.
+/// El segundo del primer cuadro con contenido, buscando hasta 12 s por si el arranque es en frío.
 func segundoConContenido(_ asset: AVURLAsset) async -> Double {
     let gen = AVAssetImageGenerator(asset: asset)
     gen.maximumSize = CGSize(width: 120, height: 260)
     gen.requestedTimeToleranceBefore = .zero
     gen.requestedTimeToleranceAfter = .zero
     var t = 0.0
-    while t < 4 {
+    let duracion = (try? await asset.load(.duration))?.seconds ?? 12
+    while t < min(12, duracion) {
         guard let (img, _) = try? await gen.image(at: CMTime(seconds: t, preferredTimescale: 600)) else { return 0 }
         if fraccionBlanca(img) < 0.995 { return t }
         t += 0.05
