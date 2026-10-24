@@ -31,9 +31,13 @@ grabar demo-miercoles 0.9 14 -reiniciar YES -momento 1 -abrir ajustar -texto "Ya
 grabar demo-programa 1.2 7 -momento 1 -abrir programa -zoom dos -luego todo
 
 # Los primeros cuadros de una grabación salen en blanco: se recortan y se bajan a 720 de ancho.
-swift scripts/recortar.swift "$CRUDO/demo-lunes.mp4" "$DESTINO/demo-lunes.mp4" 1.45
-swift scripts/recortar.swift "$CRUDO/demo-miercoles.mp4" "$DESTINO/demo-miercoles.mp4" 1.0
-swift scripts/recortar.swift "$CRUDO/demo-programa.mp4" "$DESTINO/demo-programa.mp4" 0.5
+swift scripts/recortar.swift "$CRUDO/demo-lunes.mp4" "$CRUDO/demo-lunes-720.mp4" 1.45
+swift scripts/recortar.swift "$CRUDO/demo-miercoles.mp4" "$CRUDO/demo-miercoles-720.mp4" 1.0
+swift scripts/recortar.swift "$CRUDO/demo-programa.mp4" "$CRUDO/demo-programa-720.mp4" 0.5
+# El arranque cambia entre tomas: estos clips también quitan el blanco que quede.
+for clip in demo-lunes demo-miercoles demo-programa; do
+  swift scripts/unir.swift "$DESTINO/$clip.mp4" "$CRUDO/$clip-720.mp4"
+done
 
 # ── Videos del recorrido completo ─────────────────────────────────────────────────────────────────
 # El estado se guarda entre lanzamientos, así que el orden importa: -reiniciar parte de cero, y el
