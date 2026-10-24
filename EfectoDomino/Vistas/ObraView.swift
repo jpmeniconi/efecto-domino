@@ -8,19 +8,11 @@ struct ObraView: View {
 
     @State private var ajustando: Bloque?
     @State private var registrando: Bloque?
-    @State private var propuestaPendiente: Propuesta?
-    @State private var registroPendiente: RegistroPendiente?
     @State private var mostrandoEscenario = false
     @State private var confirmandoReinicio = false
     #if DEBUG
     @State private var depuracionHecha = false
     #endif
-
-    private struct RegistroPendiente {
-        let id: UUID
-        let registro: Registro
-        let prepararSiguiente: [String]
-    }
 
     var body: some View {
         NavigationStack {
@@ -46,14 +38,7 @@ struct ObraView: View {
                     }
                 }
             }
-            .sheet(item: $ajustando, onDismiss: aplicarPropuesta) { bloque in
-                AjustarSheet(bloque: bloque) { propuestaPendiente = $0 }
-            }
-            .sheet(item: $registrando, onDismiss: aplicarRegistro) { bloque in
-                RegistroSheet(bloque: bloque) { registro, preparar in
-                    registroPendiente = RegistroPendiente(id: bloque.id, registro: registro, prepararSiguiente: preparar)
-                }
-            }
+            .hojasDelBloque(ajustando: $ajustando, registrando: $registrando)
             .sheet(isPresented: $mostrandoEscenario) {
                 EscenarioSheet()
             }
@@ -156,24 +141,5 @@ struct ObraView: View {
         .buttonStyle(.plain)
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityHint("Abre los controles del escenario de demo")
-    }
-
-    /// Se aplica después de cerrar el panel, para que Camila vea moverse la carta Gantt.
-    private func aplicarPropuesta() {
-        guard let propuesta = propuestaPendiente else { return }
-        propuestaPendiente = nil
-        Task {
-            try? await Task.sleep(for: .milliseconds(250))
-            store.aplicar(propuesta)
-        }
-    }
-
-    private func aplicarRegistro() {
-        guard let pendiente = registroPendiente else { return }
-        registroPendiente = nil
-        Task {
-            try? await Task.sleep(for: .milliseconds(250))
-            store.registrar(pendiente.id, registro: pendiente.registro, prepararSiguiente: pendiente.prepararSiguiente)
-        }
     }
 }

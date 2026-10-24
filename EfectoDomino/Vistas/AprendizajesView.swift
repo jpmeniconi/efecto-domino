@@ -756,7 +756,7 @@ extension Aprendizajes {
         movidos = Self.movidos(bloques: bloques, hechos: hechos, patron: patron, movidas: movidas, ajustesResueltos: ajustesResueltos)
         gustos = Self.gustos(registrados)
         ayudas = Self.ayudas(registrados)
-        regresos = hechos.filter(\.esRegreso).count
+        regresos = bloques.regresos
         puentes = hechos.filter(\.esPuente).count
         espalda = Self.espalda(registrados)
         manual = Self.manual(
@@ -765,7 +765,7 @@ extension Aprendizajes {
             ayudas: ayudas,
             patron: patron,
             alternativas: alternativas,
-            meta: bloques.filter { $0.estado == .planificado }.map(\.inicio).max(),
+            meta: Planificador.recepcion(bloques),
             porSemana: porSemana,
             semanas: semanas
         )

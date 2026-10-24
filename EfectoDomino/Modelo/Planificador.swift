@@ -12,7 +12,12 @@ enum Planificador {
     // MARK: - Consultas
 
     static func recepcion(_ e: EstadoObra) -> Date? {
-        e.bloques.filter { $0.estado == .planificado }.map(\.inicio).max()
+        recepcion(e.bloques)
+    }
+
+    /// Meta estimada: el último bloque por hacer.
+    static func recepcion(_ bloques: [Bloque]) -> Date? {
+        bloques.filter { $0.estado == .planificado }.map(\.inicio).max()
     }
 
     /// Hecho después de un atraso: deja una ficha de regreso (Milkman et al., 2021). Viene de un

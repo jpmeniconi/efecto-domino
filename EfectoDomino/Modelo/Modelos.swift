@@ -71,6 +71,13 @@ struct Bloque: Identifiable, Codable, Hashable {
     var fin: Date { inicio.mas(minutos: minutos) }
 }
 
+extension Array where Element == Bloque {
+    /// Cada bloque hecho deja una ficha en pie (sin contar las visitas de enero).
+    var fichasEnPie: Int { filter { $0.estado == .hecho }.count }
+
+    var regresos: Int { filter { $0.estado == .hecho && $0.esRegreso }.count }
+}
+
 // MARK: - Contexto ficticio de Camila
 
 struct EventoTrabajo: Identifiable, Codable, Hashable {

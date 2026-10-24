@@ -11,8 +11,6 @@ struct ProgramaView: View {
     @State private var despuesDelDetalle: AccionDelDetalle?
     @State private var ajustando: Bloque?
     @State private var registrando: Bloque?
-    @State private var propuestaPendiente: Propuesta?
-    @State private var registroPendiente: RegistroPendiente?
     @State private var foco: FocoPrograma?
     @State private var viendoLeyenda = false
     @State private var detente: PresentationDetent = .medium
@@ -27,12 +25,6 @@ struct ProgramaView: View {
     private enum AccionDelDetalle {
         case registrar(Bloque)
         case ajustar(Bloque)
-    }
-
-    private struct RegistroPendiente {
-        let id: UUID
-        let registro: Registro
-        let prepararSiguiente: [String]
     }
 
     var body: some View {
@@ -64,13 +56,9 @@ struct ProgramaView: View {
                     )
                     .presentationDetents([.medium, .large], selection: $detente)
                 }
-                .sheet(item: $ajustando, onDismiss: aplicarPropuesta) { bloque in
-                    AjustarSheet(bloque: bloque) { propuestaPendiente = $0 }
-                }
-                .sheet(item: $registrando, onDismiss: aplicarRegistro) { bloque in
-                    RegistroSheet(bloque: bloque) { registro, preparar in
-                        registroPendiente = RegistroPendiente(id: bloque.id, registro: registro, prepararSiguiente: preparar)
-                    }
+                // Después de mover un bloque, la carta lo muestra.
+                .hojasDelBloque(ajustando: $ajustando, registrando: $registrando) { propuesta in
+                    if let id = propuesta.accion.bloque { foco = FocoPrograma(bloque: id) }
                 }
                 .overlay(alignment: .bottom) { AvisoFlotante() }
                 .animation(.spring(duration: 0.4), value: store.aviso)
@@ -81,7 +69,7 @@ struct ProgramaView: View {
     }
 
     private var subtitulo: String {
-        let semana = max(0, store.estado.inicioObra.dias(hasta: store.ahora) / 7) + 1
+        let semana = store.ahora.semanaDelPlan(desde: store.estado.inicioObra)
         let meta = store.recepcion.map { "Meta estimada \(Formato.fechaConDia($0))" } ?? "Sin bloques por delante"
         return "Semana \(semana) de \(store.proyecto.semanas) · \(meta)"
     }
@@ -94,26 +82,6 @@ struct ProgramaView: View {
         switch accion {
         case let .registrar(bloque): registrando = bloque
         case let .ajustar(bloque): ajustando = bloque
-        }
-    }
-
-    /// Se aplica después de cerrar el panel, para que Camila vea moverse el programa.
-    private func aplicarPropuesta() {
-        guard let propuesta = propuestaPendiente else { return }
-        propuestaPendiente = nil
-        Task {
-            try? await Task.sleep(for: .milliseconds(250))
-            store.aplicar(propuesta)
-            if let id = propuesta.accion.bloque { foco = FocoPrograma(bloque: id) }
-        }
-    }
-
-    private func aplicarRegistro() {
-        guard let pendiente = registroPendiente else { return }
-        registroPendiente = nil
-        Task {
-            try? await Task.sleep(for: .milliseconds(250))
-            store.registrar(pendiente.id, registro: pendiente.registro, prepararSiguiente: pendiente.prepararSiguiente)
         }
     }
 

@@ -50,7 +50,7 @@ enum Logros {
     static func calcular(_ e: EstadoObra) -> [Logro] {
         let hechos = e.bloques.filter { $0.estado == .hecho }
         let mejorSemana = Dictionary(grouping: hechos) { $0.inicio.lunes }.values.map(\.count).max() ?? 0
-        let regresos = hechos.filter(\.esRegreso).count
+        let regresos = e.bloques.regresos
         let registros = hechos.filter { $0.registro != nil }.count
         let tipos = Set(hechos.map(\.tipo))
         // La holgura deja el bloque en su misma semana. «Partir el lunes» también lo mueve, pero es el efecto dominó.

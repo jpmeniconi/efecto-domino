@@ -148,7 +148,7 @@ enum Reinicio {
     static let titulo = "¿Reiniciar el escenario?"
 
     static func mensaje(_ e: EstadoObra) -> String {
-        let fichas = e.bloques.filter { $0.estado == .hecho }.count
+        let fichas = e.bloques.fichasEnPie
         var partes: [String] = []
         if fichas > 0 { partes.append(fichas == 1 ? "1 ficha en pie" : "\(fichas) fichas en pie") }
         if e.ajustes > 0 { partes.append(e.ajustes == 1 ? "1 ajuste" : "\(e.ajustes) ajustes") }

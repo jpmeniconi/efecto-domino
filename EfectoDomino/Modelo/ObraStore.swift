@@ -39,7 +39,7 @@ final class ObraStore {
 
     var ahora: Date { estado.ahora }
     var proyecto: Proyecto { estado.proyecto }
-    var hechos: Int { estado.bloques.filter { $0.estado == .hecho }.count }
+    var hechos: Int { estado.bloques.fichasEnPie }
 
     var planificados: [Bloque] {
         estado.bloques.filter { $0.estado == .planificado }.sorted { $0.inicio < $1.inicio }
@@ -90,7 +90,7 @@ final class ObraStore {
     }
 
     func numeroDeSemana(_ lunes: Date) -> Int {
-        estado.inicioObra.dias(hasta: lunes) / 7 + 1
+        lunes.semanaDelPlan(desde: estado.inicioObra)
     }
 
     func opcionesDePlanificacion(para bloque: Bloque) -> [Slot] {

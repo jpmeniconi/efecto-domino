@@ -27,9 +27,9 @@ struct ReporteDeAvance: Transferable {
 struct ReporteView: View {
     let reporte: ReporteDeAvance
 
-    private var hechos: Int { reporte.bloques.filter { $0.estado == .hecho }.count }
-    private var regresos: Int { reporte.bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
-    private var semanaActual: Int { max(0, reporte.inicioObra.dias(hasta: reporte.ahora) / 7) + 1 }
+    private var hechos: Int { reporte.bloques.fichasEnPie }
+    private var regresos: Int { reporte.bloques.regresos }
+    private var semanaActual: Int { reporte.ahora.semanaDelPlan(desde: reporte.inicioObra) }
 
     /// Igual que el muro de la app: si el efecto dominó llevó bloques a la semana 7, también se ven.
     private var semanas: Int {

@@ -26,6 +26,11 @@ extension Date {
         return domingoPrimero == 1 ? 7 : domingoPrimero - 1
     }
 
+    /// Semana del plan en que cae esta fecha: 1 es la semana de `inicioObra`.
+    func semanaDelPlan(desde inicioObra: Date) -> Int {
+        max(0, inicioObra.dias(hasta: self) / 7) + 1
+    }
+
     var diaDelMes: Int { Calendar.obra.component(.day, from: self) }
 
     var hora: Int { Calendar.obra.component(.hour, from: self) }

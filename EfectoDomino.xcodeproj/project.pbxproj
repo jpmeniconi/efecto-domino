@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		059C1E7408C47835D3FA4F3C /* HojasDelBloque.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB31BF2BE23C8CE22664C5DA /* HojasDelBloque.swift */; };
 		08B1322A76BBBD89B8FCB7EF /* ProximoBloqueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */; };
 		0CBA476B9B3BC4432F5A74BF /* ProgramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D532D9AFDC3FC6290D3FAE66 /* ProgramaView.swift */; };
 		10159B89A051A89B809C2F2D /* GanttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878B681D1454824F438D06A /* GanttView.swift */; };
@@ -103,6 +104,7 @@
 		D5548DDDF0426A8A7419303A /* ProximoBloqueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximoBloqueCard.swift; sourceTree = "<group>"; };
 		DADEA3276D221129D155C8BB /* Fechas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fechas.swift; sourceTree = "<group>"; };
 		EE44825984E2BCC6257A718C /* Estilo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estilo.swift; sourceTree = "<group>"; };
+		FB31BF2BE23C8CE22664C5DA /* HojasDelBloque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HojasDelBloque.swift; sourceTree = "<group>"; };
 		FCFA6137808D476EAE32A1DE /* EscenarioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenarioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 				EE44825984E2BCC6257A718C /* Estilo.swift */,
 				1878B681D1454824F438D06A /* GanttView.swift */,
 				1FF8C525E311AABA8F94D19C /* HistorialFotos.swift */,
+				FB31BF2BE23C8CE22664C5DA /* HojasDelBloque.swift */,
 				7B3AA1A684794C6B10C9C2FF /* Logros.swift */,
 				148C57FCF9BA2BD53D3BF610 /* ModoJuego.swift */,
 				71AE76A61151C40456DBB2C4 /* ObraView.swift */,
@@ -339,6 +342,7 @@
 				81C9F39BCC00EC3C7F5872A8 /* FrasesDeInicio.swift in Sources */,
 				10159B89A051A89B809C2F2D /* GanttView.swift in Sources */,
 				CC3ABEBAC3B55D8B5E73354E /* HistorialFotos.swift in Sources */,
+				059C1E7408C47835D3FA4F3C /* HojasDelBloque.swift in Sources */,
 				95BCD1C31AD7FC438A1E76D9 /* Lector.swift in Sources */,
 				BDEA37E4B9AEF161AC3B4CE7 /* Logros.swift in Sources */,
 				F42702E083F45EE3B40F87CB /* Modelos.swift in Sources */,

@@ -12,9 +12,9 @@ struct AvanceCard: View {
     let ajustes: Int
     var alVerAprendizajes: () -> Void
 
-    private var hechos: Int { bloques.filter { $0.estado == .hecho }.count }
-    private var regresos: Int { bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
-    private var semanaActual: Int { max(0, inicioObra.dias(hasta: ahora) / 7) + 1 }
+    private var hechos: Int { bloques.fichasEnPie }
+    private var regresos: Int { bloques.regresos }
+    private var semanaActual: Int { ahora.semanaDelPlan(desde: inicioObra) }
 
     var body: some View {
         Tarjeta {
@@ -165,7 +165,7 @@ struct MuroSemanal: View {
         }
         .animation(.spring(duration: 0.5, bounce: 0.3), value: bloques)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(bloques.filter { $0.estado == .hecho }.count) fichas en pie")
+        .accessibilityLabel("\(bloques.fichasEnPie) fichas en pie")
     }
 
     private func columna(_ semana: Int) -> some View {
