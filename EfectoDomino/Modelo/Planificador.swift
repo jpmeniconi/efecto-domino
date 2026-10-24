@@ -99,6 +99,8 @@ enum Planificador {
     struct AjusteDeRendimiento: Equatable {
         let desde: Ventana
         let hacia: Ventana
+        /// Cuántas veces se movió ese horario desde que parte el plan: no se reinicia cada semana.
+        var veces = 1
     }
 
     static func ventanaDelPatron(_ e: EstadoObra, para bloque: Bloque) -> Ventana? {
@@ -109,7 +111,7 @@ enum Planificador {
     static func ajusteDeRendimiento(_ e: EstadoObra) -> AjusteDeRendimiento? {
         for ventana in e.patron where (e.movidasPorVentana[ventana.clave] ?? 0) > 0 && !e.ajustesResueltos.contains(ventana.clave) {
             if let alternativa = e.alternativas.first(where: { $0.dia == ventana.dia && $0.tipo == ventana.tipo && $0 != ventana }) {
-                return AjusteDeRendimiento(desde: ventana, hacia: alternativa)
+                return AjusteDeRendimiento(desde: ventana, hacia: alternativa, veces: e.movidasPorVentana[ventana.clave] ?? 1)
             }
         }
         return nil

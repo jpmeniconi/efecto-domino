@@ -99,7 +99,6 @@ struct AjusteCard: View {
     var alAceptar: () -> Void
     var alDescartar: () -> Void
 
-    private var desde: String { Formato.hora(ajuste.desde.hora, ajuste.desde.minuto) }
     private var hacia: String { Formato.hora(ajuste.hacia.hora, ajuste.hacia.minuto) }
     private var dia: String { Formato.nombresDias[ajuste.desde.dia - 1] }
 
@@ -109,7 +108,7 @@ struct AjusteCard: View {
                 Label("Ajuste al plan", systemImage: "wrench.adjustable")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
-                Text("Tu bloque del \(dia) a las \(desde) se movió esta semana. ¿Dejamos \(Formato.cadaSemana(ajuste.desde.dia)) a las \(hacia) desde ahora?")
+                Text(ajuste.pregunta)
                     .font(.headline)
                     .fixedSize(horizontal: false, vertical: true)
                 Text("Si un horario no te funciona, se cambia el horario, no tú.")
@@ -129,5 +128,14 @@ struct AjusteCard: View {
                 .controlSize(.large)
             }
         }
+    }
+}
+
+extension Planificador.AjusteDeRendimiento {
+    var pregunta: String {
+        let dia = Formato.nombresDias[desde.dia - 1]
+        let veces = veces == 1 ? "una vez" : "\(veces) veces"
+        return "Tu bloque del \(dia) a las \(Formato.hora(desde.hora, desde.minuto)) se movió \(veces). "
+            + "¿Dejamos \(Formato.cadaSemana(desde.dia)) a las \(Formato.hora(hacia.hora, hacia.minuto)) desde ahora?"
     }
 }

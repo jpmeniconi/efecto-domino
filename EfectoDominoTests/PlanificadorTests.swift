@@ -262,6 +262,22 @@ final class PlanificadorTests: XCTestCase {
 
     // MARK: - Ajuste al plan
 
+    func testElAjusteAlPlanCuentaLasVecesSinDecirEstaSemana() throws {
+        var e = Prueba.enMomento(1)
+        e.movidasPorVentana["3-06:30"] = 1
+        XCTAssertEqual(
+            try XCTUnwrap(Planificador.ajusteDeRendimiento(e)).pregunta,
+            "Tu bloque del miércoles a las 06:30 se movió una vez. ¿Dejamos los miércoles a las 19:30 desde ahora?"
+        )
+
+        // El conteo no se reinicia cada semana: dos movidas de semanas distintas no son «esta semana».
+        e.movidasPorVentana["3-06:30"] = 2
+        XCTAssertEqual(
+            try XCTUnwrap(Planificador.ajusteDeRendimiento(e)).pregunta,
+            "Tu bloque del miércoles a las 06:30 se movió 2 veces. ¿Dejamos los miércoles a las 19:30 desde ahora?"
+        )
+    }
+
     func testElAjusteAlPlanCambiaElHorarioYLosBloquesFuturos() throws {
         var e = Prueba.enMomento(1)
         XCTAssertNil(Planificador.ajusteDeRendimiento(e), "Sin movidas no hay nada que ajustar")
