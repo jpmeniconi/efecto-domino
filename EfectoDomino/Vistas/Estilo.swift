@@ -8,6 +8,30 @@ extension TipoBloque {
         case .casa: .indigo
         }
     }
+
+    /// Ilustración del encabezado de las hojas de un bloque (`Assets.xcassets/ilustracion-*`).
+    var ilustracion: String { "ilustracion-\(rawValue)" }
+}
+
+/// Encabezado ilustrado de un bloque, como los de los eventos de Google Calendar: Camila haciendo
+/// esa actividad. Es decorativo, así que VoiceOver lo salta y con texto muy grande se oculta.
+struct IlustracionBloque: View {
+    @Environment(\.dynamicTypeSize) private var tamanoTexto
+
+    let tipo: TipoBloque
+    var alto: CGFloat = 140
+
+    var body: some View {
+        if !tamanoTexto.isAccessibilitySize {
+            Image(tipo.ilustracion)
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity)
+                .frame(height: alto)
+                .clipped()
+                .accessibilityHidden(true)
+        }
+    }
 }
 
 extension TipoBarrera {

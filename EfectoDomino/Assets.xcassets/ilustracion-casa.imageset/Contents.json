@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ilustracion-casa.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

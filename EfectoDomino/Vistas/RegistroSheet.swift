@@ -19,6 +19,7 @@ struct RegistroSheet: View {
                 Section {
                     encabezado
                 }
+                .listRowInsets(EdgeInsets())
                 Section {
                     Picker("Cómo lo pasaste", selection: $disfrute) {
                         ForEach(Disfrute.allCases) { opcion in
@@ -90,18 +91,19 @@ struct RegistroSheet: View {
     }
 
     private var encabezado: some View {
-        VStack(spacing: 8) {
-            Image(systemName: "rectangle.split.1x2.fill")
-                .font(.system(size: 40))
-                .foregroundStyle(Color.accentColor)
-                .accessibilityHidden(true)
-            Text("Ficha \(store.hechos + 1) de \(store.proyecto.meta)")
-                .font(.title2.weight(.bold))
-            Text("\(bloque.tipo.nombre) · \(bloque.minutos) min" + (bloque.esPuente ? " · bloque puente" : ""))
-                .foregroundStyle(.secondary)
+        VStack(spacing: 0) {
+            IlustracionBloque(tipo: bloque.tipo)
+            VStack(spacing: 4) {
+                Text("Ficha \(store.hechos + 1) de \(store.proyecto.meta)")
+                    .font(.title2.weight(.bold))
+                Text("\(bloque.tipo.nombre) · \(bloque.minutos) min" + (bloque.esPuente ? " · bloque puente" : ""))
+                    .foregroundStyle(.secondary)
+            }
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
+            .padding(.horizontal)
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 8)
         .accessibilityElement(children: .combine)
     }
 

@@ -93,12 +93,18 @@ struct DetalleBloqueSheet: View {
         let color = bloque.tipo.color
         let hecho = bloque.estado == .hecho
         return VStack(spacing: 14) {
-            Image(systemName: hecho ? (bloque.esRegreso ? "arrow.uturn.backward" : "checkmark") : bloque.tipo.simbolo)
-                .font(.title.weight(.semibold))
-                .foregroundStyle(hecho ? Color.white : color)
-                .frame(width: circulo, height: circulo)
-                .background(hecho ? color : color.opacity(0.14), in: .circle)
-                .accessibilityHidden(true)
+            // La ilustración ya dice qué es y las etiquetas cómo está; con texto muy grande vuelve el círculo.
+            if tamanoTexto.isAccessibilitySize {
+                Image(systemName: hecho ? (bloque.esRegreso ? "arrow.uturn.backward" : "checkmark") : bloque.tipo.simbolo)
+                    .font(.title.weight(.semibold))
+                    .foregroundStyle(hecho ? Color.white : color)
+                    .frame(width: circulo, height: circulo)
+                    .background(hecho ? color : color.opacity(0.14), in: .circle)
+                    .accessibilityHidden(true)
+            } else {
+                IlustracionBloque(tipo: bloque.tipo, alto: 150)
+                    .clipShape(.rect(cornerRadius: 22, style: .continuous))
+            }
             VStack(spacing: 4) {
                 Text("\(bloque.tipo.nombre) · \(bloque.minutos) min")
                     .font(.title2.weight(.bold))

@@ -61,4 +61,4 @@ Sin un Mac a mano, la demo está en video: [lunes 19:05](presentacion/medios/dem
 
 ---
 
-Camila y todos sus datos son ficticios. La lectura corre en el dispositivo; si el modelo no está disponible, se usa una lectura local por palabras clave. Construido durante el evento con asistentes de programación con IA.
+Camila y todos sus datos son ficticios. La lectura corre en el dispositivo; si el modelo no está disponible, se usa una lectura local por palabras clave. Construido durante el evento con asistentes de programación con IA; las ilustraciones de los bloques se generaron con ChatGPT Images ([cómo](scripts/ilustraciones.md)).

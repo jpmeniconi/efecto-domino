@@ -117,21 +117,17 @@ struct AjustarSheet: View {
     }
 
     private var resumen: some View {
-        HStack(spacing: 14) {
-            Image(systemName: bloque.tipo.simbolo)
-                .font(.title2)
-                .foregroundStyle(bloque.tipo.color)
-                .frame(width: 48, height: 48)
-                .background(bloque.tipo.color.opacity(0.14), in: .circle)
-                .accessibilityHidden(true)
+        VStack(alignment: .leading, spacing: 14) {
+            IlustracionBloque(tipo: bloque.tipo, alto: 120)
+                .clipShape(.rect(cornerRadius: 20, style: .continuous))
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(bloque.tipo.nombre) · \(bloque.minutos) min")
                     .font(.headline)
                 Text("\(Formato.diaRelativo(bloque.inicio, ahora: store.ahora)) · \(Formato.hora(bloque.inicio))")
                     .foregroundStyle(.secondary)
             }
+            .accessibilityElement(children: .combine)
         }
-        .accessibilityElement(children: .combine)
     }
 
     private var pregunta: some View {
