@@ -1,66 +1,53 @@
 # Dominó
 
-**Camila no necesita otra rutina: necesita que una falta no tumbe la obra.**
+**Hacer espacio para moverte: un plan que se adapta a tu semana y un avance que sigue contigo.**
 
-App nativa para iPhone que trata el regreso al ejercicio como lo que Camila hace todos los días en el trabajo: gestionar una obra.
+App nativa para iPhone que lleva al plan de movimiento de Camila algo que ya sabe hacer en su trabajo: planificar proyectos con una carta Gantt.
 Hackatón Señales de Makana · Caso 01: Camila · 23 y 24 de octubre de 2026.
 
 ## El problema que decidimos atacar
 
-Camila no abandona por falta de tiempo ni de ganas: dejó de ir incluso en semanas tranquilas. Lo que la tumba es lo que pasa **después de faltar**: siente que el proyecto se cayó y que tiene que partir de cero («mañana parto», «el lunes»). Cada reinicio es más grande que el anterior y la culpa la aleja más.
+Camila tiene 34 años, dirige proyectos en una constructora y quiere volver a sentirse bien en su cuerpo. Se inscribió al gimnasio y fue seis veces: ya tiene una historia de movimiento. Entre reuniones que se alargan y una semana que cambia, le cuesta darle continuidad, y retomar después de una pausa le pesa. El tiempo, la energía y cómo vive el regreso influyen a la vez; la ficha no permite decir que una sola causa explica todo.
 
-Como jefa de proyectos, en sus obras nunca demuele lo construido porque una partida se atrasó: usa la holgura, reprograma y revisa el supuesto de rendimiento. Con su cuerpo aplica la regla contraria. Ese es el problema que atacamos: **cómo vuelve después de faltar**.
+Atacamos **cómo retoma**: que, cuando la semana cambia, siempre tenga un próximo paso posible y lo que ya hizo no se pierda. En su trabajo acomoda etapas cuando algo se atrasa; Dominó lleva esa forma de planificar a su plan de movimiento.
 
 ## Por qué ese y no otro
 
-- En el megaestudio de Milkman et al. (2021, 61.293 socios), la intervención más efectiva premiaba **volver después de faltar**. Y recordatorios y premios funcionan solo mientras duran: el diseño también tiene que definir **qué pasa cuando el programa termina**.
-- El hábito se forma con la **frecuencia de las primeras semanas**, no con la intensidad (Kaushal y Rhodes, 2015), y el abandono se juega en las primeras 12 (Sperandei et al., 2016).
+- En el megaestudio de Milkman et al. (2021, 61.293 socios), el programa con mayor aumento de asistencia incluía pequeñas recompensas por **volver después de una sesión no realizada**.
+- En nuevos socios de gimnasio, la consistencia, la simplicidad y el disfrute se asociaron con formar el hábito (Kaushal y Rhodes, 2015): pasos simples y repetibles.
 - La mensualidad no motiva por sí sola (DellaVigna y Malmendier, 2006): no nos apoyamos en la culpa por el pago.
-- Rutinas, recordatorios, rachas y frases motivacionales ya los probó o la ficha los descarta.
+- Son pistas para diseñar, no prueba de nuestro efecto: por eso proponemos medirlo (abajo).
 
 ## Qué construimos
 
-- **Carta Gantt viva** con su semana de trabajo (ficticia): los martes y jueves llega tarde.
-- **Ajustar un bloque.** Camila escribe qué pasó. Un modelo de lenguaje que corre en el iPhone (Foundation Models de Apple) identifica la barrera y un planificador con reglas propone opciones, cada una con su efecto en la fecha estimada de su meta:
-  - **holgura**: el bloque cabe en la misma semana y no se mueve nada;
+- **Un plan que se adapta.** Su semana como carta Gantt, que esquiva su trabajo: una semana de ejemplo o un calendario de prueba, «Camila · Dominó», leído en el iPhone. Si un bloque se cae, Camila escribe qué pasó: un modelo de lenguaje en el iPhone (Foundation Models de Apple) identifica la barrera y un planificador con reglas propone opciones con su efecto en la meta estimada:
+  - **holgura**: cabe en la misma semana y nada más cambia;
   - **bloque puente**: corto, pero cuenta completo;
-  - **efecto dominó**: los bloques siguientes se corren un espacio. Nunca se acumula deuda.
+  - **efecto dominó**: los bloques siguientes se corren un espacio, sin acumular más bloques por semana.
 
-  Nada cambia sin su confirmación y todo se puede deshacer.
-- **Su avance nunca baja.** Sus seis visitas de enero ya cuentan. Cada bloque hecho deja una **ficha en pie**: en el efecto dominó una ficha bota a las demás; aquí una falta no bota ninguna. Volver después de un atraso deja una **ficha de regreso**.
-- **Ajuste al plan.** Si el miércoles 06:30 no le funciona, la app propone pasarlo a la tarde: se cambia el horario, no a ella.
-- **Domingo en la noche.** En vez de «mañana parto», su semana concreta para confirmar en un toque.
-- **Checklists** antes de salir (bolso, agenda bloqueada) y después (qué ayudó, dejar listo el próximo).
-- **Lo que te funciona.** Con lo que registra, la app le muestra qué horarios se cumplen y cuáles se movieron, qué bloques disfruta, qué le ayudó a ir, cómo vuelve (fichas de regreso y bloques puente) y cómo va su espalda. Con menos de tres registros no inventa patrones: lo dice y ofrece un ejemplo ficticio de la semana 6.
-- **Al terminar las 6 semanas, el plan pasa a sus manos:** un manual para seguir sin la app, con sus horarios, los bloques que disfruta y tres reglas: si un bloque se cae, primero la holgura; si cuesta volver, un bloque puente; nunca recuperar con más bloques. Lo puede guardar o mandar como texto, sin sus faltas.
-- **Tu avance: todo suma, nada resta.** Su nivel sube cada 7 fichas en pie, una mano de dominó, y 11 logros premian lo mismo que la evidencia (volver después de un atraso, usar la holgura, un bloque puente); nada baja ni vence. Cada ficha puede guardar una foto con su día y hora, y cada día aparece un dato de un estudio publicado, con su fuente: no una frase motivacional.
-- **Modo juego.** Una partida de 28 días con Javiera, amiga ficticia: cada día que se mueve pone una ficha, una como máximo, así que gana quien se mueve más días y no quien entrena más fuerte. Javiera ve cuántas fichas puso, nunca qué días. También puede jugar contra su mejor ciclo.
-- **Tres pestañas** (Mi plan, Programa y Tu avance) e ilustraciones de Camila en cada bloque: gimnasio, caminata y en casa.
+  Nada cambia sin su confirmación y lo último se puede deshacer.
+- **Un avance que no baja.** Cada sesión hecha deja una **ficha en pie** y sus seis visitas de enero ya cuentan. Su nivel sube cada 7 fichas y 11 logros reconocen volver, usar la holgura o un bloque puente; nada baja ni vence. Cada ficha puede guardar una foto.
+- **Modo juego.** 28 días con Javiera, amiga ficticia: una ficha por día como máximo, así que gana quien se mueve más días y no quien entrena más fuerte. Javiera ve cuántas fichas puso, nunca qué días.
+- **Preparar y registrar.** Listas antes de salir y después de cada bloque. Para invitar a alguien, la app escribe el día y la hora y abre la hoja de compartir de iOS. Cada día, un dato de un estudio publicado con su fuente.
+- **Lo que le funciona.** Con sus registros ve qué horarios se cumplen, qué disfruta y qué la ayuda a ir. Al terminar las 6 semanas le queda un manual con sus horarios y tres reglas para seguir sin la app.
 
 ## Qué dejamos fuera y por qué
 
-- **Recordatorios y correos:** ya silenció las notificaciones, y los recordatorios funcionan solo mientras duran.
-- **Rachas y contadores que vuelven a cero:** el día que falla, la culpa la saca de nuevo. Su nivel y sus logros nunca bajan, y en el Modo juego un día sin ficha no aparece como falta.
-- **Avisar a su círculo cuando falta:** exponer faltas genera vergüenza y evasión. Compartir avances será siempre decisión de ella, y en el Modo juego Javiera solo ve cuántas fichas puso.
-- **Rutinas, nutrición, wearables, cuentas y servidor:** no son su problema y no caben en dos días. Por eso la partida de Javiera está simulada en el iPhone.
-- **Su calendario real:** el concurso exige datos ficticios.
+- **Recordatorios y notificaciones:** ya silenció las notificaciones; la app no compite por su atención.
+- **Rachas y contadores que vuelven a cero:** retomar ya le pesa. Por eso nada baja y un día sin ficha no aparece como falta.
+- **Avisar a otros cuando no va:** compartir es decisión de ella, y lo que comparte no muestra faltas.
+- **Rutinas, nutrición, wearables, cuentas y servidor:** límites de esta versión, enfocada en la continuidad. Por eso la partida con Javiera corre solo en el iPhone.
+- **Su calendario personal y cualquier dato real:** el concurso exige datos ficticios.
 
 ## Cómo sabríamos si funciona
 
-Lo mediríamos en vez de suponerlo: tiempo de regreso después de faltar, frecuencia semanal en las semanas 1 a 6 y permanencia en la semana 12, comparando con un grupo de control.
+En un piloto con grupo de comparación: tiempo de regreso entre una pausa y la siguiente sesión, frecuencia semanal de la semana 1 a la 6 y permanencia en la semana 12.
 
 ## Cómo probarlo
 
-Requisitos: Xcode 27 (iOS 26 o superior) y [XcodeGen](https://github.com/yonaskolb/XcodeGen).
+Requisitos: Xcode 27 (iOS 26 o superior) y [XcodeGen](https://github.com/yonaskolb/XcodeGen). `scripts/sim.sh` la abre en el simulador y `scripts/iphone.sh` la instala en un iPhone por cable. El reloj de arriba salta a los momentos de la ficha.
 
-```sh
-scripts/sim.sh      # compila y abre en el simulador
-scripts/iphone.sh   # instala en un iPhone conectado por cable
-```
-
-Toca el reloj de arriba para saltar a los momentos de la ficha: lunes 19:05, miércoles 06:45, miércoles 20:15 y domingo 23:55. En «Tu avance» están su nivel, sus fotos, el Modo juego y «¿Sabías que?». Toca «Lo que te funciona»: sin registros todavía, puedes ver el ejemplo de la semana 6.
-
-Sin un Mac a mano, la demo está en video: [lunes 19:05](presentacion/medios/demo-lunes.mp4), [miércoles 06:45](presentacion/medios/demo-miercoles.mp4) y [el programa completo](presentacion/medios/demo-programa.mp4).
+Sin un Mac a mano: [el recorrido completo en video](presentacion/medios/recorrido.mp4). La presentación del pitch está en [`presentacion/`](presentacion/).
 
 ---
 

@@ -8,9 +8,6 @@
   var figura = demo.closest('figure');
   var texto = document.getElementById('inicio-frase');
   var autor = document.getElementById('inicio-autor');
-  var contador = document.getElementById('inicio-contador');
-  var pausa = document.getElementById('inicio-pausa');
-  var siguiente = document.getElementById('inicio-siguiente');
   var caption = document.getElementById('inicio-caption');
   var reducir = window.matchMedia('(prefers-reduced-motion: reduce)');
   var citas = [
@@ -19,7 +16,6 @@
     { id: 'cita_005', texto: 'La creación de mil bosques está en una bellota.', autor: 'Ralph Waldo Emerson' }
   ];
   var indice = 0;
-  var pausada = false;
   var visible = false;
   var imprimiendo = false;
   var transcurrido = 0;
@@ -38,7 +34,6 @@
     texto.textContent = cita.texto;
     autor.textContent = cita.autor;
     demo.dataset.cita = cita.id;
-    contador.textContent = (indice + 1) + ' / ' + citas.length;
     var bloque = texto.parentElement;
     bloque.getAnimations().forEach(function (animacion) { animacion.cancel(); });
     if (animar && !reducir.matches && activa()) {
@@ -57,7 +52,7 @@
 
   function cuadro(ahora) {
     raf = null;
-    if (!activa() || pausada || reducir.matches) { previo = null; return; }
+    if (!activa() || reducir.matches) { previo = null; return; }
     var delta = previo === null ? 0 : Math.min(100, ahora - previo);
     previo = ahora;
     carga = Math.min(2400, carga + delta);
@@ -72,11 +67,8 @@
   }
 
   function actualizar() {
-    pausa.disabled = reducir.matches;
-    pausa.textContent = reducir.matches ? 'Manual' : pausada ? 'Reanudar' : 'Pausar';
-    pausa.setAttribute('aria-label', reducir.matches ? 'Rotación manual con Reducir movimiento' : pausada ? 'Reanudar ejemplos de bienvenida' : 'Pausar ejemplos de bienvenida');
     if (reducir.matches) { carga = 2400; preparar(carga); }
-    if (activa() && !pausada && !reducir.matches) {
+    if (activa() && !reducir.matches) {
       if (raf === null) { previo = null; raf = requestAnimationFrame(cuadro); }
     } else {
       if (raf !== null) cancelAnimationFrame(raf);
@@ -86,16 +78,7 @@
     }
   }
 
-  pausa.addEventListener('click', function () { pausada = !pausada; actualizar(); });
-  siguiente.addEventListener('click', function () {
-    indice = (indice + 1) % citas.length;
-    transcurrido = 0;
-    mostrar(true);
-  });
   figura.addEventListener('click', function (e) { e.stopPropagation(); });
-  figura.addEventListener('keydown', function (e) {
-    if (e.target.closest('button') && (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar')) e.stopPropagation();
-  });
 
   new IntersectionObserver(function (entradas) {
     visible = entradas[0].isIntersecting && entradas[0].intersectionRatio >= .2;

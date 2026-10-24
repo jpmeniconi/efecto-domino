@@ -42,12 +42,14 @@ El número de la lámina queda en la dirección: `index.html#7` abre la demo. En
 | 5 | Un plan que se adapta contigo | Holgura, bloque puente, reprogramación y confirmación |
 | 6 | Su plan encaja en su semana | Calendario e invitación a alguien cercano |
 | 7 | Demo · Un paso posible. Un avance real | Ajustar → confirmar → registrar → ver avance |
-| 8 | Su avance se hace visible | Dos iPhones: fichas/nivel y una foto del recorrido |
+| 8 | Su avance se hace visible | Fichas/nivel, una foto y ciclos del Modo juego |
 | 9 | Descubrir qué le funciona | Horarios, ayudas y manual para seguir |
 | 10 | Cuidar la continuidad | Conservar avance, control personal y foco del prototipo |
 | 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre |
 
-En la portada, tres citas de autores se alternan cada cinco segundos dentro del iPhone. Hay controles para pausar y cambiar manualmente; Reducir movimiento evita la rotación automática. Es un comportamiento de la presentación. La bienvenida de la app nativa mantiene su frase hasta que la persona toca la flecha habilitada: no entra sola al terminar la carga.
+En la portada, tres citas de autores se alternan cada cinco segundos dentro del iPhone. No hay botones ni contador; con Reducir movimiento se mantiene una frase estática. Es un comportamiento de la presentación. La bienvenida de la app nativa mantiene su frase hasta que la persona toca la flecha habilitada: no entra sola al terminar la carga.
+
+La lámina 8 incorpora «Tu progreso, ciclo a ciclo»: periodos de 28 días del Modo juego, una ficha por día y comparación con el propio récord. Son distintos del programa de seis semanas; el historial de sesiones permanece.
 
 En la lámina 6, **Invitar a alguien** muestra una vista previa animada y repetir el toque repite la animación. La presentación no envía mensajes. En la app nativa, la invitación usa la hoja para compartir de iOS.
 
@@ -94,7 +96,7 @@ Las capturas PNG son verticales del simulador iPhone 18 Pro, 1206 × 2622. Los v
 ## Verificación antes de compartir
 
 1. Recorre las once láminas en horizontal y vertical; comprueba texto, imágenes y consola.
-2. En la portada, prueba pausa, cambios manuales y Reducir movimiento.
+2. En la portada, comprueba la rotación automática cada cinco segundos, la ausencia de botones y contador y la frase estática con Reducir movimiento.
 3. En la lámina 6, repite la invitación; debe mantener su etiqueta y no avanzar de lámina.
 4. Desde `#7`, prueba los cuatro respaldos, pausa y cierre. El registro y el avance deben ocupar las teclas 2 y 3.
 5. Comprueba el enlace del QR y que el guion conserve un presupuesto total de 5:00.
