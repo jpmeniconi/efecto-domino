@@ -6,7 +6,6 @@ import SwiftUI
 /// Con más zoom aparece más detalle; con menos, solo las pastillas.
 struct ProgramaView: View {
     @Environment(ObraStore.self) private var store
-    @Environment(\.dismiss) private var dismiss
 
     @State private var elegido: BloqueElegido?
     @State private var despuesDelDetalle: AccionDelDetalle?
@@ -17,6 +16,9 @@ struct ProgramaView: View {
     @State private var foco: FocoPrograma?
     @State private var viendoLeyenda = false
     @State private var detente: PresentationDetent = .medium
+    #if DEBUG
+    @State private var depuracionHecha = false
+    #endif
 
     private struct BloqueElegido: Identifiable {
         let id: UUID
@@ -37,15 +39,14 @@ struct ProgramaView: View {
         NavigationStack {
             // La carta es densa: su texto crece hasta XXXL. El detalle de cada bloque crece sin tope.
             CartaPrograma(foco: foco) { elegido = BloqueElegido(id: $0) }
+                // Si cambia el reloj del escenario, la carta parte de nuevo centrada en hoy.
+                .id(store.ahora)
                 .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                 .background(Color(.systemBackground))
-                .navigationTitle("Programa completo")
+                .navigationTitle("Programa")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationSubtitle(subtitulo)
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("Cerrar", systemImage: "xmark") { dismiss() }
-                    }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Leyenda", systemImage: "info.circle") { viendoLeyenda = true }
                             .popover(isPresented: $viendoLeyenda) {
@@ -77,8 +78,6 @@ struct ProgramaView: View {
                 .task { await abrirDesdeDepuracion() }
                 #endif
         }
-        // Juntar los dedos aleja la carta: no debe cerrar la pantalla. Se cierra con la X.
-        .interactiveDismissDisabled()
     }
 
     private var subtitulo: String {
@@ -119,7 +118,10 @@ struct ProgramaView: View {
     }
 
     #if DEBUG
+    /// Una sola vez: al volver a esta pestaña no se abre de nuevo el detalle.
     private func abrirDesdeDepuracion() async {
+        guard !depuracionHecha else { return }
+        depuracionHecha = true
         guard let fila = DepuracionPrograma.detalle else { return }
         let ordenados = store.estado.bloques.sorted { $0.inicio < $1.inicio }
         guard ordenados.indices.contains(fila) else { return }
@@ -245,7 +247,7 @@ struct CartaPrograma: View {
         GeometryReader { geo in
             let m = medidas(plan, geo.size, zoom)
             carta(plan, m)
-                .toolbar { controles(plan, m) }
+                .safeAreaBar(edge: .bottom) { controles(plan, m) }
                 .onChange(of: geo.size.width, initial: true) { _, ancho in
                     if ancho > 0 { abrir(plan, geo.size) }
                 }
@@ -659,13 +661,13 @@ struct CartaPrograma: View {
 
     // MARK: Controles
 
-    @ToolbarContentBuilder
-    private func controles(_ plan: PlanPrograma, _ m: MedidasPrograma) -> some ToolbarContent {
-        ToolbarItem(placement: .bottomBar) {
+    /// Sobre la barra de pestañas, como el zoom de Fotos. En la barra de abajo quedarían tapados por las pestañas.
+    private func controles(_ plan: PlanPrograma, _ m: MedidasPrograma) -> some View {
+        HStack(spacing: 12) {
             Button("Hoy") { centrarEnHoy(plan, m, animado: true) }
-        }
-        ToolbarSpacer(.flexible, placement: .bottomBar)
-        ToolbarItem(placement: .bottomBar) {
+                .buttonStyle(.glass)
+                .controlSize(.large)
+            Spacer(minLength: 0)
             Picker("Zoom", selection: Binding(
                 get: { zoom.preset },
                 set: { nuevo in if let nuevo { cambiarZoom(a: nuevo, plan, m) } }
@@ -676,7 +678,11 @@ struct CartaPrograma: View {
             }
             .pickerStyle(.segmented)
             .fixedSize()
+            .padding(4)
+            .glassEffect(.regular, in: .capsule)
         }
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
     }
 
     // MARK: Desplazamiento y zoom
@@ -1192,39 +1198,6 @@ struct LeyendaPrograma: View {
             Text(texto)
                 .font(.subheadline)
                 .fixedSize(horizontal: false, vertical: true)
-        }
-    }
-}
-
-/// El aviso de Mi plan, para que también se vea sobre el programa.
-struct AvisoFlotante: View {
-    @Environment(ObraStore.self) private var store
-
-    var body: some View {
-        if let aviso = store.aviso {
-            HStack(spacing: 12) {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(Color.accentColor)
-                Text(aviso.texto)
-                    .font(.subheadline.weight(.medium))
-                    .fixedSize(horizontal: false, vertical: true)
-                Spacer(minLength: 4)
-                if aviso.deshacer {
-                    Button("Deshacer") { store.deshacer() }
-                        .font(.subheadline.weight(.semibold))
-                }
-            }
-            .padding(.horizontal, 18)
-            .padding(.vertical, 14)
-            .glassEffect(.regular, in: .rect(cornerRadius: 24))
-            .padding(.horizontal, 16)
-            .padding(.bottom, 8)
-            .transition(.move(edge: .bottom).combined(with: .opacity))
-            .task(id: aviso.id) {
-                try? await Task.sleep(for: .seconds(6))
-                store.cerrarAviso(aviso.id)
-            }
         }
     }
 }

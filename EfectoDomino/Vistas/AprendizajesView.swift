@@ -5,31 +5,23 @@ import SwiftUI
 /// (Kaushal y Rhodes, 2015): por eso se miran sus horarios, lo que disfruta y cómo vuelve.
 struct AprendizajesView: View {
     @Environment(ObraStore.self) private var store
-    @Environment(\.dismiss) private var dismiss
     @State private var ejemplo: Aprendizajes?
 
     var body: some View {
         let datos = Aprendizajes(store.estado)
-        NavigationStack {
-            Group {
-                if let ejemplo {
-                    ListaDeAprendizajes(datos: ejemplo, esEjemplo: true) {
-                        withAnimation { self.ejemplo = nil }
-                    }
-                } else if datos.registros < Aprendizajes.minimo {
-                    estadoVacio(registros: datos.registros)
-                } else {
-                    ListaDeAprendizajes(datos: datos)
+        Group {
+            if let ejemplo {
+                ListaDeAprendizajes(datos: ejemplo, esEjemplo: true) {
+                    withAnimation { self.ejemplo = nil }
                 }
-            }
-            .navigationTitle("Lo que te funciona")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cerrar", systemImage: "xmark") { dismiss() }
-                }
+            } else if datos.registros < Aprendizajes.minimo {
+                estadoVacio(registros: datos.registros)
+            } else {
+                ListaDeAprendizajes(datos: datos)
             }
         }
+        .navigationTitle("Lo que te funciona")
+        .navigationBarTitleDisplayMode(.inline)
         #if DEBUG
         .onAppear { if Depuracion.ejemplo { verEjemplo() } }
         #endif
@@ -57,14 +49,12 @@ struct AprendizajesView: View {
     }
 }
 
-/// Abre «Lo que te funciona» desde la tarjeta «Tu avance».
+/// Lleva a «Lo que te funciona» desde la tarjeta de «Tu avance».
 struct BotonAprendizajes: View {
-    @State private var abierta = false
+    var accion: () -> Void
 
     var body: some View {
-        Button {
-            abierta = true
-        } label: {
+        Button(action: accion) {
             HStack {
                 Label("Lo que te funciona", systemImage: "chart.bar.doc.horizontal")
                     .font(.subheadline.weight(.semibold))
@@ -78,13 +68,7 @@ struct BotonAprendizajes: View {
             .contentShape(.rect)
         }
         .buttonStyle(.plain)
-        .accessibilityHint("Abre tus horarios, lo que disfrutas y cómo vuelves")
-        .sheet(isPresented: $abierta) {
-            AprendizajesView()
-        }
-        #if DEBUG
-        .onAppear { if Depuracion.abrir == "aprendizajes" { abierta = true } }
-        #endif
+        .accessibilityHint("Abre tus horarios, lo que disfrutas, cómo vuelves y tu manual para seguir")
     }
 }
 

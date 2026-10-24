@@ -11,6 +11,8 @@ enum Depuracion {
     static var momento: Int? { entero("momento") }
     static var foco: String? { ajustes.string(forKey: "foco") }
     static var abrir: String? { ajustes.string(forKey: "abrir") }
+    /// plan, programa o avance: la pestaña con que parte la app. `-abrir programa` y `-abrir aprendizajes` ya eligen la suya.
+    static var pestana: String? { ajustes.string(forKey: "pestana") }
     static var texto: String? { ajustes.string(forKey: "texto") }
     static var aplicar: Int? { entero("aplicar") }
     static var registrar: Bool { ajustes.bool(forKey: "registrar") }
