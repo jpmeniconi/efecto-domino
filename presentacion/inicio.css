@@ -97,36 +97,10 @@
 .inicio-caption { margin-top: calc(var(--ancho) * .04); color: #87878e; font-size: calc(var(--ancho) * .034); }
 .inicio-home { width: calc(var(--ancho) * .36); height: calc(var(--ancho) * .012); border-radius: 8px; background: #202024; position: absolute; bottom: calc(var(--ancho) * .025); }
 
-.inicio-controles {
-  position: absolute;
-  top: calc(100% + 20px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: 125%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2px 12px;
-  font-size: 14px;
-  line-height: 1.2;
-  color: var(--texto-2);
-}
-.inicio-etiqueta { flex-basis: 100%; text-align: center; font-size: 12px; }
-.inicio-controles button { min-height: 44px; padding: 4px 8px; font-size: inherit; }
-.inicio-controles button:hover { color: var(--acento); }
-.inicio-controles button:disabled { cursor: default; color: var(--texto-3); }
-.inicio-controles .inicio-contador { font-variant-numeric: tabular-nums; }
-.modo-pagina .inicio-telefono { margin-bottom: 90px; }
-.modo-deck .inicio-controles { top: calc(100% + 14px); font-size: 18px; }
-.modo-deck .inicio-etiqueta { font-size: 14px; }
-
 @media (prefers-reduced-motion: reduce) {
   .inicio-entrada { transition: none; }
 }
 @media print {
-  .inicio-controles { display: none; }
   .inicio-anillo { stroke-dashoffset: 0; }
   .inicio-entrada { color: var(--inicio-acento); background: #f46a211c; }
 }

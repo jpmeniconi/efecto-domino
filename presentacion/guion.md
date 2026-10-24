@@ -40,9 +40,9 @@ Estas duraciones suman **5:00** y son un presupuesto, no un ensayo medido. Ensay
 
 ## 1 · Dominó · 0:00 a 0:10
 
-> Soy JP Meniconi. Esto es Dominó: una app para ayudar a Camila a hacer espacio para moverse, con un plan que se adapta a su semana.
+> Soy Juan Pablo Meniconi. Esto es Dominó: una app para ayudar a Camila a hacer espacio para moverse, con un plan que se adapta a su semana.
 
-La bienvenida dentro del iPhone de la portada alterna citas con su autor. Es un recurso de esta presentación: puedes pausarlo o cambiar la frase manualmente. Con Reducir movimiento se evita la rotación automática. En la app nativa, la frase de bienvenida permanece hasta que la persona toca la flecha; terminar de cargar solo habilita esa flecha.
+La bienvenida dentro del iPhone de la portada alterna automáticamente tres citas con su autor cada cinco segundos, sin botones ni contador. Con Reducir movimiento mantiene una frase estática. Es un recurso de esta presentación. En la app nativa, la frase de bienvenida permanece hasta que la persona toca la flecha; terminar de cargar solo habilita esa flecha.
 
 No leas la cita ni esperes a que termine la rotación. La portada introduce el propósito.
 
@@ -57,6 +57,8 @@ Presenta una persona con una aspiración. El tiempo, la energía y cómo vive el
 > Elegimos partir de algo que Camila ya sabe hacer: planificar proyectos. Una carta Gantt permite ver el camino, encontrar espacio y acomodar etapas cuando cambia la semana. Trajimos esa lógica a su plan de movimiento: los próximos bloques se pueden ajustar y lo que ya hizo queda visible. Su experiencia como jefa de proyectos se convierte en una herramienta para cuidarse.
 
 Señala los bloques que se acomodan y el avance que permanece. La metáfora organiza el plan; la fecha estimada corresponde al programa, no promete una fecha para «estar en forma».
+
+En este ejemplo, Camila tiene un primer plan de 24 sesiones, organizado inicialmente en seis semanas. Es el programa predefinido del prototipo, con cuatro bloques por semana; Camila no eligió esa duración ni una fecha final en la app. La fecha estimada puede cambiar al reprogramar. Los ciclos de 28 días pertenecen al Modo juego y no fijan un segundo plazo obligatorio para completar el programa.
 
 ## 4 · Qué ayuda a sostener el movimiento · 1:05 a 1:25
 
@@ -122,9 +124,9 @@ Cambia a la pantalla del iPhone proyectada en el Mac. Las fechas y horas pueden 
 
 ## 8 · Su avance se hace visible · 3:55 a 4:10
 
-> Cada sesión deja una ficha y puede guardar una foto. Camila ve lo que está construyendo: momentos concretos, esfuerzo acumulado y nuevos logros. Ese avance también puede compartirlo cuando ella quiera.
+> Cada sesión deja una ficha y puede guardar una foto. En el Modo juego, ciclos de 28 días, una ficha por día y su propio récord le permiten reconocer cómo sigue avanzando.
 
-Los dos iPhones muestran fichas y nivel, y la foto de un momento. Señálalos en ese orden. El nivel sube cada siete fichas, incluyendo las seis visitas de enero. No presentes aquí una lista de funciones: el punto es que Camila puede reconocer su progreso.
+Los dos iPhones muestran fichas y nivel, y la foto de un momento; el pie introduce los ciclos. El nivel sube cada siete fichas, incluyendo las seis visitas de enero. El ciclo de 28 días pertenece al Modo juego: no reinicia el programa de seis semanas y el historial de sesiones permanece. El punto es que Camila puede reconocer su progreso.
 
 ## 9 · Descubrir qué le funciona · 4:10 a 4:25
 
@@ -162,7 +164,7 @@ Quédate en esta lámina para las preguntas: contiene el QR del repositorio. Las
 - Ten el archivo local `presentacion/index.html` y la versión de Vercel disponibles. El archivo local usa los medios que tengas descargados junto a él.
 - Mira las láminas 3, 5 y 8 desde el fondo de la sala. Si hace falta, **T** cambia entre claro y oscuro.
 - Desde la lámina **7**, prueba las teclas **1**, **2**, **3** y **4**; cierra cada respaldo con **Esc**.
-- Comprueba avance, retroceso y pantalla completa. En la portada puedes pausar las citas si prefieres mantener una durante la espera.
+- Comprueba avance, retroceso y pantalla completa. En la portada, verifica la rotación automática de citas; con Reducir movimiento debe mantenerse una frase estática.
 
 **Ensayo**
 

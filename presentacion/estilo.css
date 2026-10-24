@@ -895,6 +895,9 @@ button {
 .modo-deck .extra h3 { font-size: 44px; }
 .modo-deck .extra p { font-size: 30px; margin-top: 24px; }
 .modo-deck .extra-nota { font-size: 24px; margin-top: 32px; }
+.ciclos-nota { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; font-size: 17px; line-height: 1.4; color: var(--texto-2); }
+.ciclos-nota strong { color: var(--acento); font-weight: 600; }
+.modo-deck .ciclos-nota { justify-content: space-between; gap: 24px; margin-top: 28px; font-size: 26px; }
 
 /* ------------------------------------------------------------------ 8 y 9 · Texto con iPhone */
 
