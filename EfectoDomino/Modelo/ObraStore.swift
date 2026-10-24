@@ -39,7 +39,6 @@ final class ObraStore {
     var ahora: Date { estado.ahora }
     var proyecto: Proyecto { estado.proyecto }
     var hechos: Int { estado.bloques.filter { $0.estado == .hecho }.count }
-    var regresos: Int { estado.bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
 
     var planificados: [Bloque] {
         estado.bloques.filter { $0.estado == .planificado }.sorted { $0.inicio < $1.inicio }
