@@ -226,6 +226,40 @@ final class PlanificadorTests: XCTestCase {
         }
     }
 
+    // MARK: - Fichas de regreso
+
+    func testSoloElPrimerFuiDespuesDeUnaFaltaEsDeRegreso() {
+        var e = Prueba.semilla()
+        e.ahora = Prueba.fecha(semana: 1, dia: 7, 12)
+        let orden = e.bloques.sorted { $0.inicio < $1.inicio }
+        e.marcarHecho(orden[0].id)
+        // El martes queda sin registrar: el miércoles es el regreso.
+        XCTAssertTrue(Planificador.esRegreso(e, orden[2]))
+        e.marcarHecho(orden[2].id)
+
+        for bloque in orden[3...6] {
+            XCTAssertFalse(
+                Planificador.esRegreso(e, bloque),
+                "El \(Formato.fechaConDia(bloque.inicio)) no viene de un atraso: el martes ya tuvo su regreso"
+            )
+            e.marcarHecho(bloque.id)
+        }
+    }
+
+    func testUnBloqueMovidoOPuenteSiempreEsDeRegreso() {
+        var e = Prueba.semilla()
+        let orden = e.bloques.sorted { $0.inicio < $1.inicio }
+        e.marcarHecho(orden[0].id)
+        XCTAssertFalse(Planificador.esRegreso(e, orden[1]))
+
+        var movido = orden[1]
+        movido.origen = movido.inicio.mas(dias: -1)
+        XCTAssertTrue(Planificador.esRegreso(e, movido))
+        var puente = orden[1]
+        puente.esPuente = true
+        XCTAssertTrue(Planificador.esRegreso(e, puente))
+    }
+
     // MARK: - Ajuste al plan
 
     func testElAjusteAlPlanCambiaElHorarioYLosBloquesFuturos() throws {

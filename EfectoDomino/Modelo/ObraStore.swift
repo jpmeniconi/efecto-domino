@@ -147,8 +147,7 @@ final class ObraStore {
         guard let i = estado.bloques.firstIndex(where: { $0.id == id }) else { return }
         anterior = estado
         let bloque = estado.bloques[i]
-        let veniaDeUnAtraso = bloque.origen != nil || bloque.esPuente
-            || estado.bloques.contains { $0.estado == .planificado && $0.inicio < bloque.inicio }
+        let veniaDeUnAtraso = Planificador.esRegreso(estado, bloque)
         estado.bloques[i].estado = .hecho
         estado.bloques[i].registro = registro
         estado.bloques[i].esRegreso = veniaDeUnAtraso

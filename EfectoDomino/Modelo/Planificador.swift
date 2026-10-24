@@ -15,6 +15,17 @@ enum Planificador {
         e.bloques.filter { $0.estado == .planificado }.map(\.inicio).max()
     }
 
+    /// Hecho después de un atraso: deja una ficha de regreso (Milkman et al., 2021). Viene de un
+    /// atraso si se movió, si es un bloque puente o si el bloque anterior quedó sin registrar:
+    /// así solo el primer «Fui» después de una falta es de regreso, no todos los que siguen.
+    static func esRegreso(_ e: EstadoObra, _ bloque: Bloque) -> Bool {
+        if bloque.origen != nil || bloque.esPuente { return true }
+        let anterior = e.bloques
+            .filter { $0.id != bloque.id && $0.inicio < bloque.inicio }
+            .max { $0.inicio < $1.inicio }
+        return anterior?.estado == .planificado
+    }
+
     static func choca(_ e: EstadoObra, inicio: Date, minutos: Int) -> Bool {
         let fin = inicio.mas(minutos: minutos)
         return e.trabajo.contains { $0.inicio < fin && inicio < $0.fin }
