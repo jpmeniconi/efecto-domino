@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Raíz de la app: la frase de inicio y, cuando Camila quiere, «Mi plan».
+/// Raíz de la app: la frase de inicio y, cuando Camila quiere, sus pestañas.
 struct RaizView: View {
     @Environment(\.accessibilityReduceMotion) private var reducirMovimiento
     @State private var enBienvenida = RaizView.mostrarBienvenida
@@ -16,7 +16,7 @@ struct RaizView: View {
                 .transition(reducirMovimiento ? .opacity : .opacity.combined(with: .scale(scale: 1.04)))
                 .zIndex(1)
             } else {
-                ObraView()
+                PestanasView()
                     .transition(.opacity)
             }
         }
@@ -26,7 +26,8 @@ struct RaizView: View {
     private static var mostrarBienvenida: Bool {
         #if DEBUG
         let ajustes = UserDefaults.standard
-        if ajustes.bool(forKey: "sinBienvenida") || Depuracion.reiniciar || Depuracion.momento != nil || Depuracion.abrir != nil {
+        if ajustes.bool(forKey: "sinBienvenida") || Depuracion.reiniciar || Depuracion.momento != nil
+            || Depuracion.abrir != nil || Depuracion.pestana != nil {
             return false
         }
         #endif

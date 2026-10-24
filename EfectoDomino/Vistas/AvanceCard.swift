@@ -10,6 +10,7 @@ struct AvanceCard: View {
     let recepcion: Date?
     let corrimiento: Int
     let ajustes: Int
+    var alVerAprendizajes: () -> Void
 
     private var hechos: Int { bloques.filter { $0.estado == .hecho }.count }
     private var regresos: Int { bloques.filter { $0.estado == .hecho && $0.esRegreso }.count }
@@ -19,33 +20,17 @@ struct AvanceCard: View {
         Tarjeta {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Tu avance")
-                            .font(.subheadline.weight(.semibold))
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
+                        Text("\(proyecto.visitasPrevias + hechos)")
+                            .font(.system(size: 46, weight: .bold, design: .rounded))
+                            .monospacedDigit()
+                            .contentTransition(.numericText())
+                        Text("fichas en pie")
+                            .font(.headline)
                             .foregroundStyle(.secondary)
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text("\(proyecto.visitasPrevias + hechos)")
-                                .font(.system(size: 46, weight: .bold, design: .rounded))
-                                .monospacedDigit()
-                                .contentTransition(.numericText())
-                            Text("fichas en pie")
-                                .font(.headline)
-                                .foregroundStyle(.secondary)
-                        }
                     }
                     Spacer(minLength: 8)
-                    VStack(alignment: .trailing, spacing: 2) {
-                        Text("Meta estimada")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        Text(recepcion.map(Formato.fechaConDia) ?? "—")
-                            .font(.subheadline.weight(.semibold))
-                            .contentTransition(.numericText())
-                        Text(textoCorrimiento)
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.trailing)
-                    }
+                    MetaEstimada(recepcion: recepcion, corrimiento: corrimiento, ajustes: ajustes)
                 }
                 .animation(.snappy, value: hechos)
                 .animation(.snappy, value: recepcion)
@@ -67,9 +52,89 @@ struct AvanceCard: View {
                 .animation(.spring(duration: 0.5, bounce: 0.4), value: regresos)
 
                 Divider()
-                BotonAprendizajes()
+                BotonAprendizajes(accion: alVerAprendizajes)
             }
         }
+    }
+}
+
+/// En «Mi plan», el avance en corto: las fichas en pie y la meta estimada. Lleva a «Tu avance».
+struct ResumenAvanceCard: View {
+    let fichas: Int
+    let recepcion: Date?
+    let corrimiento: Int
+    let ajustes: Int
+    var alAbrir: () -> Void
+
+    var body: some View {
+        Button(action: alAbrir) {
+            Tarjeta {
+                HStack(spacing: 12) {
+                    // Con letra grande, la meta baja bajo las fichas en vez de partir el texto.
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .top) {
+                            fichasEnPie
+                            Spacer(minLength: 8)
+                            MetaEstimada(recepcion: recepcion, corrimiento: corrimiento, ajustes: ajustes)
+                        }
+                        VStack(alignment: .leading, spacing: 12) {
+                            fichasEnPie
+                            MetaEstimada(recepcion: recepcion, corrimiento: corrimiento, ajustes: ajustes, alineacion: .leading)
+                        }
+                    }
+                    Image(systemName: "chevron.right")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.tertiary)
+                        .accessibilityHidden(true)
+                }
+            }
+            .contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("Abre Tu avance: tu muro y lo que te funciona")
+    }
+
+    private var fichasEnPie: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text("Tu avance")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.secondary)
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                Text("\(fichas)")
+                    .font(.largeTitle.weight(.bold))
+                    .fontDesign(.rounded)
+                    .monospacedDigit()
+                    .contentTransition(.numericText())
+                Text("fichas en pie")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .animation(.snappy, value: fichas)
+    }
+}
+
+/// La meta estimada y cuánto se corrió. La misma en «Mi plan» y en «Tu avance».
+struct MetaEstimada: View {
+    let recepcion: Date?
+    let corrimiento: Int
+    let ajustes: Int
+    var alineacion: HorizontalAlignment = .trailing
+
+    var body: some View {
+        VStack(alignment: alineacion, spacing: 2) {
+            Text("Meta estimada")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            Text(recepcion.map(Formato.fechaConDia) ?? "—")
+                .font(.subheadline.weight(.semibold))
+                .contentTransition(.numericText())
+            Text(textoCorrimiento)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(alineacion == .trailing ? .trailing : .leading)
+        }
+        .animation(.snappy, value: recepcion)
     }
 
     private var textoCorrimiento: String {
