@@ -116,6 +116,25 @@ final class PlanificadorTests: XCTestCase {
         verificarReglas(despues)
     }
 
+    func testSiElCalendarioBloqueaEseLunesLaPropuestaDiceElDiaReal() throws {
+        var e = Prueba.enMomento(1)
+        e.trabajo.append(EventoTrabajo(
+            titulo: "Turno de noche",
+            inicio: Prueba.fecha(semana: 1, dia: 1, 18, 0),
+            fin: Prueba.fecha(semana: 1, dia: 1, 23, 0)
+        ))
+        let bloque = try XCTUnwrap(e.proximo)
+        let partir = try XCTUnwrap(
+            Planificador.propuestas(e, para: bloque, lectura: Prueba.lectura(.reinicio)).first {
+                if case .empujar = $0.accion { true } else { false }
+            }
+        )
+        XCTAssertEqual(partir.accion, .empujar(bloque: bloque.id, fecha: Prueba.fecha(semana: 1, dia: 2, 21, 15)))
+        XCTAssertEqual(partir.etiqueta, "Partir el martes")
+        XCTAssertEqual(partir.titulo, "Martes 27 · 21:15")
+        XCTAssertEqual(partir.confirmacion, "Partimos el martes. Tu avance sigue contando.")
+    }
+
     func testVariosEmpujonesSeguidosNuncaAcumulanDeuda() throws {
         var e = Prueba.enMomento(1)
         var meta = try XCTUnwrap(Planificador.recepcion(e))

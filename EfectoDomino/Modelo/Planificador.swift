@@ -158,7 +158,8 @@ enum Planificador {
         let slotPuente = puente(e, para: bloque, barrera: lectura.barrera)
         let slotHolgura = holgura(e, semanaDe: max(bloque.inicio, e.ahora), desde: e.ahora, excepto: bloque.id, preferir: bloque.tipo)
             .first { slot in slotPuente.map { !slot.fecha.mismoDia(que: $0.fecha) } ?? true }
-        // Solo si ese lunes viene después del bloque: partir el lunes nunca lo adelanta.
+        // Solo si ese lunes viene después del bloque: partir el lunes nunca lo adelanta. Si el trabajo
+        // ocupa el lunes, parte en el primer espacio libre de esa semana y la propuesta dice ese día.
         let slotLunes = slotsDelPatron(e, desde: e.ahora.lunes.mas(dias: 7), cantidad: 1).first { $0.fecha > bloque.inicio }
 
         let conHolgura = slotHolgura.map { slot in
@@ -185,12 +186,12 @@ enum Planificador {
 
         let conLunes = slotLunes.map { slot in
             Propuesta(
-                etiqueta: "Partir el lunes",
+                etiqueta: "Partir el \(Formato.dia(slot.fecha))",
                 titulo: "\(Formato.diaConNumero(slot.fecha)) · \(Formato.hora(slot.fecha))",
                 detalle: "Los bloques siguientes se corren un espacio, como fichas de dominó. No se suma ninguno extra.",
                 simbolo: "arrow.right.to.line",
                 accion: .empujar(bloque: bloque.id, fecha: slot.fecha),
-                confirmacion: "Partimos el lunes. Tu avance sigue contando."
+                confirmacion: "Partimos el \(Formato.dia(slot.fecha)). Tu avance sigue contando."
             )
         }
 
