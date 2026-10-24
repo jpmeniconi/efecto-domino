@@ -28,12 +28,12 @@ Atacamos **cómo retoma**: que, cuando la semana cambia, siempre tenga un próxi
   Nada cambia sin su confirmación y lo último se puede deshacer.
 - **Un avance que no baja.** Cada sesión hecha deja una **ficha en pie** y sus seis visitas de enero ya cuentan. Su nivel sube cada 7 fichas y 11 logros reconocen volver, usar la holgura o un bloque puente; nada baja ni vence. Cada ficha puede guardar una foto.
 - **Modo juego.** 28 días con Javiera, amiga ficticia: una ficha por día como máximo, así que gana quien se mueve más días y no quien entrena más fuerte. Javiera ve cuántas fichas puso, nunca qué días.
-- **Preparar y registrar.** Listas antes de salir y después de cada bloque. Para invitar a alguien, la app escribe el día y la hora y abre la hoja de compartir de iOS. Cada día, un dato de un estudio publicado con su fuente.
+- **Preparar y registrar.** Listas antes de salir y después de cada bloque. Camila puede activar avisos locales para preparar su bloque, registrar su experiencia, reconocer lo hecho o revisar su próxima semana, con descanso y un máximo de dos al día. Para invitar a alguien, la app escribe el día y la hora y abre la hoja de compartir de iOS. Cada día, un dato de un estudio publicado con su fuente.
 - **Lo que le funciona.** Con sus registros ve qué horarios se cumplen, qué disfruta y qué la ayuda a ir. Al terminar las 6 semanas le queda un manual con sus horarios y tres reglas para seguir sin la app.
 
 ## Qué dejamos fuera y por qué
 
-- **Recordatorios y notificaciones:** ya silenció las notificaciones; la app no compite por su atención.
+- **Avisos insistentes o activados por defecto:** Camila decide si recibe avisos, cuáles y con qué anticipación; el descanso y la frecuencia se respetan.
 - **Rachas y contadores que vuelven a cero:** retomar ya le pesa. Por eso nada baja y un día sin ficha no aparece como falta.
 - **Avisar a otros cuando no va:** compartir es decisión de ella, y lo que comparte no muestra faltas.
 - **Rutinas, nutrición, wearables, cuentas y servidor:** límites de esta versión, enfocada en la continuidad. Por eso la partida con Javiera corre solo en el iPhone.

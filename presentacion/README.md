@@ -1,6 +1,6 @@
 # Presentación del pitch
 
-Once diapositivas de Dominó en HTML, CSS y JavaScript, sin dependencias ni compilación. El relato es: **Camila quiere sentirse bien → encuentra espacio → elige un paso posible → lo hace → ve su avance → descubre qué le funciona**.
+Once diapositivas del pitch y una lámina final de apoyo de Dominó en HTML, CSS y JavaScript, sin dependencias ni compilación. El relato es: **Camila quiere sentirse bien → encuentra espacio → elige un paso posible → lo hace → ve su avance → descubre qué le funciona**.
 
 La tipografía es la del sistema (SF en Mac). En horizontal se usa un lienzo 1920 × 1080 escalado, con proporción 16:9; en un celular vertical se lee como página. El texto para presentar, el recorrido del iPhone y las preguntas probables están en [`guion.md`](guion.md). El presupuesto suma 5:00; la meta de ensayo es 4:30–4:40.
 
@@ -44,8 +44,9 @@ El número de la lámina queda en la dirección: `index.html#7` abre la demo. En
 | 7 | Demo · Un paso posible. Un avance real | Ajustar → confirmar → registrar → ver avance |
 | 8 | Su avance se hace visible | Fichas/nivel, una foto y ciclos del Modo juego |
 | 9 | Descubrir qué le funciona | Horarios, ayudas y manual para seguir |
-| 10 | Cuidar la continuidad | Conservar avance, control personal y foco del prototipo |
+| 10 | Qué dejamos fuera | Avisos insistentes, rachas que vuelven a cero, exposición de faltas y límites de esta versión |
 | 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre |
+| 12 | Apoyo: avisos opcionales | Grabación real de una notificación; fuera de los cinco minutos del pitch |
 
 En la portada, tres citas de autores se alternan cada cinco segundos dentro del iPhone. No hay botones ni contador; con Reducir movimiento se mantiene una frase estática. Es un comportamiento de la presentación. La bienvenida de la app nativa mantiene su frase hasta que la persona toca la flecha habilitada: no entra sola al terminar la carga.
 

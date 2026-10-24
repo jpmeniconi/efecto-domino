@@ -17,7 +17,7 @@ El relato completo es: **Camila quiere sentirse bien → encuentra espacio en su
 | 7 | Demo · Un paso posible. Un avance real | 2:00 | 3:55 |
 | 8 | Su avance se hace visible | 0:15 | 4:10 |
 | 9 | Descubrir qué le funciona | 0:15 | 4:25 |
-| 10 | Cuidar la continuidad | 0:15 | 4:40 |
+| 10 | Qué dejamos fuera | 0:15 | 4:40 |
 | 11 | ¿Camila vuelve y lo sostiene? | 0:20 | 5:00 |
 
 Estas duraciones suman **5:00** y son un presupuesto, no un ensayo medido. Ensaya a **4:30–4:40** para dejar margen para las transiciones y la lectura de la app. Las dos referencias son entrar a la demo a más tardar en **1:55** y volver al navegador en **3:55**. Si hace falta recortar, di la 6, la 8 y la 10 en una frase cada una; conserva registrar el bloque y ver el avance.
@@ -134,17 +134,25 @@ Los dos iPhones muestran fichas y nivel, y la foto de un momento; el pie introdu
 
 Las imágenes muestran cómo se organiza esa información al avanzar el programa. No atribuyas a la sesión recién registrada todos los patrones de la captura.
 
-## 10 · Cuidar la continuidad · 4:25 a 4:40
+## 10 · Qué dejamos fuera · 4:25 a 4:40
 
-> Tres decisiones guían Dominó: conservar el avance, dejar el control de los ajustes y de lo que comparte en manos de Camila, y enfocarse en hacer viable el próximo paso. Por eso este prototipo se concentra en planificar, registrar y aprender.
+> Dejamos fuera avisos insistentes, rachas que vuelven a cero y avisar a otros cuando no va. Camila decide qué recibir y compartir. Rutinas, nutrición y wearables quedan para otra versión.
 
-Si preguntan por alcance: el prototipo no incluye rutinas personalizadas, nutrición, wearables, recordatorios automáticos ni conexión multijugador. Son límites de esta versión, no afirmaciones de que esas herramientas sean inútiles.
+Los avisos locales sí están implementados y parten desactivados. Camila elige cuáles activar, el horario de descanso y el sonido; se programan como máximo dos por día. No confundirlos con avisos insistentes. Tampoco se incluyeron cuentas, servidor ni conexión multijugador.
 
 ## 11 · ¿Camila vuelve y lo sostiene? · 4:40 a 5:00
 
 > La pregunta es si Camila vuelve y lo sostiene. Proponemos medir el tiempo hasta su próxima sesión, cuántas sesiones realiza cada semana y si continúa a las doce semanas. Eso requiere un piloto: hoy mostramos el mecanismo funcionando. Dominó: hacer espacio para moverte. Gracias.
 
 Quédate en esta lámina para las preguntas: contiene el QR del repositorio. Las métricas son un plan de validación, no resultados obtenidos.
+
+## 12 · Apoyo: avisos opcionales · fuera del pitch
+
+Úsala solo si preguntan por las notificaciones. Desde el cierre, avanza una lámina o abre `index.html#12`. «Ver cómo llega un aviso» reproduce una grabación de la app; se pausa al salir de la lámina. «Volver al cierre» devuelve al QR.
+
+> Camila decide si quiere recibir avisos. Puede preparar su próximo bloque, registrar cómo estuvo o reconocer lo que ya hizo. El descanso y la frecuencia se respetan; un reconocimiento llega solo después de guardar «Fui».
+
+El video muestra el aviso explícito de prueba, no un entrenamiento realizado. Para probarlo en el iPhone: **Mi plan → … → Notificaciones → Recibir avisos → Probar un aviso**. La prueba llega a los cinco segundos.
 
 ---
 

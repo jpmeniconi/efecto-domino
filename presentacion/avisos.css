@@ -1,0 +1,28 @@
+/* Apoyo de notificaciones: comparte el lienzo, las variables y el iPhone del deck. */
+.avisos-momentos { display: grid; gap: 20px; margin-top: 28px; }
+.avisos-momentos li { border-top: 1px solid var(--linea); padding-top: 16px; }
+.avisos-momentos strong { display: block; font-size: 22px; line-height: 1.25; }
+.avisos-momentos span { display: block; margin-top: 6px; color: var(--texto-2); font-size: 17px; line-height: 1.4; }
+.avisos-controles { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 28px; }
+.avisos-reproducir { min-height: 44px; padding: 12px 20px; border: 1px solid var(--acento); border-radius: 999px; color: var(--acento); background: var(--acento-suave); transition: background .25s var(--curva); }
+.avisos-reproducir:hover { background: var(--superficie); }
+.avisos-controles a { font-size: 16px; text-underline-offset: 4px; }
+.avisos-telefono { --ancho: min(72vw, 300px); }
+.avisos-telefono .pantalla::after { pointer-events: none; }
+.aviso-estado { max-width: 800px; }
+.modo-deck .avisos-apoyo { display: grid; grid-template-columns: 1fr 390px; align-items: center; gap: 100px; padding-right: 180px; }
+.modo-deck .avisos-apoyo .titulo { font-size: 88px; }
+.modo-deck .avisos-telefono { --ancho: 350px; margin: 0; }
+.modo-deck .avisos-momentos { margin-top: 38px; gap: 22px; }
+.modo-deck .avisos-momentos li { padding-top: 20px; }
+.modo-deck .avisos-momentos strong { font-size: 34px; }
+.modo-deck .avisos-momentos span { max-width: 950px; font-size: 28px; }
+.modo-deck .avisos-controles { margin-top: 36px; gap: 32px; }
+.modo-deck .avisos-reproducir { padding: 16px 26px; font-size: 26px; }
+.modo-deck .avisos-controles a { font-size: 24px; }
+.modo-deck .aviso-estado { margin-top: 22px; font-size: 23px; line-height: 1.35; }
+@media (prefers-reduced-motion: reduce) { .avisos-reproducir { transition: none; } }
+@media print {
+  .avisos-controles { display: none; }
+  .avisos-telefono video { opacity: 1; }
+}

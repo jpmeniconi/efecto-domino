@@ -12,6 +12,7 @@
 <link rel="icon" href="icono.svg" type="image/svg+xml">
 <link rel="stylesheet" href="estilo.css">
 <link rel="stylesheet" href="inicio.css">
+<link rel="stylesheet" href="avisos.css">
 <script>
   // Antes de pintar: modo (presentación o página vertical), escala del lienzo de 1920 × 1080 y tema guardado.
   (function () {
@@ -31,13 +32,14 @@
 </script>
 <script src="presentacion.js" defer></script>
 <script src="inicio.js" defer></script>
+<script src="avisos.js" defer></script>
 </head>
 <body>
 <main class="deck" id="deck" aria-roledescription="presentación" aria-label="Dominó">
 <div class="escenario" id="escenario">
 
 <!-- 1 · Dominó -->
-<section class="diapositiva portada" id="1" aria-roledescription="diapositiva" aria-label="1 de 11: Dominó" data-titulo="Dominó">
+<section class="diapositiva portada" id="1" aria-roledescription="diapositiva" aria-label="1 de 12: Dominó" data-titulo="Dominó">
   <div class="portada-texto">
     <img class="portada-icono entra" style="--i:0" src="icono.svg" alt="" width="128" height="128">
     <h1 class="portada-nombre entra" style="--i:1">Dominó</h1>
@@ -64,7 +66,7 @@
 </section>
 
 <!-- 2 · Camila -->
-<section class="diapositiva camila" id="2" aria-roledescription="diapositiva" aria-label="2 de 11: Camila" data-titulo="Camila">
+<section class="diapositiva camila" id="2" aria-roledescription="diapositiva" aria-label="2 de 12: Camila" data-titulo="Camila">
   <p class="kicker entra" style="--i:0">Camila, 34 años, jefa de proyectos en una constructora</p>
   <h2 class="titulo entra" style="--i:1">Quiere volver a sentirse bien.</h2>
   <p class="bajada entra" style="--i:2">Le gustaría hacer del movimiento parte de su vida. Después de una pausa, <strong>le cuesta encontrar cómo retomar.</strong></p>
@@ -76,7 +78,7 @@
 </section>
 
 <!-- 3 · Nuestra lectura -->
-<section class="diapositiva lectura" id="3" aria-roledescription="diapositiva" aria-label="3 de 11: Nuestra lectura" data-titulo="Nuestra lectura">
+<section class="diapositiva lectura" id="3" aria-roledescription="diapositiva" aria-label="3 de 12: Nuestra lectura" data-titulo="Nuestra lectura">
   <p class="kicker entra" style="--i:0">Nuestra lectura</p>
   <h2 class="titulo entra" style="--i:1">Una forma de planificar que ya conoce.</h2>
   <div class="paneles">
@@ -113,7 +115,7 @@
 </section>
 
 <!-- 4 · Qué ayuda a sostener el movimiento -->
-<section class="diapositiva porque" id="4" aria-roledescription="diapositiva" aria-label="4 de 11: Qué ayuda a sostener el movimiento" data-titulo="Qué ayuda a sostener el movimiento">
+<section class="diapositiva porque" id="4" aria-roledescription="diapositiva" aria-label="4 de 12: Qué ayuda a sostener el movimiento" data-titulo="Qué ayuda a sostener el movimiento">
   <p class="kicker entra" style="--i:0">Qué aprendimos de la evidencia</p>
   <h2 class="titulo entra" style="--i:1">Qué ayuda a sostener el movimiento.</h2>
   <ul class="evidencia">
@@ -125,7 +127,7 @@
 </section>
 
 <!-- 5 · La solución -->
-<section class="diapositiva solucion" id="5" aria-roledescription="diapositiva" aria-label="5 de 11: La solución" data-titulo="La solución">
+<section class="diapositiva solucion" id="5" aria-roledescription="diapositiva" aria-label="5 de 12: La solución" data-titulo="La solución">
   <div class="solucion-texto">
     <p class="kicker entra" style="--i:0">La solución</p>
     <h2 class="titulo entra" style="--i:1">Un plan que se adapta contigo.</h2>
@@ -191,7 +193,7 @@
 </section>
 
 <!-- 6 · Su semana real -->
-<section class="diapositiva semana" id="6" aria-roledescription="diapositiva" aria-label="6 de 11: Su semana real" data-titulo="Su semana real">
+<section class="diapositiva semana" id="6" aria-roledescription="diapositiva" aria-label="6 de 12: Su semana real" data-titulo="Su semana real">
   <div class="columna-texto">
     <p class="kicker entra" style="--i:0">Su semana real</p>
     <h2 class="titulo entra" style="--i:1">Su plan encaja en su semana.</h2>
@@ -222,7 +224,7 @@
 </section>
 
 <!-- 7 · Demo en vivo -->
-<section class="diapositiva demo" id="7" aria-roledescription="diapositiva" aria-label="7 de 11: Demo en vivo" data-titulo="Demo en vivo">
+<section class="diapositiva demo" id="7" aria-roledescription="diapositiva" aria-label="7 de 12: Demo en vivo" data-titulo="Demo en vivo">
   <p class="kicker entra" style="--i:0">Del plan a la acción, en su iPhone</p>
   <h2 class="titulo entra" style="--i:1">Un paso posible. Un avance real.</h2>
   <ol class="momentos">
@@ -285,7 +287,7 @@
 </section>
 
 <!-- 8 · Su avance -->
-<section class="diapositiva ademas" id="8" aria-roledescription="diapositiva" aria-label="8 de 11: Su avance" data-titulo="Su avance">
+<section class="diapositiva ademas" id="8" aria-roledescription="diapositiva" aria-label="8 de 12: Su avance" data-titulo="Su avance">
   <p class="kicker entra" style="--i:0">Tu avance</p>
   <h2 class="titulo entra" style="--i:1">Su avance se hace visible.</h2>
   <ul class="extras">
@@ -308,7 +310,7 @@
 </section>
 
 <!-- 9 · Cuando termina el programa -->
-<section class="diapositiva termina" id="9" aria-roledescription="diapositiva" aria-label="9 de 11: Cuando termina el programa" data-titulo="Cuando termina el programa">
+<section class="diapositiva termina" id="9" aria-roledescription="diapositiva" aria-label="9 de 12: Cuando termina el programa" data-titulo="Cuando termina el programa">
   <div class="columna-texto">
     <p class="kicker entra" style="--i:0">Cuando termina el programa</p>
     <h2 class="titulo entra" style="--i:1">Descubrir qué le funciona.</h2>
@@ -336,20 +338,20 @@
   </div>
 </section>
 
-<!-- 10 · Decisiones de producto -->
-<section class="diapositiva fuera" id="10" aria-roledescription="diapositiva" aria-label="10 de 11: Decisiones de producto" data-titulo="Decisiones de producto">
-  <p class="kicker entra" style="--i:0">Decisiones de producto</p>
+<!-- 10 · Qué dejamos fuera -->
+<section class="diapositiva fuera" id="10" aria-roledescription="diapositiva" aria-label="10 de 12: Qué dejamos fuera" data-titulo="Qué dejamos fuera">
+  <p class="kicker entra" style="--i:0">Qué dejamos fuera</p>
   <h2 class="titulo entra" style="--i:1">Cuidar la continuidad.</h2>
   <dl class="descartes">
-    <div class="entra" style="--i:2"><dt>Conservar el avance</dt><dd>Cada sesión realizada queda en su historia.</dd></div>
-    <div class="entra" style="--i:3"><dt>Compartir por elección</dt><dd>Camila decide cuándo invitar a alguien y qué compartir.</dd></div>
-    <div class="entra" style="--i:4"><dt>Facilitar el próximo paso</dt><dd>Planificar, preparar, ajustar y registrar con una carga semanal acotada.</dd></div>
+    <div class="entra" style="--i:2"><dt>Avisos insistentes o activados por defecto</dt><dd>Camila decide si recibe avisos y cuáles. El descanso y la frecuencia se respetan.</dd></div>
+    <div class="entra" style="--i:3"><dt>Rachas que vuelven a cero</dt><dd>Retomar ya le pesa: nada baja y un día sin ficha no aparece como falta.</dd></div>
+    <div class="entra" style="--i:4"><dt>Avisar a otros cuando no va</dt><dd>Compartir es decisión de ella, y lo que comparte no muestra faltas.</dd></div>
+    <div class="entra" style="--i:5"><dt>Rutinas, nutrición, wearables, cuentas y servidor</dt><dd>Límites de esta versión, enfocada en la continuidad.</dd></div>
   </dl>
-  <p class="nota alcance entra" style="--i:5">Foco del prototipo: continuidad. Rutinas, nutrición y wearables quedan fuera de esta versión.</p>
 </section>
 
 <!-- 11 · Cómo sabríamos si funciona -->
-<section class="diapositiva cierre" id="11" aria-roledescription="diapositiva" aria-label="11 de 11: Cómo sabríamos si funciona" data-titulo="Cómo sabríamos si funciona">
+<section class="diapositiva cierre" id="11" aria-roledescription="diapositiva" aria-label="11 de 12: Cómo sabríamos si funciona" data-titulo="Cómo sabríamos si funciona">
   <p class="kicker entra" style="--i:0">Cómo sabríamos si funciona</p>
   <h2 class="titulo entra" style="--i:1">¿Camila vuelve y lo sostiene?</h2>
   <ul class="metricas">
@@ -366,6 +368,31 @@
       <span>github.com/jpmeniconi/efecto-domino</span>
     </a>
   </div>
+</section>
+
+<!-- 12 · Apoyo: avisos opcionales. Fuera de los cinco minutos del pitch. -->
+<section class="diapositiva avisos-apoyo" id="12" aria-roledescription="diapositiva" aria-label="12 de 12: Avisos opcionales, lámina de apoyo" data-titulo="Apoyo: avisos opcionales">
+  <div class="avisos-texto">
+    <p class="kicker entra" style="--i:0">Apoyo · Avisos opcionales</p>
+    <h2 class="titulo entra" style="--i:1">Camila elige<br>cuándo recibirlos.</h2>
+    <ul class="avisos-momentos">
+      <li class="entra" style="--i:2"><strong>Preparar su bloque.</strong><span>Un recordatorio con el horario que ella eligió.</span></li>
+      <li class="entra" style="--i:3"><strong>Reconocer lo hecho.</strong><span>Su ficha, su regreso o su nivel, después de registrar «Fui».</span></li>
+      <li class="entra" style="--i:4"><strong>Elegir el ritmo.</strong><span>Tipos de aviso, anticipación, descanso y sonido. Como máximo dos al día.</span></li>
+    </ul>
+    <div class="avisos-controles entra" style="--i:5">
+      <button class="avisos-reproducir" id="avisos-reproducir" type="button" aria-controls="video-avisos" aria-pressed="false">Ver cómo llega un aviso</button>
+      <a href="#11">Volver al cierre</a>
+    </div>
+    <p class="nota aviso-estado entra" id="aviso-estado" style="--i:6" aria-live="polite">Grabación de un aviso de prueba real de la app. Esta lámina es apoyo para las preguntas.</p>
+  </div>
+  <figure class="telefono avisos-telefono con-video entra" style="--i:2">
+    <div class="pantalla">
+      <video id="video-avisos" muted playsinline preload="metadata" controls poster="medios/notificacion-aviso.png" aria-label="Grabación de una notificación de prueba de Dominó apareciendo en el iPhone">
+        <source src="medios/demo-notificaciones.mp4" type="video/mp4">
+      </video>
+    </div>
+  </figure>
 </section>
 
 </div>
