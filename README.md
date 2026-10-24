@@ -33,13 +33,16 @@ Como jefa de proyectos, en sus obras nunca demuele lo construido porque una part
 - **Checklists** antes de salir (bolso, agenda bloqueada) y después (qué ayudó, dejar listo el próximo).
 - **Lo que te funciona.** Con lo que registra, la app le muestra qué horarios se cumplen y cuáles se movieron, qué bloques disfruta, qué le ayudó a ir, cómo vuelve (fichas de regreso y bloques puente) y cómo va su espalda. Con menos de tres registros no inventa patrones: lo dice y ofrece un ejemplo ficticio de la semana 6.
 - **Al terminar las 6 semanas, el plan pasa a sus manos:** un manual para seguir sin la app, con sus horarios, los bloques que disfruta y tres reglas: si un bloque se cae, primero la holgura; si cuesta volver, un bloque puente; nunca recuperar con más bloques. Lo puede guardar o mandar como texto, sin sus faltas.
+- **Tu avance: todo suma, nada resta.** Su nivel sube cada 7 fichas en pie, una mano de dominó, y 11 logros premian lo mismo que la evidencia (volver después de un atraso, usar la holgura, un bloque puente); nada baja ni vence. Cada ficha puede guardar una foto con su día y hora, y cada día aparece un dato de un estudio publicado, con su fuente: no una frase motivacional.
+- **Modo juego.** Una partida de 28 días con Javiera, amiga ficticia: cada día que se mueve pone una ficha, una como máximo, así que gana quien se mueve más días y no quien entrena más fuerte. Javiera ve cuántas fichas puso, nunca qué días. También puede jugar contra su mejor ciclo.
+- **Tres pestañas** (Mi plan, Programa y Tu avance) e ilustraciones de Camila en cada bloque: gimnasio, caminata y en casa.
 
 ## Qué dejamos fuera y por qué
 
 - **Recordatorios y correos:** ya silenció las notificaciones, y los recordatorios funcionan solo mientras duran.
-- **Rachas y contadores que vuelven a cero:** el día que falla, la culpa la saca de nuevo.
-- **Avisar a su círculo cuando falta:** exponer faltas genera vergüenza y evasión. Compartir avances será siempre decisión de ella.
-- **Rutinas, nutrición, wearables, cuentas y servidor:** no son su problema y no caben en dos días.
+- **Rachas y contadores que vuelven a cero:** el día que falla, la culpa la saca de nuevo. Su nivel y sus logros nunca bajan, y en el Modo juego un día sin ficha no aparece como falta.
+- **Avisar a su círculo cuando falta:** exponer faltas genera vergüenza y evasión. Compartir avances será siempre decisión de ella, y en el Modo juego Javiera solo ve cuántas fichas puso.
+- **Rutinas, nutrición, wearables, cuentas y servidor:** no son su problema y no caben en dos días. Por eso la partida de Javiera está simulada en el iPhone.
 - **Su calendario real:** el concurso exige datos ficticios.
 
 ## Cómo sabríamos si funciona
@@ -55,10 +58,10 @@ scripts/sim.sh      # compila y abre en el simulador
 scripts/iphone.sh   # instala en un iPhone conectado por cable
 ```
 
-Toca el reloj de arriba para saltar a los momentos de la ficha: lunes 19:05, miércoles 06:45, miércoles 20:15 y domingo 23:55. En «Tu avance», toca «Lo que te funciona»: sin registros todavía, puedes ver el ejemplo de la semana 6.
+Toca el reloj de arriba para saltar a los momentos de la ficha: lunes 19:05, miércoles 06:45, miércoles 20:15 y domingo 23:55. En «Tu avance» están su nivel, sus fotos, el Modo juego y «¿Sabías que?». Toca «Lo que te funciona»: sin registros todavía, puedes ver el ejemplo de la semana 6.
 
 Sin un Mac a mano, la demo está en video: [lunes 19:05](presentacion/medios/demo-lunes.mp4), [miércoles 06:45](presentacion/medios/demo-miercoles.mp4) y [el programa completo](presentacion/medios/demo-programa.mp4).
 
 ---
 
-Camila y todos sus datos son ficticios. La lectura corre en el dispositivo; si el modelo no está disponible, se usa una lectura local por palabras clave. Construido durante el evento con asistentes de programación con IA; las ilustraciones de los bloques se generaron con ChatGPT Images ([cómo](scripts/ilustraciones.md)).
+Camila, Javiera, sus fotos y todos sus datos son ficticios. La lectura corre en el dispositivo; si el modelo no está disponible, se usa una lectura local por palabras clave. Construido durante el evento con asistentes de programación con IA; las ilustraciones (con ChatGPT Images) y las fotos ficticias son imágenes generadas ([cómo](scripts/ilustraciones.md)).
