@@ -105,7 +105,7 @@ enum LectorIA {
     }
 }
 
-/// Respaldo sin IA: palabras clave. Se identifica como "Lectura local" en la interfaz.
+/// Respaldo sin IA: palabras clave. Se usa si el modelo del iPhone no está disponible o tarda más de 12 segundos.
 enum LectorLocal {
     static func leer(_ texto: String) -> Lectura {
         let t = texto.lowercased().folding(options: .diacriticInsensitive, locale: Formato.locale)

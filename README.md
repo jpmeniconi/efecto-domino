@@ -57,6 +57,8 @@ scripts/iphone.sh   # instala en un iPhone conectado por cable
 
 Toca el reloj de arriba para saltar a los momentos de la ficha: lunes 19:05, miércoles 06:45, miércoles 20:15 y domingo 23:55. En «Tu avance», toca «Lo que te funciona»: sin registros todavía, puedes ver el ejemplo de la semana 6.
 
+Sin un Mac a mano, la demo está en video: [lunes 19:05](presentacion/medios/demo-lunes.mp4), [miércoles 06:45](presentacion/medios/demo-miercoles.mp4) y [el programa completo](presentacion/medios/demo-programa.mp4).
+
 ---
 
 Camila y todos sus datos son ficticios. La lectura corre en el dispositivo; si el modelo no está disponible, se usa una lectura local por palabras clave. Construido durante el evento con asistentes de programación con IA.
