@@ -22,7 +22,8 @@ struct PestanasView: View {
                 AvanceView()
             }
         }
-        .tabBarMinimizeBehavior(.onScrollDown)
+        // Sin .tabBarMinimizeBehavior(.onScrollDown): si la barra se achica al desplazar,
+        // el aviso con «Deshacer» podría quedar bajo ella justo después de un ajuste.
     }
 
     private static var inicial: Pestana {
