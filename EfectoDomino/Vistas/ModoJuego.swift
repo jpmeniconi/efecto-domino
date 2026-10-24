@@ -173,6 +173,7 @@ struct AvatarJuego: View {
 /// Acceso al Modo juego desde «Tu avance»: el marcador del ciclo y, si corresponde, el turno.
 struct ModoJuegoTarjeta: View {
     @Environment(ObraStore.self) private var store
+    @Environment(\.dynamicTypeSize) private var tamanoTexto
     @State private var abierto = false
     #if DEBUG
     @State private var depuracionHecha = false
@@ -194,7 +195,11 @@ struct ModoJuegoTarjeta: View {
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.tertiary)
                     }
-                    HStack(spacing: 14) {
+                    // Con letra muy grande, el marcador baja debajo de los avatares.
+                    let fila = tamanoTexto.isAccessibilitySize
+                        ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10))
+                        : AnyLayout(HStackLayout(spacing: 14))
+                    fila {
                         HStack(spacing: -12) {
                             AvatarJuego(jugadora: .camila, tamano: 44)
                             AvatarJuego(jugadora: .javiera, tamano: 44)
@@ -367,6 +372,8 @@ private struct EscenaJuego: View {
                 }
             }
             .frame(height: 196)
+            // La escena es de alto fijo: los nombres crecen hasta un tope para no tapar las piezas.
+            .dynamicTypeSize(...DynamicTypeSize.xLarge)
             .accessibilityHidden(true)
 
             Text("Modo juego")
@@ -540,14 +547,17 @@ private struct TableroTarjeta: View {
     var body: some View {
         Tarjeta {
             VStack(alignment: .leading, spacing: 14) {
-                HStack(alignment: .firstTextBaseline) {
-                    Label("Tu tablero", systemImage: "square.grid.3x3.fill")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    Text(partida.camila.count == 1 ? "1 ficha puesta" : "\(partida.camila.count) fichas puestas")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(Color.accentColor)
+                // Con letra muy grande, la cuenta baja a su propia línea.
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .firstTextBaseline) {
+                        titulo
+                        Spacer()
+                        cuenta
+                    }
+                    VStack(alignment: .leading, spacing: 4) {
+                        titulo
+                        cuenta
+                    }
                 }
                 Grid(horizontalSpacing: 8, verticalSpacing: 10) {
                     GridRow {
@@ -583,6 +593,20 @@ private struct TableroTarjeta: View {
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("Tu tablero: \(partida.camila.count) fichas puestas. Hoy es el día \(partida.hoy + 1) de 28.")
+    }
+
+    private var titulo: some View {
+        Label("Tu tablero", systemImage: "square.grid.3x3.fill")
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(.secondary)
+            .fixedSize()
+    }
+
+    private var cuenta: some View {
+        Text(partida.camila.count == 1 ? "1 ficha puesta" : "\(partida.camila.count) fichas puestas")
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(Color.accentColor)
+            .fixedSize()
     }
 }
 
@@ -646,6 +670,7 @@ private struct PuntosDomino: View {
 }
 
 private struct ReglasTarjeta: View {
+    @ScaledMetric(relativeTo: .subheadline) private var anchoIcono: CGFloat = 24
     private static let reglas: [(simbolo: String, texto: String)] = [
         ("calendar", "Cada partida dura un ciclo de 28 días, como las 28 fichas del dominó."),
         ("1.circle", "Cada día que te mueves pones una ficha, una como máximo. Gana quien se mueve más días, no quien entrena más fuerte."),
@@ -667,7 +692,7 @@ private struct ReglasTarjeta: View {
                     } icon: {
                         Image(systemName: regla.simbolo)
                             .foregroundStyle(Color.accentColor)
-                            .frame(width: 24)
+                            .frame(width: anchoIcono)
                     }
                     .font(.subheadline)
                 }
