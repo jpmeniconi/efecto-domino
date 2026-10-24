@@ -384,18 +384,31 @@ button {
 /* Diapositiva 3: las sesiones hechas construyen un avance que permanece. */
 .suelo { stroke: var(--linea-fuerte); stroke-width: 2; }
 .ficha-domino rect { fill: var(--bloque); }
-.ficha-domino:first-of-type rect { fill: var(--acento); }
+.ficha-nueva rect { fill: var(--acento); }
 .ficha-domino circle { fill: var(--fondo); }
 .ficha-domino line { stroke: var(--fondo); stroke-width: 3; stroke-linecap: round; }
 
-.ficha-domino {
-  transform: translateY(16px);
-  opacity: 0;
-  transition: transform .6s var(--curva), opacity .6s var(--curva);
-  transition-delay: calc(.8s + var(--n) * .16s);
+.ficha-domino { transform: none; opacity: 1; }
+.fichas-cuenta { fill: var(--texto); font-size: 27px; font-weight: 600; }
+.fichas-suma { fill: var(--acento); font-size: 24px; font-weight: 600; }
+.fichas-explicacion span { display: block; }
+/* Las seis anteriores permanecen; se agrega una sola ficha, sin reiniciar el avance. */
+.js .ficha-nueva, .js .fichas-despues, .js .fichas-suma { opacity: 0; }
+.activa .ficha-nueva { animation: ficha-suma .7s var(--curva) 2.2s both; }
+.activa .fichas-antes { animation: ficha-cuenta-sale .2s ease 2.5s both; }
+.activa .fichas-despues, .activa .fichas-suma { animation: ficha-cuenta-entra .3s ease 2.5s both; }
+@keyframes ficha-suma {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
 }
-.activa .ficha-domino { transform: none; opacity: 1; }
-@media print { .ficha-domino { transform: none; opacity: 1; } }
+@keyframes ficha-cuenta-sale { to { opacity: 0; } }
+@keyframes ficha-cuenta-entra { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce), print {
+  .ficha-nueva, .fichas-antes, .fichas-despues, .fichas-suma { animation: none !important; }
+  .fichas-antes { display: none; }
+  .js .ficha-nueva, .js .fichas-despues, .js .fichas-suma { opacity: 1; transform: none; }
+}
+:root:not(.js) .fichas-antes { display: none; }
 
 /* Diapositiva 5: holgura. */
 .dibujo-holgura .pastilla-mueve { transition: transform .85s var(--curva) 1s; }
