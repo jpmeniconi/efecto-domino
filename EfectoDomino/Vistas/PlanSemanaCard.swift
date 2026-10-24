@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// El domingo en la noche, en vez de «mañana parto»: la semana concreta, con su trabajo a la vista.
+/// Desde el sábado, en vez de «mañana parto»: la semana siguiente concreta, con su trabajo a la vista.
+/// Aparece hasta que Camila la confirma (`ObraStore.semanaPorPlanificar`).
 struct PlanSemanaCard: View {
     let lunes: Date
     let bloques: [Bloque]

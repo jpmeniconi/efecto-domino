@@ -132,13 +132,14 @@ struct EstadoObra: Codable {
     var alternativas: [Ventana]
     var bloques: [Bloque]
     var trabajo: [EventoTrabajo]
-    /// Reloj del escenario: toda la app usa esta hora.
+    /// Reloj del escenario: el plan y sus pantallas usan esta hora. Reiniciar y conectar el calendario
+    /// usan la fecha real, porque el plan vuelve a partir el lunes de esta semana.
     var ahora: Date
     var inicioObra: Date
     var recepcionBase: Date?
     var ajustes = 0
     var pausaHasta: Date?
-    /// Lunes de las semanas que Camila ya revisó (la planificación del domingo).
+    /// Lunes de las semanas que Camila ya revisó (la planificación del fin de semana).
     var semanasConfirmadas: [Date] = []
     /// Cuántas veces se movió cada horario del patrón: así el plan aprende de su semana real.
     var movidasPorVentana: [String: Int] = [:]
