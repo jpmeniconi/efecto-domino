@@ -96,6 +96,8 @@ Si la lectura tarda más de dos segundos, sigue hablando: la primera del día es
 | «Confirmar ajuste» y mira la carta Gantt | Ahí va el efecto dominó. Y su avance sigue en seis fichas en pie. |
 | Sube a la tarjeta «Ajuste al plan» y toca «Sí, cambiar». | Como el miércoles a las 6:30 no le funciona, la app propone pasarlo a la tarde: se cambia el horario, no a ella. |
 
+Si vas a tiempo (10 s): toca la pestaña «Programa» y luego «Todo». Dices: «Este es todo su plan: la meta estimada quedó al final, corrida dos días, y nada de lo hecho se borró». Vuelve con la pestaña «Mi plan».
+
 ### Domingo 23:55 · la semana en un toque · 25 s
 
 | Toca | Dices |
@@ -143,7 +145,7 @@ Quédate en esta diapositiva durante las preguntas: tiene el QR del repo.
 
 - Batería sobre 80 %, modo Concentración «No molestar», brillo alto y bloqueo automático en «Nunca» (Ajustes → Pantalla y brillo).
 - Apple Intelligence activado, para que la lectura corra en el iPhone.
-- En Dominó: «…» arriba a la derecha → «Reiniciar escenario». Queda en lunes 19:05, con el plan nuevo. Déjala abierta en «Mi plan»: si la cierras, al abrirla aparece primero la bienvenida.
+- En Dominó, pestaña «Mi plan»: «…» arriba a la derecha → «Reiniciar escenario». Queda en lunes 19:05, con el plan nuevo. Déjala abierta en «Mi plan»: si la cierras, al abrirla aparece primero la bienvenida.
 - Decide si vas con la semana de ejemplo o con el calendario «Camila · Dominó» conectado (reloj → «Conectar calendario») y ensaya con lo mismo que vas a usar. Al conectar o volver a leer el calendario, el plan se arma de nuevo desde el lunes.
 - Haz una lectura de prueba en «Ajustar» y cierra sin confirmar: así el modelo queda cargado. Si tarda más de 3 segundos, activa «Usar solo lectura local».
 - Vuelve a «Reiniciar escenario» después de cualquier ensayo.
